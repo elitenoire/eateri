@@ -1,0 +1,19 @@
+{
+	"workbench.colorCustomizations": {
+		"tab.unfocusedActiveBorder": "#fff0"
+	},
+	"prettier.eslintIntegration": true,
+	"eslint.workingDirectories": [
+		{
+			"directory": "./ui",
+			"changeProcessCWD": true
+		},
+		{
+			"directory": "./cms",
+			"changeProcessCWD": true
+		}
+	],
+	"eslint.options": {
+		"ignorePath": ".gitignore"
+	}
+}
