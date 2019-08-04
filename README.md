@@ -1,9 +1,13 @@
 <div align="center">
     <a href="#">
-        <img src="ui/static/logo.svg" alt="Sweet Dine Logo" width="120" />
+        <img src="ui/static/logo.svg" alt="Eateri Logo" width="120" />
+    </a>
+    <br />
+    <a href="#">
+        <img src="ui/static/logo-tt.svg" alt="Eateri" width="250" />
     </a>
 </div>
-<h1 align="center">SWEET DINE</h1>
+<h2 align="center">The Messi of tasty cuisines</h2>
 <h4 align="center">
 👩‍🍳 🥘 Restaurant App and CMS 🍷 🍽
 </h4>

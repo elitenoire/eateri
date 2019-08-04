@@ -6,7 +6,11 @@
 			{
 				"root": ["./"],
 				"alias": {
-					"~components": "./components"
+					"~components": "./components",
+					"~static": "./static",
+					"~lib": "./lib",
+					"~context": "./context",
+					"~theme": "./theme"
 				}
 			}
 		],
