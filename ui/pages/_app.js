@@ -2,7 +2,14 @@ import App, { Container } from 'next/app'
 import Head from 'next/head'
 import React from 'react'
 import { ThemeProvider } from 'styled-components'
-import theme from '../styles/theme'
+import MenuProvider from '~context/menu'
+import theme from '~theme'
+import GlobalStyle from '~theme/global'
+import Layout from '~components/Layout'
+
+// Fonts
+// import 'typeface-comfortaa'
+// import 'typeface-overpass'
 
 export default class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
@@ -20,12 +27,18 @@ export default class MyApp extends App {
         return (
             <Container>
                 <Head>
-                    <title key="title">Sweet Dine</title>
+                    <title key="title">Eateri</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
+                    <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
                     <meta name="description" content="Fine dining anyhow and anywhere" key="description" />
                 </Head>
                 <ThemeProvider theme={theme}>
-                    <Component {...pageProps} />
+                    <MenuProvider>
+                        <GlobalStyle />
+                        <Layout>
+                            <Component {...pageProps} />
+                        </Layout>
+                    </MenuProvider>
                 </ThemeProvider>
             </Container>
         )
