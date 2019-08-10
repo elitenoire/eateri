@@ -40,7 +40,7 @@ const Container = styled.div`
         .bm-menu {
             width: 100%;
             padding: 2.5em 0.5em 1em;
-            font-size: 1.15em;
+            font-size: 1.1em;
             background: transparent;
         }
         .bm-morph-shape {
@@ -73,12 +73,12 @@ const Container = styled.div`
             }
             svg {
                 margin-right: 0.5em;
-                vertical-align: top;
+                vertical-align: text-bottom;
             }
         }
         .bm-cross-button,
         .bm-item {
-            color: ${pastel ? gray[8] : primary[0]};
+            ${!pastel && css`color: ${primary[0]};`}
             border-radius: 50px;
             transition: transform 0.4s;
             :hover,

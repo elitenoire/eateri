@@ -100,10 +100,26 @@ const theme = {
         sm: '576px',
         md: '768px',
         lg: '992px',
-        xl: '1200px',
+        xl: '1280px',
     },
     shadows: {
         card: '0 5px 10px 0 rgba(0, 0, 0, 0.1)',
+    },
+    fluidTypography: {
+        minFontSize: 0.875, // 14px
+        maxFontSize: 1.125, // 18px
+        minLineHeight: 1.2,
+        maxLineHeight: 1.4,
+    },
+    typography: {
+        fontSizes: ['2.074em', '1.728em', '1.44em', '1.2em', '1em', '0.833em'],
+        bodyFontFamily: '"Overpass", sans-serif',
+        headingFontFamily: '"Comfortaa", sans-serif',
+        bodyColor: oc.gray[8],
+        headingColor: oc.gray[9],
+        bodySize: 'inherit',
+        headingSize: 2,
+        bodyLineHeight: 'inherit',
     },
 }
 

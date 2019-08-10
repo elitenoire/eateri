@@ -7,10 +7,6 @@ import theme from '~theme'
 import GlobalStyle from '~theme/global'
 import Layout from '~components/Layout'
 
-// Fonts
-// import 'typeface-comfortaa'
-// import 'typeface-overpass'
-
 export default class MyApp extends App {
     static async getInitialProps({ Component, ctx }) {
         let pageProps = {}
@@ -30,7 +26,7 @@ export default class MyApp extends App {
                     <title key="title">Eateri</title>
                     <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
                     <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-                    <meta name="description" content="Fine dining anyhow and anywhere" key="description" />
+                    <meta name="description" content="The Messi of tasty cuisines" key="description" />
                 </Head>
                 <ThemeProvider theme={theme}>
                     <MenuProvider>

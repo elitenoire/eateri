@@ -1,11 +1,10 @@
-// const withCSS = require('@zeit/next-css')
+const withCSS = require('@zeit/next-css')
 const withPlugins = require('next-compose-plugins')
 const withFonts = require('next-fonts')
 const withImages = require('next-images')
 const withSvgr = require('next-svgr')
 
-// module.exports = withPlugins([[withFonts], [withImages], [withSvgr]])
-module.exports = withSvgr()
+module.exports = withPlugins([withCSS, withFonts, withSvgr])
 // module.exports = withImages({
 //     webpack: config => {
 //         config.module.rules.push({

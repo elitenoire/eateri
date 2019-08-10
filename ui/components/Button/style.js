@@ -149,7 +149,8 @@ export const Button = styled(Base)`
             box-shadow: none !important;
             border-radius: 0;
             &,
-            :disabled:hover {
+            :disabled:hover,
+            :visited {
                 color: ${cssColor[5]};
             }
             :hover,
