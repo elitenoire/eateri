@@ -22,7 +22,13 @@ to {
     opacity: 1;
 }
 `
-
+export const StyledHeader = styled.header`
+    ${({ inlineHeight }) =>
+        inlineHeight &&
+        css`
+            height: ${inlineHeight}px;
+        `}
+`
 export const Container = styled.div`
     position: relative;
     display: flex;
@@ -33,7 +39,7 @@ export const Container = styled.div`
     padding: 5px 2%;
     background: white;
     z-index: 3;
-    transition: all 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
     ${props =>
         props.showHeaderShadow &&
         css`

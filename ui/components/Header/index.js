@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Link from 'next/link'
 import Headroom from 'react-headroom'
 import Button from '../Button'
-import { Container, Nav, LogoBox } from './style'
+import { Container, Nav, LogoBox, StyledHeader } from './style'
 import Logo from '~static/logo.svg'
 import LogoText from '~static/logo-tt.svg'
 
@@ -29,18 +29,35 @@ const NavLinks = ({ children }) => (
 const Header = ({ isOpen, toggleMenu }) => {
     const [withShadow, setWithShadow] = useState(false)
     const [scrollbarWidth, setScrollbarWidth] = useState(0)
+    const [headerHeight, setheaderHeight] = useState(0)
+    const headerRef = useRef({})
 
     const onPin = () => setWithShadow(true)
     const onUnpin = () => setWithShadow(false)
 
-    // Calcualte scrollbar width
+    // TODO: debounce to increase perf
+    const resizeHandler = () => {
+        if (headerRef.current) {
+            setheaderHeight(headerRef.current.offsetHeight)
+        }
+    }
+
+    // Calculate scrollbar width
     useEffect(() => {
         const elem = document.getElementById('headroom-scroll')
         setScrollbarWidth(elem.offsetWidth - elem.clientWidth)
     }, [])
 
+    // Workaround to recalculate headroom height on resize as non-parent window is unsupported
+    useEffect(() => {
+        window.addEventListener('resize', resizeHandler)
+        return () => {
+            window.removeEventListener('resize', resizeHandler)
+        }
+    }, [resizeHandler])
+
     return (
-        <header>
+        <StyledHeader inlineHeight={headerHeight}>
             <Headroom
                 onPin={onPin}
                 onUnfix={onUnpin}
@@ -51,13 +68,14 @@ const Header = ({ isOpen, toggleMenu }) => {
                 style={{
                     width: withShadow ? `calc(100% - ${scrollbarWidth}px)` : '100%',
                 }}
+                calcHeightOnResize={false}
             >
-                <Container showHeaderShadow={withShadow}>
+                <Container showHeaderShadow={withShadow} ref={headerRef}>
                     <LogoBox>
                         <Link href="/">
-                            <a>
-                                <Logo />
-                                <LogoText />
+                            <a aria-label="Eateria Restaurant">
+                                <Logo aria-hidden="true" focusable="false" />
+                                <LogoText aria-hidden="true" focusable="false" />
                             </a>
                         </Link>
                     </LogoBox>
@@ -69,7 +87,7 @@ const Header = ({ isOpen, toggleMenu }) => {
                     </div>
                 </Container>
             </Headroom>
-        </header>
+        </StyledHeader>
     )
 }
 
