@@ -3,10 +3,11 @@
 		"baseUrl": "./",
 		"paths": {
 			"~components/*": ["components/*"],
-			"~static/*": ["static/*"],
+			"~public/*": ["public/*"],
 			"~lib/*": ["lib/*"],
 			"~context/*": ["context/*"],
-			"~theme/*": ["theme/*"]
+			"~theme/*": ["theme/*"],
+			"~hooks/*": ["hooks/*"]
 		}
 	},
 	"exclude": ["node_modules"]

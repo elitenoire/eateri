@@ -7,19 +7,14 @@
 				"root": ["./"],
 				"alias": {
 					"~components": "./components",
-					"~static": "./static",
+					"~public": "./public",
 					"~lib": "./lib",
 					"~context": "./context",
-					"~theme": "./theme"
+					"~theme": "./theme",
+					"~hooks": "./hooks"
 				}
 			}
 		],
-		[
-			"styled-components",
-			{
-				"ssr": true,
-				"displayName": true
-			}
-		]
+		["emotion"]
 	]
 }

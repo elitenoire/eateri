@@ -1,7 +1,9 @@
 {
-	"extends": ["wesbos"],
+	"plugins": ["react-perf"],
+	"extends": ["wesbos", "plugin:react-perf/recommended"],
 	"rules": {
-		"react/prop-types": [0],
+		"react/prop-types": [2, { "skipUndeclared": true }],
+		"react/jsx-props-no-spreading": 0,
 		"prettier/prettier": [
 			"error",
 			{

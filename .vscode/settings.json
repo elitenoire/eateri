@@ -2,7 +2,6 @@
 	"workbench.colorCustomizations": {
 		"tab.unfocusedActiveBorder": "#fff0"
 	},
-	"prettier.eslintIntegration": true,
 	"eslint.workingDirectories": [
 		{
 			"directory": "./ui",
@@ -15,5 +14,23 @@
 	],
 	"eslint.options": {
 		"ignorePath": ".gitignore"
-	}
+	},
+	"[javascript]": {
+		"editor.formatOnSave": false
+	},
+	"[javascriptreact]": {
+		"editor.formatOnSave": false
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll": true
+	},
+	"prettier.disableLanguages": ["javascript", "javascriptreact"],
+	"eslint.alwaysShowStatus": true,
+	"svg.preview.background": "custom",
+	"svg.minify.cleanupIDs": false,
+	"svg.minify.convertStyleToAttrs": false,
+	"svg.minify.inlineStyles": false,
+	"svg.minify.prefixIds": false,
+	"svg.minify.removeTitle": false,
+	"svg.preview.autoShow": true
 }

@@ -1,2 +1,11 @@
 node_modules
 .next
+draft/
+public/brand/
+
+hooks
+
+components/Ca*
+components/form/
+components/Hero
+components/Slider
