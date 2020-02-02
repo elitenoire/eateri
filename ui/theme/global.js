@@ -1,58 +1,52 @@
-import { createGlobalStyle, css } from 'styled-components'
-import { up } from 'styled-breakpoints'
-// Custom fonts
-import 'typeface-comfortaa'
-import 'typeface-overpass'
+import React from 'react'
+import { Global } from '@emotion/core'
+import fluid from 'fluid-system'
+import typography from '@styled-system/typography'
 
-const Global = createGlobalStyle`
-*, *:after, *:before {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-*:focus {
-  outline: 0;
-  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
-}
-html, body, #__next {
-  height: 100%;
-}
-svg {
-  fill: currentColor;
-  width: 1.2em;
-  height: 1.2em;
-}
-a, a:active, a:visited {
-  color: inherit;
-}
-${({
-    theme: {
-        fluidTypography: { minFontSize, maxFontSize, minLineHeight, maxLineHeight },
-        breakpoints: { xs, xl },
-        typography: { bodyFontFamily, bodyColor },
+const styles = t => ({
+    '*,*:after,*:before': {
+        boxSizing: 'border-box',
+        padding: 0,
+        margin: 0,
     },
-}) => css`
-    body {
-        font-family: ${bodyFontFamily};
-        font-size: ${minFontSize}em;
-        line-height: ${minLineHeight}em;
-        color: ${bodyColor};
-        ${up('xs')} {
-            font-size: calc(
-                ${minFontSize}em + (${maxFontSize} - ${minFontSize}) *
-                    ((100vw - ${parseFloat(xs) / 16}em) / (${(parseFloat(xl) - parseFloat(xs)) / 16}))
-            );
-            line-height: calc(
-                ${minLineHeight}em + (${maxLineHeight} - ${minLineHeight}) *
-                    ((100vw - ${parseFloat(xs) / 16}em) / (${(parseFloat(xl) - parseFloat(xs)) / 16}))
-            );
-        }
-        ${up('xl')} {
-            font-size: ${maxFontSize}em;
-            line-height: ${maxLineHeight}em;
-        }
-    }
-`}
-`
+    '*:focus': {
+        outline: 0,
+        boxShadow: `0 0 0 3px ${t.colors.focusOutline}`,
+    },
+    'html,body,#__next': {
+        height: '100%',
+    },
+    body: {
+        color: t.colors.text,
+        backgroundColor: t.colors.background,
+        fontFamily: t.fonts.body,
+        fontWeight: t.fontWeights.body,
+        ...fluid(typography)({
+            fontSize: t.fluidBodyFontSize,
+            lineHeight: t.fluidBodyLineHeight,
+            theme: t,
+        }),
+    },
+    svg: {
+        fill: 'currentColor',
+        width: '1.2em',
+        height: '1.2em',
+    },
+    'a,a:active,a:visited': {
+        color: 'inherit',
+    },
+    '.sr-only': {
+        position: 'absolute',
+        width: '1px',
+        height: '1px',
+        overflow: 'hidden',
+        padding: 0,
+        clip: 'rect(0, 0, 0, 0)',
+        border: 0,
+        wordWrap: 'normal',
+    },
+})
 
-export default Global
+const GlobalStyle = () => <Global styles={styles} />
+
+export default GlobalStyle
