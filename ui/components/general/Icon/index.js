@@ -11,7 +11,7 @@ const Icon = ({ name, standalone, ...props }) => {
         if (!IconSvg) throw new Error(`Unknown icon '${name}'`)
     } catch (err) {
         console.warn(err)
-        return null
+        return name
     }
     return <IconSvg {...svgProps} />
 }

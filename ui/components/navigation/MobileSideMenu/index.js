@@ -1,14 +1,16 @@
-import React, { useContext, useEffect } from 'react'
+/** @jsx jsx */
+import { useContext, useEffect } from 'react'
+import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import Router from 'next/router'
 import Menu from 'react-burger-menu/lib/menus/scaleRotate'
 import { MenuContext } from '~context/menu'
-import Icon from '../Icon'
-import Container from './style'
+import Icon from '~components/general/Icon'
+import style from './style'
 
 const MenuLink = ({ to, children, ...props }) => <Link href={to}>{children(props)}</Link>
 
-const MobileMenu = ({ pastel, children }) => {
+const MobileSideMenu = ({ children }) => {
     const { isOpen, closeMenu, onStateChange, firstMenuItemRef } = useContext(MenuContext)
 
     useEffect(() => {
@@ -17,7 +19,7 @@ const MobileMenu = ({ pastel, children }) => {
     })
 
     return (
-        <Container pastel={pastel} isOpen={isOpen}>
+        <div sx={style(isOpen)}>
             <Menu
                 onStateChange={onStateChange}
                 isOpen={isOpen}
@@ -40,8 +42,8 @@ const MobileMenu = ({ pastel, children }) => {
                     </MenuLink>
                 ))}
             </Menu>
-        </Container>
+        </div>
     )
 }
 
-export default MobileMenu
+export default MobileSideMenu

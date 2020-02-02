@@ -1,8 +1,10 @@
-import React, { useContext } from 'react'
+/** @jsx jsx */
+import { useContext } from 'react'
+import { jsx } from '@theme-ui/core'
 import { MenuContext } from '~context/menu'
-import Header from '../Header'
-import MobileMenu from '../MobileMenu'
-import { Container, PageWrap } from './style'
+import Header from '~components/navigation/Header'
+import MobileSideMenu from '~components/navigation/MobileSideMenu'
+import styles from './style'
 
 const menuItems = [
     {
@@ -27,12 +29,12 @@ const menuItems = [
     },
     {
         label: 'Reservations',
-        to: '/reservations',
+        to: '#reservations',
         icon: 'reserved',
     },
 ]
 
-const Layout = ({ pastel = true, children }) => {
+const MainLayout = ({ children }) => {
     const { isOpen, closeMenu, toggleMenu, firstMenuItemRef } = useContext(MenuContext)
 
     const preventTabbing = e => {
@@ -46,9 +48,14 @@ const Layout = ({ pastel = true, children }) => {
     }
 
     return (
-        <Container id="outer-container" pastel={pastel}>
-            <MobileMenu pastel={pastel}>{menuItems}</MobileMenu>
-            <PageWrap id="page-wrap" isOpen={isOpen} onClick={closeMenu}>
+        <div id="outer-container" sx={styles.container}>
+            <MobileSideMenu>{menuItems}</MobileSideMenu>
+            <div
+                id="page-wrap"
+                role="presentation"
+                sx={isOpen ? styles.pageWrapOpen : styles.pageWrap}
+                onClick={closeMenu}
+            >
                 <div
                     id="headroom-scroll"
                     className="hide-overflow"
@@ -58,12 +65,13 @@ const Layout = ({ pastel = true, children }) => {
                     onKeyDown={preventTabbing}
                 >
                     <Header isOpen={isOpen} toggleMenu={toggleMenu} />
-                    {children}
+                    <main role="main" sx={styles.mainStyle}>
+                        {children}
+                    </main>
                     <footer>Copywright Eateri 2019</footer>
                 </div>
-            </PageWrap>
-        </Container>
+            </div>
+        </div>
     )
 }
-
-export default Layout
+export default MainLayout
