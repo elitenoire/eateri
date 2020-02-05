@@ -1,9 +1,13 @@
-<div align="center">
+<p align="center">
     <a href="#">
     <img src="ui/public/inlineSvg/logo.svg" alt="Eateri Logo" width="150"/>
-    <img style="display:block;"src="ui/public/inlineSvg/logo-tt.svg" alt="Eateri" width="150"/>
     </a>
-</div>
+</p>
+<p align="center">
+    <a href="#">
+    <img src="ui/public/inlineSvg/logo-tt.svg" alt="Eateri" width="150"/>
+    </a>
+</p>
 <h2 align="center" >The Messi of Great Food</h2>
 <h4 align="center">
 👩‍🍳 🥘 Restaurant App and CMS 🍷 🍽

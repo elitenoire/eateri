@@ -1,4 +1,5 @@
-const breakpoints = [360, 505, 760, 960, 1200, 1600].map(w => `${w / 16}em`)
+const breakpointsPX = [360, 505, 760, 960, 1200, 1600]
+const breakpoints = breakpointsPX.map(w => `${w / 16}em`)
 const breakpointsAlias = ['mobile', 'tabletS', 'tablet', 'tabletL', 'laptop', 'desktop']
 // const breakpoints = {
 // 	xs: '22.5em',
@@ -13,6 +14,14 @@ const mediaQueries = breakpointsAlias.reduce((mq, alias, i) => {
     mq[alias] = `@media screen and (min-width: ${breakpoints[i]})`
     return mq
 }, {})
+
+// To be used with @artsy/fresnel
+// TODO: Limit breakpoints to only usable ones to reduce fresnel generated css
+const fresnelBreakpoints = breakpointsAlias.reduce((bp, alias, i) => {
+    bp[alias] = breakpointsPX[i]
+    return bp
+}, {})
+fresnelBreakpoints.default = 0
 
 // For fluid typography
 breakpoints.fluidStart = breakpoints[0]
@@ -44,6 +53,7 @@ export default {
         header: '2.5em', // space[8]
     },
     breakpoints,
+    fresnelBreakpoints,
     mediaQueries,
     bootstrapbreakpoints: {
         xs: '375px',

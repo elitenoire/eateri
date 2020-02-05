@@ -7,6 +7,8 @@
 	"author": "Elitenoire",
 	"license": "ISC",
 	"dependencies": {
+		"@artsy/detect-responsive-traits": "^0.0.5",
+		"@artsy/fresnel": "^1.0.13",
 		"@emotion/core": "^10.0.27",
 		"@styled-system/typography": "^5.1.2",
 		"@svgr/webpack": "^5.1.0",
@@ -17,6 +19,7 @@
 		"@welldone-software/why-did-you-render": "^3.3.5",
 		"@xstate/react": "^0.8.1",
 		"@zeit/next-css": "^1.0.1",
+		"chalk": "^3.0.0",
 		"fluid-system": "^1.0.7",
 		"next": "9.2.0",
 		"next-compose-plugins": "^2.2.0",
