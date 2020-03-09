@@ -6,6 +6,7 @@
 			"~public/*": ["public/*"],
 			"~lib/*": ["lib/*"],
 			"~context/*": ["context/*"],
+			"~constants/*": ["constants/*"],
 			"~theme/*": ["theme/*"],
 			"~hooks/*": ["hooks/*"]
 		}

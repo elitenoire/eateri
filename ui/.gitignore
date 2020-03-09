@@ -3,9 +3,9 @@ node_modules
 draft/
 public/brand/
 
-hooks
 
 components/Ca*
 components/form/
 components/Hero
 components/Slider
+components/display/Carousel/old.js

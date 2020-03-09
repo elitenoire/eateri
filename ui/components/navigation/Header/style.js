@@ -35,21 +35,25 @@ const spin = keyframes`
 `
 
 const styles = {
-    header: (barWidth) => ({
+    header: barWidth => ({
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
         overflow: 'hidden',
+        zIndex: 'header',
         // height: `${height}${Number.isInteger(height) ? 'px' : ''} !important`,
         '.headroom': {
             width: '100%',
             height: 'header',
+            bg: ['transparent', null, 'primary.base'],
+            transition: 'background 0.2s ease-in-out',
         },
         '.headroom--pinned': {
             boxShadow: '0 4px 8px rgba(0, 0, 0, 0.05)',
             boxShadow: '0 4px 24px rgba(32,43,54,.08)',
             width: `calc(100% - ${barWidth}px)`,
+            bg: ['white', null, 'primary.base'],
         },
     }),
     container: {
@@ -61,7 +65,6 @@ const styles = {
         height: 'inherit',
         fontSize: '0.8em',
         padding: ['0.3125em 2%', null, '0.625em 2%'],
-        bg: ['transparent', null, 'primary.base'],
         transition: 'box-shadow 0.2s ease-in-out',
         // 'svg.logo': {
         // 	fill: 'secondary.base', // make responsive to match header bg

@@ -1,5 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
+import { Box } from '@theme-ui/components'
+import Carousel from '~components/display/Carousel'
+import Card from '~components/display/Card'
+import Hero from '~components/Hero'
 
 import {
     mediaStyles,
@@ -10,7 +14,7 @@ import {
     // SortedBreakpoints,
 } from '~context/media'
 
-// import Hero from '~components/Hero'
+const data = [1, 2, 3, 4, 5]
 
 const Index = ({ userAgent }) => (
     <>
@@ -27,7 +31,22 @@ const Index = ({ userAgent }) => (
                 <h1>Hello CodeSandbox</h1>
                 <p>Start editing to see some magic happe!</p>
                 <div style={{ height: '100vh', background: 'white' }}>
-                    <Media lessThan="tabletS">Mobile Only: from 504 below</Media>
+                    <Hero items={data} />
+                    {/* <Media lessThan="tabletS">
+                        <Box p={2}>
+                            <Carousel items={data} visible={3} animation="stack">
+                                {d => <Card data={d} />}
+                            </Carousel>
+                        </Box>
+                    </Media>
+                    <Media greaterThanOrEqual="tabletS">
+                        <Box p={2} style={{ width: '50vw', position: 'absolute', bottom: 0, left: 0 }}>
+                            <Carousel items={data} visible={3} animation="slide" itemOffset={0}>
+                                {d => <Card data={d} />}
+                            </Carousel>
+                        </Box>
+                    </Media> */}
+
                     <Media greaterThanOrEqual="tabletS">Tablet above: from 505 up</Media>
                 </div>
                 <div id="about" style={{ height: '50vh', background: 'blue' }} />
