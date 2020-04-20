@@ -44,14 +44,13 @@ const styles = {
         zIndex: 'header',
         // height: `${height}${Number.isInteger(height) ? 'px' : ''} !important`,
         '.headroom': {
-            width: '100%',
+            width: 'fluid',
             height: 'header',
             bg: ['transparent', null, 'primary.base'],
             transition: 'background 0.2s ease-in-out',
         },
         '.headroom--pinned': {
-            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.05)',
-            boxShadow: '0 4px 24px rgba(32,43,54,.08)',
+            boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2)',
             width: `calc(100% - ${barWidth}px)`,
             bg: ['white', null, 'primary.base'],
         },
@@ -61,32 +60,30 @@ const styles = {
         display: 'flex',
         justifyContent: ['space-between', null, null, null, 'flex-end'],
         alignItems: 'center',
-        width: '100%',
+        width: 'fluid',
         height: 'inherit',
         fontSize: '0.8em',
         padding: ['0.3125em 2%', null, '0.625em 2%'],
         transition: 'box-shadow 0.2s ease-in-out',
-        // 'svg.logo': {
-        // 	fill: 'secondary.base', // make responsive to match header bg
-        // },
         'svg.logo-text': {
             fill: 'secondary.hover',
         },
         '#toggle-menu': {
             display: [null, null, null, 'none'],
+            margin: '-1.5%',
         },
     },
     logoBox: {
         display: 'inline-flex',
         alignItems: 'flex-start',
-        marginRight: [null, null, null, null, 'auto'],
+        mr: [null, null, null, null, 'auto'],
+        ml: ['20%', null, '10%', 0],
         '&:hover .logo': {
             animation: `${spin} 1s linear infinite both`,
         },
         '.logo': {
-            width: '2em',
-            height: '2em',
-            marginRight: '0.8em',
+            size: '2em',
+            mr: '0.8em',
         },
         '.logo-text': {
             display: ['none', null, 'initial'],
@@ -96,7 +93,7 @@ const styles = {
     },
     navlinks: {
         display: ['none', null, null, 'initial'],
-        marginRight: [null, null, null, null, '10%'],
+        mr: [null, null, null, null, '10%'],
         color: 'textOnPrimary',
         ul: {
             listStyle: 'none',
@@ -133,7 +130,7 @@ const styles = {
             '& > li:last-of-type a': {
                 border: '1.5px solid',
                 borderRadius: '5px',
-                padding: '5px 10px',
+                padding: '0.3125em 0.625em',
                 transition: 'all 0.3s ease-in',
                 ':hover': {
                     color: 'textOnSecondary',
@@ -155,6 +152,10 @@ const styles = {
                 fontWeight: 'bold',
             },
         },
+    },
+    actions: {
+        display: 'flex',
+        alignItems: 'center',
     },
 }
 

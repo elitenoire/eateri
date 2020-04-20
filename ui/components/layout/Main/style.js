@@ -1,4 +1,4 @@
-import menuBg from '~public/menu-bg.svg'
+import menuBg from '~/public/menu-bg.svg'
 
 // Common styles
 const pageWrap = {
@@ -65,7 +65,10 @@ const styles = {
             },
         },
     },
-    mainStyle: { pt: 'header' },
+    mainStyle: {
+        pt: 'header',
+        background: t => `linear-gradient(to left, ${t.colors.primary.base} 90%, ${t.colors.primary.hover})`,
+    },
 }
 
 export default styles

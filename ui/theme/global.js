@@ -13,19 +13,33 @@ const styles = t => ({
         outline: 0,
         boxShadow: `0 0 0 3px ${t.colors.focusOutline}`,
     },
+    '::-webkit-scrollbar': {
+        width: '0.7em',
+        height: '0.7em',
+        background: 'rgba(255,255,255,0.08)',
+    },
+    '::-webkit-scrollbar-track': {
+        background: `linear-gradient(90deg,${t.colors.secondary.hover} 1px,${t.colors.secondary.base} 0)`,
+    },
+    '::-webkit-scrollbar-thumb': {
+        borderRadius: '0.7em',
+        boxShadow: 'inset 2px 2px 2px hsla(0,0%,100%,.25), inset -2px -2px 2px rgba(0,0,0,.25)',
+        backgroundColor: t.colors.primary.base,
+        backgroundImage: t.colors.primary.gradient,
+    },
     'html,body,#__next': {
         height: '100%',
     },
     body: {
-        color: t.colors.text,
-        backgroundColor: t.colors.background,
         fontFamily: t.fonts.body,
         fontWeight: t.fontWeights.body,
         ...fluid(typography)({
             fontSize: t.fluidBodyFontSize,
-            lineHeight: t.fluidBodyLineHeight,
             theme: t,
         }),
+        lineHeight: t.lineHeights.body,
+        scrollbarWidth: 'thin',
+        scrollbarColor: `${t.colors.primary.base} ${t.colors.secondary.base}`,
     },
     svg: {
         fill: 'currentColor',
@@ -35,15 +49,16 @@ const styles = t => ({
     'a,a:active,a:visited': {
         color: 'inherit',
     },
-    '.sr-only': {
+    '.visually-hidden': {
         position: 'absolute',
         width: '1px',
         height: '1px',
-        overflow: 'hidden',
+        margin: '-1px',
         padding: 0,
-        clip: 'rect(0, 0, 0, 0)',
         border: 0,
-        wordWrap: 'normal',
+        whiteSpace: 'nowrap',
+        overflow: 'hidden',
+        clip: 'rect(0px, 0px, 0px, 0px)',
     },
 })
 

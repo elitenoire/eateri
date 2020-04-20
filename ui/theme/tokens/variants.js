@@ -52,7 +52,7 @@ export default {
                     transition: 'transform 0.3s, opacity 0.3s',
                 },
             }),
-            ghost: ({ color }) => ({
+            ghost: ({ color, ghostText }) => ({
                 bg: 'transparent', // 'ghost',
                 color: `${color}.base`,
                 borderColor: 'transparent', // 'ghost',
@@ -60,10 +60,10 @@ export default {
                 // alpha(0.02) black for light hues and white for dark hues parent bg
                 '&:hover': {
                     color: `${color}.hover`,
-                    boxShadow: '0 1px 10px 1px rgba(0, 0, 0, 0.08)',
+                    boxShadow: ghostText ? 'none' : '0 1px 10px 1px rgba(0, 0, 0, 0.08)',
                 },
                 '&:active': {
-                    boxShadow: '0 2px 6px 1px rgba(0, 0, 0, 0.08) inset',
+                    boxShadow: ghostText ? 'none' : '0 2px 6px 1px rgba(0, 0, 0, 0.08) inset',
                 },
             }),
             pale: ({ color }) => ({
@@ -78,14 +78,14 @@ export default {
         },
         sizes: {
             sm: {
-                fontSize: '0.775em',
+                fontSize: 0,
                 py: '0.6em',
             },
             md: {
-                fontSize: '1em',
+                fontSize: 2,
             },
             lg: {
-                fontSize: '1.25em',
+                fontSize: 3,
             },
         },
         shapes: {
@@ -97,6 +97,9 @@ export default {
             },
             icon: {
                 borderRadius: 'icon',
+            },
+            flat: {
+                borderRadius: 'none',
             },
         },
     },
@@ -112,22 +115,44 @@ export default {
         },
     },
     text: {
-        // Text styles
-        heading: {
-            fontFamily: 'heading',
-            fontWeight: 'heading',
-            lineHeight: 'heading',
+        h1: {
+            fontSize: 8,
+            mb: 2,
+        },
+        h2: {
+            fontSize: 7,
+            mb: 2,
+        },
+        h3: {
+            fontSize: 6,
+            mb: 2,
+        },
+        h4: {
+            fontSize: 5,
+            mb: 2,
+        },
+        h5: {
+            fontSize: 4,
+            mb: 4,
+        },
+        h6: {
+            fontSize: 3,
+            mb: 4,
+        },
+        text: {
+            fontSize: 2,
+            mb: 4,
+            fontWeight: 'body',
+            lineHeight: 'body',
+        },
+        small: {
+            fontSize: 1,
+        },
+        tiny: {
+            fontSize: 0,
         },
         title: {
             fontFamily: 'title',
-            fontWeight: 'heading',
-            lineHeight: 'heading',
-        },
-        // Typograpgy styles
-        h1: {
-            variant: 'text.heading',
-            m: 0,
-            fontSize: 2,
         },
     },
 }

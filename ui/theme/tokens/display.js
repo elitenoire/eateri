@@ -8,11 +8,23 @@ export default {
         glowLight: '0 2px 20px -5px',
         glowMedium: '0 2px 40px -5px',
         glowDark: '0 2px 20px 0px',
+        depth: '0 25px  25px -10px',
         primary: t => `0 7px 36px -10px ${t.colors.heroText}`,
         sites: {
             moonlightwork: '0 2px 8px 0 rgba(0,0,0,.04), 0 2px 20px 0 rgba(0,0,0,.06)',
             vuesax: '0 4px 25px 0 rgba(0,0,0,.1)',
             zopa: '0 8px 12px 0 rgba(0,0,0,.1)',
+            rrwebIo: '0 24px 48px rgba(17, 16, 62, 0.12)',
+        },
+        cards: {
+            style1: {
+                sm: '0 15px 20px -5px rgba(0,0,0,.1)',
+                bg: '0 30px 40px -10px rgba(0,0,0,.2)',
+            },
+            depth: {
+                normal: '0 30px 60px -10px rgba(0,0,0,0.22), 0 18px 36px -18px rgba(0,0,0,0.25)',
+                hover: '0 50px 80px -20px rgba(0,0,0,0.27), 0 30px 50px -30px rgba(0,0,0,0.3)',
+            },
         },
     },
     radii: {

@@ -3,9 +3,8 @@ import Link from 'next/link'
 import { useEffect, useRef, useState } from 'react'
 import Headroom from 'react-headroom'
 import { jsx } from '@theme-ui/core'
-import Button from '~components/general/Button'
-import Logo from '~components/general/Logo'
-import LogoText from '~public/inlineSvg/logo-tt.svg'
+import { Button, Logo } from '~@/general'
+import LogoText from '~/public/inlineSvg/logo-tt.svg'
 import styles from './style'
 
 const ariaLabels = {
@@ -78,7 +77,7 @@ const Header = ({ isOpen, toggleMenu }) => {
                     type="outline"
                     color="secondary"
                     icon="hamburger"
-                    size="sm"
+                    size="lg"
                     ariaLabel={ariaLabels.hmenu}
                     onClick={toggleMenu}
                     borderless
@@ -89,12 +88,12 @@ const Header = ({ isOpen, toggleMenu }) => {
                         <LogoText aria-hidden="true" focusable="false" className="logo-text" />
                     </a>
                 </Link>
-                <NavLinks sx={styles.navlinks}>{['/about', '/menu', '#contact', '#reservations']}</NavLinks>
-                <div>
+                <NavLinks sx={styles.navlinks}>{['/menu', '/about', '#contact', '#reservations']}</NavLinks>
+                <div sx={styles.actions}>
                     <Button
-                        type="solid"
+                        type="ghost"
                         color="secondary"
-                        size="sm"
+                        size="lg"
                         icon="cart"
                         ariaLabel={ariaLabels.cart}
                         onClick={toggleMenu}

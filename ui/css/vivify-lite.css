@@ -1,0 +1,220 @@
+/*
+Vivify
+version: 1.0
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+The MIT License
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+/* 
+    Copyright (c) 2017 Martin Knize.
+*/
+.vivify {
+	-webkit-animation-duration: 0.8s;
+	-webkit-animation-fill-mode: both;
+	animation-duration: 0.8s;
+	animation-fill-mode: both;
+}
+
+.infinite {
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+.fadeIn {
+	-webkit-animation-name: fadeIn;
+	animation-name: fadeIn;
+	-webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.fadeInRight {
+	-webkit-animation-name: fadeInRight;
+	animation-name: fadeInRight;
+	-webkit-animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+	animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+
+.popIn {
+	-webkit-animation-name: popIn;
+	animation-name: popIn;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
+
+@keyframes popIn {
+	0% {
+		-webkit-transform: scale3d(0, 0, 0);
+		transform: scale3d(0, 0, 0);
+		opacity: 0;
+	}
+	20% {
+		opacity: 1;
+	}
+	40% {
+		-webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+		animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+		-webkit-transform: scale3d(1.08, 1.08, 1.08);
+		transform: scale3d(1.08, 1.08, 1.08);
+	}
+	60% {
+		-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+	80% {
+		-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		-webkit-transform: scale3d(1.03, 1.03, 1.03);
+		transform: scale3d(1.03, 1.03, 1.03);
+	}
+	100% {
+		-webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		-webkit-transform: scale3d(1, 1, 1);
+		transform: scale3d(1, 1, 1);
+	}
+}
+
+.popInTop {
+	-webkit-animation-name: popInTop;
+	animation-name: popInTop;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
+
+@keyframes popInTop {
+	0% {
+		-webkit-transform: translate3d(0, -200px, 0) scale3d(0.1, 0.1, 0.1);
+		transform: translate3d(0, -200px, 0) scale3d(0.1, 0.1, 0.1);
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+		-webkit-animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+		animation-timing-function: cubic-bezier(0.47, 0, 0.745, 0.715);
+		-webkit-transform: translate3d(0, 0, 0) scale3d(1.08, 1.08, 1.08);
+		transform: translate3d(0, 0, 0) scale3d(1.08, 1.08, 1.08);
+	}
+	60% {
+		-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		-webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+		transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	}
+	80% {
+		-webkit-animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+		-webkit-transform: translate3d(0, 0, 0) scale3d(1.03, 1.03, 1.03);
+		transform: translate3d(0, 0, 0) scale3d(1.03, 1.03, 1.03);
+	}
+	100% {
+		-webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		-webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+		transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
+	}
+}
+
+.rollInBottom {
+	-webkit-animation-name: rollInBottom;
+	animation-name: rollInBottom;
+	-webkit-animation-duration: 0.9s;
+	animation-duration: 0.9s;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+
+@keyframes rollInBottom {
+	0% {
+		-webkit-animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		-webkit-transform: translateY(400px) rotate(-445deg);
+		transform: translateY(400px) rotate(-445deg);
+		opacity: 0;
+	}
+	30% {
+		opacity: 1;
+	}
+	50% {
+		-webkit-transform: translateY(-20px) rotate(-20deg);
+		transform: translateY(-20px) rotate(-20deg);
+	}
+	100% {
+		-webkit-animation-timing-function: cubic-bezier(
+			0.455,
+			0.03,
+			0.515,
+			0.955
+		);
+		animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+		-webkit-transform: translateY(0) rotate(0deg);
+		transform: translateY(0) rotate(0deg);
+	}
+}
+
+.spinIn {
+	-webkit-animation-name: spinIn;
+	animation-name: spinIn;
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
+
+@keyframes spinIn {
+	0% {
+		opacity: 0;
+		-webkit-animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+		animation-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+		-webkit-transform: rotateZ(0deg) scale3d(0, 0, 0);
+		transform: rotateZ(0deg) scale3d(0, 0, 0);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+	}
+	50% {
+		opacity: 1;
+	}
+	70% {
+		-webkit-transform: rotateZ(380deg) scale3d(1, 1, 1);
+		transform: rotateZ(380deg) scale3d(1, 1, 1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+	}
+	100% {
+		-webkit-transform: rotateZ(360deg) scale3d(1, 1, 1);
+		transform: rotateZ(360deg) scale3d(1, 1, 1);
+		-webkit-transform-origin: center center;
+		transform-origin: center center;
+	}
+}
+
+.duration-500 {
+	-webkit-animation-duration: 0.5s;
+	animation-duration: 0.5s;
+}
+
+.duration-1000 {
+	-webkit-animation-duration: 1s;
+	animation-duration: 1s;
+}
