@@ -2,7 +2,7 @@ import { createMedia } from '@artsy/fresnel'
 import { findDevice } from '@artsy/detect-responsive-traits'
 import chalk from 'chalk'
 
-import theme from '~theme'
+import theme from '~/theme'
 
 const log = ({ userAgent, onlyMatch, device }) => {
     console.log(

@@ -1,5 +1,5 @@
 import React, { memo } from 'react'
-import remixicons from '~lib/icons'
+import remixicons from '~/lib/icons'
 
 const Icon = ({ name, standalone, ...props }) => {
     const IconSvg = remixicons[name]

@@ -2,13 +2,8 @@
 	"compilerOptions": {
 		"baseUrl": "./",
 		"paths": {
-			"~components/*": ["components/*"],
-			"~public/*": ["public/*"],
-			"~lib/*": ["lib/*"],
-			"~context/*": ["context/*"],
-			"~constants/*": ["constants/*"],
-			"~theme/*": ["theme/*"],
-			"~hooks/*": ["hooks/*"]
+			"~/*": ["*"],
+			"~@/*": ["components/*"]
 		}
 	},
 	"exclude": ["node_modules"]

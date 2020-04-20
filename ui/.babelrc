@@ -6,13 +6,8 @@
 			{
 				"root": ["./"],
 				"alias": {
-					"~components": "./components",
-					"~public": "./public",
-					"~lib": "./lib",
-					"~context": "./context",
-					"~constants": "./constants",
-					"~theme": "./theme",
-					"~hooks": "./hooks"
+					"^~/(.+)": "./\\1",
+					"^~@/(.+)": "./components/\\1"
 				}
 			}
 		],

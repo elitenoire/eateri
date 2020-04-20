@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { useContext } from 'react'
 import { jsx } from '@theme-ui/core'
-import { MenuContext } from '~context/menu'
-import Header from '~components/navigation/Header'
-import MobileSideMenu from '~components/navigation/MobileSideMenu'
+import { MenuContext } from '~/context/menu'
+import Header from '~@/navigation/Header'
+import MobileSideMenu from '~@/navigation/MobileSideMenu'
 import styles from './style'
 
 const menuItems = [
@@ -68,7 +68,7 @@ const MainLayout = ({ children }) => {
                     <main role="main" sx={styles.mainStyle}>
                         {children}
                     </main>
-                    <footer>Copywright Eateri 2019</footer>
+                    <footer>Copywright Eateri 2020</footer>
                 </div>
             </div>
         </div>

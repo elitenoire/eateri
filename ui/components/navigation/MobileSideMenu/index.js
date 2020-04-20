@@ -4,8 +4,8 @@ import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import Router from 'next/router'
 import Menu from 'react-burger-menu/lib/menus/scaleRotate'
-import { MenuContext } from '~context/menu'
-import Icon from '~components/general/Icon'
+import { MenuContext } from '~/context/menu'
+import Icon from '~@/general/Icon'
 import style from './style'
 
 const MenuLink = ({ to, children, ...props }) => <Link href={to}>{children(props)}</Link>
