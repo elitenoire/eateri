@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { useRef, useEffect, useCallback } from 'react'
-import { useSprings, a } from 'react-spring'
+import { useSpring, useSprings, a } from 'react-spring'
 import { useWheel, useDrag } from 'react-use-gesture'
 import { jsx } from '@theme-ui/core'
+import { clamp } from '~/lib/utils'
 import * as animations from './animation'
-import { clamp } from '~lib/utils'
 import styles from './style'
 
 const Carousel = ({
@@ -13,6 +13,8 @@ const Carousel = ({
     visible,
     infinite,
     selected,
+    progressBar,
+    progressDelay,
     goto,
     direction,
     itemOffset,
@@ -25,11 +27,14 @@ const Carousel = ({
     const _width = isStackAnimation ? itemWidth : 100 / (visible + itemOffset)
     const _itemsCount = items.length
     const _lastItem = _itemsCount - 1
+    const _showProgressBar = isStackAnimation && progressBar
     const _animation = animations[`${animation}Animation`]
     const isInfinite = infinite || isStackAnimation
 
     // Current scroll position index
     const scrollPosIndexRef = useRef(selected)
+    // Peek value
+    const peekRef = useRef(0)
     // Peek threshold
     const PEEK_THRESHOLD = _width / 4
     // Drag threshold
@@ -78,12 +83,21 @@ const Carousel = ({
         [_itemsCount, isInfinite, visible]
     )
 
+    // Syncs progress bar
+    const syncScrollProgress = useCallback(() => ((scrollPosIndexRef.current + 1) / _itemsCount) * 100, [_itemsCount])
+
     // Initial Animation
     // StackAnimation is cyclic/infinite
     const [springs, set] = useSprings(_itemsCount, i => ({
         from: { x: visible, o: visible },
-        to: { ...getAnimatedValues(i), peek: 0 },
+        to: { ...getAnimatedValues(i), peek: peekRef.current },
         immediate: isStackAnimation ? i === (scrollPosIndexRef.current - 1 + _itemsCount) % _itemsCount : true,
+    }))
+
+    const [progress, setProgress] = useSpring(() => ({
+        from: { width: 0 },
+        to: { width: syncScrollProgress() },
+        delay: progressDelay,
     }))
 
     // External action triggers animation eg prev/next buttons
@@ -113,20 +127,16 @@ const Carousel = ({
         swipe: [swipeX],
         direction: [xDir],
         timeStamp,
-        last,
         cancel,
         tap,
         elapsedTime,
     }) => {
-        let peek // Peek or drag offset
         let canceled = false
-        const noSwipe = swipeX === 0 // Detect no swipe
         const dir = xDir > 0 ? -1 : 1 // Direction should either point left or right
         const dragPeek = distance <= DRAG_THRESHOLD ? mx : -dir * DRAG_THRESHOLD
         const _isSelectedStackItem = scrollPosIndexRef.current === index && isStackAnimation
         const _onStart = scrollPosIndexRef.current === 0 && xDir > 0
         const _onEnd = scrollPosIndexRef.current === _itemsCount - visible && xDir < 0
-
         if (tap) {
             console.log(`tap registered in ~~${elapsedTime}ms`)
             if (_isSelectedStackItem) {
@@ -134,85 +144,75 @@ const Carousel = ({
                 return onSelect && onSelect(index)
             }
             // TODO: unchanged index still rerenders
+            // TODO: pass in goto as onSelect
             if (!isStackAnimation) return goto(index)
-            return // do nothing
+            // do nothing
+            return
         }
         // Swiping scrolls the carousel
         if (Math.abs(swipeX)) {
-            // stackAnimation - swipe the selected item to scroll
-            if (last && _isSelectedStackItem) {
-                // Debounce swipes
-                if (timeStamp - swipeTimeStampRef.current < SWIPE_INTERVAL_THRESHOLD) {
-                    cancel((canceled = true))
-                    console.log(`${timeStamp - swipeTimeStampRef.current}ms: CANCELED -> `, canceled)
-                }
-                if (!canceled) {
-                    swipeTimeStampRef.current = timeStamp
-                    scrollPosIndexRef.current = changeScrollPosIndex(scrollPosIndexRef.current, dir)
-                    // sync selected item with current scroll
-                    goto(scrollPosIndexRef.current)
-                }
-                console.log({ timeStamp, swipeX, canceled })
-            } else {
-                // slideAnimation - any swipe scrolls
+            // Debounce swipes
+            if (timeStamp - swipeTimeStampRef.current < SWIPE_INTERVAL_THRESHOLD) {
+                cancel((canceled = true))
+            }
+            if (!canceled) {
+                swipeTimeStampRef.current = timeStamp
                 scrollPosIndexRef.current = changeScrollPosIndex(scrollPosIndexRef.current, dir)
+                // sync selected stack item with current scroll progress
+                if (_showProgressBar) {
+                    setProgress({ width: syncScrollProgress() })
+                }
             }
         }
 
         set(i => {
-            peek = 0 // initial peek value
+            peekRef.current = 0 // initial peek value
             if (isStackAnimation) {
                 // For non-swipe gesture, drag first/selected item, peek at the rest
                 if (down && index === i) {
-                    if (noSwipe && scrollPosIndexRef.current !== i) {
-                        peek = PEEK_THRESHOLD
-                    }
-                    if (noSwipe && scrollPosIndexRef.current === i) {
-                        peek = dragPeek
-                    }
+                    peekRef.current = scrollPosIndexRef.current === i ? dragPeek : PEEK_THRESHOLD
                 }
+                if (Math.abs(swipeX) && index === i && scrollPosIndexRef.current === i) peekRef.current = dragPeek
             } else if (
                 down &&
                 ((!isInfinite && ((_onStart && i < visible) || (_onEnd && i >= _itemsCount - visible))) || i === index)
             )
                 // slideAnimation
                 // Drag/peek a touched item and
-                // Dragging also shows beginning and end of carousel items is reached.
-                peek = dragPeek
+                // Dragging also shows when beginning and end of carousel items are reached.
+                peekRef.current = dragPeek
             // Gesture animation for each item
             const { x, z, o } = getAnimatedValues(i)
-
             return {
                 x,
                 z,
                 o,
-                peek,
+                peek: peekRef.current,
                 immediate: n =>
                     (x === -1 && xDir > 0) || (n === 'o' && x === 0) || n === 'z' || (x >= visible && xDir < 0),
-                cursor: down ? 'grabbing' : 'grab',
             }
         })
     }
 
-    const onWheel = ({ direction: [xDir], velocity, elapsedTime, distance, first }) => {
+    const onWheel = ({ direction: [xDir], velocity, elapsedTime, first }) => {
         if (first) return (isNewWheelRef.current = true)
         if (isNewWheelRef.current) {
             const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
             const swipeByOne = velocity > 0 && velocity < WHEEL_VELOCITY_THRESHOLD && elapsedTime <= 50
             const swipeByTwo = velocity >= WHEEL_VELOCITY_THRESHOLD && elapsedTime <= 50
-            console.log({ v: velocity, t: elapsedTime, d: distance, s: swipeByOne, first })
+            // eslint-disable-next-line no-nested-ternary
             const swipes = swipeByTwo ? 2 : swipeByOne ? 1 : 0
+            // eslint-disable-next-line no-plusplus
             for (let i = 0; i < swipes; i++) {
                 // TODO: Using i + 1 is causing infinite loop
                 scrollPosIndexRef.current = changeScrollPosIndex(scrollPosIndexRef.current, dir)
-                console.log({ scroll: scrollPosIndexRef.current })
                 set(_i => {
                     const { x, z, o } = getAnimatedValues(_i)
                     return {
                         x,
                         z,
                         o,
-                        immediate: n => (x <= -1 && xDir < 0) || (x >= visible && xDir > 0),
+                        immediate: () => (x <= -1 && xDir < 0) || (x >= visible && xDir > 0),
                         delay: i * 100,
                     }
                 })
@@ -222,41 +222,56 @@ const Carousel = ({
     }
 
     // Bind gestures
-    const bindDrag = useDrag(onDrag, { axis: 'x', swipeVelocity: 0.2, swipeDistance: 20, filterTaps: true })
-    const bindWheel = useWheel(onWheel, { enabled: !isStackAnimation })
-    console.log('RENDER!')
+    const bindDrag = useDrag(onDrag, {
+        axis: 'x',
+        swipeVelocity: 0.2,
+        swipeDistance: 20,
+        filterTaps: true,
+    })
+    const bindWheel = useWheel(onWheel, { enabled: !isStackAnimation, axis: 'x' })
+
+    // Animation style functions
+    const _sxProgress = () => ({
+        width: progress.width.interpolate(w => `${w}%`),
+    })
+    const _sxSprings = values => ({
+        width: `${_width}%`,
+        touchAction: 'pan-y',
+        ...getAnimationStyle('slideStyle', values),
+    })
+
     return (
-        <div sx={styles.carousel} {...bindWheel()}>
-            {springs.map((animatedValues, i) => (
-                <a.div
-                    className="carousel-slide"
-                    key={i}
-                    {...bindDrag(i)}
-                    style={{
-                        width: `${_width}%`,
-                        touchAction: 'pan-y',
-                        ...getAnimationStyle('slideStyle', animatedValues),
-                    }}
-                >
-                    <a.div
-                        className={`carousel-slide--item ${!isStackAnimation && i === selected ? 'selected' : ''}`}
-                        style={getAnimationStyle('itemStyle', animatedValues)}
-                    >
-                        {children(items[i], i)}
+        <>
+            <div className="carousel" sx={styles.carousel} {...bindWheel()}>
+                {springs.map((animatedValues, i) => (
+                    <a.div className="carousel-slide" key={i} {...bindDrag(i)} style={_sxSprings(animatedValues)}>
+                        <a.div
+                            className={`carousel-slide--item ${i === selected ? 'selected' : ''}`}
+                            style={getAnimationStyle('itemStyle', animatedValues)}
+                        >
+                            {children(items[i], i)}
+                        </a.div>
                     </a.div>
-                </a.div>
-            ))}
-        </div>
+                ))}
+            </div>
+            {_showProgressBar && (
+                <div sx={styles.progressBar}>
+                    <a.div className="progressBar__percent" style={_sxProgress()} />
+                </div>
+            )}
+        </>
     )
 }
 
 Carousel.defaultProps = {
     animation: 'slide',
     visible: 2,
-    itemWidth: 70,
+    itemWidth: 60,
     itemOffset: 0.2,
     infinite: true,
     selected: 0,
+    progressBar: true,
+    progressDelay: 500,
 }
 
 export default Carousel

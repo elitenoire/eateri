@@ -18,9 +18,9 @@ const mapValues = (range, visible, visibleVal, edgeVal) =>
     range.map(idx => (idx >= 0 && idx < visible ? visibleVal : edgeVal))
 
 // Stack Effect
-const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 18 }) => {
-    const item1Scale = 0.9
-    const item2Scale = 0.8
+const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 }) => {
+    const item1Scale = 0.8
+    const item2Scale = 0.6
 
     // Limit centerOffset
     const centerOffset = (100 - itemWidth) / 2
@@ -55,13 +55,13 @@ const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 18 }
     // })
     const _x = x.interpolate({
         range: [-1, 0, 1, 2, 3],
-        output: [-itemWidth * 2, 0, 0.5 * centerOffset, 1 * centerOffset, 1.5 * centerOffset],
+        output: [-itemWidth * 3, 0, 1 * centerOffset, 2.5 * centerOffset, 3 * centerOffset],
         extrapolate: 'clamp',
     })
 
     const opacity = o.interpolate({
         range: [0, 1, 2, 3],
-        output: [1, 0.8, 0.5, 0],
+        output: [1, 0.97, 0.93, 0],
         extrapolate: 'clamp',
     })
 
@@ -71,13 +71,13 @@ const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 18 }
         extrapolate: 'clamp',
     })
 
-    const transform = interpolate([_x, sc], (xt, s) => `scale(${s}) translateX(${xt - 50}%)`)
+    const transform = interpolate([_x, sc], (xt, s) => `scale(${s}) translateX(${xt - 45}%`)
 
     return {
         opacity,
         zIndex,
         transform,
-        left: '50%',
+        left: '45%',
     }
 }
 
