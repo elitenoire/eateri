@@ -22,3 +22,48 @@
 ---
 
 Do you need a touch of inspiration to build a mobile web app to manage restaurants or any food business? Well, look no further! **Eateri** is a concept app designed and built to help you deliver a modern looking food app to prospective clients.
+
+### Tech Stack
+
+-   [Next.js](https://github.com/zeit/next.js) - SSR
+-   [Emotion](https://github.com/emotion-js/emotion) - Styling UI
+-   [Theme-ui](https://github.com/system-ui/theme-ui) - Themeable UI
+-   [React-spring](https://github.com/react-spring/react-spring) - Javascript animations, Motion Design
+-   [Vivify](https://github.com/Martz90/vivify) - CSS animations
+-   [Sen][senfont], [Objectivity][objfont] _(Object Sans)_ - Typefaces _(Free)_
+
+### Demo
+
+Coming soon.
+
+### ScreenShots
+
+> **Desktop** and **Tablet** modes
+
+<p align="center">
+    <img src="./desktop.png" alt="desktop-mode" width="500"/>
+    <img src="./tablet.png" alt="tablet-mode" width="300"/>
+</p>
+
+#### Credits
+
+-   [RN Snap Carousel](https://github.com/archriss/react-native-snap-carousel) - inspiration for the carousel.
+-   Images dishes are from [Wagamama][wg], [SnapKitchen][sk] and randomly sourced from the internet.
+-   Other images are from [Freepik](https://www.freepik.com/). _(Downloaded with premium subscription)_
+-   Logo by [freepik/@haris99][logomaker] and Logo Title Font (Gnomon-Foreground) by [indestructible type][logofont]
+-   Free screenshots from [Screely](https://www.screely.com/)
+
+#### Disclaimer
+
+This project is mainly for demo purposes and the **code** is free to use for profit.
+
+However, for other copyrighted content, you should obtain permission from the original copywright owner.
+
+_© 2020 @elitenoire for **Eateri**_.
+
+[senfont]: https://fonts.google.com/specimen/Sen
+[objfont]: https://fontsarena.com/objectivity-by-alex-slobzheninov/
+[sk]: https://www.snapkitchen.com/
+[wg]: https://www.wagamama.com/
+[logomaker]: https://www.freepik.com/haris99
+[logofont]: https://indestructibletype.com/Gnomon.html
