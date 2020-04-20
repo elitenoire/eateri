@@ -3,33 +3,26 @@ import Head from 'next/head'
 import React from 'react'
 import { ThemeProvider } from '@theme-ui/core'
 import { ColorModeProvider } from '@theme-ui/color-modes'
-import MenuProvider from '~context/menu'
-import theme from '~theme'
-import GlobalStyle from '~theme/global'
-import MainLayout from '~components/layout/Main'
+import whyDidYouRender from '@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js'
+import MenuProvider from '~/context/menu'
+import theme from '~/theme'
+import GlobalStyle from '~/theme/global'
+import MainLayout from '~@/layout/Main'
+
+// Vivify css animations
+import '~/css/vivify-lite.css'
 
 // Custom fonts
-import 'typeface-heebo'
-import '~public/fonts/adca/index.css'
+import '@openfonts/sen_latin/index.css'
+// import '~/public/fonts/adca/index.css'
+import '~/public/fonts/objectivity/index.css'
 
 // For debugging reasons for re-rendering components we use whyDidYouRender in dev mode
 if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
-    const whyDidYouRender = require('@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js')
     whyDidYouRender(React)
 }
 
 export default class MyApp extends App {
-    // commented to remove auto prerendering warning as per doc example
-    // static async getInitialProps({ Component, ctx }) {
-    //     let pageProps = {}
-
-    //     if (Component.getInitialProps) {
-    //         pageProps = await Component.getInitialProps(ctx)
-    //     }
-
-    //     return { pageProps }
-    // }
-
     render() {
         const { Component, pageProps } = this.props
         return (
