@@ -20,6 +20,7 @@ import Add from 'remixicon/icons/System/add-line.svg'
 import ArrowDropDown from 'remixicon/icons/System/arrow-drop-down-line.svg'
 import ArrowBack from 'remixicon/icons/System/arrow-go-back-line.svg'
 import ArrowGo from 'remixicon/icons/System/arrow-right-circle-line.svg'
+import ArrowGoFill from 'remixicon/icons/System/arrow-right-circle-fill.svg'
 import ArrowLeft from 'remixicon/icons/System/arrow-left-s-line.svg'
 import ArrowRight from 'remixicon/icons/System/arrow-right-s-line.svg'
 import ArrowUp from 'remixicon/icons/System/arrow-up-s-line.svg'
@@ -43,6 +44,7 @@ export default {
     arrowback: ArrowBack,
     arrowdropdown: ArrowDropDown,
     arrowgo: ArrowGo,
+    arrowgofill: ArrowGoFill,
     arrowleft: ArrowLeft,
     arrowright: ArrowRight,
     arrowup: ArrowUp,

@@ -2,7 +2,7 @@ export default {
     black: '#212529',
     white: '#ffffff',
     gray: '#f8f9fa',
-    muted: '#fefcf7',
+    muted: '#f9fafb', // '#fefcf7',
     whiteFade: {
         10: 'rgba(255, 255, 255, 0.1)',
         30: 'rgba(255, 255, 255, 0.3)',
@@ -52,8 +52,8 @@ export default {
     background: '#fefefd', // #fafbfd
     text: '#343a40',
     textDark: '#212529',
-    textLight: '#464e56',
-    textLighter: '#868b96',
+    textLight: '#909cac', // '#464e56',
+    textLighter: '#a0aec0', // '#868b96',
     textOnPrimary: '#212529',
     textOnSecondary: '#fefefd',
     textOnAccent: 'white', // '#212529',

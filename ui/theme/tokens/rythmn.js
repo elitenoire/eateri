@@ -51,7 +51,7 @@ space.header = space[9]
 export default {
     space,
     sizes: {
-        container: '',
+        container: '50em',
         fluid: '100%',
         header: space[9],
     },

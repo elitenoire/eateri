@@ -63,7 +63,7 @@ const styles = {
         width: 'fluid',
         height: 'inherit',
         fontSize: '0.8em',
-        padding: ['0.3125em 2%', null, '0.625em 2%'],
+        padding: ['0.2em 2%', null, '0.5em 2%'],
         transition: 'box-shadow 0.2s ease-in-out',
         'svg.logo-text': {
             fill: 'secondary.hover',

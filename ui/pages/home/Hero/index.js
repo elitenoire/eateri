@@ -139,7 +139,7 @@ const Hero = () => {
                             />
                         </Flex>
                         <Button type="outline" size="lg" icon="cart">
-                            Place Order
+                            Order Now
                         </Button>
                     </div>
                 </div>

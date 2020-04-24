@@ -45,6 +45,24 @@ const styles = t => ({
         fill: 'currentColor',
         width: '1.2em',
         height: '1.2em',
+        '.p-b': {
+            fill: t.colors.primary.base,
+        },
+        '.p-h': {
+            fill: t.colors.primary.hover,
+        },
+        '.p-d': {
+            fill: t.colors.primary.dark,
+        },
+        '.s-b': {
+            fill: t.colors.secondary.base,
+        },
+        '.s-p': {
+            fill: t.colors.secondary.pale,
+        },
+        '.h-b': {
+            fill: t.colors.highlight.base,
+        },
     },
     'a,a:active,a:visited': {
         color: 'inherit',

@@ -5,6 +5,8 @@ const withFonts = require('next-fonts')
 const withImages = require('next-images')
 // const withSvgr = require('@inabagumi/next-svg')
 
+const pageExtensions = ['page.js']
+
 const svgrOptions = {
     titleProp: true,
     svgoConfig: {
@@ -42,4 +44,9 @@ const withSvgr = (nextConfig = {}) => ({
     },
 })
 
-module.exports = withPlugins([withCSS, withFonts, [withImages, imgOptions], [withSvgr, { svgrOptions }]])
+module.exports = withPlugins([
+    withCSS,
+    withFonts,
+    [withImages, imgOptions],
+    [withSvgr, { svgrOptions, pageExtensions }],
+])
