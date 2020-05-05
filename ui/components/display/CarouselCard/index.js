@@ -22,7 +22,7 @@ const CarouselCard = ({ data, isMobile }) => {
                     <Button
                         type="solid"
                         size="sm"
-                        color="accent"
+                        color="primary"
                         icon="cart"
                         ariaLabel="Add to cart"
                         onClick={addToCart}

@@ -41,6 +41,7 @@ const styles = {
         left: 0,
         right: 0,
         overflow: 'hidden',
+        borderTopLeftRadius: 'inherit',
         zIndex: 'header',
         // height: `${height}${Number.isInteger(height) ? 'px' : ''} !important`,
         '.headroom': {

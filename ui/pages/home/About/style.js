@@ -2,7 +2,7 @@ const styles = {
     section: {
         pl: ['8%', null, null, '10%', '20%'],
         pr: ['8%', null, null, '10%'],
-        py: [10, null, null, null, 13],
+        pt: [13, null, null, null, '8em'],
         bg: 'muted',
     },
     container: {

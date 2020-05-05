@@ -3,7 +3,7 @@ import menuBg from '~/public/menu-bg.svg'
 // Common styles
 const pageWrap = {
     height: '100%',
-    bg: 'white',
+    bg: 'background',
     transformOrigin: '50% 50%',
 }
 
@@ -31,9 +31,9 @@ const styles = {
     pageWrapOpen: {
         ...pageWrap,
         position: 'relative',
-        borderRadius: '30px',
+        borderRadius: 40,
         cursor: 'pointer',
-        zIndex: '1300',
+        zIndex: 'pageWrap',
         boxShadow: 'rgba(0, 0, 0, 0.15) 0px 18px 48px -12px',
         transform: 'translate3d(80%, 0, -800px) !important',
         transition: 'transform 0.5s ease 0s !important',
@@ -47,12 +47,13 @@ const styles = {
             bottom: 0,
             borderRadius: 'inherit',
         },
-        '::before': {
+        '::after': {
             transform: 'translate3d(-8%, 0, -300px) rotateY(5deg)',
             bg: 'primary.pale',
             opacity: 0.4,
+            zIndex: -1,
         },
-        '::after': {
+        '::before': {
             transform: 'translate3d(-16%, 0, -600px) rotateY(2.5deg)',
             background: 'rgba(255, 255, 255, 0.1)',
         },
@@ -67,7 +68,6 @@ const styles = {
     },
     mainStyle: {
         pt: 'header',
-        background: t => `linear-gradient(to left, ${t.colors.primary.base} 90%, ${t.colors.primary.hover})`,
     },
 }
 

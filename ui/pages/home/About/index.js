@@ -8,13 +8,15 @@ import styles from './style'
 import chefImgUrl from '~/public/about-chef.jpg'
 
 const About = () => (
-    <Box as="section" sx={styles.section}>
+    <Box as="section" id="homepage-about" sx={styles.section}>
         <Container sx={styles.container}>
             <MemphisFrame>
                 <Image src={chefImgUrl} />
             </MemphisFrame>
             <Box sx={styles.content}>
-                <h2 className="visually-hidden">About Us</h2>
+                <Text as="h2" variant="block" mb={2} color="primary.base">
+                    About Us
+                </Text>
                 <Heading as="p" variant="h2" color="text" weight="extrabold" title>
                     The Messi of Great Food
                 </Heading>
@@ -27,7 +29,7 @@ const About = () => (
                     to perfection by our proud Chefs.
                 </Text>
                 <Text color="accent.base" size={1} sx={{ textDecoration: 'underline' }}>
-                    Discover More
+                    Learn More
                 </Text>
             </Box>
         </Container>

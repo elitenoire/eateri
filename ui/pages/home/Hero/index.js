@@ -29,7 +29,7 @@ const Hero = () => {
     })
 
     return (
-        <section sx={styles.container}>
+        <section id="homepage-hero" sx={styles.section}>
             <div sx={styles.main}>
                 <div sx={styles.socialLinks}>
                     <a href="https://github.com/elitenoire/eateri" aria-label="See source code" title="See source code">

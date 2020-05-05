@@ -1,6 +1,6 @@
 import { alpha } from '@theme-ui/color'
 import { keyframes } from '@emotion/core'
-import { mediaQueries as mq } from '~/theme/tokens/rythmn'
+import { toEm, breakpointsMap } from '~/theme/tokens/rythmn'
 
 const pop = keyframes`
 0% {
@@ -18,16 +18,26 @@ const pop = keyframes`
 `
 
 const styles = {
-    container: {
+    section: {
         display: 'flex',
         flexDirection: 'column',
-        height: ({ space }) => ['60vh', null, `calc(100vmin - ${space.header})`, null, `calc(100vh - ${space.header})`],
-        maxHeight: ['400px', null, '600px', null, null, '650px'],
-        minHeight: [null, null, '500px', null, null, null, '600px'],
-        overflow: 'hidden',
-        background: ({ colors }) => [
+        height: ({ space }) => [
+            `calc(60vh + 2 * ${space.header})`,
             null,
-            // `linear-gradient(to top right, ${colors.primary.base}, ${colors.primary.hover})`,
+            `calc(100vmin - ${space.header})`,
+            null,
+            `calc(100vh - ${space.header})`,
+        ],
+        maxHeight: t => [`calc(28em + 2 * ${t.space.header})`, null, '600px', null, null, '650px'],
+        minHeight: t => [`calc(23.5em + 2 * ${t.space.header})`, null, '500px', null, null, null, '600px'],
+        /* mobile viewport bug fix */
+        // minHeight: '-webkit-fill-available',
+        overflow: 'hidden',
+        mt: t => [`-${t.space.header}`, null, 0],
+        py: ['header', null, 0],
+        background: ({ colors }) => [
+            // null,
+            `linear-gradient(to right, ${colors.primary.hover} 10%, ${colors.primary.base} 10%)`,
             null,
             colors.heroStripe3,
             null,
@@ -42,7 +52,7 @@ const styles = {
         )`,
         ],
         color: ['textOnPrimary', null, 'textOnSecondary'],
-        [`${mq.tabletS} and (orientation: portrait)`]: {
+        [`@media screen and (max-height: ${toEm(breakpointsMap.tabletS - 1)}) and (orientation: portrait)`]: {
             height: '75vh',
         },
         '.only-mobile': {
@@ -87,7 +97,7 @@ const styles = {
         right: [null, null, null, null, 0],
         height: [null, null, '3.5em', null, 'unset'],
         width: ({ space }) => ['60vh', null, `calc(80vh - ${space.header})`, null, 'unset'],
-        maxWidth: ['400px', null, 'calc(0.8 * 500px)', 'calc(0.8 * 600px)', 'none'],
+        maxWidth: ['450px', null, 'calc(0.8 * 500px)', 'calc(0.8 * 600px)', 'none'],
         borderRadius: [null, null, '0 0 0 50em', null, '0'],
         bg: [null, null, 'primary.base', null, 'transparent'],
         transform: ['rotate(-90deg) translateX(-100%)', null, null, null, 'none'],
@@ -136,7 +146,8 @@ const styles = {
         pr: [null, null, 10],
         py: [null, null, 4],
         '& > div:first-of-type': {
-            ml: [2, null, 0],
+            mb: ['auto', null, 0],
+            // ml: [2, null, 0],
         },
     },
     contentHeadline: {
@@ -163,8 +174,9 @@ const styles = {
         borderRadius: '1px',
     },
     contentImage: {
-        display: ['none', null, 'grid'],
-        placeItems: [null, null, 'center'],
+        display: ['none', null, 'flex'],
+        alignItems: [null, null, 'center'],
+        justifyContent: [null, null, 'center'],
         minWidth: [null, null, 0],
         gridRow: [null, null, 'span 1', null, 'span 2'],
         img: {
@@ -229,7 +241,8 @@ const styles = {
     carouselWrap: {
         position: 'relative',
         flex: 1,
-        padding: 4,
+        py: 4,
+        mb: ['auto', null, 0],
         maxHeight: '23em', // 350px
         // overflow: 'hidden',
         // '&::before': {
@@ -245,6 +258,7 @@ const styles = {
             height: '90%',
             maxWidth: '20em', // 300px
             margin: '0 auto',
+            overflow: 'visible',
         },
         '.carousel-slide--item:not(.selected)': {
             pointerEvents: 'none',
@@ -254,19 +268,20 @@ const styles = {
             flexDirection: 'column',
             justifyContent: 'flex-end',
             bg: 'secondary.base',
-            color: 'accent.base',
+            color: 'primary.base', // 'textOnSecondary',
             borderRadius: '1.35em',
             border: 0,
             img: {
                 position: 'absolute',
                 top: '10px',
-                left: '-25%',
-                width: '65%',
+                left: '-30%',
+                width: '80%',
+                maxWidth: '9.25em', // '140px'
             },
             div: {
                 position: 'relative',
                 alignSelf: 'stretch',
-                minHeight: '50%',
+                minHeight: '40%',
                 py: 4,
                 borderRadius: '1.5em 1.5em 1.25em 1.25em',
                 bg: 'rgba(255, 255, 255, 0.01)',
@@ -274,7 +289,9 @@ const styles = {
             'p:last-of-type': {
                 mt: 1,
                 fontSize: 3,
-                color: 'primary.light',
+                WebkitLineClamp: 2,
+                fontWeight: 'normal',
+                color: 'heroTitle',
             },
             button: {
                 position: 'absolute',

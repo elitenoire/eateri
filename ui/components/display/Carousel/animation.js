@@ -1,12 +1,12 @@
 import { interpolate } from 'react-spring'
 
-const getInputRangeFromIndexes = (range, index, itemWidth) => {
-    const inputRange = []
-    for (let i = 0; i < range.length; i += 1) {
-        inputRange.push((index - range[i]) * itemWidth)
-    }
-    return inputRange
-}
+// const getInputRangeFromIndexes = (range, index, itemWidth) => {
+//     const inputRange = []
+//     for (let i = 0; i < range.length; i += 1) {
+//         inputRange.push((index - range[i]) * itemWidth)
+//     }
+//     return inputRange
+// }
 const makeRange = (from, to, inclusive = true) => {
     const result = []
     for (let i = from; inclusive ? i <= to : i < to; i += 1) {
@@ -19,26 +19,27 @@ const mapValues = (range, visible, visibleVal, edgeVal) =>
 
 // Stack Effect
 const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 }) => {
+    const itemScale = 0.95
     const item1Scale = 0.8
     const item2Scale = 0.6
 
     // Limit centerOffset
     const centerOffset = (100 - itemWidth) / 2
 
-    const getTranslateFromScale = (itemIndex, scale) => {
-        const centerFactor = (1 / scale) * itemIndex
-        const centeredPosition = -Math.round(itemWidth * centerFactor)
-        const edgeAlignment = Math.round((itemWidth - itemWidth * scale) / 2)
-        const offset = Math.round((itemOffset * Math.abs(itemIndex)) / scale)
+    // const getTranslateFromScale = (itemIndex, scale) => {
+    //     const centerFactor = (1 / scale) * itemIndex
+    //     const centeredPosition = -Math.round(itemWidth * centerFactor)
+    //     const edgeAlignment = Math.round((itemWidth - itemWidth * scale) / 2)
+    //     const offset = Math.round((itemOffset * Math.abs(itemIndex)) / scale)
 
-        return centeredPosition - edgeAlignment - offset + itemIndex * itemWidth
-    }
+    //     return centeredPosition - edgeAlignment - offset + itemIndex * itemWidth
+    // }
 
     const { x, z, o } = animatedValues
 
     const sc = x.interpolate({
         range: [-1, 0, 1, 2],
-        output: [item1Scale, 1, item1Scale, item2Scale],
+        output: [itemScale, 1, item1Scale, item2Scale],
         extrapolate: 'clamp',
     })
 
@@ -55,7 +56,7 @@ const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 })
     // })
     const _x = x.interpolate({
         range: [-1, 0, 1, 2, 3],
-        output: [-itemWidth * 3, 0, 1 * centerOffset, 2.5 * centerOffset, 3 * centerOffset],
+        output: [-itemWidth * 3.5, 0, 1 * centerOffset, 2.5 * centerOffset, 3 * centerOffset],
         extrapolate: 'clamp',
     })
 
@@ -77,7 +78,6 @@ const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 })
         opacity,
         zIndex,
         transform,
-        left: '45%',
     }
 }
 

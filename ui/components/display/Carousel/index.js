@@ -113,7 +113,7 @@ const Carousel = ({
                 x,
                 z,
                 o,
-                immediate: n => (x <= -1 && direction < 0) || (x >= visible && direction > 0),
+                immediate: () => (x <= -1 && direction < 0) || (x >= visible && direction > 0),
             }
         })
     }, [changeScrollPosIndex, getAnimatedValues, direction, isStackAnimation, selected, visible, set])
@@ -237,6 +237,7 @@ const Carousel = ({
     const _sxSprings = values => ({
         width: `${_width}%`,
         touchAction: 'pan-y',
+        ...(isStackAnimation && { right: 0 }),
         ...getAnimationStyle('slideStyle', values),
     })
 

@@ -1,19 +1,20 @@
 const styles = {
     section: {
-        px: ['8%', null, null, '10%'],
+        position: 'relative',
         bg: 'muted',
-    },
-    container: { maxWidth: '35em', margin: 'auto', mb: 8, textAlign: 'center' },
-    intro: {
-        textTransform: 'uppercase',
-        letterSpacing: 'wider',
+        pt: 13,
+        '& > div': {
+            px: ['8%', null, null, '10%'],
+        },
+        '& > svg': {
+            display: 'block',
+        },
     },
     grid: {
         maxWidth: ['30em', null, null, '35em', 'container'], // '33em', // 600px
         gridAutoRows: 'minmax(7em, auto)',
         gridTemplateColumns: [null, null, null, '1fr 1fr', '2.5fr 2.5fr 3fr'],
         m: '0 auto',
-        pb: 7,
     },
     gridRowFlex: {
         display: 'flex',
@@ -23,6 +24,8 @@ const styles = {
         flexDirection: [null, null, null, 'column'],
         alignItems: ['center', null, null, 'unset'],
         justifyContent: ['space-around', null, null, 'unset'],
+        bg: 'secondary.hover',
+        color: 'textOnSecondary',
         'p span': {
             ml: 7,
         },
@@ -32,6 +35,7 @@ const styles = {
         alignItems: ['center', null, null, 'unset'],
         justifyContent: ['space-around', null, null, 'space-between'],
         textAlign: ['right', null, null, 'left'],
+        bg: 'primary.base',
     },
     cardDelivery: {
         gridColumn: [null, null, null, 'span 2', 'unset'],
@@ -39,6 +43,7 @@ const styles = {
         flexDirection: [null, null, null, null, 'column'],
         alignItems: ['center', null, null, null, 'unset'],
         justifyContent: ['space-around', null, null, null, 'space-between'],
+        bg: 'secondary.pale',
         'p span': {
             fontWeight: 'bold',
         },
@@ -47,6 +52,7 @@ const styles = {
         flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
+        bg: 'accent.base',
         svg: {
             size: '2em',
         },
@@ -54,6 +60,7 @@ const styles = {
     cardCatering: {
         width: '7em',
         ml: 4,
+        bg: 'secondary.base',
         color: 'textOnSecondary',
         justifyContent: 'center',
         alignItems: 'center',
@@ -80,6 +87,20 @@ const styles = {
     svgCatering: {
         size: '3em',
         mb: 1,
+    },
+    svgWave: {
+        fill: 'primary.base',
+    },
+    svgCutlery: {
+        position: 'absolute',
+        bottom: ['0.5em', null, null, '1em', '2em'],
+        left: 0,
+        right: 0,
+        textAlign: 'center',
+        svg: {
+            width: ['3.5em', null, null, '4em'],
+            mx: 1,
+        },
     },
     divider: {
         border: '1.5px solid',

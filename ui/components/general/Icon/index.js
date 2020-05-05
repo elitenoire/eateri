@@ -1,7 +1,7 @@
 import React, { memo } from 'react'
 import remixicons from '~/lib/icons'
 
-const Icon = ({ name, standalone, ...props }) => {
+const Icon = ({ name, standalone, className, ...props }) => {
     const IconSvg = remixicons[name]
     const svgProps = {
         ...(!standalone && { 'aria-hidden': true, focusable: false }),
@@ -13,7 +13,7 @@ const Icon = ({ name, standalone, ...props }) => {
         console.warn(err)
         return name
     }
-    return <IconSvg {...svgProps} />
+    return <IconSvg className={`ri-icon ${className || ''}`} {...svgProps} />
 }
 
 export default memo(Icon)
