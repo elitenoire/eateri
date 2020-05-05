@@ -21,9 +21,13 @@ export default {
                 sm: '0 15px 20px -5px rgba(0,0,0,.1)',
                 bg: '0 30px 40px -10px rgba(0,0,0,.2)',
             },
+            style2: {
+                normal: 'rgba(0, 0, 0, 0.1) 0px 0px 15px -3px, rgba(0, 0, 0, 0.05) 0px 0px 6px -2px',
+                hover: 'rgba(0, 0, 0, 0.12) 0px 30px 60px',
+            },
             depth: {
-                normal: '0 30px 60px -10px rgba(0,0,0,0.22), 0 18px 36px -18px rgba(0,0,0,0.25)',
-                hover: '0 50px 80px -20px rgba(0,0,0,0.27), 0 30px 50px -30px rgba(0,0,0,0.3)',
+                normal: '0 1.5em 2em -0.5em rgba(0,0,0,0.22), 0 0.9em 1.8em -0.9em rgba(0,0,0,0.25)',
+                hover: '0 2.5em 4em -1em rgba(0,0,0,0.27), 0 1.5em 2.5em -1.5em rgba(0,0,0,0.3)',
             },
         },
     },
@@ -31,6 +35,8 @@ export default {
         none: '0',
         default: '0.875em', // 14px
         20: '1.25em',
+        25: '1.5em',
+        30: '2em',
         40: '2.5em',
         50: '3.125em', // 50px
         apple: '17.544%',
@@ -44,6 +50,7 @@ export default {
     },
     zIndices: {
         header: 1000,
+        pageWrap: 1300,
     },
     borderWidths: {},
     borderStyles: {},

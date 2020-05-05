@@ -43,13 +43,18 @@ const styles = t => ({
     },
     svg: {
         fill: 'currentColor',
-        width: '1.2em',
-        height: '1.2em',
+        '&.ri-icon': {
+            width: '1.2em',
+            height: '1.2em',
+        },
         '.p-b': {
             fill: t.colors.primary.base,
         },
         '.p-h': {
             fill: t.colors.primary.hover,
+        },
+        '.p-l': {
+            fill: t.colors.primary.light,
         },
         '.p-d': {
             fill: t.colors.primary.dark,
@@ -59,6 +64,9 @@ const styles = t => ({
         },
         '.s-p': {
             fill: t.colors.secondary.pale,
+        },
+        '.a-b': {
+            fill: t.colors.accent.base,
         },
         '.h-b': {
             fill: t.colors.highlight.base,

@@ -1,20 +1,21 @@
-const breakpointsPX = [360, 505, 760, 960, 1200, 1600]
+export const toEm = size => `${size / 16}em`
 
-const toEm = size => `${size / 16}em`
+export const breakpointsMap = {
+    mobile: 360, // '22.5em',
+    tabletS: 505, // '31.5625em',
+    tablet: 760, // '47.5em',
+    tabletL: 960, // '60em',
+    laptop: 1200, // '75em',
+    desktop: 1600, // '100em',
+}
+
+const breakpointsAlias = Object.keys(breakpointsMap)
+const breakpointsPX = breakpointsAlias.map(alias => breakpointsMap[alias])
 
 const breakpoints = breakpointsPX.map(toEm)
-const breakpointsAlias = ['mobile', 'tabletS', 'tablet', 'tabletL', 'laptop', 'desktop']
-// const breakpoints = {
-// 	xs: '22.5em',
-// 	sm: '31.5625em',
-// 	md: '47.5em',
-//  lg: '60em',
-// 	xl: '75em',
-// 	xxl: '100em',
-// 	fluidStart: '22.5em',
-// }
+
 export const mediaQueries = breakpointsAlias.reduce((mq, alias, i) => {
-    mq[alias] = `@media screen and (max-height: ${toEm(breakpointsPX[i] - 1)})`
+    mq[alias] = `@media screen and (max-width: ${toEm(breakpointsPX[i] - 1)})`
     return mq
 }, {})
 
@@ -51,26 +52,11 @@ space.header = space[9]
 export default {
     space,
     sizes: {
-        container: '50em',
+        container: '45em',
         fluid: '100%',
         header: space[9],
     },
     breakpoints,
     fresnelBreakpoints,
     mediaQueries,
-    bootstrapbreakpoints: {
-        xs: '375px',
-        sm: '576px',
-        md: '768px',
-        lg: '992px',
-        xl: '1280px',
-    },
-    gatsbybreakpoints: {
-        xs: '400px',
-        sm: '550px',
-        md: '750px',
-        lg: '1000px',
-        xl: '1200px',
-        xxl: '1600px',
-    },
 }

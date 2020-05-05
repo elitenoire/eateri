@@ -154,6 +154,12 @@ export default {
         title: {
             fontFamily: 'title',
         },
+        block: {
+            fontWeight: 'heading',
+            textTransform: 'uppercase',
+            letterSpacing: 'wider',
+            fontSize: 0,
+        },
     },
     cards: {
         services: {
@@ -170,5 +176,8 @@ export default {
                 display: 'block',
             },
         },
+    },
+    layout: {
+        content: { maxWidth: '35em', mx: 'auto', mb: 10, textAlign: 'center' },
     },
 }

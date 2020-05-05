@@ -25,6 +25,10 @@ export default {
         pale: '#FEFBE1', // '#FEF9D8',
         light: '#FEE78B',
         dark: '#B5871F',
+        neumorph: {
+            light: '#ffe044',
+            dark: '#d6ad35',
+        },
         gradient: 'linear-gradient(to bottom right, #fccc3e, #B5871F)',
     },
     secondary: {
