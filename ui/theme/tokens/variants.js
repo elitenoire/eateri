@@ -166,11 +166,14 @@ export default {
             display: 'flex',
             padding: 5,
             borderRadius: 'default',
+            boxShadow: 'sm',
             cursor: 'pointer',
-            transition: 'transform 0.5s ease-in-out, box-shadow 0.5s',
+            transition: 'transform 0.4s ease-out, box-shadow 0.5s ease-out',
             '&:hover': {
-                transform: 'translateY(-0.5em)',
-                boxShadow: '0 50px 80px -20px rgba(0,0,0,0.1), 0 30px 50px -30px rgba(0,0,0,0.2)',
+                transform: 'scale(1.05)',
+                boxShadow: 'xl',
+                // transform: 'translateY(-0.5em)',
+                // boxShadow: '0 50px 80px -20px rgba(0,0,0,0.1), 0 30px 50px -30px rgba(0,0,0,0.2)',
             },
             'p span': {
                 display: 'block',

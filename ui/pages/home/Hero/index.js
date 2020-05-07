@@ -88,7 +88,7 @@ const Hero = () => {
                         >
                             {foodMenu[count].description}
                         </Text>
-                        <Media lessThan="tabletS" sx={styles.carouselWrap}>
+                        <Media lessThan="tabletS" sx={styles.carouselMobile}>
                             <Carousel
                                 items={foodMenu}
                                 selected={count}

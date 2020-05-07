@@ -238,7 +238,7 @@ const styles = {
         mx: [0, null, null, null, 7],
         my: [1, null, null, null, 0],
     },
-    carouselWrap: {
+    carouselMobile: {
         position: 'relative',
         flex: 1,
         py: 4,

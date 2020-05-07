@@ -1,24 +1,34 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
 import { Container, Image } from '@theme-ui/components'
+import { Media } from '~/context/media'
 import { Heading, Text } from '~@/typography'
 import Scrollable from '~@/display/Scrollable'
+import Button from '~@/general/Button'
 import styles from './style'
 
 import url from '~/public/dish.png'
-import imgUrl from '../../../public/c-rice.jpg'
+import imgUrl from '~/public/c-rice.jpg'
 
 const PopularCard = ({ title }) => (
     <div sx={styles.popularCard}>
         <div sx={styles.imageWrap}>
             <Image src={url} />
         </div>
-        <Text size={1} m={2} weight="bold" truncate={2}>
+        <Text size={1} mb={1} weight="bold" truncate={2}>
             {title}
         </Text>
-        <Text size={1} color={[null, null, 'secondary.pale']}>
+        <Text size={1} mb={1} color={[null, null, 'secondary.pale']}>
             ₦1500
         </Text>
+        <Button
+            type="solid"
+            size="md"
+            color="secondary"
+            icon="add"
+            ariaLabel="Add to cart"
+            // onClick={addToCart}
+        />
     </div>
 )
 
@@ -29,6 +39,30 @@ const CategoryCard = ({ img, title }) => (
                 {title}
             </Text>
         </div>
+    </div>
+)
+
+const FavouriteCard = ({ img, title }) => (
+    <div sx={styles.favouriteCard}>
+        <div sx={styles.imageBox}>
+            <Image src={url} />
+        </div>
+        <div>
+            <Text size={1} mb={1} weight="bold" truncate={1}>
+                {title}
+            </Text>
+            <Text size={1} mb={1}>
+                ₦1500
+            </Text>
+        </div>
+        <Button
+            type="solid"
+            size="md"
+            color="secondary"
+            icon="add"
+            ariaLabel="Add to cart"
+            // onClick={addToCart}
+        />
     </div>
 )
 
@@ -83,6 +117,17 @@ const Menu = () => (
                     ))}
                 </Scrollable>
             </div>
+            <Media lessThan="tabletS" sx={styles.menuBox}>
+                <div sx={styles.menuBoxHeader}>
+                    <Heading as="h3" variant="h4">
+                        Favourite
+                    </Heading>
+                    <Text size={1}>See All</Text>
+                </div>
+                {['Red Lentil Soup', 'Thai Fried Chicken', 'Pasta & Chicken'].map(dish => (
+                    <FavouriteCard key={dish} title={dish} />
+                ))}
+            </Media>
         </Container>
     </section>
 )
