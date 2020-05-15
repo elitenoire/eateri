@@ -2,20 +2,30 @@ import React from 'react'
 import { Text as TUIText } from '@theme-ui/components'
 import styles from './style.js'
 
-const _sx = ({ truncate, overflow, weight, size, sx }) => ({
+const _sx = ({ truncate, overflow, weight, size, align, transform, spacing, sx }) => ({
     ...(weight && { fontWeight: weight }),
     ...(size && { fontSize: size }),
+    ...(spacing && { letterSpacing: spacing }),
+    ...(align && { textAlign: align }),
+    ...(transform && { textTransform: transform }),
     ...(typeof truncate === 'number' && { ...styles.trim, WebkitLineClamp: truncate }),
     ...(truncate === true && styles.truncate),
     ...(overflow && styles.overflow),
     ...sx,
 })
 
-const Text = React.forwardRef(({ truncate, overflow, weight, size, sx, children, ...rest }, ref) => (
-    <TUIText ref={ref} as="p" sx={_sx({ truncate, overflow, weight, size, sx })} {...rest}>
-        {children}
-    </TUIText>
-))
+const Text = React.forwardRef(
+    ({ truncate, overflow, weight, size, align, transform, spacing, sx, children, ...rest }, ref) => (
+        <TUIText
+            ref={ref}
+            as="p"
+            sx={_sx({ truncate, overflow, weight, size, align, transform, spacing, sx })}
+            {...rest}
+        >
+            {children}
+        </TUIText>
+    )
+)
 
 Text.displayName = 'Text'
 

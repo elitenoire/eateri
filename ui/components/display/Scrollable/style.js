@@ -1,8 +1,15 @@
 const styles = {
-    container: hideScroll => ({
-        display: 'grid',
-        gridAutoFlow: 'column',
-        gridTemplateRows: 'auto',
+    scrollable: ({ flex, hideScroll, sx }) => ({
+        ...(flex
+            ? {
+                  display: 'flex',
+                  flexWrap: 'nowrap',
+              }
+            : {
+                  display: 'grid',
+                  gridAutoFlow: 'column',
+                  gridTemplateRows: 'auto',
+              }),
         overflowX: 'auto',
         overflowY: 'hidden',
         ...(hideScroll && {
@@ -12,8 +19,10 @@ const styles = {
             '::-webkit-scrollbar': {
                 width: '0 !important',
                 display: 'none',
+                background: 'transparent',
             },
         }),
+        ...sx,
     }),
 }
 

@@ -48,7 +48,7 @@ const FavouriteCard = ({ img, title }) => (
             <Image src={url} />
         </div>
         <div>
-            <Text size={1} mb={1} weight="bold" truncate={1}>
+            <Text size={1} mb={1} weight="bold">
                 {title}
             </Text>
             <Text size={1} mb={1}>
@@ -67,20 +67,20 @@ const FavouriteCard = ({ img, title }) => (
 )
 
 const Menu = () => (
-    <section id="homepage-menu" sx={styles.section}>
+    <Container as="section" id="homepage-menu" variant="loose" sx={styles.section}>
+        <Container variant="content" sx={styles.sectionHeader}>
+            <Text as="h2" variant="block" mb={2} color="secondary.pale">
+                Explore Our Menu
+            </Text>
+            <Heading as="p" variant="h2" color="text" weight="extrabold" title>
+                Explore 80+ Delicious Dishes
+            </Heading>
+            <Text>
+                We have more than 80 dishes with the best tastes, flavours and recipes from around the world. What do
+                you fancy from our menu?
+            </Text>
+        </Container>
         <Container>
-            <Container variant="content" sx={styles.sectionHeader}>
-                <Text as="h2" variant="block" mb={2} color="secondary.pale">
-                    Explore Our Menu
-                </Text>
-                <Heading as="p" variant="h2" color="text" weight="extrabold" title>
-                    Explore 80+ Delicious Dishes
-                </Heading>
-                <Text>
-                    We have more than 80 dishes with the best tastes, flavours and recipes from around the world. What
-                    do you fancy from our menu?
-                </Text>
-            </Container>
             <div sx={styles.menuBox}>
                 <div sx={styles.menuBoxHeader}>
                     <Heading as="h3" variant="h4">
@@ -129,7 +129,7 @@ const Menu = () => (
                 ))}
             </Media>
         </Container>
-    </section>
+    </Container>
 )
 
 export default Menu

@@ -3,13 +3,9 @@ import { mediaQueries as mq } from '~/theme/tokens/rythmn'
 
 const styles = {
     section: {
-        mt: t => [`-${t.space.header}`, null, 0],
         pt: [7, null, 10],
         pb: 4,
-        px: ['8vw', null, null, '10%'],
         bg: ['background', null, 'primary.base'],
-        borderTopLeftRadius: [40, null, 'none'],
-        borderTopRightRadius: [40, null, 'none'],
     },
     sectionHeader: {
         display: ['none', null, 'block'],
@@ -17,13 +13,12 @@ const styles = {
     menuBox: {
         pt: [0, null, 6],
         pb: 2,
-        mx: ['-8vw', null, 0],
         mb: [4, null, 9],
         border: [null, null, '0.5px solid'],
-        borderRadius: 40,
-        overflow: 'hidden',
+        borderRadius: [null, null, 40],
+        overflow: [null, null, 'hidden'],
         '.scrollable': {
-            margin: '0 auto',
+            mx: ['-1.5em', null, 'auto'],
             [mq.tabletS]: {
                 overflow: '-moz-scrollbars-none',
                 MsOverflowStyle: 'none',
@@ -39,7 +34,7 @@ const styles = {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        mx: 6,
+        mx: [null, null, 6],
         h3: {
             mb: 0,
         },
@@ -141,9 +136,8 @@ const styles = {
         position: 'relative',
         display: 'flex',
         alignItems: 'center',
-        width: 'calc(100% - 4em)',
+        width: 'calc(100% - 1em)',
         p: 4,
-        mx: 6,
         mt: 7,
         mb: '-0.5em',
         borderRadius: '1.5em',
@@ -156,6 +150,7 @@ const styles = {
         },
         '& > div:last-of-type': {
             flex: 1,
+            minWidth: 0,
         },
         ':hover': {
             boxShadow: 'xl',
