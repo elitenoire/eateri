@@ -23,7 +23,7 @@ export default {
     },
     progressBar: {
         width: '50%',
-        height: '0.5em',
+        height: '0.25em',
         margin: '1em auto',
         borderRadius: '0.25em',
         bg: t => alpha('secondary.hover', 0.6)(t),

@@ -1,14 +1,14 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
 import { Box, Container, Image } from '@theme-ui/components'
-import { MemphisFrame } from '~@/display'
+import { MemphisFrame } from '~@/other'
 import { Heading, Text } from '~@/typography'
 import styles from './style'
 
 import chefImgUrl from '~/public/about-chef.jpg'
 
 const About = () => (
-    <Box as="section" id="homepage-about" sx={styles.section}>
+    <Container as="section" id="homepage-about" variant="loose" sx={styles.section}>
         <Container sx={styles.container}>
             <MemphisFrame>
                 <Image src={chefImgUrl} />
@@ -33,7 +33,7 @@ const About = () => (
                 </Text>
             </Box>
         </Container>
-    </Box>
+    </Container>
 )
 
 export default About

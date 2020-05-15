@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { Container, Card, Grid, Flex } from '@theme-ui/components'
+import { Container, Card, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
+import WaveDecoration from '~@/other/WaveDecoration'
 import Icon from '~@/general/Icon'
 import styles from './style'
 
@@ -9,15 +10,10 @@ import CateringSvg from '~/public/inlineSvg/catering.svg'
 import DeliverySvg from '~/public/inlineSvg/delivery.svg'
 import DineSvg from '~/public/inlineSvg/dine.svg'
 import TakeoutsSvg from '~/public/inlineSvg/takeouts.svg'
-import WaveSvg from '~/public/inlineSvg/wave-curve.svg'
-
-import ForkSvg from '~/public/inlineSvg/fork.svg'
-import SpoonSvg from '~/public/inlineSvg/spoon.svg'
-import KnifeSvg from '~/public/inlineSvg/knife.svg'
 
 const Services = () => (
     <section id="homepage-services" sx={styles.section}>
-        <div>
+        <Container variant="loose">
             <Container variant="content">
                 <Text as="h2" variant="block" mb={2} color="primary.base">
                     Our Services
@@ -74,13 +70,8 @@ const Services = () => (
                     </Card>
                 </div>
             </Grid>
-        </div>
-        <WaveSvg sx={styles.svgWave} />
-        <div sx={styles.svgCutlery}>
-            <ForkSvg />
-            <KnifeSvg />
-            <SpoonSvg />
-        </div>
+        </Container>
+        <WaveDecoration color="primary.base" />
     </section>
 )
 

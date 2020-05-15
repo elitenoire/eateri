@@ -141,13 +141,13 @@ const styles = {
         height: '100%',
         // minHeight alternative: make 1fr -> minmax(0,1fr) in grid-template-rows
         minHeight: [null, null, 0],
+        maxWidth: [null, null, null, null, null, null, '40em'],
         fontWeight: 'light',
         pl: [null, null, 11, null, 13],
         pr: [null, null, 10],
         py: [null, null, 4],
         '& > div:first-of-type': {
             mb: ['auto', null, 0],
-            // ml: [2, null, 0],
         },
     },
     contentHeadline: {
@@ -188,6 +188,7 @@ const styles = {
         display: ['none', null, 'flex'],
         flexWrap: 'wrap',
         alignItems: 'center',
+        maxWidth: [null, null, null, null, null, null, '40em'],
         m: [null, null, 'auto', null, '0'],
         p: [null, null, null, null, '0 0 1em 5em'],
         '& > button': {
@@ -244,16 +245,6 @@ const styles = {
         py: 4,
         mb: ['auto', null, 0],
         maxHeight: '23em', // 350px
-        // overflow: 'hidden',
-        // '&::before': {
-        //     position: 'absolute',
-        //     content: '""',
-        //     top: 0,
-        //     size: '140%',
-        //     bg: t => alpha('highlight.dark', 0.08)(t),
-        //     borderRadius: '50em 0 0 5em',
-        //     transform: 'rotate(-15deg)',
-        // },
         '.carousel': {
             height: '90%',
             maxWidth: '20em', // 300px
@@ -312,18 +303,6 @@ const styles = {
                     transform: 'scale(1.5)',
                 },
             },
-        },
-    },
-    progressBar: {
-        width: '50%',
-        height: '0.5em',
-        margin: '1em auto',
-        borderRadius: '0.25em',
-        bg: t => alpha('secondary.hover', 0.6)(t),
-        '.progressBar__percent': {
-            height: 'inherit',
-            borderRadius: 'inherit',
-            bg: 'secondary.base',
         },
     },
 }

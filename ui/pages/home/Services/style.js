@@ -1,17 +1,13 @@
 const styles = {
     section: {
-        position: 'relative',
         bg: 'muted',
         pt: 13,
-        '& > div': {
-            px: ['8%', null, null, '10%'],
-        },
         '& > svg': {
             display: 'block',
         },
     },
     grid: {
-        maxWidth: ['30em', null, null, '35em', 'container'], // '33em', // 600px
+        maxWidth: ['30em', null, null, '35em', 'container'],
         gridAutoRows: 'minmax(7em, auto)',
         gridTemplateColumns: [null, null, null, '1fr 1fr', '2.5fr 2.5fr 3fr'],
         m: '0 auto',
@@ -87,20 +83,6 @@ const styles = {
     svgCatering: {
         size: '3em',
         mb: 1,
-    },
-    svgWave: {
-        fill: 'primary.base',
-    },
-    svgCutlery: {
-        position: 'absolute',
-        bottom: ['0.5em', null, null, '1em', '2em'],
-        left: 0,
-        right: 0,
-        textAlign: 'center',
-        svg: {
-            width: ['3.5em', null, null, '4em'],
-            mx: 1,
-        },
     },
     divider: {
         border: '1.5px solid',

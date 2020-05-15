@@ -1,8 +1,7 @@
 const styles = {
     section: {
-        pl: ['8%', null, null, '10%', '20%'],
-        pr: ['8%', null, null, '10%'],
-        pt: [13, null, null, null, '8em'],
+        pl: [null, null, null, null, '20%'],
+        pt: [9, null, null, null, 13],
         bg: 'muted',
     },
     container: {

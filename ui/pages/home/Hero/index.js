@@ -66,7 +66,6 @@ const Hero = () => {
                                 <Text as="span" weight="medium">
                                     Guest
                                 </Text>
-                                .
                             </Text>
                             <Heading sx={styles.contentHeadline}>Chef's Special</Heading>
                         </div>

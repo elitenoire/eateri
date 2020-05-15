@@ -165,15 +165,15 @@ export default {
         services: {
             display: 'flex',
             padding: 5,
-            borderRadius: 'default',
+            // borderRadius: 'default',
             boxShadow: 'sm',
             cursor: 'pointer',
             transition: 'transform 0.4s ease-out, box-shadow 0.5s ease-out',
+            backfaceVisibility: 'hidden',
+            transformStyle: 'preserve-3d',
             '&:hover': {
                 transform: 'scale(1.05)',
                 boxShadow: 'xl',
-                // transform: 'translateY(-0.5em)',
-                // boxShadow: '0 50px 80px -20px rgba(0,0,0,0.1), 0 30px 50px -30px rgba(0,0,0,0.2)',
             },
             'p span': {
                 display: 'block',
@@ -181,6 +181,8 @@ export default {
         },
     },
     layout: {
-        content: { maxWidth: '35em', mx: 'auto', mb: 10, textAlign: 'center' },
+        content: { maxWidth: '35em', mb: 10, textAlign: 'center' },
+        loose: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%'] },
+        tight: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%', '20%'] },
     },
 }
