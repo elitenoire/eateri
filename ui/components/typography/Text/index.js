@@ -4,7 +4,7 @@ import styles from './style.js'
 
 const _sx = ({ truncate, overflow, weight, size, align, transform, spacing, sx }) => ({
     ...(weight && { fontWeight: weight }),
-    ...(size && { fontSize: size }),
+    ...((size || size === 0) && { fontSize: size }),
     ...(spacing && { letterSpacing: spacing }),
     ...(align && { textAlign: align }),
     ...(transform && { textTransform: transform }),

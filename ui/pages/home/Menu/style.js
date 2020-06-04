@@ -6,6 +6,10 @@ const styles = {
         pt: [7, null, 10],
         pb: 4,
         bg: ['background', null, 'primary.base'],
+        '.flex-split': {
+            display: 'flex',
+            justifyContent: 'space-between',
+        },
     },
     sectionHeader: {
         display: ['none', null, 'block'],
@@ -31,8 +35,6 @@ const styles = {
         },
     },
     menuBoxHeader: {
-        display: 'flex',
-        justifyContent: 'space-between',
         alignItems: 'center',
         mx: [null, null, 6],
         h3: {
@@ -41,19 +43,25 @@ const styles = {
         span: {
             display: ['none', null, null, 'initial'],
         },
+        p: {
+            // temp styles to mimic a link
+            color: ['highlight.base', null, 'inherit'],
+            textDecoration: [null, null, 'underline'],
+            cursor: 'pointer',
+        },
     },
     popularScrollable: {
         gridGap: [4, null, 7],
         pt: [7, null, 9],
-        pl: 4,
+        // pl: 4,
         pb: 4,
-        '& > div:last-of-type': {
-            width: '10em',
-            pr: 4,
-            button: {
-                right: '0.5em',
-            },
-        },
+        // '& > div:last-of-type': {
+        //     width: '10em',
+        //     pr: 4,
+        //     button: {
+        //         right: '0.5em',
+        //     },
+        // },
     },
     popularCard: {
         position: 'relative',
@@ -93,13 +101,13 @@ const styles = {
     },
     categoryScrollable: {
         gridGap: 4,
-        pl: 4,
+        // pl: 4,
         pt: 7,
         pb: 6,
-        '& > div:last-of-type': {
-            width: '8em',
-            pr: 4,
-        },
+        // '& > div:last-of-type': {
+        //     width: '8em',
+        //     pr: 4,
+        // },
     },
     categoryCardWrap: {
         display: 'flex',

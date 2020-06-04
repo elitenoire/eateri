@@ -16,7 +16,6 @@ const styles = {
             textAlign: 'center',
             mt: '-1.5em',
             mx: ['-1.5em', null, 'auto'],
-            px: [4, null, 0],
             pb: [4, null, 0],
             minWidth: 0,
             maxWidth: 'container',

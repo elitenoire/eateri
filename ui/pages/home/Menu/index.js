@@ -18,9 +18,14 @@ const PopularCard = ({ title }) => (
         <Text size={1} mb={1} weight="bold" truncate={2}>
             {title}
         </Text>
-        <Text size={1} mb={1} color={[null, null, 'secondary.pale']}>
-            ₦1500
-        </Text>
+        <div className="flex-split">
+            <Text size={1} color={['textLight', null, 'inherit']}>
+                ₦1500
+            </Text>
+            <Text size={0} weight="medium" color={['highlight.base', null, 'secondary.pale']}>
+                ★4.8
+            </Text>
+        </div>
         <Button
             type="solid"
             size="md"
@@ -48,11 +53,14 @@ const FavouriteCard = ({ img, title }) => (
             <Image src={url} />
         </div>
         <div>
-            <Text size={1} mb={1} weight="bold">
+            <Text size={1} mb={1} weight="bold" truncate>
                 {title}
             </Text>
-            <Text size={1} mb={1}>
+            <Text size={1} mb={1} color="textLight">
                 ₦1500
+            </Text>
+            <Text size={0} weight="medium" color="highlight.base">
+                ★4.8
             </Text>
         </div>
         <Button
@@ -82,7 +90,7 @@ const Menu = () => (
         </Container>
         <Container>
             <div sx={styles.menuBox}>
-                <div sx={styles.menuBoxHeader}>
+                <div className="flex-split" sx={styles.menuBoxHeader}>
                     <Heading as="h3" variant="h4">
                         Popular{' '}
                         <Text as="span" weight="light" size={1}>
@@ -91,7 +99,7 @@ const Menu = () => (
                     </Heading>
                     <Text size={1}>See All</Text>
                 </div>
-                <Scrollable sx={styles.popularScrollable}>
+                <Scrollable pad="0.25em" sx={styles.popularScrollable}>
                     {[
                         'Jollof Rice',
                         'Egusi Soup',
@@ -105,20 +113,20 @@ const Menu = () => (
                 </Scrollable>
             </div>
             <div sx={styles.menuBox}>
-                <div sx={styles.menuBoxHeader}>
+                <div className="flex-split" sx={styles.menuBoxHeader}>
                     <Heading as="h3" variant="h4">
                         Category
                     </Heading>
                     <Text size={1}>See All</Text>
                 </div>
-                <Scrollable sx={styles.categoryScrollable}>
+                <Scrollable pad={['0.25em', null, '1em']} sx={styles.categoryScrollable}>
                     {['African', 'Chinese', 'Vegan', 'Rice', 'Soups', 'Desserts', 'Drinks'].map(c => (
                         <CategoryCard key={c} img={imgUrl} title={c} />
                     ))}
                 </Scrollable>
             </div>
             <Media lessThan="tabletS" sx={styles.menuBox}>
-                <div sx={styles.menuBoxHeader}>
+                <div className="flex-split" sx={styles.menuBoxHeader}>
                     <Heading as="h3" variant="h4">
                         Favourite
                     </Heading>

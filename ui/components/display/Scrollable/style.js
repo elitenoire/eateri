@@ -1,5 +1,5 @@
 const styles = {
-    scrollable: ({ flex, hideScroll, sx }) => ({
+    scrollable: ({ flex, pad, hideScroll, sx }) => ({
         ...(flex
             ? {
                   display: 'flex',
@@ -12,6 +12,12 @@ const styles = {
               }),
         overflowX: 'auto',
         overflowY: 'hidden',
+        WebkitOverflowScrolling: 'touch',
+        ':before,:after': {
+            content: '""',
+            width: pad || '1em',
+            ...(flex && { flexShrink: 0 }),
+        },
         ...(hideScroll && {
             overflow: '-moz-scrollbars-none',
             MsOverflowStyle: 'none',
