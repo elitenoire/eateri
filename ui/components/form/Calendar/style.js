@@ -15,7 +15,7 @@ const styles = {
         pr: 'inherit',
         button: {
             m: '0 0 0 0.45em',
-        }
+        },
     },
     month: {
         display: 'flex',
@@ -33,7 +33,7 @@ const styles = {
         span: {
             fontWeight: 'light',
             fontSize: 1,
-        }
+        },
     },
     monthWeekDays: {
         display: ['none', null, 'flex'],
@@ -42,15 +42,19 @@ const styles = {
         mb: 4,
         '& > div': {
             width: '14.28571%',
-        }
+        },
     },
-    monthGridDays: { // scrollable
+    monthGridDays: {
+        // scrollable
         flexDirection: [null, null, 'column'],
         mx: ['-1.5em', null, 0],
         p: '2px',
         'button:focus': {
-            boxShadow: t => `0 0 0 1.5px ${t.colors.focusOutline}`,
-        }
+            boxShadow: (t) => `0 0 0 1.5px ${t.colors.highlight.base}`,
+        },
+        'button[aria-disabled="true"]:focus': {
+            boxShadow: (t) => `0 0 0 1.5px ${t.colors.text}`,
+        },
     },
     monthRowDays: {
         display: 'flex',
@@ -75,7 +79,7 @@ const styles = {
             opacity: 0.4,
         },
         '&[aria-disabled="true"]': {
-            cursor: 'not-allowed',
+            cursor: 'auto',
         },
         '&[aria-hidden="true"]': {
             display: ['none', null, 'inline-block'],
@@ -110,7 +114,7 @@ const styles = {
             boxShadow: 'inner',
         },
         '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):hover > span': {
-            bg: t => alpha('secondary.hover', 0.1)(t),
+            bg: (t) => alpha('secondary.hover', 0.1)(t),
         },
     },
     monthDayWeek: {
@@ -120,7 +124,7 @@ const styles = {
     },
     monthDayValue: {
         fontSize: 2,
-    }
+    },
 }
 
 export default styles
