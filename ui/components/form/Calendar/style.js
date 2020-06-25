@@ -30,14 +30,14 @@ const styles = {
         mb: 2,
         minHeight: '1.5em', // to fit nav button
         pt: '0.1em',
-        span: {
+        'span:not([aria-hidden="true"])': {
             fontWeight: 'light',
             fontSize: 1,
+            ml: 1,
         },
     },
     monthWeekDays: {
         display: ['none', null, 'flex'],
-        // justifyContent: 'space-between',
         fontSize: 1,
         mb: 4,
         '& > div': {
@@ -50,16 +50,22 @@ const styles = {
         mx: ['-1.5em', null, 0],
         p: '2px',
         'button:focus': {
-            boxShadow: (t) => `0 0 0 1.5px ${t.colors.highlight.base}`,
+            boxShadow: t => `0 0 0 1.5px ${t.colors.highlight.base}`,
         },
         'button[aria-disabled="true"]:focus': {
-            boxShadow: (t) => `0 0 0 1.5px ${t.colors.text}`,
+            boxShadow: t => `0 0 0 1.5px ${t.colors.text}`,
         },
     },
+}
+
+export const weekStyles = {
     monthRowDays: {
         display: 'flex',
         mb: [4, null, 0], // mobile: push scrollbar down
     },
+}
+
+export const dayStyles = {
     monthDayCell: {
         appearance: 'none',
         border: 0,
@@ -96,6 +102,7 @@ const styles = {
             borderRadius: 'inherit',
             width: '100%',
             height: '100%',
+            minHeight: 'inherit',
             position: [null, null, 'absolute'],
             top: [null, null, 0],
             left: [null, null, 0],
@@ -114,7 +121,7 @@ const styles = {
             boxShadow: 'inner',
         },
         '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):hover > span': {
-            bg: (t) => alpha('secondary.hover', 0.1)(t),
+            bg: t => alpha('secondary.hover', 0.1)(t),
         },
     },
     monthDayWeek: {
