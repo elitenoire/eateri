@@ -21,7 +21,7 @@ const Services = () => (
                 <Heading as="p" variant="h2" weight="extrabold" title>
                     Why We Are The Top Faves!
                 </Heading>
-                <Text color="textLighter">
+                <Text color="textLight">
                     Whether you're planning the party of the year, a cocktail masterclass or a simple but stylish dinner
                     with friends, you're in expert hands.
                 </Text>

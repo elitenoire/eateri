@@ -4,13 +4,17 @@ export default {
     buttons: {
         types: {
             solid: ({ color }) => ({
-                bg: `${color}.base`,
-                color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
-                borderColor: `${color}.base`,
+                '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    bg: `${color}.base`,
+                    borderColor: `${color}.base`,
+                },
                 '&:hover': {
                     bg: `${color}.hover`,
                     borderColor: `${color}.hover`,
                     boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
+                },
+                '&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    boxShadow: 'none',
                 },
                 '.symbol': {
                     bg: 'secondary.base',
@@ -20,10 +24,20 @@ export default {
             }),
             outline: ({ color, borderless }) => ({
                 position: 'relative',
-                bg: 'transparent',
-                color: `${color}.base`,
-                borderColor: borderless ? 'transparent' : `${color}.base`,
-                '&:after': {
+                '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    bg: 'transparent',
+                    color: `${color}.base`,
+                    borderColor: borderless ? 'transparent' : `${color}.base`,
+                },
+                '&:hover': {
+                    bg: `${color}.base`,
+                    color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
+                    boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
+                },
+                '&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    boxShadow: 'none',
+                },
+                '&::after': {
                     position: 'absolute',
                     display: 'block',
                     content: '""',
@@ -33,43 +47,47 @@ export default {
                     width: '100%',
                     zIndex: -1,
                     borderRadius: 'inherit',
-                    opacity: 0,
                     bg: `${color}.base`,
+                },
+                '&::after,&:disabled:hover::after,&[aria-disabled="true"]:hover::after': {
                     transform: 'scaleX(0.7)',
+                    opacity: 0,
                     transition: 'transform 0.8s, opacity 0.3s',
                 },
-                '&:hover': {
-                    bg: `${color}.base`,
-                    color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
-                    boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
-                },
-                '&:active': {
-                    bg: `${color}.hover`,
-                },
-                '&:hover:after': {
+                '&:hover::after': {
                     transform: 'scaleX(1)',
                     opacity: 1,
                     transition: 'transform 0.3s, opacity 0.3s',
                 },
+                '&:enabled:not([aria-disabled="true"]):active': {
+                    bg: `${color}.hover`,
+                },
             }),
             ghost: ({ color, ghostText }) => ({
                 bg: 'transparent', // 'ghost',
-                color: `${color}.base`,
                 borderColor: 'transparent', // 'ghost',
+                '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    color: `${color}.base`,
+                },
                 // TODO:
                 // alpha(0.02) black for light hues and white for dark hues parent bg
                 '&:hover': {
                     color: `${color}.hover`,
                     boxShadow: ghostText ? 'none' : '0 1px 10px 1px rgba(0, 0, 0, 0.08)',
                 },
-                '&:active': {
+                '&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    boxShadow: 'none',
+                },
+                '&:enabled:not([aria-disabled="true"]):active': {
                     boxShadow: ghostText ? 'none' : '0 2px 6px 1px rgba(0, 0, 0, 0.08) inset',
                 },
             }),
             pale: ({ color }) => ({
-                bg: 'transparent',
                 color: `${color}.base`,
-                borderColor: 'transparent',
+                '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    bg: 'transparent',
+                    borderColor: 'transparent',
+                },
                 '&:hover': {
                     bg: `${color}.pale`,
                     borderColor: `${color}.pale`,
@@ -101,6 +119,16 @@ export default {
             flat: {
                 borderRadius: 'none',
             },
+        },
+    },
+    badges: {
+        highlight: {
+            lineHeight: 'snug',
+            pt: 1,
+            borderRadius: '5px',
+            fontWeight: 'medium',
+            color: 'highlight.base',
+            bg: 'highlight.pale',
         },
     },
     links: {

@@ -26,10 +26,14 @@ const styles = {
             width: '1em',
             height: '1em',
         },
-        '&&:hover': {
+        '&:disabled,&[aria-disabled="true"]': {
+            opacity: 0.4,
+            cursor: 'auto',
+        },
+        '&&:enabled:not([aria-disabled="true"]):hover': {
             transform: 'translateY(-2px)',
         },
-        '&&:active': {
+        '&&:enabled:not([aria-disabled="true"]):active': {
             transform: 'scale(0.95)',
         },
     },

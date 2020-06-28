@@ -2,10 +2,11 @@ import React from 'react'
 import { Text as TUIText } from '@theme-ui/components'
 import styles from './style.js'
 
-const _sx = ({ truncate, overflow, weight, size, align, transform, spacing, sx }) => ({
+const _sx = ({ truncate, overflow, weight, size, line, align, transform, spacing, sx }) => ({
     ...(weight && { fontWeight: weight }),
     ...((size || size === 0) && { fontSize: size }),
     ...(spacing && { letterSpacing: spacing }),
+    ...(line && { lineHeight: line }),
     ...(align && { textAlign: align }),
     ...(transform && { textTransform: transform }),
     ...(typeof truncate === 'number' && { ...styles.trim, WebkitLineClamp: truncate }),
@@ -15,11 +16,11 @@ const _sx = ({ truncate, overflow, weight, size, align, transform, spacing, sx }
 })
 
 const Text = React.forwardRef(
-    ({ truncate, overflow, weight, size, align, transform, spacing, sx, children, ...rest }, ref) => (
+    ({ truncate, overflow, weight, size, line, align, transform, spacing, sx, children, ...rest }, ref) => (
         <TUIText
             ref={ref}
             as="p"
-            sx={_sx({ truncate, overflow, weight, size, align, transform, spacing, sx })}
+            sx={_sx({ truncate, overflow, weight, size, line, align, transform, spacing, sx })}
             {...rest}
         >
             {children}

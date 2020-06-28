@@ -10,6 +10,9 @@ export default {
         inner: 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
         outline: '0 0 0 3px rgba(66, 153, 225, 0.5)',
         none: 'none',
+        // Use for Avatar rings - change black to secondary?
+        ringLight: '0 0 0 3px white, 0 0 0 5px black',
+        ringDark: '0 0 0 3px #202020, 0 0 0 5px white',
 
         soft:
             'rgba(0, 0, 0, 0.05) -3px 3px 6px, rgba(0, 0, 0, 0.055) -20px 20px 55px, rgba(255, 255, 255, 0.6) -2px 2px 2px 1px inset, rgba(255, 255, 255, 0.4) 2px 2px 3px 0px inset, rgba(0, 0, 0, 0.05) 1px 1px 2px 0px inset',

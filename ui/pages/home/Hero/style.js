@@ -1,6 +1,6 @@
 import { alpha } from '@theme-ui/color'
 import { keyframes } from '@emotion/core'
-import { toEm, breakpointsMap } from '~/theme/tokens/rythmn'
+import { toEm, breakpointsMap } from '~/theme/tokens/rhythm'
 
 const pop = keyframes`
 0% {
@@ -166,6 +166,7 @@ const styles = {
     contentDesc: {
         display: ['none', null, 'unset'],
         fontSize: [5, null, null, null, 4],
+        lineHeight: 'snug',
         color: 'heroText',
         my: 'auto',
         mx: 2,

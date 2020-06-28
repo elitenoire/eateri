@@ -1,9 +1,15 @@
 {
-	"plugins": ["react-perf"],
+	"plugins": ["react-perf", "babel"],
 	"extends": ["wesbos", "plugin:react-perf/recommended"],
+	"parser": "babel-eslint",
 	"rules": {
+		// Use the `eslint-babel-plugin` version of `no-unused-expressions` to
+		// support optional chaining operators
+		"no-unused-expressions": 0,
+		"babel/no-unused-expressions": 1,
 		"react/prop-types": [2, { "skipUndeclared": true }],
 		"react/jsx-props-no-spreading": 0,
+		"arrow-parens": [2, "as-needed"],
 		"prettier/prettier": [
 			"error",
 			{
@@ -11,7 +17,9 @@
 				"singleQuote": true,
 				"printWidth": 120,
 				"tabWidth": 4,
-				"semi": false
+				"semi": false,
+				"endOfLine": "auto",
+				"arrowParens": "avoid"
 			}
 		]
 	},

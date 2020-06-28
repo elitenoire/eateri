@@ -1,5 +1,5 @@
 import { alpha } from '@theme-ui/color'
-import { mediaQueries as mq } from '~/theme/tokens/rythmn'
+import { mediaQueries as mq } from '~/theme/tokens/rhythm'
 
 const styles = {
     section: {
@@ -9,12 +9,17 @@ const styles = {
         '.flex-split': {
             display: 'flex',
             justifyContent: 'space-between',
+            alignItems: 'flex-end',
+        },
+        ul: {
+            listStyle: 'none',
         },
     },
     sectionHeader: {
         display: ['none', null, 'block'],
     },
     menuBox: {
+        display: 'block',
         pt: [0, null, 6],
         pb: 2,
         mb: [4, null, 9],
@@ -35,7 +40,7 @@ const styles = {
         },
     },
     menuBoxHeader: {
-        alignItems: 'center',
+        alignItems: 'center !important',
         mx: [null, null, 6],
         h3: {
             mb: 0,
@@ -53,15 +58,7 @@ const styles = {
     popularScrollable: {
         gridGap: [4, null, 7],
         pt: [7, null, 9],
-        // pl: 4,
         pb: 4,
-        // '& > div:last-of-type': {
-        //     width: '10em',
-        //     pr: 4,
-        //     button: {
-        //         right: '0.5em',
-        //     },
-        // },
     },
     popularCard: {
         position: 'relative',
@@ -92,22 +89,21 @@ const styles = {
         borderRadius: 30,
         alignSelf: 'center',
         bg: ['secondary.pale', null, 'inherit'],
-        boxShadow: t => [
+        boxShadow: ({ colors: { primary } }) => [
             'sm',
             null,
-            `1em 1em 3em ${t.colors.primary.neumorph.dark}, -1em -1em 3em ${t.colors.primary.neumorph.light}`,
+            `1em 1em 3em ${primary.neumorph.dark}, -1em -1em 3em ${primary.neumorph.light}`,
         ],
         transition: 'transform 0.5s ease-out',
     },
+    badgeRating: {
+        color: [null, null, 'secondary.pale'],
+        bg: t => [null, null, alpha('secondary.base', 0.08)(t)],
+    },
     categoryScrollable: {
         gridGap: 4,
-        // pl: 4,
         pt: 7,
         pb: 6,
-        // '& > div:last-of-type': {
-        //     width: '8em',
-        //     pr: 4,
-        // },
     },
     categoryCardWrap: {
         display: 'flex',
@@ -140,7 +136,7 @@ const styles = {
             boxShadow: 'xl',
         },
     }),
-    favouriteCard: {
+    favoriteCard: {
         position: 'relative',
         display: 'flex',
         alignItems: 'center',

@@ -60,7 +60,9 @@ export default {
     textLighter: '#a0aec0', // '#868b96',
     textOnPrimary: '#212529',
     textOnSecondary: '#fefefd',
-    textOnAccent: 'white', // '#212529',
+    textOnAccent: '#212529',
+    textSelectionColor: '#FEE78B', // primary.light
+    textSelectionBg: '#343a40', // secondary.hover
     heroStripe1: 'rgb(70, 78, 86)',
     heroStripe2: 'rgb(52, 58, 64)',
     heroStripe3: 'rgb(33, 37, 41)',

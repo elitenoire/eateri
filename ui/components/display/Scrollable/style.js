@@ -28,6 +28,7 @@ const styles = {
                 background: 'transparent',
             },
         }),
+        listStyle: 'none',
         ...sx,
     }),
 }

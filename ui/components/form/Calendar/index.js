@@ -344,8 +344,11 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
                         aria-atomic="true"
                         sx={styles.monthTitle}
                     >
-                        <span className="visually-hidden">Currently viewing calender month </span>
-                        {monthNames[calendar.month].short} <span>{calendar.year}</span>
+                        <span className="visually-hidden">{`Currently viewing calender month, ${
+                            monthNames[calendar.month].long
+                        }`}</span>
+                        <span aria-hidden="true">{monthNames[calendar.month].short}</span>
+                        <span>{calendar.year}</span>
                     </div>
                     <div role="grid" aria-labelledby="id-calendar-label" sx={styles.monthBody}>
                         <MemoizedWeekDay month={calendar.month} year={calendar.year} />

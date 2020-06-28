@@ -27,6 +27,15 @@ const styles = t => ({
         backgroundColor: t.colors.primary.base,
         backgroundImage: t.colors.primary.gradient,
     },
+    '::-moz-selection': {
+        /* Code for Firefox */
+        color: t.colors.textSelectionColor,
+        background: t.colors.textSelectionBg,
+    },
+    '::selection': {
+        color: t.colors.textSelectionColor,
+        background: t.colors.textSelectionBg,
+    },
     'html,body,#__next': {
         height: '100%',
     },
@@ -38,6 +47,7 @@ const styles = t => ({
             theme: t,
         }),
         lineHeight: t.lineHeights.body,
+        WebkitFontSmoothing: 'antialiased',
         scrollbarWidth: 'thin',
         scrollbarColor: `${t.colors.primary.base} ${t.colors.secondary.base}`,
     },

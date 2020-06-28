@@ -11,7 +11,7 @@ const styles = {
         borderRadius: [null, null, null, null, 40],
         textAlign: ['center', null, null, null, 'left'],
         py: [null, null, null, null, 9],
-        color: ['textLighter', null, null, null, 'textLight'],
+        color: 'textLight',
         background: t => [null, null, null, null, `linear-gradient(45deg,${t.colors.secondary.pale},transparent)`],
     },
     content: {

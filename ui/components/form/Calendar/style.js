@@ -50,9 +50,12 @@ const styles = {
         mx: ['-1.5em', null, 0],
         p: '2px',
         'button:focus': {
+            boxShadow: 'none',
+        },
+        'button:focus > span': {
             boxShadow: t => `0 0 0 1.5px ${t.colors.highlight.base}`,
         },
-        'button[aria-disabled="true"]:focus': {
+        'button[aria-disabled="true"]:focus > span': {
             boxShadow: t => `0 0 0 1.5px ${t.colors.text}`,
         },
     },
@@ -100,12 +103,12 @@ export const dayStyles = {
             justifyContent: 'center',
             alignItems: 'center',
             borderRadius: 'inherit',
-            width: '100%',
-            height: '100%',
+            width: ['100%', null, '90%'],
+            height: ['100%', null, '90%'],
             minHeight: 'inherit',
             position: [null, null, 'absolute'],
-            top: [null, null, 0],
-            left: [null, null, 0],
+            top: [null, null, '5%'],
+            left: [null, null, '5%'],
             bg: ['rgba(0,0,0,0.08)', null, 'inherit'],
         },
         '&[aria-selected="true"] > span': {
@@ -117,7 +120,7 @@ export const dayStyles = {
             color: 'highlight.base',
             fontWeight: 'medium',
         },
-        '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):active': {
+        '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):active > span': {
             boxShadow: 'inner',
         },
         '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):hover > span': {

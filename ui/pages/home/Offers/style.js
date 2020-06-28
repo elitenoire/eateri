@@ -2,7 +2,7 @@ const styles = {
     section: {
         // bg: 'secondary.light',
         mt: t => [`-${t.space.header}`, null, 0],
-        pt: [7, null, 0],
+        pt: 7,
         // pb: [4, null, 0],
         bg: ['background', null, 'secondary.light'],
         borderTopLeftRadius: [40, null, 'none'],
@@ -21,6 +21,10 @@ const styles = {
             maxWidth: 'container',
         },
     },
+    stackContext: {
+        position: 'relative',
+        zIndex: 1,
+    },
     header: {
         display: [null, null, 'none'],
         mb: 0,
@@ -37,7 +41,9 @@ const styles = {
             `linear-gradient(to right, ${t.colors.heroStripe3} 50%, ${t.colors.heroStripe2} 50%)`,
         ],
         color: 'heroText',
-        borderRadius: ['default', null, 'none'],
+        borderRadius: 'default',
+        borderBottomLeftRadius: [null, null, '20'],
+        borderBottomRightRadius: [null, null, '20'],
         padding: 6,
         mt: [6, null, 0],
         display: 'flex',
@@ -45,6 +51,24 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         textAlign: 'center',
+        '::before,::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            borderRadius: 'inherit',
+            background: 'inherit',
+            zIndex: '-1',
+        },
+        '&:before': {
+            width: '85%',
+            height: '113%',
+            opacity: '0.15',
+        },
+        '&:after': {
+            width: '92%',
+            height: '107%',
+            opacity: '0.35',
+        },
         '& > span': {
             position: 'absolute',
             size: '1em',

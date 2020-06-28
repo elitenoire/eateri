@@ -5,7 +5,7 @@ import Icon from '~@/general/Icon'
 import LoadingDots from '~@/feedback/LoadingDots'
 import styles from './style'
 
-// Prevent focusing on button and maintain accessibility
+// Prevent focusing on button click and maintain accessibility
 // https://github.com/react-bootstrap/react-bootstrap/issues/1300#issuecomment-386425763
 const handleClick = e => {
     if (e) {

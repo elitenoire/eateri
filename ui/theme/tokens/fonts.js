@@ -34,13 +34,13 @@ export default {
         heading: '700',
     },
     lineHeights: {
-        none: '1em',
-        tight: '1.25em',
-        snug: '1.375em',
+        none: '1',
+        tight: '1.25',
+        snug: '1.375',
         normal: '1.5',
         relaxed: '1.625',
         loose: '2',
-        body: '1.3',
+        body: '1.5',
         heading: '1.1',
     },
     letterSpacings: {

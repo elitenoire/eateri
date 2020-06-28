@@ -33,20 +33,20 @@ const offers = [
 ]
 
 const OffersCard = ({ title, text }) => (
-    <div sx={styles.offersCard}>
+    <li sx={styles.offersCard}>
         <Text size={1}>
             <Text as="span" size={3} weight="bold">
                 {title}
             </Text>
             {text}
         </Text>
-    </div>
+    </li>
 )
 
 const Offers = () => (
     <section sx={styles.section}>
         <Container variant="tight">
-            <Container>
+            <Container sx={styles.stackContext}>
                 <Heading as="h2" variant="h4" sx={styles.header}>
                     All Offers
                 </Heading>
@@ -70,7 +70,7 @@ const Offers = () => (
             </Container>
         </Container>
         <Container variant="loose">
-            <Scrollable flex hideScroll>
+            <Scrollable as="ul" flex hideScroll>
                 {offers.map(({ title, text }) => (
                     <OffersCard key={title} title={title} text={text} />
                 ))}

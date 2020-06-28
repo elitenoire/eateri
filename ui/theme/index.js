@@ -1,7 +1,7 @@
 import colors from './tokens/colors'
 import display from './tokens/display'
 import fonts from './tokens/fonts'
-import rythmn from './tokens/rythmn'
+import rhythm from './tokens/rhythm'
 import variants from './tokens/variants'
 
 export default {
@@ -15,7 +15,7 @@ export default {
     ...fonts,
     ...display,
     ...variants,
-    ...rythmn,
+    ...rhythm,
     pseudos: {
         _after: '&:after',
         _before: '&:before',
