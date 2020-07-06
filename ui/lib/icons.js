@@ -1,6 +1,6 @@
 import Home from 'remixicon/icons/Buildings/home-6-line.svg'
 import Location2 from 'remixicon/icons/Buildings/store-2-line.svg'
-import Calendar from 'remixicon/icons/Business/calendar-event-line.svg'
+import Calendar from 'remixicon/icons/Business/calendar-fill.svg'
 import Profile from 'remixicon/icons/Business/profile-line.svg'
 import LayoutRow from 'remixicon/icons/Design/layout-row-fill.svg'
 import LayoutMasonry from 'remixicon/icons/Design/layout-masonry-fill.svg'
@@ -21,6 +21,8 @@ import ArrowDropDown from 'remixicon/icons/System/arrow-drop-down-line.svg'
 import ArrowBack from 'remixicon/icons/System/arrow-go-back-line.svg'
 import ArrowGo from 'remixicon/icons/System/arrow-right-circle-line.svg'
 import ArrowGoFill from 'remixicon/icons/System/arrow-right-circle-fill.svg'
+import ArrowOpen from 'remixicon/icons/System/arrow-up-circle-fill.svg'
+import ArrowHide from 'remixicon/icons/System/arrow-down-circle-fill.svg'
 import ArrowLeft from 'remixicon/icons/System/arrow-left-s-line.svg'
 import ArrowRight from 'remixicon/icons/System/arrow-right-s-line.svg'
 import ArrowUp from 'remixicon/icons/System/arrow-up-s-line.svg'
@@ -34,8 +36,8 @@ import HamBurger from 'remixicon/icons/System/menu-4-line.svg'
 import More from 'remixicon/icons/System/more-line.svg'
 import Search from 'remixicon/icons/System/search-2-line.svg'
 import Subtract from 'remixicon/icons/System/subtract-line.svg'
-import Time from 'remixicon/icons/System/time-line.svg'
-import User from 'remixicon/icons/User/user-line.svg'
+import Time from 'remixicon/icons/System/time-fill.svg'
+import User from 'remixicon/icons/User/user-fill.svg'
 
 export const CloseIcon = Close
 
@@ -45,7 +47,9 @@ export default {
     arrowdropdown: ArrowDropDown,
     arrowgo: ArrowGo,
     arrowgofill: ArrowGoFill,
+    arrowhide: ArrowHide,
     arrowleft: ArrowLeft,
+    arrowopen: ArrowOpen,
     arrowright: ArrowRight,
     arrowup: ArrowUp,
     calendar: Calendar,
