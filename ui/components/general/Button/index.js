@@ -22,7 +22,7 @@ const _sx = ({
     buttons,
     size,
     shape,
-    type,
+    brand,
     color,
     fluid,
     borderless,
@@ -33,7 +33,7 @@ const _sx = ({
     iconOnly,
 }) => ({
     ...styles._base,
-    ...buttons.types[type]({ color, borderless, ghostText }),
+    ...buttons.brands[brand]({ color, borderless, ghostText }),
     ...buttons.shapes[shape],
     ...buttons.sizes[size],
     ...(children && styles.button),
@@ -45,13 +45,13 @@ const _sx = ({
 
 const Button = React.forwardRef(
     (
-        { sx, size, shape, type, color, icon, fluid, borderless, ghostText, isLoading, ariaLabel, children, ...rest },
+        { sx, size, shape, brand, color, icon, fluid, borderless, ghostText, isLoading, ariaLabel, children, ...rest },
         ref
     ) => {
         const {
             theme: { buttons },
         } = useThemeUI()
-        // const { sizes, shapes, types } = theme.buttons
+        // const { sizes, shapes, brands } = theme.buttons
         const iconOnly = icon && !children
         const buttonWithIcon = icon && children
 
@@ -62,7 +62,7 @@ const Button = React.forwardRef(
                     buttons,
                     size,
                     shape,
-                    type,
+                    brand,
                     color,
                     fluid,
                     borderless,
@@ -99,7 +99,7 @@ const Button = React.forwardRef(
 Button.defaultProps = {
     shape: 'pill',
     size: 'md',
-    type: 'solid',
+    brand: 'solid',
     color: 'primary',
 }
 

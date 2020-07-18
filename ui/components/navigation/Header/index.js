@@ -74,7 +74,7 @@ const Header = ({ isOpen, toggleMenu }) => {
             <div ref={headerRef} sx={styles.container}>
                 <Button
                     id="toggle-menu"
-                    type="outline"
+                    brand="outline"
                     color="secondary"
                     icon="hamburger"
                     size="lg"
@@ -91,7 +91,7 @@ const Header = ({ isOpen, toggleMenu }) => {
                 <NavLinks sx={styles.navlinks}>{['/menu', '/about', '#contact', '#reservations']}</NavLinks>
                 <div sx={styles.actions}>
                     <Button
-                        type="ghost"
+                        brand="ghost"
                         color="secondary"
                         size="lg"
                         icon="cart"
@@ -99,7 +99,7 @@ const Header = ({ isOpen, toggleMenu }) => {
                         onClick={toggleMenu}
                     />
                     <Button
-                        type="outline"
+                        brand="outline"
                         color="secondary"
                         size="sm"
                         icon="user"

@@ -89,12 +89,13 @@ const styles = t => ({
         position: 'absolute',
         width: '1px',
         height: '1px',
-        margin: '-1px',
+        margin: 0,
         padding: 0,
         border: 0,
         whiteSpace: 'nowrap',
         overflow: 'hidden',
-        clip: 'rect(0px, 0px, 0px, 0px)',
+        clip: 'rect(1px 1px 1px 1px)',
+        clipPath: 'inset(50%)',
     },
 })
 

@@ -2,11 +2,12 @@ import { alpha } from '@theme-ui/color'
 
 export default {
     buttons: {
-        types: {
+        brands: {
             solid: ({ color }) => ({
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
                     bg: `${color}.base`,
                     borderColor: `${color}.base`,
+                    color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
                 },
                 '&:hover': {
                     bg: `${color}.hover`,
@@ -210,6 +211,7 @@ export default {
     },
     layout: {
         content: { maxWidth: '35em', mb: 10, textAlign: 'center' },
+        mini: { maxWidth: '30em' },
         loose: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%'] },
         tight: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%', '20%'] },
     },

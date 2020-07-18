@@ -49,7 +49,7 @@ const Hero = () => {
                             as={Button}
                             key={idx + _menu}
                             id={`chef-menu-${_menu}`}
-                            type="ghost"
+                            brand="ghost"
                             shape="flat"
                             size="sm"
                             ghostText
@@ -118,7 +118,7 @@ const Hero = () => {
                         </Text>
                         <Flex sx={styles.contentQty}>
                             <Button
-                                type="ghost"
+                                brand="ghost"
                                 color="accent"
                                 size="sm"
                                 icon="subtract"
@@ -128,7 +128,7 @@ const Hero = () => {
                             />
                             <Text mx={3}>{qty}</Text>
                             <Button
-                                type="ghost"
+                                brand="ghost"
                                 color="accent"
                                 size="sm"
                                 icon="add"
@@ -137,7 +137,7 @@ const Hero = () => {
                                 disabled={isMaxQty}
                             />
                         </Flex>
-                        <Button type="outline" size="lg" icon="cart">
+                        <Button brand="outline" size="lg" icon="cart">
                             Order Now
                         </Button>
                     </div>
@@ -146,7 +146,7 @@ const Hero = () => {
             <Media greaterThanOrEqual="tabletS" sx={styles.controls}>
                 <div sx={styles.arrows}>
                     <Button
-                        type="outline"
+                        brand="outline"
                         color="accent"
                         icon="arrowleft"
                         ariaLabel="Previous Special"
@@ -160,7 +160,7 @@ const Hero = () => {
                         /{foodMenu.length}
                     </Text>
                     <Button
-                        type="outline"
+                        brand="outline"
                         color="accent"
                         icon="arrowright"
                         ariaLabel="Next Special"

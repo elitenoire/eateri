@@ -22,9 +22,9 @@ import { ESC, ENTER, SPACE, LEFT, UP, DOWN, RIGHT, HOME, END, PAGEUP, PAGEDOWN }
 const WeekDays = ({ month, year }) => (
     <div role="rowgroup">
         <div role="row" sx={styles.monthWeekDays}>
-            {weekDayNames.map(({ short: weekday }) => (
+            {weekDayNames.map(({ short: weekday, long: weekdayLong }) => (
                 <div role="columnheader" key={`${month}${year}${weekday}`}>
-                    <abbr title={weekday}>{weekday}</abbr>
+                    <abbr title={weekdayLong}>{weekday}</abbr>
                 </div>
             ))}
         </div>
@@ -313,7 +313,7 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
         <div sx={styles.container} role="presentation" tabIndex="0" aria-hidden="false" onKeyDown={handleKeyDown}>
             <div sx={styles.nav}>
                 <Button
-                    type="outline"
+                    brand="outline"
                     color="secondary"
                     size="sm"
                     icon="arrowleft"
@@ -324,7 +324,7 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
                     onClick={isPreviousMonthDisabled ? undefined : goPrevMonth}
                 />
                 <Button
-                    type="outline"
+                    brand="outline"
                     color="secondary"
                     size="sm"
                     icon="arrowright"
@@ -403,7 +403,7 @@ const Single = () => {
     return <Calender selected={selected} onDateSelected={onSelectDate} minDate={minDate} maxDate={maxDate} />
 }
 
-export default Single
+export default Calender
 
 /**
  * Layout -> default, normal, strip

@@ -20,7 +20,7 @@ const CarouselCard = ({ data, isMobile }) => {
                 <Text truncate={3}>{data.name}</Text>
                 {isMobile && (
                     <Button
-                        type="solid"
+                        brand="solid"
                         size="sm"
                         color="primary"
                         icon="cart"

@@ -2,12 +2,12 @@ import { alpha } from '@theme-ui/color'
 
 const styles = {
     container: {
-        mt: '2em', // Only for demo purpose
         position: 'relative',
         padding: '1.5em',
-        borderRadius: 'round',
         maxWidth: [null, null, '25em'], // 500 px
+        margin: [null, null, 'auto'],
         userSelect: 'none',
+        fontSize: 1, //
     },
     nav: {
         position: 'absolute',
@@ -53,7 +53,8 @@ const styles = {
             boxShadow: 'none',
         },
         'button:focus > span': {
-            boxShadow: t => `0 0 0 1.5px ${t.colors.highlight.base}`,
+            // boxShadow: t => `0 0 0 1.5px ${t.colors.highlight.base}`,
+            boxShadow: t => `0 0 0 1.5px ${t.colors.focusOutline}`,
         },
         'button[aria-disabled="true"]:focus > span': {
             boxShadow: t => `0 0 0 1.5px ${t.colors.text}`,
@@ -124,7 +125,8 @@ export const dayStyles = {
             boxShadow: 'inner',
         },
         '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):hover > span': {
-            bg: t => alpha('secondary.hover', 0.1)(t),
+            // bg: t => alpha('secondary.hover', 0.1)(t),
+            bg: 'rgba(0,0,0,0.125)',
         },
     },
     monthDayWeek: {

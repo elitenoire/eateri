@@ -27,7 +27,7 @@ const PopularCard = ({ title }) => (
             </Badge>
         </div>
         <Button
-            type="solid"
+            brand="solid"
             size="md"
             color="secondary"
             icon="add"
@@ -64,7 +64,7 @@ const FavoriteCard = ({ img, title }) => (
             </Badge>
         </div>
         <Button
-            type="solid"
+            brand="solid"
             size="md"
             color="secondary"
             icon="add"
@@ -108,8 +108,8 @@ const Menu = () => (
                         'Mediterranean Pizza',
                         'Grilled Steak Tomato Salad',
                     ].map(dish => (
-                        <li>
-                            <PopularCard key={dish} title={dish} />
+                        <li key={dish}>
+                            <PopularCard title={dish} />
                         </li>
                     ))}
                 </Scrollable>
@@ -123,8 +123,8 @@ const Menu = () => (
                 </div>
                 <Scrollable as="ul" pad={['0.25em', null, '1em']} sx={styles.categoryScrollable}>
                     {['African', 'Chinese', 'Vegan', 'Rice', 'Soups', 'Desserts', 'Drinks'].map(c => (
-                        <li>
-                            <CategoryCard key={c} img={imgUrl} title={c} />
+                        <li key={c}>
+                            <CategoryCard img={imgUrl} title={c} />
                         </li>
                     ))}
                 </Scrollable>
@@ -140,8 +140,8 @@ const Menu = () => (
                         </div>
                         <ul>
                             {['Red Lentil Soup', 'Thai Fried Chicken', 'Pasta & Chicken'].map(dish => (
-                                <li>
-                                    <FavoriteCard key={dish} title={dish} />
+                                <li key={dish}>
+                                    <FavoriteCard title={dish} />
                                 </li>
                             ))}
                         </ul>

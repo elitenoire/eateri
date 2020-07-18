@@ -1,5 +1,5 @@
 const styles = {
-    scrollable: ({ flex, pad, hideScroll, sx }) => ({
+    scrollable: ({ flex, pad, gap, hideScroll, sx }) => ({
         ...(flex
             ? {
                   display: 'flex',
@@ -9,6 +9,7 @@ const styles = {
                   display: 'grid',
                   gridAutoFlow: 'column',
                   gridTemplateRows: 'auto',
+                  ...(gap && { gridGap: gap }),
               }),
         overflowX: 'auto',
         overflowY: 'hidden',

@@ -62,6 +62,7 @@ const Day = ({
     return (
         <button
             ref={dayRef}
+            className="calendar--day"
             sx={dayStyles.monthDayCell}
             type="button"
             onKeyDown={handleKeyDown(date, rowId)}
