@@ -1,7 +1,5 @@
 export const stepListStyle = {
     display: 'flex',
-    flexDirection: [null, null, null, null, 'column'], //
-    alignItems: ['center', null, null, null, 'flex-start'], //
     listStyle: 'none',
     counterReset: 'step',
     li: {
@@ -9,19 +7,18 @@ export const stepListStyle = {
         zIndex: 1,
         display: 'flex',
         flex: 1,
-        flexDirection: ['column', null, null, null, 'row'], //
+        flexDirection: 'column', //
         alignItems: 'center',
-        mb: [null, null, null, null, 9], // 3em
         counterIncrement: 'step',
     },
     'li:not(:last-of-type)::after': {
         content: '""',
         display: 'block',
         position: 'absolute',
-        height: ['2px', null, null, null, 'calc(200% - 0.4em)'], //
-        top: ['0.6em', null, null, null, 'calc(0.75em * 2 + 0.2em)'], //
-        left: ['calc(50% + 1em)', null, null, null, 'calc(0.75em - 1px)'], //
-        width: ['calc(100% - 2em)', null, null, null, '2px'], //
+        height: '2px', //
+        top: '0.6em', //
+        left: 'calc(50% + 1em)', //
+        width: 'calc(100% - 2em)', //
         bg: ['rgba(255,255,255,0.5)', null, 'heroText'],
         transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
     },
@@ -33,9 +30,7 @@ export const stepListStyle = {
     },
     'li[data-step-complete]::after': {
         bg: ['white', null, 'accent.base'],
-        height: ['4px', null, null, null, 'calc(200% - 0.4em)'], //
-        width: [null, null, null, null, '4px'], //
-        left: [null, null, null, null, 'calc(0.75em - 2px)'], //
+        height: '4px', //
     },
     'li[data-step-complete]': {
         '.step--dot': {
@@ -95,8 +90,7 @@ export const stepStyle = {
         fontSize: 0,
         fontWeight: 'medium',
         textAlign: 'center',
-        mt: [3, null, null, null, 0], //
-        ml: [null, null, null, null, 5], //
+        mt: 3, //
         transition: 'color 0.35s cubic-bezier(.21,.6,.35,1)',
     },
 }
