@@ -1,9 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import React, { useContext } from 'react'
+import React, { useCallback } from 'react'
 import { CompositeItem } from 'reakit/Composite'
 
-import { StepContext } from './useStepState'
+import { useCompositeContext, useStepContext } from './useStepState'
+
 import { stepStyle } from './style'
 
 const CURRENT = 'current'
@@ -63,17 +64,18 @@ const Step = React.forwardRef(({ as: Tag, status, title, index, children, ...res
 })
 
 const StepItem = ({ index, title, children }) => {
-    const step = useContext(StepContext)
-    const { currentStep, setCurrentStep, ...composite } = step
+    const composite = useCompositeContext()
+    const { currentStep, moveStep, linear } = useStepContext()
 
     const stepIndex = index + 1
     const status = getStatus(currentStep, index)
-    const moveStep = _index => () => setCurrentStep(_index)
+
+    const handleStepClick = useCallback(() => moveStep(index), [index, moveStep])
 
     if (status === COMPLETED) {
         return (
             <li data-step-complete="">
-                <CompositeItem {...composite} onClick={moveStep(index)}>
+                <CompositeItem {...composite} onClick={handleStepClick}>
                     {stepProps => (
                         <Step {...stepProps} title={title} status={status} index={stepIndex}>
                             {children}
@@ -85,7 +87,7 @@ const StepItem = ({ index, title, children }) => {
     }
 
     return (
-        <CompositeItem {...composite} role="listitem" onClick={moveStep(index)}>
+        <CompositeItem {...composite} role="listitem" onClick={linear ? undefined : handleStepClick}>
             {stepProps => (
                 <Step {...stepProps} as="li" title={title} status={status} index={stepIndex}>
                     {children}
