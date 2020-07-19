@@ -3,6 +3,9 @@ import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
 import { Text, Heading } from '~@/typography'
 import { Button, Divider, Icon } from '~@/general'
+import { Step, StepList, StepProvider } from '~/components/navigation/Steps'
+
+import StepFindTable from './StepFindTable'
 
 import styles from './style'
 
@@ -20,6 +23,9 @@ const Reservation = () => (
                 maximum.
             </Text>
             <Text>We look forward to seeing you soon!</Text>
+            <div className="visually-hidden">
+                <p>Note that, the reservation process involves three steps.</p>
+            </div>
         </Container>
         <div sx={styles.mobileHeader}>
             <Heading as="h3" variant="h4" mb={0}>
@@ -30,13 +36,13 @@ const Reservation = () => (
             </button>
         </div>
         <Container>
-            <form data-show-halo="true" className="card-halo" sx={styles.halo}>
-                <div className="card-halo--content" sx={styles.content}>
+            <div data-show-halo="false" className="card-halo" sx={styles.selectWrap}>
+                <div className="card-halo--content" sx={styles.selectLayout}>
                     <button type="button" sx={styles.selectButton}>
                         <div>
                             <Icon name="user" />
                             <Text size={0}>
-                                Guest{' '}
+                                Guests{' '}
                                 <Text as="span" weight="medium">
                                     2
                                 </Text>
@@ -74,7 +80,21 @@ const Reservation = () => (
                 <div className="card-halo--action mobile-hidden" sx={styles.action}>
                     <Button type="submit">Find Table</Button>
                 </div>
-            </form>
+            </div>
+            <div data-show-halo="true" className="card-halo" sx={styles.formWrap}>
+                <StepProvider linear={false}>
+                    <StepList>
+                        <Step index={0}>Find Table</Step>
+                        <Step index={1}>Guest Details</Step>
+                        <Step index={2}>Confirmation</Step>
+                    </StepList>
+                    <div id="steppanels">
+                        <div id="steppanel-1">
+                            <StepFindTable />
+                        </div>
+                    </div>
+                </StepProvider>
+            </div>
         </Container>
     </Container>
 )

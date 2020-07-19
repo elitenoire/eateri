@@ -18,9 +18,9 @@
 		"@theme-ui/components": "^0.3.1",
 		"@theme-ui/core": "^0.3.1",
 		"@welldone-software/why-did-you-render": "^3.3.5",
-		"@xstate/react": "^0.8.1",
 		"@zeit/next-css": "^1.0.1",
 		"chalk": "^3.0.0",
+		"constate": "^2.0.0",
 		"date-fns": "^2.14.0",
 		"dayzed": "^3.1.0",
 		"fluid-system": "^1.0.9",
@@ -31,12 +31,13 @@
 		"react": "^16.13.1",
 		"react-burger-menu": "^2.6.13",
 		"react-dom": "^16.13.1",
+		"react-expanding-textarea": "^2.2.0",
 		"react-headroom": "^3.0.0",
+		"react-hook-form": "^6.0.7",
 		"react-spring": "^8.0.27",
 		"react-use-gesture": "^7.0.15",
-		"reakit": "^1.0.0-rc.0",
-		"remixicon": "^2.4.0",
-		"xstate": "^4.7.6"
+		"reakit": "^1.1.1",
+		"remixicon": "^2.5.0"
 	},
 	"resolutions": {
 		"**/@emotion/core": "10.0.28"
@@ -51,6 +52,7 @@
 	"devDependencies": {
 		"@babel/core": "^7.8.3",
 		"@babel/plugin-proposal-optional-chaining": "^7.10.1",
+		"@hookform/devtools": "^2.0.3",
 		"babel-eslint": "^10.1.0",
 		"babel-plugin-emotion": "^10.0.27",
 		"babel-plugin-module-resolver": "^4.0.0",
