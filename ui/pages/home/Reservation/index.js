@@ -3,9 +3,11 @@ import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
 import { Text, Heading } from '~@/typography'
 import { Button, Divider, Icon } from '~@/general'
-import { Step, StepList, StepProvider } from '~/components/navigation/Steps'
+import { Step, StepList, StepPanel, StepProvider } from '~/components/navigation/Steps'
 
+import FormSteps from './FormSteps'
 import StepFindTable from './StepFindTable'
+import StepGuestDetails from './StepGuestDetails'
 
 import styles from './style'
 
@@ -35,7 +37,7 @@ const Reservation = () => (
                 <Icon name="arrowopen" />
             </button>
         </div>
-        <Container>
+        <Container id="toggle open on mobile">
             <div data-show-halo="false" className="card-halo" sx={styles.selectWrap}>
                 <div className="card-halo--content" sx={styles.selectLayout}>
                     <button type="button" sx={styles.selectButton}>
@@ -88,12 +90,17 @@ const Reservation = () => (
                         <Step index={1}>Guest Details</Step>
                         <Step index={2}>Confirmation</Step>
                     </StepList>
-                    <div id="steppanels">
-                        <div id="steppanel-1">
+                    <FormSteps id="steppanels">
+                        <StepPanel step={0}>
                             <StepFindTable />
-                        </div>
-                    </div>
+                        </StepPanel>
+                        <StepPanel step={1}>
+                            <StepGuestDetails />
+                        </StepPanel>
+                        <StepPanel step={2}>STEP 3</StepPanel>
+                    </FormSteps>
                 </StepProvider>
+                <Button className="mobile-hidden" color="secondary" icon="close" sx={styles.formClose} />
             </div>
         </Container>
     </Container>

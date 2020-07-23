@@ -101,6 +101,7 @@ const styles = {
         transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
         ':hover': {
             bg: [null, null, 'accent.pale'],
+            color: [null, null, 'accent.dark'],
         },
         '& > div': {
             display: 'flex',
@@ -119,6 +120,11 @@ const styles = {
             },
         },
     },
+    formClose: {
+        position: 'absolute',
+        top: '-2.125em',
+        right: '-2.125em',
+    },
     formWrap: {
         display: 'flex',
         flexDirection: 'column',
@@ -136,7 +142,7 @@ const styles = {
             bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.pale', 0.5)(t)],
             borderRadius: '2em',
             minHeight: '5em',
-            mt: '1.5em',
+            mt: 6,
             transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
             ':hover': {
                 bg: [null, null, 'accent.pale'],
@@ -147,13 +153,19 @@ const styles = {
         bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.pale', 0.5)(t)],
         borderRadius: '2em',
         minHeight: '5em',
-        mt: '1.5em',
+        mt: 6,
+        pb: 4,
+        fontSize: 1, // TODO: try different sizes
         transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
         ':hover': {
             bg: [null, null, 'accent.pale'],
         },
+        ':hover input,:hover textarea': {
+            bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.light', 0.3)(t)],
+        },
     },
     formSectionLabel: {
+        display: 'block',
         pt: 4,
         pb: 2,
         fontWeight: 'bold',
@@ -247,6 +259,39 @@ const styles = {
             boxShadow: t => ['xl', null, `0 0.5em 0.7em -0.3em ${alpha('accent.base', 0.7)(t)}`],
         },
     },
+    formInput: {
+        width: '90%',
+        mx: 'auto',
+        mt: 4,
+        px: 4,
+        letterSpacing: 'wider',
+        bg: ['rgba(255,255,255,0.2)', null, 'accent.pale'],
+        border: '1px solid transparent',
+        borderRadius: 'inherit',
+        color: ['inherit', null, 'accent.dark'],
+        fontFamily: 'inherit',
+        transition: 'all 0.3s ease-in-out',
+        '::placeholder': {
+            color: t => ['rgba(0,0,0,0.25)', null, alpha('accent.dark', 0.25)(t)],
+        },
+        ':hover': {
+            bg: t => ['rgba(255,255,255,0.35)', null, alpha('accent.light', 0.5)(t)],
+        },
+        ':focus': {
+            boxShadow: t => [`0 0 0 3px rgba(255,255,255,0.5)`, null, `0 0 0 3px ${t.colors.accent.light}`],
+            border: t => `1px solid ${t.colors.accent.dark}`,
+        },
+    },
+    guestInputWrap: {
+        display: 'flex',
+        flexDirection: ['column', null, null, null, 'row'],
+        justifyContent: 'space-between',
+        px: [null, null, 6, 9, 0],
+        '& > div': {
+            flex: '0 0 48%',
+        },
+    },
+    guestCard: {},
 }
 
 export default styles
