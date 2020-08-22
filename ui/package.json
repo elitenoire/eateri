@@ -31,10 +31,10 @@
 		"react": "^16.13.1",
 		"react-burger-menu": "^2.6.13",
 		"react-dom": "^16.13.1",
-		"react-expanding-textarea": "^2.2.0",
 		"react-headroom": "^3.0.0",
 		"react-hook-form": "^6.0.7",
 		"react-spring": "^8.0.27",
+		"react-textarea-autosize": "^8.2.0",
 		"react-use-gesture": "^7.0.15",
 		"reakit": "^1.1.1",
 		"remixicon": "^2.5.0"

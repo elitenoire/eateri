@@ -19,6 +19,7 @@ const blink = keyframes`
 const LoadingDots = () => (
     <span
         sx={{
+            fontSize: 7,
             '& > span': {
                 animation: `${blink} 1.4s ease infinite`,
                 animationFillMode: 'both',

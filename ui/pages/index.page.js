@@ -6,6 +6,7 @@ import Offers from '~/pages/home/Offers'
 import About from '~/pages/home/About'
 import Services from '~/pages/home/Services'
 import Menu from '~/pages/home/Menu'
+import Reservation from '~/pages/home/Reservation'
 
 import {
     Media,
@@ -30,7 +31,8 @@ const Index = ({ userAgent }) => (
                 <Services />
             </Media>
             <Menu />
-            <div id="about" style={{ height: '100vh', background: 'white', borderRadius: '40px' }} />
+            <Reservation />
+            <div id="about" style={{ minheight: '100vh', background: 'white', borderRadius: '40px' }} />
             <div id="reservations" style={{ height: '50vh', background: 'green' }} />
             <div style={{ height: '20vh', background: 'red' }} />
         </MediaContextProvider>

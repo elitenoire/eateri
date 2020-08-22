@@ -16,6 +16,7 @@ import Location from 'remixicon/icons/Map/map-pin-2-line.svg'
 import Menu2 from 'remixicon/icons/Map/restaurant-2-line.svg'
 import Gallery from 'remixicon/icons/Media/gallery-line.svg'
 import Reserved from 'remixicon/icons/Others/reserved-line.svg'
+import ReservedFill from 'remixicon/icons/Others/reserved-fill.svg'
 import Add from 'remixicon/icons/System/add-line.svg'
 import ArrowDropDown from 'remixicon/icons/System/arrow-drop-down-line.svg'
 import ArrowBack from 'remixicon/icons/System/arrow-go-back-line.svg'
@@ -77,6 +78,7 @@ export default {
     phone: Phone,
     profile: Profile,
     reserved: Reserved,
+    reservedfill: ReservedFill,
     search: Search,
     subtract: Subtract,
     time: Time,

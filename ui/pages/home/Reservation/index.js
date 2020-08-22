@@ -8,6 +8,7 @@ import { Step, StepList, StepPanel, StepProvider } from '~/components/navigation
 import FormSteps from './FormSteps'
 import StepFindTable from './StepFindTable'
 import StepGuestDetails from './StepGuestDetails'
+import StepConfirmation from './StepConfirmation'
 
 import styles from './style'
 
@@ -97,7 +98,9 @@ const Reservation = () => (
                         <StepPanel step={1}>
                             <StepGuestDetails />
                         </StepPanel>
-                        <StepPanel step={2}>STEP 3</StepPanel>
+                        <StepPanel step={2}>
+                            <StepConfirmation />
+                        </StepPanel>
                     </FormSteps>
                 </StepProvider>
                 <Button className="mobile-hidden" color="secondary" icon="close" sx={styles.formClose} />

@@ -18,8 +18,16 @@ const styles = {
             boxShadow: 'none',
         },
         '& ::-webkit-scrollbar-track': {
-            background: t => t.colors.accent.pale,
+            background: 'transparent', // t => t.colors.accent.pale,
             borderRadius: '5px',
+        },
+        '& ::-webkit-scrollbar-track-piece:end': {
+            background: 'transparent',
+            mb: 5,
+        },
+        '& ::-webkit-scrollbar-track-piece:start': {
+            background: 'transparent',
+            mt: 5,
         },
         '.card-halo': {
             position: 'relative',
@@ -163,6 +171,12 @@ const styles = {
         ':hover input,:hover textarea': {
             bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.light', 0.3)(t)],
         },
+        textarea: {
+            display: 'block',
+            resize: 'none',
+            py: ['10px', null, '14px'],
+            fontSize: 'inherit',
+        },
     },
     formSectionLabel: {
         display: 'block',
@@ -270,7 +284,7 @@ const styles = {
         borderRadius: 'inherit',
         color: ['inherit', null, 'accent.dark'],
         fontFamily: 'inherit',
-        transition: 'all 0.3s ease-in-out',
+        transition: 'border 0.3s, boxShadow 0.3s, background-color 0.3s',
         '::placeholder': {
             color: t => ['rgba(0,0,0,0.25)', null, alpha('accent.dark', 0.25)(t)],
         },
@@ -291,7 +305,92 @@ const styles = {
             flex: '0 0 48%',
         },
     },
-    guestCard: {},
+    guestCard: {
+        position: 'relative',
+        display: 'flex',
+        padding: '1.25em 1.25em 1em',
+        borderRadius: 'pill',
+        maxWidth: '25em',
+        mt: 7,
+        mx: 'auto',
+        background: ({ colors }) => [
+            'rgba(255,255,255,0.35)',
+            null,
+            `linear-gradient(to bottom left, ${colors.accent.light}, ${colors.accent.base})`,
+        ],
+        boxShadow: t => ['xl', null, `0 0.5em 0.7em -0.3em ${alpha('accent.base', 0.7)(t)}`],
+        '&[data-has-overlay]': {
+            overflow: 'hidden',
+        },
+    },
+    guestCardAvatar: {
+        width: ['3em', null, '4em'],
+        alignSelf: 'center',
+        boxShadow: 'ringLight',
+        mr: 5,
+    },
+    guestCardSvg: {
+        position: 'absolute',
+        right: 0,
+        bottom: 0,
+        width: '30%',
+    },
+    guestCardOverlay: {
+        position: 'absolute',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        top: 0,
+        bottom: 0,
+        left: 0,
+        right: 0,
+        borderRadius: 'inherit',
+        bg: t => alpha('accent.base', 0.35)(t),
+        backdropFilter: 'blur(10px)',
+    },
+    confirmLayout: {
+        bg: t => ['accent.light', null, alpha('accent.pale', 0.5)(t)],
+        borderRadius: 30,
+        padding: 7,
+        my: 6,
+        textAlign: 'center',
+        transition: 'background-color 0.3s',
+        ':hover': {
+            bg: [null, null, 'accent.pale'],
+        },
+    },
+    confirmIcon: {
+        display: 'inline-block',
+        borderRadius: 'icon',
+        padding: '0.5em',
+        fontSize: '1.2em',
+        boxShadow: 'inner',
+        bg: t => alpha('accent.base', 0.5)(t),
+        svg: {
+            display: 'block',
+        },
+    },
+    confirmSvg: {
+        position: 'absolute',
+        width: '30%',
+        opacity: 0.08,
+        right: '-5%',
+        bottom: '-10%',
+    },
+    confirmDetailsBox: {
+        position: 'relative',
+        boxShadow: 'inner',
+        bg: t => alpha('accent.base', 0.5)(t),
+        borderRadius: 20,
+        padding: 4,
+        overflow: 'hidden',
+    },
+    confirmDetails: {
+        display: 'flex',
+        flexDirection: ['column', null, 'row'],
+        justifyContent: 'space-around',
+        textAlign: 'left',
+    },
 }
 
 export default styles

@@ -10,6 +10,14 @@
 		"react/prop-types": [2, { "skipUndeclared": true }],
 		"react/jsx-props-no-spreading": 0,
 		"arrow-parens": [2, "as-needed"],
+		"jsx-a11y/label-has-associated-control": [
+			"error",
+			{
+				"required": {
+					"some": ["nesting", "id"]
+				}
+			}
+		],
 		"prettier/prettier": [
 			"error",
 			{
