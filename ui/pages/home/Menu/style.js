@@ -1,11 +1,17 @@
 import { alpha } from '@theme-ui/color'
 import { mediaQueries as mq } from '~/theme/tokens/rhythm'
 
+import menufoodRUrl from '~/public/menufood-r.png'
+import menufoodLUrl from '~/public/menufood-l.png'
+import menuLeafUrl from '~/public/menuleaf.png'
+
 const styles = {
     section: {
+        position: 'relative',
         pt: [7, null, 10],
         pb: 4,
         bg: ['background', null, 'primary.base'],
+        overflow: [null, null, null, 'hidden'],
         '.flex-split': {
             display: 'flex',
             justifyContent: 'space-between',
@@ -20,12 +26,12 @@ const styles = {
     },
     menuBox: {
         display: 'block',
+        position: 'relative',
         pt: [0, null, 6],
-        pb: 2,
-        mb: [4, null, 9],
+        pb: [2, null, 0],
+        mb: [4, null, 11],
         border: [null, null, '0.5px solid'],
         borderRadius: [null, null, 40],
-        overflow: [null, null, 'hidden'],
         '.scrollable': {
             mx: ['-1.5em', null, 'auto'],
             [mq.tabletS]: {
@@ -54,6 +60,10 @@ const styles = {
             textDecoration: [null, null, 'underline'],
             cursor: 'pointer',
         },
+    },
+    menuBoxBody: {
+        overflow: [null, null, 'hidden'],
+        borderRadius: [null, null, 'inherit'],
     },
     popularScrollable: {
         gridGap: [4, null, 7],
@@ -164,6 +174,58 @@ const styles = {
     imageBox: {
         size: '4em',
         mr: 4,
+    },
+    pmSvg: {
+        display: ['none', null, null, null, 'block'],
+        position: 'absolute',
+        right: '-2.95%',
+        top: '6em',
+        width: '15%',
+        '.pm-bubble': {
+            opacity: 0.25,
+        },
+    },
+    menufoodR: {
+        display: ['none', null, null, 'block'],
+        position: 'absolute',
+        backgroundImage: `url('${menufoodRUrl}')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        width: '5%',
+        height: '75%',
+        right: 0,
+        bottom: 0,
+        transition: 'width 0.5s ease',
+        ':hover': {
+            width: '10%',
+        },
+    },
+    menufoodL: {
+        display: ['none', null, null, 'block'],
+        position: 'absolute',
+        backgroundImage: `url('${menufoodLUrl}')`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'top right',
+        width: '28%',
+        height: '100%',
+        left: '-14%',
+        top: 0,
+        transition: 'left 0.5s ease',
+        ':hover': {
+            left: '-9%',
+        },
+    },
+    menuBoxDecor: {
+        display: ['none', null, 'block'],
+        position: 'absolute',
+        backgroundImage: `url('${menuLeafUrl}')`,
+        width: '100%',
+        height: '3em',
+        top: 'calc(-3em - 0.5px)',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: 'top',
+        backgroundSize: '90%',
     },
 }
 

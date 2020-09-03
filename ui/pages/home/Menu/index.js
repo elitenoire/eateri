@@ -7,6 +7,7 @@ import Scrollable from '~@/display/Scrollable'
 import Button from '~@/general/Button'
 import styles from './style'
 
+import PointingManSvg from '~/public/inlineSvg/pointing-man.svg'
 import url from '~/public/dish.png'
 import imgUrl from '~/public/c-rice.jpg'
 
@@ -19,7 +20,7 @@ const PopularCard = ({ title }) => (
             {title}
         </Text>
         <div className="flex-split">
-            <Text size={1} line="tight" color={['textLight', null, 'inherit']}>
+            <Text size={1} line="tight" color={['textLight', null, 'textFade']}>
                 ₦1500
             </Text>
             <Badge as="p" variant="highlight" sx={styles.badgeRating}>
@@ -80,16 +81,17 @@ const Menu = () => (
             <Text as="h2" variant="block" mb={2} color="secondary.pale">
                 Explore Our Menu
             </Text>
-            <Heading as="p" variant="h2" color="text" weight="extrabold" title>
+            <Heading as="p" variant="headline" color="text" weight="extrabold" title>
                 Explore 80+ Delicious Dishes
             </Heading>
-            <Text>
+            <Text color="textFade">
                 We have more than 80 dishes with the best tastes, flavours and recipes from around the world. What do
                 you fancy from our menu?
             </Text>
         </Container>
         <Container as="ul">
             <li sx={styles.menuBox}>
+                <div sx={styles.menuBoxDecor} />
                 <div className="flex-split" sx={styles.menuBoxHeader}>
                     <Heading as="h3" variant="h4">
                         Popular{' '}
@@ -99,35 +101,40 @@ const Menu = () => (
                     </Heading>
                     <Text size={1}>See All</Text>
                 </div>
-                <Scrollable as="ul" pad="0.25em" sx={styles.popularScrollable}>
-                    {[
-                        'Jollof Rice',
-                        'Egusi Soup',
-                        'Teriyaki Sauce & Rice',
-                        'Chilli Con Carne',
-                        'Mediterranean Pizza',
-                        'Grilled Steak Tomato Salad',
-                    ].map(dish => (
-                        <li key={dish}>
-                            <PopularCard title={dish} />
-                        </li>
-                    ))}
-                </Scrollable>
+                <div sx={styles.menuBoxBody}>
+                    <Scrollable as="ul" pad="0.25em" sx={styles.popularScrollable}>
+                        {[
+                            'Jollof Rice',
+                            'Egusi Soup',
+                            'Teriyaki Sauce & Rice',
+                            'Chilli Con Carne',
+                            'Mediterranean Pizza',
+                            'Grilled Steak Tomato Salad',
+                        ].map(dish => (
+                            <li key={dish}>
+                                <PopularCard title={dish} />
+                            </li>
+                        ))}
+                    </Scrollable>
+                </div>
             </li>
             <li sx={styles.menuBox}>
+                <div sx={styles.menuBoxDecor} />
                 <div className="flex-split" sx={styles.menuBoxHeader}>
                     <Heading as="h3" variant="h4">
                         Category
                     </Heading>
                     <Text size={1}>See All</Text>
                 </div>
-                <Scrollable as="ul" pad={['0.25em', null, '1em']} sx={styles.categoryScrollable}>
-                    {['African', 'Chinese', 'Vegan', 'Rice', 'Soups', 'Desserts', 'Drinks'].map(c => (
-                        <li key={c}>
-                            <CategoryCard img={imgUrl} title={c} />
-                        </li>
-                    ))}
-                </Scrollable>
+                <div sx={styles.menuBoxBody}>
+                    <Scrollable as="ul" pad={['0.25em', null, '1em']} sx={styles.categoryScrollable}>
+                        {['African', 'Chinese', 'Vegan', 'Rice', 'Soups', 'Desserts', 'Drinks'].map(c => (
+                            <li key={c}>
+                                <CategoryCard img={imgUrl} title={c} />
+                            </li>
+                        ))}
+                    </Scrollable>
+                </div>
             </li>
             <Media lessThan="tabletS">
                 {mediaClass => (
@@ -149,6 +156,9 @@ const Menu = () => (
                 )}
             </Media>
         </Container>
+        <PointingManSvg sx={styles.pmSvg} />
+        <div sx={styles.menufoodR} />
+        <div sx={styles.menufoodL} />
     </Container>
 )
 

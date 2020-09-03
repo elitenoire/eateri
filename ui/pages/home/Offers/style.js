@@ -1,10 +1,15 @@
+import logobgUrl from '~/public/logo-bg.svg'
+
 const styles = {
     section: {
-        // bg: 'secondary.light',
         mt: t => [`-${t.space.header}`, null, 0],
-        pt: 7,
-        // pb: [4, null, 0],
-        bg: ['background', null, 'secondary.light'],
+        pt: [7, null, 13],
+        backgroundSize: 'cover',
+        background: ({ colors }) => [
+            colors.background,
+            null,
+            `url('${logobgUrl}'), linear-gradient(to bottom, ${colors.secondary.pale}, ${colors.secondary.light})`,
+        ],
         borderTopLeftRadius: [40, null, 'none'],
         borderTopRightRadius: [40, null, 'none'],
         '.wave-decoration': {
@@ -15,8 +20,9 @@ const styles = {
             justifyContent: [null, null, 'center'],
             textAlign: 'center',
             mt: '-1.5em',
+            mb: [null, null, 8],
             mx: ['-1.5em', null, 'auto'],
-            pb: [4, null, 0],
+            pb: [4, null, 1],
             minWidth: 0,
             maxWidth: 'container',
         },
@@ -41,9 +47,7 @@ const styles = {
             `linear-gradient(to right, ${t.colors.heroStripe3} 50%, ${t.colors.heroStripe2} 50%)`,
         ],
         color: 'heroText',
-        borderRadius: 'default',
-        borderBottomLeftRadius: [null, null, '20'],
-        borderBottomRightRadius: [null, null, '20'],
+        borderRadius: ['default', null, '20'],
         padding: 6,
         mt: [6, null, 0],
         display: 'flex',
@@ -98,7 +102,7 @@ const styles = {
         padding: 4,
         bg: 'primary.base',
         border: t => `1px solid ${t.colors.primary.hover}`,
-        borderRadius: ['default', null, 'none'],
+        borderRadius: ['default', null, 'tiny'],
         cursor: 'pointer',
         transition: 'background-color 0.4s ease-out, transform 0.4s ease-out',
         backfaceVisibility: 'hidden',
