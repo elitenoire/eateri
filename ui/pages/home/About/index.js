@@ -17,7 +17,7 @@ const About = () => (
                 <Text as="h2" variant="block" mb={2} color="primary.base">
                     About Us
                 </Text>
-                <Heading as="p" variant="h2" color="text" weight="extrabold" title>
+                <Heading as="p" variant="headline" color="text" weight="extrabold" title>
                     The Messi of Great Food
                 </Heading>
                 <Text>

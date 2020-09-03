@@ -47,6 +47,7 @@ export default {
     },
     radii: {
         none: '0',
+        tiny: '5px',
         default: '0.875em', // 14px
         20: '1.25em',
         25: '1.5em',

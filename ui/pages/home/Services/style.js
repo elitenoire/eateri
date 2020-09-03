@@ -1,7 +1,7 @@
 const styles = {
     section: {
         bg: 'muted',
-        pt: 13,
+        pt: [13, null, null, '8em'],
         '& > svg': {
             display: 'block',
         },
@@ -11,6 +11,7 @@ const styles = {
         gridAutoRows: 'minmax(7em, auto)',
         gridTemplateColumns: [null, null, null, '1fr 1fr', '2.5fr 2.5fr 3fr'],
         m: '0 auto',
+        mb: [null, null, 8],
     },
     gridRowFlex: {
         display: 'flex',

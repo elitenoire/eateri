@@ -18,7 +18,7 @@ export default {
         '1.75em', // [6] - 28px
         '2em', // [7] - 32px
         '2.375em', // [8] - 38px
-        '3em', // [9] - 48px
+        '2.75em', // [9] - 44px
     ],
     fontWeights: {
         hairline: '100',

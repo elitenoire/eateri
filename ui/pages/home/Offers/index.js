@@ -64,7 +64,7 @@ const Offers = () => (
                     <span />
                     <span />
                 </div>
-                <Text as="h3" variant="title" my={7} size={5} weight="normal" align="center">
+                <Text as="h3" variant="title" mt={9} mb={7} size={5} weight="normal" align="center">
                     Offers Of The Week
                 </Text>
             </Container>

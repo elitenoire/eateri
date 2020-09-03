@@ -180,6 +180,10 @@ export default {
         tiny: {
             fontSize: 0,
         },
+        headline: {
+            fontSize: 9,
+            my: 2,
+        },
         title: {
             fontFamily: 'title',
         },
@@ -194,7 +198,7 @@ export default {
         services: {
             display: 'flex',
             padding: 5,
-            // borderRadius: 'default',
+            borderRadius: 'tiny',
             boxShadow: 'sm',
             cursor: 'pointer',
             transition: 'transform 0.4s ease-out, box-shadow 0.5s ease-out',

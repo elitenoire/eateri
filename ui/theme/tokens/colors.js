@@ -24,12 +24,12 @@ export default {
         hover: '#FEC21C',
         pale: '#FEFBE1', // '#FEF9D8',
         light: '#FEE78B',
-        dark: '#B5871F',
+        dark: '#CB9903', // #B5871F,
         neumorph: {
             light: '#ffe044',
             dark: '#d6ad35',
         },
-        gradient: 'linear-gradient(to bottom right, #fccc3e, #B5871F)',
+        gradient: 'linear-gradient(to bottom right, #fccc3e, #CB9903)',
     },
     secondary: {
         base: '#212529',
@@ -55,6 +55,7 @@ export default {
     },
     background: '#fefefd', // #fafbfd
     text: '#343a40',
+    textFade: 'rgba(52,58,64,0.85)',
     textDark: '#212529',
     textLight: '#909cac', // '#464e56',
     textLighter: '#a0aec0', // '#868b96',
