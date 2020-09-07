@@ -3,9 +3,9 @@ const systemFont =
 
 export default {
     fonts: {
-        body: `Objectivity, ${systemFont}`, // , sans-serif',
+        body: `Manrope, ${systemFont}`,
         heading: 'inherit',
-        title: `Sen, ${systemFont}`, // , sans-serif',
+        title: `Sen, ${systemFont}`,
         system: systemFont,
     },
     fontSizes: [

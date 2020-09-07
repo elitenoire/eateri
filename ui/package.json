@@ -10,7 +10,7 @@
 		"@artsy/detect-responsive-traits": "^0.0.5",
 		"@artsy/fresnel": "^1.1.0",
 		"@emotion/core": "^10.0.28",
-		"@openfonts/sen_latin": "^1.0.1",
+		"@googlemaps/js-api-loader": "^1.2.0",
 		"@styled-system/typography": "^5.1.2",
 		"@svgr/webpack": "^5.3.0",
 		"@theme-ui/color": "^0.3.1",
@@ -24,6 +24,10 @@
 		"date-fns": "^2.14.0",
 		"dayzed": "^3.1.0",
 		"fluid-system": "^1.0.9",
+		"fontsource-manrope": "^3.0.5",
+		"fontsource-poppins": "^3.0.3",
+		"fontsource-sen": "^3.0.3",
+		"fontsource-tajawal": "^3.0.3",
 		"next": "^9.3.4",
 		"next-compose-plugins": "^2.2.0",
 		"next-fonts": "^1.0.3",
@@ -37,7 +41,8 @@
 		"react-textarea-autosize": "^8.2.0",
 		"react-use-gesture": "^7.0.15",
 		"reakit": "^1.1.1",
-		"remixicon": "^2.5.0"
+		"remixicon": "^2.5.0",
+		"rgm": "^0.1.1"
 	},
 	"resolutions": {
 		"**/@emotion/core": "10.0.28"

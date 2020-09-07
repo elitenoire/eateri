@@ -20,11 +20,11 @@ const About = () => (
                 <Heading as="p" variant="headline" color="text" weight="extrabold" title>
                     The Messi of Great Food
                 </Heading>
-                <Text>
+                <Text spacing="wide">
                     Eateri offers premium and authentic cooking, fast and light lunches for an amazing dining
                     experience. We treat all of our customers with utmost care and service.
                 </Text>
-                <Text my={3}>
+                <Text my={3} spacing="wide">
                     Choose from a variety of healthy and delicious meal plans designed by our nutritionists and cooked
                     to perfection by our proud Chefs.
                 </Text>

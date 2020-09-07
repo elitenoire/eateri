@@ -58,7 +58,7 @@ const Offers = () => (
                             welcome30
                         </Text>
                     </Text>
-                    <Text variant="tiny" mt={6} weight="light">
+                    <Text variant="tiny" mt={6} weight="light" spacing="wide">
                         * Offer valid only for first time customers. T&C applies.
                     </Text>
                     <span />

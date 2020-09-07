@@ -1,4 +1,5 @@
 import App from 'next/app'
+// import Router from 'next/router'
 import Head from 'next/head'
 import React from 'react'
 import { ThemeProvider } from '@theme-ui/core'
@@ -13,9 +14,8 @@ import MainLayout from '~@/layout/Main'
 import '~/css/vivify-lite.css'
 
 // Custom fonts
-import '@openfonts/sen_latin/index.css'
-// import '~/public/fonts/adca/index.css'
-import '~/public/fonts/objectivity/index.css'
+import 'fontsource-sen/latin.css'
+import 'fontsource-manrope/latin.css'
 
 // For debugging reasons for re-rendering components we use whyDidYouRender in dev mode
 if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
@@ -25,6 +25,28 @@ if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
 export default class MyApp extends App {
     render() {
         const { Component, pageProps } = this.props
+
+        // const {
+        //     Component,
+        //     pageProps,
+        //     router: { asPath, route },
+        // } = this.props
+
+        // Next.js currently does not allow trailing slash in a route.
+        // This is a client side redirect in case trailing slash occurs.
+        // See https://github.com/zeit/next.js/issues/5214#issuecomment-575612685
+
+        // if (pageProps.statusCode === 404 && asPath && asPath.length > 1) {
+        //     const [path, query = ''] = asPath.split('?')
+        //     if (path.endsWith('/') && path.length > 1) {
+        //         const asPathWithoutTrailingSlash = path.replace(/\/*$/gim, '') + (query ? `?${query}` : '')
+        //         if (typeof window !== 'undefined') {
+        //             Router.replace(asPathWithoutTrailingSlash, undefined, { shallow: true })
+        //             return null
+        //         }
+        //     }
+        // }
+
         return (
             <>
                 <Head>
