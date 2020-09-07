@@ -77,7 +77,7 @@ const styles = {
         ml: [null, null, null, null, '2vw'],
         a: {
             textDecoration: 'none',
-            transition: 'transform 0.3s',
+            transition: 'transform 0.3s, color 0.3s',
             mx: 1,
         },
         svg: {

@@ -83,10 +83,7 @@ const Header = ({ isOpen, toggleMenu }) => {
                     borderless
                 />
                 <Link href="/" passHref>
-                    <a aria-label="Eateri Home" title="Eateri Home" sx={styles.logoBox}>
-                        <Logo aria-hidden="true" focusable="false" className="logo" color="secondary" />
-                        <LogoText aria-hidden="true" focusable="false" className="logo-text" />
-                    </a>
+                    <Logo aria-label="Eateri Home" title="Eateri Home" link color="secondary" sx={styles.logoBox} />
                 </Link>
                 <NavLinks sx={styles.navlinks}>{['/menu', '/about', '#contact', '#reservations']}</NavLinks>
                 <div sx={styles.actions}>

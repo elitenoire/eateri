@@ -36,7 +36,7 @@ export default {
         hover: '#343a40',
         pale: '#f1f3f5',
         light: '#EAF1F4',
-        dark: '#0A0F17',
+        dark: '#060A13', // '#0A0F17',
         gradient: 'linear-gradient(60deg, #29323c 0%, #485563 100%)',
     },
     accent: {

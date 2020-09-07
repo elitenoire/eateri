@@ -54,7 +54,7 @@ export default {
         30: '2em',
         40: '2.5em',
         50: '3.125em', // 50px
-        apple: '17.544%',
+        apple: '22.5%',
         icon: '40%',
         round: '0.6em',
         pill: '50em',

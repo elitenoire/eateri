@@ -7,6 +7,7 @@ import useCounter from '~/hooks/useCounter'
 import { Button, Icon } from '~@/general'
 import { Carousel, CarouselCard } from '~@/display'
 import { Heading, Text } from '~@/typography'
+import { SocialMedia } from '~@/other'
 import styles from './style'
 import { foodMenu, menuList } from './data'
 import url from '~/public/dish.png'
@@ -32,15 +33,7 @@ const Hero = () => {
         <section id="homepage-hero" sx={styles.section}>
             <div sx={styles.main}>
                 <div sx={styles.socialLinks}>
-                    <a href="https://github.com/elitenoire/eateri" aria-label="See source code" title="See source code">
-                        <Icon name="github" />
-                    </a>
-                    <a href="#" aria-label="See our tweets" title="See our tweets">
-                        <Icon name="twitter" />
-                    </a>
-                    <a href="#" aria-label="See instagram gallery" title="See instagram gallery">
-                        <Icon name="instagram" />
-                    </a>
+                    <SocialMedia />
                 </div>
                 <TabList {...tabState} aria-label="Chef's Special Menu" sx={styles.menuList}>
                     {menuList.map((_menu, idx) => (

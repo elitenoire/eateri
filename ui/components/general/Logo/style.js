@@ -1,4 +1,15 @@
 const styles = {
+    logoBox: {
+        display: 'flex',
+        '.logo': {
+            size: '2em',
+            mr: '0.8em',
+        },
+        '.logo-text': {
+            width: '6em',
+            height: 'auto',
+        },
+    },
     primary: {
         '#logoBgGradient #logoLightStop': {
             stopColor: t => t.colors.primary.base,
@@ -24,12 +35,8 @@ const styles = {
         '#logoBgGradient #logoDarkStop': {
             stopColor: t => t.colors.secondary.hover,
         },
-        // '#logoTopShadow,#logoRightShadow': {
-        //     fill: 'white',
-        //     opacity: 0.2,
-        // },
         '#logoLeftShadow,#logoForkShadow,#logoTopShadow,#logoRightShadow': {
-            fill: t => t.colors.secondary.pale, // '#D1D3D4',
+            fill: t => t.colors.secondary.pale,
             opacity: 0.05,
         },
         '#logoForkOuter': {

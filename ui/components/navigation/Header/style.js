@@ -78,18 +78,12 @@ const styles = {
         display: 'inline-flex',
         alignItems: 'flex-start',
         mr: [null, null, null, null, 'auto'],
-        ml: ['20%', null, '10%', 0],
+        ml: ['10%', null, null, 0],
         '&:hover .logo': {
             animation: `${spin} 1s linear infinite both`,
         },
-        '.logo': {
-            size: '2em',
-            mr: '0.8em',
-        },
         '.logo-text': {
             display: ['none', null, 'initial'],
-            width: '6em',
-            height: 'auto',
         },
     },
     navlinks: {
