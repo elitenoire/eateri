@@ -66,6 +66,20 @@ const styles = {
             size: '3em',
         },
     },
+    inputBar: {
+        bg: t => alpha('secondary.base', 0.08)(t),
+        boxShadow: t => `0 0 14px 2px ${alpha('textOnSecondary', 0.05)(t)}`,
+        input: {
+            color: 'primary.light',
+            '::placeholder': {
+                color: t => alpha('primary.light', 0.1)(t),
+            },
+            ':focus': {
+                borderColor: 'primary.light',
+                boxShadow: 'none',
+            },
+        },
+    },
     footerContent: {
         display: 'flex',
         flexDirection: ['column', null, null, 'row'],
@@ -110,7 +124,7 @@ const styles = {
     gmap: {
         flex: [null, null, null, '100%', 1],
         order: [null, null, null, 1, 0],
-        border: t => `1px solid ${t.colors.primary.base}`,
+        border: t => `1px solid ${t.colors.primary.light}`,
         padding: '0 !important',
         margin: [7, null, null, null, 4],
         width: 'fluid',

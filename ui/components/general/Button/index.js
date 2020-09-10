@@ -51,13 +51,13 @@ const Button = React.forwardRef(
         const {
             theme: { buttons },
         } = useThemeUI()
-        // const { sizes, shapes, brands } = theme.buttons
         const iconOnly = icon && !children
         const buttonWithIcon = icon && children
 
         return (
             <TUIButton
                 ref={ref}
+                margin="6px"
                 sx={_sx({
                     buttons,
                     size,

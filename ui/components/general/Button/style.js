@@ -10,7 +10,6 @@ const styles = {
         borderWidth: '1.5px',
         borderStyle: 'solid',
         fontFamily: 'body',
-        margin: '6px',
         backfaceVisibility: 'hidden',
         transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
         '& .symbol': {

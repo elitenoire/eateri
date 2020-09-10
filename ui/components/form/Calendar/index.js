@@ -313,6 +313,7 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
         <div sx={styles.container} role="presentation" tabIndex="0" aria-hidden="false" onKeyDown={handleKeyDown}>
             <div sx={styles.nav}>
                 <Button
+                    type="button"
                     brand="outline"
                     color="secondary"
                     size="sm"
@@ -324,6 +325,7 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
                     onClick={isPreviousMonthDisabled ? undefined : goPrevMonth}
                 />
                 <Button
+                    type="button"
                     brand="outline"
                     color="secondary"
                     size="sm"

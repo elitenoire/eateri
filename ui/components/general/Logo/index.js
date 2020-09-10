@@ -46,7 +46,7 @@ const Logo = React.forwardRef(({ color, plain, size, link, noText, sx, ...rest }
         return _logo
     }
     return (
-        <LogoTag sx={getLogoBoxStyle({ plain, color, size, sx })} {...rest}>
+        <LogoTag ref={ref} sx={getLogoBoxStyle({ plain, color, size, sx })} {...rest}>
             {_logo}
             <LogoText aria-hidden="true" focusable="false" className="logo-text" />
         </LogoTag>

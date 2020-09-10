@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { Input, Image } from '@theme-ui/components'
+import { Image } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Icon, Logo, Button } from '~@/general'
+import { InputBar } from '~@/form'
 import { SocialMedia } from '~@/other'
 
 import payIconsUrl from '~/public/pay-icons.svg'
@@ -26,7 +27,9 @@ const Footer = () => {
                             <Text size={3}>No spam, we promise.</Text>
                         </div>
                         <div sx={styles.formWrap}>
-                            <Input />
+                            <InputBar sx={styles.inputBar} placeholder="Your email...">
+                                <Button margin={0}>Subscribe</Button>
+                            </InputBar>
                         </div>
                     </div>
                 </div>
