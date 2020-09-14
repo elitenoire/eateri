@@ -154,12 +154,21 @@ const styles = {
         },
     },
     copywright: {
+        position: 'fixed',
+        bottom: 0,
+        width: 'fluid',
+        zIndex: 'footerCopywright',
+
         display: 'flex',
         justifyContent: 'space-around',
         bg: 'secondary.dark',
-        pt: 6,
+        pt: 4,
         pb: 4,
         boxShadow: '0 -3px 10px hsla(0, 0%, 0%, 0.07)',
+        a: {
+            color: 'primary.base',
+            fontWeight: 'bold',
+        },
     },
     payIcons: {
         width: '7em',
@@ -167,6 +176,41 @@ const styles = {
         img: {
             width: '80%',
         },
+    },
+    footerSlide: {
+        position: 'relative',
+        bg: 'inherit',
+        zIndex: 'footer',
+    },
+    footerReveal: {
+        zIndex: 'footerReveal',
+        mb: '3.5em',
+    },
+    footerRevealPane: {
+        py: '2em',
+        bg: 'secondary.dark',
+        boxShadow: '0 -3px 10px hsla(0, 0%, 0%, 0.07)',
+    },
+    footerRevealContent: {
+        bg: 'primary.light',
+        color: 'textOnPrimary',
+        py: 7,
+        px: 2,
+        textAlign: 'center',
+        boxShadow: 'inset 0 15px 30px 0px rgba(0,0,0,0.5)', // 'inner',
+        p: {
+            fontSize: [7, null, null, 8],
+        },
+    },
+    specialUnderline: {
+        color: 'highlight.base',
+        backgroundSize: '100% 15%',
+        backgroundRepeat: 'repeat-x',
+        backgroundPosition: 'left 0% bottom 0%',
+        backgroundImage: ({ colors }) =>
+            `linear-gradient(179deg, ${colors.highlight.dark} 0%, ${colors.highlight.dark} 50%,transparent 54%, transparent 100%)`,
+        // backgroundImage: ({ colors }) =>
+        //     `repeating-linear-gradient(135deg, ${colors.highlight.base} 0px, ${colors.highlight.base} 7px,transparent 7px, transparent 14px),repeating-linear-gradient(45deg, ${colors.highlight.hover} 0px, ${colors.highlight.hover} 7px,transparent 7px, transparent 14px),repeating-linear-gradient(135deg, #FFF 0px, #FFF 7px,#FFF 7px, #FFF 14px)`,
     },
 }
 

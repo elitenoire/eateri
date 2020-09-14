@@ -67,6 +67,8 @@ const styles = {
         },
     },
     mainStyle: {
+        position: 'relative',
+        zIndex: 'main',
         pt: 'header',
     },
 }

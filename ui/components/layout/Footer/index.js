@@ -9,10 +9,9 @@ import { SocialMedia } from '~@/other'
 import payIconsUrl from '~/public/pay-icons.svg'
 import styles from './style'
 
-const Footer = () => {
-    const g = ''
-    return (
-        <footer sx={styles.footer}>
+const Footer = () => (
+    <footer sx={styles.footer}>
+        <div sx={styles.footerSlide}>
             <div sx={styles.container}>
                 <div sx={styles.newsletterWrap}>
                     <div sx={styles.iconWrap}>
@@ -89,15 +88,29 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div sx={styles.copywright}>
-                <Text size={0}>© 2020 Eateri Inc by elitenoire. Made with &#128153;</Text>
-                <div sx={styles.payIcons}>
-                    <Icon name="lock" />
-                    <Image src={payIconsUrl} />
-                </div>
+        </div>
+        <div sx={styles.footerReveal}>
+            <div sx={styles.footerRevealPane} />
+            <div sx={styles.footerRevealContent}>
+                <Text weight="bold" variant="title">
+                    &#128081; The <span sx={styles.specialUnderline}>Messi</span> of Great Food &#128081;
+                </Text>
             </div>
-        </footer>
-    )
-}
+        </div>
+        <div sx={styles.copywright}>
+            <Text size={1} spacing="wide">
+                © 2020 Eateri Inc by{' '}
+                <a target="_blank" rel="noopener noreferrer" href="https://www.github.com/elitenoire">
+                    @elitenoire
+                </a>{' '}
+                · Made with &#128153;
+            </Text>
+            <div sx={styles.payIcons}>
+                <Icon name="lock" />
+                <Image src={payIconsUrl} />
+            </div>
+        </div>
+    </footer>
+)
 
 export default Footer

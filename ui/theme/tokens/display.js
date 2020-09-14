@@ -66,6 +66,10 @@ export default {
     zIndices: {
         header: 1000,
         pageWrap: 1300,
+        main: 10,
+        footer: 10,
+        footerCopywright: 9,
+        footerReveal: 8,
     },
     borderWidths: {},
     borderStyles: {},

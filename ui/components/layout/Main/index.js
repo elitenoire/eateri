@@ -4,6 +4,7 @@ import { jsx } from '@theme-ui/core'
 import { MenuContext } from '~/context/menu'
 import Header from '~@/navigation/Header'
 import MobileSideMenu from '~@/navigation/MobileSideMenu'
+import Footer from '../Footer'
 import styles from './style'
 
 const menuItems = [
@@ -68,7 +69,7 @@ const MainLayout = ({ children }) => {
                     <main role="main" sx={styles.mainStyle}>
                         {children}
                     </main>
-                    <footer>Copywright Eateri 2020</footer>
+                    <Footer />
                 </div>
             </div>
         </div>
