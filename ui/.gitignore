@@ -1,5 +1,7 @@
 node_modules
 .next
+.env*.local
+*.todo
 draft/
 public/brand/
 

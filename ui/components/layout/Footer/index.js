@@ -4,7 +4,7 @@ import { Image } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Icon, Logo, Button } from '~@/general'
 import { InputBar } from '~@/form'
-import { SocialMedia } from '~@/other'
+import { SocialMedia, GoogleMap } from '~@/other'
 
 import payIconsUrl from '~/public/pay-icons.svg'
 import styles from './style'
@@ -66,7 +66,7 @@ const Footer = () => (
                             </Button>
                         </div>
                         <div className="footer-card" sx={styles.gmap}>
-                            map
+                            <GoogleMap />
                         </div>
                         <div className="footer-card" sx={styles.hoursBlock}>
                             <Heading variant="h6" color="primary.light">
