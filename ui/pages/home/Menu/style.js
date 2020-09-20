@@ -30,7 +30,7 @@ const styles = {
         pt: [0, null, 6],
         pb: [2, null, 0],
         mb: [4, null, 11],
-        border: [null, null, '0.5px solid'],
+        border: [null, null, '1px solid'],
         borderRadius: [null, null, 40],
         '.scrollable': {
             mx: ['-1.5em', null, 'auto'],
@@ -222,7 +222,7 @@ const styles = {
         backgroundImage: `url('${menuLeafUrl}')`,
         width: '100%',
         height: '3em',
-        top: 'calc(-3em - 0.5px)',
+        top: 'calc(-3em - 1px)',
         backgroundRepeat: 'no-repeat',
         backgroundPosition: 'top',
         backgroundSize: '90%',

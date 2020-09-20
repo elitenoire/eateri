@@ -167,6 +167,7 @@ const styles = {
         display: ['none', null, 'unset'],
         fontSize: [5, null, null, null, 4],
         lineHeight: 'snug',
+        letterSpacing: 'wide',
         color: 'heroText',
         my: 'auto',
         mx: 2,

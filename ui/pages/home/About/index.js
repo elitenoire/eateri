@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { Box, Container, Image } from '@theme-ui/components'
+import { Container, Image } from '@theme-ui/components'
 import { MemphisFrame } from '~@/other'
 import { Heading, Text } from '~@/typography'
 import styles from './style'
@@ -13,7 +13,7 @@ const About = () => (
             <MemphisFrame>
                 <Image src={chefImgUrl} />
             </MemphisFrame>
-            <Box sx={styles.content}>
+            <div sx={styles.content}>
                 <Text as="h2" variant="block" mb={2} color="primary.base">
                     About Us
                 </Text>
@@ -31,7 +31,7 @@ const About = () => (
                 <Text color="accent.base" size={1} sx={{ textDecoration: 'underline' }}>
                     Learn More
                 </Text>
-            </Box>
+            </div>
         </Container>
     </Container>
 )

@@ -12,22 +12,10 @@ const SocialMedia = () => (
         >
             <Icon name="github" />
         </a>
-        <a
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            href="# "
-            aria-label="See our tweets"
-            title="See our tweets"
-        >
+        <a href="# " aria-label="See our tweets" title="See our tweets">
             <Icon name="twitter" />
         </a>
-        <a
-            target="_blank"
-            rel="nofollow noreferrer noopener"
-            href="# "
-            aria-label="See instagram gallery"
-            title="See instagram gallery"
-        >
+        <a href="# " aria-label="See instagram gallery" title="See instagram gallery">
             <Icon name="instagram" />
         </a>
     </>
