@@ -8,7 +8,7 @@ const styles = {
         top: [null, null, null, null, 'calc(-2.25em - 3em)'],
         borderRadius: ['1.5em 1.5em 1.5em 4.5em', null, null, '1.5em 1.5em 1.5em 5em'],
         mx: ['auto', null, null, null, 0],
-        mt: [7, null, null, null, 0],
+        mt: [9, null, null, null, 0],
         mb: [9, null, null, null, 0],
         alignSelf: [null, null, null, null, 'flex-start'],
         '::after': {

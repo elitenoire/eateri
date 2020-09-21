@@ -3,6 +3,7 @@ import { jsx } from '@theme-ui/core'
 import { Container, Image } from '@theme-ui/components'
 import { MemphisFrame } from '~@/other'
 import { Heading, Text } from '~@/typography'
+import { Button } from '~@/general'
 import styles from './style'
 
 import chefImgUrl from '~/public/about-chef.jpg'
@@ -24,13 +25,20 @@ const About = () => (
                     Eateri offers premium and authentic cooking, fast and light lunches for an amazing dining
                     experience. We treat all of our customers with utmost care and service.
                 </Text>
-                <Text my={3} spacing="wide">
-                    Choose from a variety of healthy and delicious meal plans designed by our nutritionists and cooked
-                    to perfection by our proud Chefs.
-                </Text>
-                <Text color="accent.base" size={1} sx={{ textDecoration: 'underline' }}>
+                <div sx={styles.uniquePoints}>
+                    <Text weight="medium" spacing="wide">
+                        Variety of healthy & delicious meals
+                    </Text>
+                    <Text weight="medium" spacing="wide">
+                        Culinary experts in classic & modern cuisine
+                    </Text>
+                    <Text weight="medium" spacing="wide">
+                        101% satisfaction guaranteed
+                    </Text>
+                </div>
+                <Button color="accent" brand="outline">
                     Learn More
-                </Text>
+                </Button>
             </div>
         </Container>
     </Container>
