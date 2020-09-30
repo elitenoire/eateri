@@ -35,7 +35,7 @@
 		"react-dom": "^16.13.1",
 		"react-headroom": "^3.0.0",
 		"react-hook-form": "^6.8.2",
-		"react-spring": "^8.0.27",
+		"react-spring": "^9.0.0-rc.3",
 		"react-textarea-autosize": "^8.2.0",
 		"react-use-gesture": "^7.0.15",
 		"reakit": "^1.2.4",

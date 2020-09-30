@@ -19,6 +19,8 @@ import Twitter from 'remixicon/icons/Logos/twitter-line.svg'
 import Location from 'remixicon/icons/Map/map-pin-2-fill.svg'
 import Menu2 from 'remixicon/icons/Map/restaurant-2-line.svg'
 import Gallery from 'remixicon/icons/Media/gallery-line.svg'
+import Play from 'remixicon/icons/Media/play-circle-fill.svg'
+import Stop from 'remixicon/icons/Media/stop-circle-fill.svg'
 import Reserved from 'remixicon/icons/Others/reserved-line.svg'
 import ReservedFill from 'remixicon/icons/Others/reserved-fill.svg'
 import Add from 'remixicon/icons/System/add-line.svg'
@@ -86,10 +88,12 @@ export default {
     password: Password,
     phone: Phone,
     phonefill: PhoneFill,
+    play: Play,
     profile: Profile,
     reserved: Reserved,
     reservedfill: ReservedFill,
     search: Search,
+    stop: Stop,
     subtract: Subtract,
     time: Time,
     twitter: Twitter,
