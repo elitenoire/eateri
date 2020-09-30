@@ -16,11 +16,11 @@ const PopularCard = ({ title }) => (
         <div sx={styles.imageWrap}>
             <Image src={url} />
         </div>
-        <Text size={1} mb={1} weight="bold" truncate={2}>
+        <Text mb={1} weight="bold" truncate={2}>
             {title}
         </Text>
         <div className="flex-split">
-            <Text size={1} line="tight" color={['textLight', null, 'textFade']}>
+            <Text line="tight" color={['textLight', null, 'textFade']}>
                 ₦1500
             </Text>
             <Badge as="p" variant="highlight" sx={styles.badgeRating}>
@@ -41,9 +41,7 @@ const PopularCard = ({ title }) => (
 const CategoryCard = ({ img, title }) => (
     <div sx={styles.categoryCardWrap}>
         <div sx={styles.categoryCard(img)}>
-            <Text size={1} truncate>
-                {title}
-            </Text>
+            <Text truncate>{title}</Text>
         </div>
     </div>
 )
@@ -54,10 +52,10 @@ const FavoriteCard = ({ img, title }) => (
             <Image src={url} />
         </div>
         <div>
-            <Text size={1} mb={1} weight="bold" truncate>
+            <Text mb={1} weight="bold" truncate>
                 {title}
             </Text>
-            <Text size={1} mb={1} color="textLight">
+            <Text mb={1} color="textLight">
                 ₦1500
             </Text>
             <Badge as="p" variant="highlight">
@@ -99,7 +97,7 @@ const Menu = () => (
                             Selection
                         </Text>
                     </Heading>
-                    <Text size={1}>See All</Text>
+                    <Text>See All</Text>
                 </div>
                 <div sx={styles.menuBoxBody}>
                     <Scrollable as="ul" pad="0.25em" sx={styles.popularScrollable}>
@@ -124,7 +122,7 @@ const Menu = () => (
                     <Heading as="h3" variant="h4">
                         Category
                     </Heading>
-                    <Text size={1}>See All</Text>
+                    <Text>See All</Text>
                 </div>
                 <div sx={styles.menuBoxBody}>
                     <Scrollable as="ul" pad={['0.25em', null, '1em']} sx={styles.categoryScrollable}>
@@ -143,7 +141,7 @@ const Menu = () => (
                             <Heading as="h3" variant="h4">
                                 Favorite
                             </Heading>
-                            <Text size={1}>See All</Text>
+                            <Text>See All</Text>
                         </div>
                         <ul>
                             {['Red Lentil Soup', 'Thai Fried Chicken', 'Pasta & Chicken'].map(dish => (

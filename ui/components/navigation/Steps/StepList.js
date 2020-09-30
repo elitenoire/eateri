@@ -10,7 +10,7 @@ const StepList = ({ children, ...rest }) => {
     const composite = useCompositeContext()
 
     return (
-        <Composite as="ol" role="list" {...composite} sx={stepListStyle}>
+        <Composite as="ol" {...composite} role="list" sx={stepListStyle}>
             {children}
         </Composite>
     )

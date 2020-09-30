@@ -34,8 +34,8 @@ const offers = [
 
 const OffersCard = ({ title, text }) => (
     <li sx={styles.offersCard}>
-        <Text size={1}>
-            <Text as="span" size={3} weight="bold">
+        <Text>
+            <Text as="span" weight="bold">
                 {title}
             </Text>
             {text}
@@ -51,7 +51,7 @@ const Offers = () => (
                     All Offers
                 </Heading>
                 <div sx={styles.topOffer}>
-                    <Text size={4}>Get 30% off your first online order</Text>
+                    <Text size={[3, null, 4]}>Get 30% off your first online order</Text>
                     <Text my={2} color="heroTitle">
                         Code:{' '}
                         <Text as="span" weight="bold" spacing="wide">

@@ -10,10 +10,11 @@ const styles = {
         textAlign: 'center',
     },
     card: {
-        bg: 'secondary.pale',
+        bg: 'muted',
         borderRadius: 30,
         boxShadow: '2xl',
-        padding: 7,
+        py: 7,
+        px: 8,
     },
 }
 

@@ -3,7 +3,7 @@ import logobgUrl from '~/public/logo-bg.svg'
 const styles = {
     section: {
         mt: t => [`-${t.space.header}`, null, 0],
-        pt: [7, null, 13],
+        pt: [7, null, 13, null, '7em'],
         backgroundSize: 'cover',
         background: ({ colors }) => [
             colors.background,
@@ -66,7 +66,7 @@ const styles = {
         '&:before': {
             width: '85%',
             height: '113%',
-            opacity: '0.15',
+            opacity: '0.1',
         },
         '&:after': {
             width: '92%',
@@ -99,10 +99,10 @@ const styles = {
         maxWidth: '9em',
         mt: 4,
         mx: 2,
-        padding: 4,
+        padding: ['1.25em', null, 4],
         bg: 'primary.base',
         border: t => `1px solid ${t.colors.primary.hover}`,
-        borderRadius: ['default', null, 'tiny'],
+        borderRadius: ['circle', null, 'tiny'],
         cursor: 'pointer',
         transition: 'background-color 0.4s ease-out, transform 0.4s ease-out',
         backfaceVisibility: 'hidden',
@@ -111,8 +111,12 @@ const styles = {
             bg: 'primary.hover',
             transform: 'scale(1.05)',
         },
+        p: {
+            fontSize: [null, null, 1],
+        },
         'p span': {
             display: 'block',
+            fontSize: [null, null, 3],
         },
     },
 }
