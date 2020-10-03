@@ -1,4 +1,4 @@
-import { interpolate } from 'react-spring'
+import { to } from 'react-spring'
 
 // const getInputRangeFromIndexes = (range, index, itemWidth) => {
 //     const inputRange = []
@@ -37,13 +37,13 @@ const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 })
 
     const { x, z, o } = animatedValues
 
-    const sc = x.interpolate({
+    const sc = x.to({
         range: [-1, 0, 1, 2],
         output: [itemScale, 1, item1Scale, item2Scale],
         extrapolate: 'clamp',
     })
 
-    // const _x = x.interpolate({
+    // const _x = x.to({
     //     range: [-1, 0, 1, 2, 3],
     //     output: [
     //         itemWidth * 1.5,
@@ -54,25 +54,25 @@ const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 })
     //     ],
     //     extrapolate: 'clamp',
     // })
-    const _x = x.interpolate({
+    const _x = x.to({
         range: [-1, 0, 1, 2, 3],
         output: [-itemWidth * 3.5, 0, 1 * centerOffset, 2.5 * centerOffset, 3 * centerOffset],
         extrapolate: 'clamp',
     })
 
-    const opacity = o.interpolate({
+    const opacity = o.to({
         range: [0, 1, 2, 3],
         output: [1, 0.97, 0.93, 0],
         extrapolate: 'clamp',
     })
 
-    const zIndex = z.interpolate({
+    const zIndex = z.to({
         range: [-1, 0, 1, 2, 3],
         output: [4, 3, 2, 1, 0],
         extrapolate: 'clamp',
     })
 
-    const transform = interpolate([_x, sc], (xt, s) => `scale(${s}) translateX(${xt - 45}%`)
+    const transform = to([_x, sc], (xt, s) => `scale(${s}) translateX(${xt - 45}%`)
 
     return {
         opacity,
@@ -85,7 +85,7 @@ const stackAnimationItemStyle = ({ animatedValues }) => {
     const { peek = 0 } = animatedValues
 
     return {
-        transform: peek.interpolate(p => `translate(${p}%)`),
+        transform: peek.to(p => `translate(${p}%)`),
     }
 }
 
@@ -124,25 +124,25 @@ const shiftAnimationSlideStyle = ({ animatedValues, visible, itemOffset = 0 }) =
 
     const { x, z } = animatedValues
 
-    const opacity = x.interpolate({
+    const opacity = x.to({
         range,
         output: ocOutput,
         extrapolate: 'clamp',
     })
 
-    const zIndex = z.interpolate({
+    const zIndex = z.to({
         range,
         output: zOutput,
         extrapolate: 'clamp',
     })
 
-    const _x = x.interpolate({
+    const _x = x.to({
         range,
         output: xOutput,
         extrapolate: 'clamp',
     })
 
-    const transform = _x.interpolate(xt => `translate(${xt}%)`)
+    const transform = _x.to(xt => `translate(${xt}%)`)
 
     return { opacity, zIndex, transform }
 }
@@ -172,18 +172,18 @@ const shiftAnimationItemStyle = ({ animatedValues, visible }) => {
     }
     const { x } = animatedValues
 
-    const scale = x.interpolate({
+    const scale = x.to({
         range,
         output: scOutput,
         extrapolate: 'clamp',
     })
-    const shadow = x.interpolate({
+    const shadow = x.to({
         range: [-1, 0, 1],
         output: [0, 5, 0],
         extrapolate: 'clamp',
     })
-    const boxShadow = shadow.interpolate(_s => `0 ${_s}px ${2 * _s}px 0 rgba(0, 0, 0, 0.1)`)
-    const transform = scale.interpolate(s => `scale(${s})`)
+    const boxShadow = shadow.to(_s => `0 ${_s}px ${2 * _s}px 0 rgba(0, 0, 0, 0.1)`)
+    const transform = scale.to(s => `scale(${s})`)
 
     return { boxShadow, transform, width: '90%', margin: '5% auto' }
 }
@@ -198,33 +198,33 @@ const slideAnimationSlideStyle = ({ animatedValues, itemWidth, visible }) => {
 
     const { x, z } = animatedValues
 
-    // const opacity = x.interpolate({
+    // const opacity = x.to({
     //     range,
     //     output: mapValues(range, visible, 1, 0)
     //     extrapolate: 'clamp',
     // })
 
-    const sc = x.interpolate({
+    const sc = x.to({
         range,
         output: scOutput,
         extrapolate: 'clamp',
     })
 
-    const zIndex = z.interpolate({
+    const zIndex = z.to({
         range,
         output: mapValues(range, visible, 2, 1),
         extrapolate: 'clamp',
     })
 
-    const display = x.interpolate(x_ => (x_ < range[0] || x_ > range[range.length - 1] ? 'none' : 'block'))
+    const display = x.to(x_ => (x_ < range[0] || x_ > range[range.length - 1] ? 'none' : 'block'))
 
-    const _x = x.interpolate({
+    const _x = x.to({
         range,
         output: range.map((idx, i) => idx * (100 + (1 - scOutput[i]) * (100 / scOutput[i]))), // + (1 - scOutput[i]) * (idx < 0 ? -100 : 100)),
         extrapolate: 'clamp',
     })
 
-    const transform = interpolate([_x, sc], (xt, s) => `scale(${s}) translateX(${xt}%)`)
+    const transform = to([_x, sc], (xt, s) => `scale(${s}) translateX(${xt}%)`)
 
     return { display, zIndex, transform }
 }
@@ -233,7 +233,7 @@ const slideAnimationItemStyle = ({ animatedValues }) => {
     const { peek = 0 } = animatedValues
 
     return {
-        transform: peek.interpolate(p => `translate(${p}%)`),
+        transform: peek.to(p => `translate(${p}%)`),
         width: '100%',
     }
 }

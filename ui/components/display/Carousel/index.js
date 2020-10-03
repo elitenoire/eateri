@@ -232,7 +232,7 @@ const Carousel = ({
 
     // Animation style functions
     const _sxProgress = () => ({
-        width: progress.width.interpolate(w => `${w}%`),
+        width: progress.width.to(w => `${w}%`),
     })
     const _sxSprings = values => ({
         width: `${_width}%`,
