@@ -1,4 +1,5 @@
-import { alpha } from '@theme-ui/color'
+import { alpha, getColor } from '@theme-ui/color'
+import { isDark } from '~/lib/utils'
 
 export const bulletStyles = {
     wrapper: {
@@ -12,7 +13,7 @@ export const bulletStyles = {
         appearance: 'none',
         bg: color,
         cursor: 'pointer',
-        opacity: 0.25,
+        opacity: t => (isDark(getColor(t, color)) ? 0.5 : 0.85),
         transition: 'all 0.2s ease',
         '&[data-isactive]': {
             width: '2em',
@@ -62,18 +63,18 @@ export const gliderControlStyles = {
         appearance: 'none',
         bg: 'transparent',
         borderWidth: '1.5px',
-        borderStyle: 'dotted',
+        borderStyle: 'dashed',
         borderColor: 'inherit',
         borderRadius: 'circle',
-        padding: '0.75em',
+        padding: 3,
         cursor: 'pointer',
         transition: 'box-shadow 0.3s ease',
         '&:hover,:focus': {
-            boxShadow: t => `0 0 0 3px ${alpha(color, 0.2)(t)}`,
+            boxShadow: t => `0 0 0 5px ${alpha(color, 0.25)(t)}`,
         },
         svg: {
             display: 'block',
-            fontSize: '2em',
+            fontSize: '5em',
         },
     }),
 }
