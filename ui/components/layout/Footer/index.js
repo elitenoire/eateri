@@ -35,7 +35,7 @@ const Footer = () => (
                 <div sx={styles.footerContentWrap}>
                     <Logo plain color="primary.base" sx={styles.logoBox} />
                     <div sx={styles.footerContent}>
-                        <div className="footer-card" sx={styles.contactBlock}>
+                        <div id="home-contact" className="footer-card" sx={styles.contactBlock}>
                             <Heading variant="h6" color="primary.light">
                                 Contact
                             </Heading>
@@ -61,11 +61,11 @@ const Footer = () => (
                                     </span>
                                 </li>
                             </ul>
-                            <Button size="sm" icon="chat">
+                            <Button size="sm" mx={0} icon="chat">
                                 Need to chat?
                             </Button>
                         </div>
-                        <div className="footer-card" sx={styles.gmap}>
+                        <div sx={styles.gmap}>
                             <GoogleMap />
                         </div>
                         <div className="footer-card" sx={styles.hoursBlock}>
@@ -78,7 +78,7 @@ const Footer = () => (
                             <Text size={1} mb={2}>
                                 11:00am - 10:30pm <span>(Sat - Sun)</span>
                             </Text>
-                            <Button size="sm" brand="outline">
+                            <Button size="sm" mx={0} brand="outline">
                                 Reserve Now
                             </Button>
                             <div sx={styles.socialMediaWrap}>

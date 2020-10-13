@@ -71,10 +71,10 @@ const Reviews = () => {
                         </div>
                     </div>
                     <div sx={styles.reviewBlock}>
-                        <Icon name="doublequotesl" />
                         <GliderBullets colors={colors} count={5} control={glider} index={index} />
-                        <Text color="textLight" weight="light" size={7} italic>
+                        <Text color="textLight" weight="light" size={7} italic sx={styles.subText}>
                             ~See for yourself~
+                            <Icon name="doublequotesl" />
                         </Text>
                         <Glider ref={glider} onChange={handleChange}>
                             {reviews.map(({ author, review }, i) => (

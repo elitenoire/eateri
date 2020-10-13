@@ -24,7 +24,7 @@ const styles = {
         mb: 4,
         maxWidth: [null, null, null, null, '20em'],
         p: {
-            opacity: 0.8, // temporary hack
+            opacity: 0.8,
         },
     },
     iconWrap: {
@@ -39,7 +39,6 @@ const styles = {
         svg: {
             display: 'block',
             fontSize: '2.5em',
-            // size: '3em',
         },
     },
     flexWrap: {
@@ -82,22 +81,22 @@ const styles = {
     },
     footerContent: {
         display: 'flex',
-        flexDirection: ['column', null, null, 'row'],
-        alignItems: ['center', null, null, 'flex-end', 'center'],
-        justifyContent: [null, null, null, 'space-evenly'],
-        flexWrap: [null, null, null, 'wrap', 'nowrap'],
-        mt: 7,
+        flexDirection: ['column', null, 'row'],
+        alignItems: ['flex-start', null, null, 'flex-end', 'center'],
+        justifyContent: [null, null, 'space-between', 'space-evenly'],
+        flexWrap: [null, null, 'wrap', null, 'nowrap'],
+        mt: [9, null, null, 7],
         color: 'textOnSecondary',
         '.footer-card': {
-            // alignSelf: 'flex-start',
-            bg: t => alpha('secondary.base', 0.5)(t),
+            bg: t => [null, null, null, alpha('secondary.base', 0.5)(t)],
             borderRadius: 30,
-            py: 8,
-            px: [8, null, null, null, 7],
-            boxShadow: 'inner',
+            py: [null, null, null, 8],
+            px: [null, null, null, 8, 7],
+            boxShadow: [null, null, null, 'inner'],
         },
     },
     contactBlock: {
+        mb: 7,
         ul: {
             listStyle: 'none',
             li: {
@@ -122,15 +121,19 @@ const styles = {
         },
     },
     gmap: {
-        flex: [null, null, null, '100%', 1],
-        order: [null, null, null, 1, 0],
+        flex: [null, null, '100%', null, 1],
+        order: [1, null, null, null, 0],
         border: t => `1px solid ${t.colors.primary.light}`,
-        padding: '0 !important',
-        margin: [7, null, null, null, 4],
+        mx: [null, null, null, null, 4],
+        my: [7, null, null, null, 4],
         width: 'fluid',
-        height: '20em', // temporary
+        height: '20em',
+        bg: t => alpha('secondary.base', 0.5)(t),
+        borderRadius: 30,
+        boxShadow: 'inner',
     },
     hoursBlock: {
+        textAlign: [null, null, 'right', 'initial'],
         span: {
             display: 'block',
             color: 'primary.light',
@@ -139,7 +142,7 @@ const styles = {
         },
     },
     socialMediaWrap: {
-        textAlign: 'center',
+        textAlign: [null, null, 'right', 'center'],
         mt: 2,
         a: {
             display: 'inline-block',
@@ -197,7 +200,7 @@ const styles = {
         py: 7,
         px: 2,
         textAlign: 'center',
-        boxShadow: 'inset 0 15px 30px 0px rgba(0,0,0,0.5)', // 'inner',
+        boxShadow: 'inset 0 15px 30px 0px rgba(0,0,0,0.5)',
         p: {
             fontSize: [7, null, null, 8],
         },

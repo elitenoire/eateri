@@ -7,7 +7,6 @@ const styles = {
     },
     container: {
         pt: 4,
-        pb: 13, // temporary for demo
     },
     waveSvg: {
         display: 'block',
@@ -30,19 +29,20 @@ const styles = {
             textAlign: 'center',
             mb: 7,
         },
-        '& > svg': {
+    },
+    subText: {
+        position: 'relative',
+        pl: 7,
+        opacity: 0.5,
+        mb: 4,
+        svg: {
             position: 'absolute',
-            top: 0,
-            left: [0, null, null, null, '-10%'],
-            fontSize: '7em',
+            left: 0,
+            top: '-0.35em',
+            fontSize: '3.5em',
             color: 'textLight',
-            opacity: 0.2,
-            zIndex: 1,
-        },
-        '& > p': {
-            opacity: 0.5,
-            mb: 2,
-            textAlign: ['center', null, null, null, 'left'],
+            opacity: 0.4,
+            zIndex: -1,
         },
     },
     reviewCard: color => ({
@@ -88,8 +88,8 @@ const styles = {
     },
     foodImage: {
         position: 'absolute',
-        width: '50%',
-        left: '25%',
+        width: ['60%', null, null, '50%'],
+        left: ['30%', null, null, '25%'],
         bottom: '-10%',
     },
 }

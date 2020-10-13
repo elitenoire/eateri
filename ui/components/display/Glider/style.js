@@ -35,7 +35,7 @@ export const gliderStyles = {
         willChange: 'transform',
         width: `calc(((100% - ${(visibleGlides - 1) * gap}px) / ${visibleGlides} + ${gap}px)*${totalGlides})`,
         height: '100%',
-        // touchAction: 'pan-x',
+        touchAction: 'pan-y',
     }),
     glide: gap => ({
         flex: 1,
