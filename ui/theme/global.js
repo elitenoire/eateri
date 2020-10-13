@@ -78,6 +78,9 @@ const styles = t => ({
         '.a-b': {
             fill: t.colors.accent.base,
         },
+        '.a-l': {
+            fill: t.colors.accent.light,
+        },
         '.h-b': {
             fill: t.colors.highlight.base,
         },

@@ -7,8 +7,9 @@ import About from '~/pages/home/About'
 import Services from '~/pages/home/Services'
 import Menu from '~/pages/home/Menu'
 import Reviews from '~/pages/home/Reviews'
-import Cta from '~/pages/home/Cta'
+import Gallery from '~/pages/home/Gallery'
 import Reservation from '~/pages/home/Reservation'
+import Cta from '~/pages/home/Cta'
 
 import {
     Media,
@@ -35,6 +36,7 @@ const Index = ({ userAgent }) => (
             <Menu />
             <Media greaterThanOrEqual="tabletS">
                 <Reviews />
+                <Gallery />
             </Media>
             <Reservation />
             <Media greaterThanOrEqual="tabletS">
