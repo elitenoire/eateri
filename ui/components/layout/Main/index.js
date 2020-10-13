@@ -36,7 +36,7 @@ const menuItems = [
 ]
 
 const MainLayout = ({ children }) => {
-    const { isOpen, closeMenu, toggleMenu, firstMenuItemRef } = useContext(MenuContext)
+    const { isOpen, closeMenu, toggleMenu, firstMenuItemRef, pageScrollRef } = useContext(MenuContext)
 
     const preventTabbing = e => {
         if (isOpen) {
@@ -58,6 +58,7 @@ const MainLayout = ({ children }) => {
                 onClick={closeMenu}
             >
                 <div
+                    ref={pageScrollRef}
                     id="headroom-scroll"
                     className="hide-overflow"
                     role="presentation"

@@ -10,6 +10,7 @@ export const MenuContext = React.createContext({
 const MenuProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
     const firstMenuItemRef = useRef(null)
+    const pageScrollRef = useRef(null)
 
     const closeMenu = () => {
         // Check to prevent PageWrap from overriding toggleMenu from opening menu
@@ -24,6 +25,7 @@ const MenuProvider = ({ children }) => {
                 isOpen,
                 closeMenu,
                 firstMenuItemRef,
+                pageScrollRef,
                 toggleMenu: () => setIsOpen(!isOpen),
                 onStateChange: state => setIsOpen(state.isOpen),
             }}
