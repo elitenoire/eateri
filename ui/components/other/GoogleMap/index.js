@@ -4,7 +4,7 @@ import React from 'react'
 import { Map, Overlay, Marker } from 'rgm'
 import { Text } from '~@/typography'
 import MapMarker from './MapMarker'
-import { useGoogleApiLoader } from './hooks'
+// import { useGoogleApiLoader } from './hooks'
 import { styles, mapStyles } from './styles'
 
 const MAP_OPTIONS = {
@@ -20,9 +20,11 @@ const MAP_OPTIONS = {
 }
 
 const GoogleMap = () => {
-    const api = useGoogleApiLoader({
-        apiKey: process.env.NEXT_PUBLIC_GMAPS_APKEY,
-    })
+    // const api = useGoogleApiLoader({
+    //     apiKey: process.env.NEXT_PUBLIC_GMAPS_APKEY,
+    // })
+
+    const api = false
 
     return (
         <div sx={styles.wrapper}>
