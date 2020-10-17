@@ -1,9 +1,14 @@
 import { useRef, useEffect, useCallback } from 'react'
 
-const useAutoplay = ({ interval = 5000, animate, index, autoplay = true }) => {
+const useAutoplay = ({ interval, animate, index, autoplay, onPlayChange }) => {
+    const canAutoplay = autoplay && interval > 0
     const timer = useRef(0)
-    const isPlayingRef = useRef(false)
-    const enabledRef = useRef(autoplay)
+    // enables autoplay
+    const enabledRef = useRef(canAutoplay)
+    // toggles play/stop
+    const isPlayingRef = useRef(canAutoplay)
+    // remembers play/stop state if autoplay is dynamically changed
+    const stoppedRef = useRef(false)
 
     const stop = useCallback(() => {
         if (!timer.current) return
@@ -12,30 +17,46 @@ const useAutoplay = ({ interval = 5000, animate, index, autoplay = true }) => {
 
         timer.current = 0
         isPlayingRef.current = false
-    }, [timer])
+        if (onPlayChange) {
+            onPlayChange(isPlayingRef.current)
+        }
+    }, [timer, onPlayChange])
 
     const start = useCallback(() => {
         stop()
-
-        if (!(interval && enabledRef.current)) return
+        if (!enabledRef.current) return
 
         timer.current = window.setInterval(() => {
             animate({ index: Math.ceil(index.get() + 1) })
         }, interval)
 
         isPlayingRef.current = true
-    }, [index, interval, timer, animate, stop])
+        if (onPlayChange) {
+            onPlayChange(isPlayingRef.current)
+        }
+    }, [index, interval, timer, animate, stop, onPlayChange])
 
     const isPlaying = useCallback(() => isPlayingRef.current, [])
-    const enable = useCallback(val => (enabledRef.current = val), [])
+    const enable = useCallback(val => {
+        enabledRef.current = val
+        stoppedRef.current = !val
+    }, [])
 
+    // controls autoplay -> enable / disable
     useEffect(() => {
+        enabledRef.current = canAutoplay && !stoppedRef.current
+    }, [canAutoplay])
+
+    // start / stop playing
+    useEffect(() => {
+        if (!canAutoplay) return
+
         start()
 
         return () => {
             stop()
         }
-    }, [start, stop])
+    }, [start, stop, canAutoplay])
 
     return { start, stop, isPlaying, enable }
 }
