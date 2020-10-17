@@ -1,30 +1,35 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { useState } from 'react'
 import { a, useTransition } from 'react-spring'
 import { Icon } from '~@/general'
+import { usePlay } from './hooks'
 
 import { gliderControlStyles } from './style'
 
-const GliderControl = ({ color = 'accent.base', control = {} }) => {
-    const isPlaying = control.current ? control.current.isPlaying : () => true
-    const togglePlay = control.current ? control.current.togglePlay : () => ({})
+const stopPropagation = e => e.stopPropagation()
 
-    const [toggle, set] = useState(isPlaying())
+const GliderControl = ({ color = 'accent.base' }) => {
+    const { isPlaying, togglePlay } = usePlay()
 
-    const transition = useTransition(toggle, {
+    const transition = useTransition(isPlaying, {
         from: { position: 'absolute', opacity: 0, transform: 'scale(0.8)' },
         enter: { opacity: 1, transform: 'scale(1)' },
         leave: { opacity: 0, transform: `scale(0.5)` },
     })
 
     const handleClick = () => {
-        togglePlay()
-        set(isPlaying())
+        if (togglePlay) {
+            togglePlay()
+        }
     }
 
     return (
-        <div className="glider--control" sx={gliderControlStyles.wrapper}>
+        <div
+            className="glider--control"
+            sx={gliderControlStyles.wrapper}
+            onMouseEnter={stopPropagation}
+            onMouseLeave={stopPropagation}
+        >
             {transition((style, toggleItem) =>
                 toggleItem ? (
                     <a.div style={style}>

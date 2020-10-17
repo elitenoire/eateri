@@ -1,22 +1,24 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import { useGlideTo, useIndex } from './hooks'
 
 import { bulletStyles } from './style'
 
-const GliderBullets = ({ index, count, colors, control = {} }) => {
+const getColor = (i, _colors) => {
+    const _color = '#666'
+
+    if (Array.isArray(_colors) && _colors.length !== 0) {
+        return _colors[i] || _color
+    }
+
+    return _colors || _color
+}
+
+const GliderBullets = ({ count, colors }) => {
     const bullets = [...Array(count)]
 
-    const glideTo = control.current ? control.current.glideTo : () => ({})
-
-    const getColor = (i, _colors) => {
-        const _color = '#666'
-
-        if (Array.isArray(_colors) && _colors.length !== 0) {
-            return _colors[i] || _color
-        }
-
-        return _colors || _color
-    }
+    const glideTo = useGlideTo()
+    const { index } = useIndex()
 
     const handleClick = i => () => {
         if (glideTo) {

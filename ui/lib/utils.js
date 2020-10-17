@@ -1,3 +1,4 @@
+import { useMemo } from 'react'
 import { getColor } from '@theme-ui/color'
 import { mediaQueries as mq } from '~/theme/tokens/rhythm'
 
@@ -11,6 +12,23 @@ export const shouldRunOnMobile = defaultValue => {
         return mediaQuery.matches
     }
     return defaultValue || false
+}
+
+// context selector for constate
+// returns context slice, memoized object for multiple values
+export const selector = (...args) => v => {
+    if (args.length === 1) {
+        return v[args[0]]
+    }
+    const deps = args.map(a => v[a])
+    return useMemo(
+        () =>
+            args.reduce((acc, a) => {
+                acc[a] = v[a]
+                return acc
+            }, {}),
+        deps
+    )
 }
 
 // color utils
