@@ -1,9 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
 import { Container, Image } from '@theme-ui/components'
-import { useRef, useState, useCallback } from 'react'
+import useInView from 'react-cool-inview'
 import { Text, Heading } from '~@/typography'
-import { GliderControl, GliderBullets, Glider } from '~@/display'
+import { GliderControl, GliderBullets, Glider, GliderProvider, useIndex } from '~@/display'
 import { Icon } from '~@/general'
 
 import WaveSvg from '~/public/inlineSvg/wave-applebtm.svg'
@@ -15,6 +15,11 @@ import reviews from './data'
 import styles from './style'
 
 const colors = ['accent.light', 'primary.base', 'secondary.base', 'highlight.light', 'blue']
+
+const GliderIndex = ({ children }) => {
+    const { index } = useIndex()
+    return children(index)
+}
 
 const ReviewCard = ({ author, review, color }) => (
     <div sx={styles.reviewCard(color)}>
@@ -28,14 +33,10 @@ const ReviewCard = ({ author, review, color }) => (
 )
 
 const Reviews = () => {
-    const glider = useRef()
-    const [index, setIndex] = useState(0)
-
-    const handleChange = useCallback(newIndex => {
-        setIndex(newIndex)
-    }, [])
-
-    // TODO: sync glider autoplay with page scroll
+    const { ref: reviewBlockRef, inView } = useInView({
+        threshold: 0,
+        rootMargin: '100px 0px 100px 0px',
+    })
 
     return (
         <section id="home-feedback" sx={styles.section}>
@@ -53,39 +54,50 @@ const Reviews = () => {
                         with everyone.
                     </Text>
                 </Container>
-                <div sx={styles.wrapper}>
-                    <div sx={styles.imageBlock}>
-                        <MBean />
-                        <Text
-                            key={index}
-                            className="vivify popIn"
-                            color={colors[index]}
-                            weight="bold"
-                            italic
-                            sx={styles.gliderIndex}
-                        >
-                            {index + 1}
-                        </Text>
-                        <div sx={styles.foodImage}>
-                            <Image src={url} />
+                <GliderProvider autoplay={inView} autoplayInterval={3000}>
+                    <div sx={styles.wrapper}>
+                        <div sx={styles.imageBlock}>
+                            <MBean />
+                            <GliderIndex>
+                                {index => (
+                                    <Text
+                                        key={index}
+                                        className="vivify popIn"
+                                        color={colors[index]}
+                                        weight="bold"
+                                        italic
+                                        sx={styles.gliderIndex}
+                                    >
+                                        {index + 1}
+                                    </Text>
+                                )}
+                            </GliderIndex>
+                            <div sx={styles.foodImage}>
+                                <Image src={url} />
+                            </div>
+                        </div>
+                        <div ref={reviewBlockRef} sx={styles.reviewBlock}>
+                            <GliderBullets colors={colors} count={reviews.length} />
+                            <Text color="textLight" weight="light" size={7} italic sx={styles.subText}>
+                                ~See for yourself~
+                                <Icon name="doublequotesl" />
+                            </Text>
+                            <Glider>
+                                {reviews.map(({ author, review }, i) => (
+                                    <ReviewCard
+                                        key={i}
+                                        author={author}
+                                        review={review}
+                                        color={colors[i % colors.length]}
+                                    />
+                                ))}
+                            </Glider>
+                            <div sx={styles.gliderControlBlock}>
+                                <GliderControl />
+                            </div>
                         </div>
                     </div>
-                    <div sx={styles.reviewBlock}>
-                        <GliderBullets colors={colors} count={5} control={glider} index={index} />
-                        <Text color="textLight" weight="light" size={7} italic sx={styles.subText}>
-                            ~See for yourself~
-                            <Icon name="doublequotesl" />
-                        </Text>
-                        <Glider ref={glider} onChange={handleChange}>
-                            {reviews.map(({ author, review }, i) => (
-                                <ReviewCard key={i} author={author} review={review} color={colors[i % colors.length]} />
-                            ))}
-                        </Glider>
-                        <div sx={styles.gliderControlBlock}>
-                            <GliderControl control={glider} />
-                        </div>
-                    </div>
-                </div>
+                </GliderProvider>
             </Container>
         </section>
     )

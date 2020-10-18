@@ -61,15 +61,14 @@ const styles = {
     }),
     gliderControlBlock: {
         position: 'absolute',
-        right: ['10%', null, null, '15%', 0],
+        right: ['10%', null, null, '15%', '7%'],
         bottom: '5%',
     },
     imageBlock: {
         position: 'relative',
-        flex: 1,
-        width: '50%',
+        width: ['50%', null, null, null, '40%'],
         alignSelf: ['center', null, null, null, 'initial'],
-        mr: [null, null, null, null, 7],
+        mr: [null, null, null, null, 11],
         ml: [null, null, null, null, '-2em'],
         'svg .m-bean-ring': {
             fill: 'textLight',
@@ -88,8 +87,8 @@ const styles = {
     },
     foodImage: {
         position: 'absolute',
-        width: ['60%', null, null, '50%'],
-        left: ['30%', null, null, '25%'],
+        width: '60%',
+        left: '30%',
         bottom: '-10%',
     },
 }
