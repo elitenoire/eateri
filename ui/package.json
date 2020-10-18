@@ -25,7 +25,7 @@
 		"fluid-system": "^1.0.9",
 		"fontsource-manrope": "^3.0.5",
 		"fontsource-sen": "^3.0.3",
-		"nanoevents": "^5.1.8",
+		"leaflet": "^1.7.1",
 		"next": "^9.5.3",
 		"next-compose-plugins": "^2.2.0",
 		"next-fonts": "^1.0.3",
@@ -36,12 +36,12 @@
 		"react-dom": "^16.13.1",
 		"react-headroom": "^3.0.0",
 		"react-hook-form": "^6.8.2",
+		"react-leaflet": "^2.7.0",
 		"react-spring": "^9.0.0-rc.3",
 		"react-textarea-autosize": "^8.2.0",
 		"react-use-gesture": "^7.0.16",
 		"reakit": "^1.2.4",
-		"remixicon": "^2.5.0",
-		"rgm": "^0.1.1"
+		"remixicon": "^2.5.0"
 	},
 	"resolutions": {
 		"@emotion/core": "10.0.35"

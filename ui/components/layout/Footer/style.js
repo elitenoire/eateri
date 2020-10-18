@@ -120,7 +120,7 @@ const styles = {
             },
         },
     },
-    gmap: {
+    mapBlock: {
         flex: [null, null, '100%', null, 1],
         order: [1, null, null, null, 0],
         border: t => `1px solid ${t.colors.primary.light}`,

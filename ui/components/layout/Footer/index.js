@@ -4,7 +4,7 @@ import { Image } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Icon, Logo, Button } from '~@/general'
 import { InputBar } from '~@/form'
-import { SocialMedia, GoogleMap } from '~@/other'
+import { SocialMedia, LeafletMap } from '~@/other'
 
 import payIconsUrl from '~/public/pay-icons.svg'
 import styles from './style'
@@ -65,8 +65,8 @@ const Footer = () => (
                                 Need to chat?
                             </Button>
                         </div>
-                        <div sx={styles.gmap}>
-                            <GoogleMap />
+                        <div sx={styles.mapBlock}>
+                            <LeafletMap />
                         </div>
                         <div className="footer-card" sx={styles.hoursBlock}>
                             <Heading variant="h6" color="primary.light">
