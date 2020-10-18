@@ -1,6 +1,5 @@
 import strip1Url from '~/public/strip-1.png'
 import strip2Url from '~/public/strip-2.png'
-import strip3Url from '~/public/strip-3.png'
 
 const styles = {
     section: {
@@ -55,9 +54,6 @@ const styles = {
             backgroundImage: `url('${strip2Url}')`,
             position: 'relative',
             right: '300%', // Calc(400% - 100%)
-        },
-        '& > div:nth-of-type(3)': {
-            backgroundImage: `url('${strip3Url}')`,
         },
     },
     strip: {
