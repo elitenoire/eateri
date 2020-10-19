@@ -18,7 +18,7 @@ const Gallery = () => (
             <Heading as="p" variant="headline" color="text" weight="extrabold" title>
                 Feed Your Eyes!
             </Heading>
-            <Text color="textLight" mb={2} spacing="wide">
+            <Text color="textLight" mb={2} size={3} spacing="wider">
                 Here's hoping our photos do the talking if words are not enough.
             </Text>
             <Text color="highlight.base" mb={11} size={1} weight="light" spacing="wide">

@@ -49,7 +49,7 @@ const Reviews = () => {
                     <Heading as="p" variant="headline" color="text" weight="extrabold" title>
                         What They Are Saying
                     </Heading>
-                    <Text color="textLight" spacing="wide">
+                    <Text color="textLight" spacing="wider" size={3}>
                         At Eateri, we can’t think of anything more exciting than discovering new tastes and sharing them
                         with everyone.
                     </Text>

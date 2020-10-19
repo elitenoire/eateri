@@ -5,19 +5,20 @@ import Button from '~@/general/Button'
 import styles from './style'
 import url from '~/public/dish.png'
 
+const stopBubbling = e => {
+    e.stopPropagation()
+}
 const CarouselCard = ({ data, isMobile }) => {
     const addToCart = e => console.log('ADDED TO CART')
-
-    const stopBubbling = e => {
-        e.stopPropagation()
-    }
 
     return (
         <div sx={styles.carouselCard}>
             <img src={url} alt={data.name} />
             <div>
                 {isMobile && <Text>{`₦${data.price}`}</Text>}
-                <Text truncate={3}>{data.name}</Text>
+                <Text line="snug" truncate={3}>
+                    {data.name}
+                </Text>
                 {isMobile && (
                     <Button
                         brand="solid"

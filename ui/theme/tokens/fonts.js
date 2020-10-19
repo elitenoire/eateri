@@ -40,7 +40,7 @@ export default {
         normal: '1.5',
         relaxed: '1.625',
         loose: '2',
-        body: '1.5',
+        body: '1.75',
         heading: '1.1',
     },
     letterSpacings: {

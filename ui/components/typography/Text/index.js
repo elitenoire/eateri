@@ -2,7 +2,20 @@ import React from 'react'
 import { Text as TUIText } from '@theme-ui/components'
 import styles from './style.js'
 
-const _sx = ({ italic, truncate, overflow, weight, size, line, align, decoration, transform, spacing, sx }) => ({
+const _sx = ({
+    italic,
+    opacity,
+    truncate,
+    overflow,
+    weight,
+    size,
+    line,
+    align,
+    decoration,
+    transform,
+    spacing,
+    sx,
+}) => ({
     ...(weight && { fontWeight: weight }),
     ...((size || size === 0) && { fontSize: size }),
     ...(spacing && { letterSpacing: spacing }),
@@ -11,6 +24,7 @@ const _sx = ({ italic, truncate, overflow, weight, size, line, align, decoration
     ...(align && { textAlign: align }),
     ...(transform && { textTransform: transform }),
     ...(italic && { fontStyle: 'italic' }),
+    ...((opacity || opacity === 0) && { opacity }),
     ...(typeof truncate === 'number' && { ...styles.trim, WebkitLineClamp: truncate }),
     ...(truncate === true && styles.truncate),
     ...(overflow && styles.overflow),
@@ -29,6 +43,7 @@ const Text = React.forwardRef(
             align,
             decoration,
             transform,
+            opacity,
             spacing,
             sx,
             children,
@@ -39,7 +54,20 @@ const Text = React.forwardRef(
         <TUIText
             ref={ref}
             as="p"
-            sx={_sx({ italic, truncate, overflow, weight, size, line, align, decoration, transform, spacing, sx })}
+            sx={_sx({
+                italic,
+                opacity,
+                truncate,
+                overflow,
+                weight,
+                size,
+                line,
+                align,
+                decoration,
+                transform,
+                spacing,
+                sx,
+            })}
             {...rest}
         >
             {children}

@@ -165,9 +165,9 @@ const styles = {
     },
     contentDesc: {
         display: ['none', null, 'unset'],
-        fontSize: [5, null, null, null, 4],
+        fontSize: [4, null, null, null, 3],
         lineHeight: 'snug',
-        letterSpacing: 'wide',
+        letterSpacing: 'wider',
         color: 'heroText',
         my: 'auto',
         mx: 2,

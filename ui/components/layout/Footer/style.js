@@ -129,6 +129,7 @@ const styles = {
         width: 'fluid',
         height: '20em',
         bg: t => alpha('secondary.base', 0.5)(t),
+        color: 'text',
         borderRadius: 30,
         boxShadow: 'inner',
     },

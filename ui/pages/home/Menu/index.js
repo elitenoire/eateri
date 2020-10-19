@@ -82,7 +82,7 @@ const Menu = () => (
             <Heading as="p" variant="headline" color="text" weight="extrabold" title>
                 Explore 80+ Delicious Dishes
             </Heading>
-            <Text color="textFade" spacing="wide">
+            <Text color="textFade" spacing="wider" size={3}>
                 We have more than 80 dishes with the best tastes, flavours and recipes from around the world. What do
                 you fancy from our menu?
             </Text>
