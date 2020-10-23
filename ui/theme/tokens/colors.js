@@ -79,6 +79,10 @@ export default {
     yellow: 'rgb(255,214,10)',
     focusOutline: 'rgba(0, 123, 255, 0.5)',
     ghost: '#f8f9fa',
+    cardNeumorph: {
+        light: '#ffffff',
+        dark: '#e0e0df',
+    },
     transparent: 'transparent',
     current: 'currentColor',
     modes: {

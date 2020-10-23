@@ -34,7 +34,7 @@ const offers = [
 
 const OffersCard = ({ title, text }) => (
     <li sx={styles.offersCard}>
-        <Text>
+        <Text line="normal">
             <Text as="span" weight="bold">
                 {title}
             </Text>
@@ -76,7 +76,7 @@ const Offers = () => (
                 ))}
             </Scrollable>
         </Container>
-        <WaveDecoration color="muted" />
+        <WaveDecoration color="background" />
     </section>
 )
 

@@ -1,6 +1,6 @@
 const styles = {
     section: {
-        bg: 'muted',
+        bg: 'background',
         pt: [13, null, null, '8em'],
         '& > svg': {
             display: 'block',

@@ -196,7 +196,9 @@ const styles = {
         boxShadow: '0 -3px 10px hsla(0, 0%, 0%, 0.07)',
     },
     footerRevealContent: {
-        bg: 'primary.light',
+        // bg: 'primary.light',
+        backgroundImage: ({ colors }) =>
+            `linear-gradient(to right, ${colors.accent.pale}, ${colors.highlight.pale},${colors.primary.pale},${colors.highlight.pale},${colors.accent.pale})`,
         color: 'textOnPrimary',
         py: 7,
         px: 2,

@@ -5,7 +5,7 @@ const styles = {
         pl: ['1.5em', null, '8%', '10%', '20%'],
         pr: [0, null, null, '10%', 0, null, '20%'],
         pt: [9, null, null, null, 13],
-        bg: 'muted',
+        bg: 'background',
     },
     container: {
         position: 'relative',
@@ -30,8 +30,8 @@ const styles = {
     },
     content: {
         flex: [null, null, null, null, 1],
-        pt: [8, null, null, 11, 2],
-        pl: [8, null, null, 11, 2],
+        pt: [9, null, null, 11, 2],
+        pl: [9, null, null, 11, 2],
         pr: [8, null, null, 13, '7em'],
         pb: ['6em', null, null, null, 2],
         mt: [7, null, null, null, 0],

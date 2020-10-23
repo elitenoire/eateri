@@ -67,7 +67,7 @@ const styles = {
     },
     popularScrollable: {
         gridGap: [4, null, 7],
-        pt: [7, null, 9],
+        pt: [8, null, 9],
         pb: 4,
     },
     popularCard: {
@@ -82,8 +82,8 @@ const styles = {
         },
         button: {
             position: 'absolute',
-            top: '-1.5em',
-            right: '-0.5em',
+            top: '-1.75em',
+            right: '-1em',
         },
         'p,button': {
             zIndex: 1, // avoids neumorph shadow bleed
@@ -98,7 +98,7 @@ const styles = {
         mb: 4,
         borderRadius: 30,
         alignSelf: 'center',
-        bg: ['secondary.pale', null, 'inherit'],
+        bg: t => [alpha('secondary.pale', 0.85)(t), null, 'inherit'],
         boxShadow: ({ colors: { primary } }) => [
             'sm',
             null,
@@ -117,7 +117,7 @@ const styles = {
     },
     categoryCardWrap: {
         display: 'flex',
-        width: '7em',
+        width: ['8em', null, '7em'],
         justifyContent: 'center',
     },
     categoryCard: img => ({
@@ -131,11 +131,11 @@ const styles = {
                 0.8
             )(t)} 80%),url(${img})`,
         color: 'textOnSecondary',
-        size: '6em',
+        size: ['7em', null, '6em'],
         display: 'flex',
         alignItems: 'flex-end',
         justifyContent: 'center',
-        borderRadius: 25,
+        borderRadius: [30, null, 25],
         padding: 3,
         cursor: 'pointer',
         boxShadow: '0 4px 6px -1px rgba(0,0,0,0.25), 0 2px 4px -1px rgba(0,0,0,0.06)',
@@ -146,6 +146,9 @@ const styles = {
             boxShadow: 'xl',
         },
     }),
+    favoriteList: {
+        pl: '2em',
+    },
     favoriteCard: {
         position: 'relative',
         display: 'flex',
@@ -153,10 +156,10 @@ const styles = {
         width: 'calc(100% - 1em)',
         p: 4,
         mt: 7,
-        mb: '-0.5em',
         borderRadius: '1.5em',
-        bg: 'secondary.pale',
-        boxShadow: 'sm',
+        bg: 'background',
+        boxShadow: ({ colors }) =>
+            `20px 20px 40px ${colors.cardNeumorph.dark},-20px -20px 40px ${colors.cardNeumorph.light}`,
         cursor: 'pointer',
         transition: 'box-shadow 0.5s ease-out, transform 0.4s ease-out',
         button: {
@@ -172,8 +175,9 @@ const styles = {
         },
     },
     imageBox: {
-        size: '4em',
+        size: '6em',
         mr: 4,
+        ml: '-3em',
     },
     pmSvg: {
         display: ['none', null, null, null, 'block'],

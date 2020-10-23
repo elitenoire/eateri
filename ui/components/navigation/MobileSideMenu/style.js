@@ -21,12 +21,12 @@ const style = isOpen => ({
         top: 0,
         left: 0,
         transition: 'initial !important',
-        fontSize: ['0.8em', null, '1em'], // reconsider since menu only visible on mobile
+        fontSize: 3,
+        letterSpacing: 'wider',
     },
     '.bm-menu': {
         width: '100%',
         padding: '2.5em 0.5em 1em',
-        fontSize: '1.1em',
         bg: 'transparent',
     },
     '.bm-morph-shape': {
@@ -37,12 +37,11 @@ const style = isOpen => ({
         flexDirection: 'column',
         alignItems: 'flex-start',
         justifyContent: 'center',
+        pl: '5%',
         bg: 'transparent',
-        paddingTop: '0.8em',
         opacity: isOpen ? 1 : 0,
         transform: isOpen ? 'scale(1)' : 'scale(0.8)',
         transition: 'opacity 0.3s ease-in 0.1s, transform 0.3s ease-in 0.1s',
-        paddingLeft: ['5%', '10%'],
     },
     'a.bm-item': {
         textDecoration: 'none',
@@ -54,7 +53,7 @@ const style = isOpen => ({
             transform: 'translateX(1.5em)',
         },
         svg: {
-            marginRight: '0.5em',
+            mr: '0.5em',
             verticalAlign: 'sub',
         },
     },

@@ -29,7 +29,7 @@ const PopularCard = ({ title }) => (
         </div>
         <Button
             brand="solid"
-            size="md"
+            size="lg"
             color="secondary"
             icon="add"
             ariaLabel="Add to cart"
@@ -64,7 +64,7 @@ const FavoriteCard = ({ img, title }) => (
         </div>
         <Button
             brand="solid"
-            size="md"
+            size="lg"
             color="secondary"
             icon="add"
             ariaLabel="Add to cart"
@@ -143,7 +143,7 @@ const Menu = () => (
                             </Heading>
                             <Text>See All</Text>
                         </div>
-                        <ul>
+                        <ul sx={styles.favoriteList}>
                             {['Red Lentil Soup', 'Thai Fried Chicken', 'Pasta & Chicken'].map(dish => (
                                 <li key={dish}>
                                     <FavoriteCard title={dish} />

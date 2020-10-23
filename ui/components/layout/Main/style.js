@@ -35,7 +35,7 @@ const styles = {
         cursor: 'pointer',
         zIndex: 'pageWrap',
         boxShadow: 'rgba(0, 0, 0, 0.15) 0px 18px 48px -12px',
-        transform: 'translate3d(80%, 0, -800px) !important',
+        transform: 'translate3d(80%, 0, -200px) !important',
         transition: 'transform 0.5s ease 0s !important',
         overflow: 'initial !important',
         '::before,::after': {

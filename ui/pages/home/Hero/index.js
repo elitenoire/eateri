@@ -44,7 +44,7 @@ const Hero = () => {
                             id={`chef-menu-${_menu}`}
                             brand="ghost"
                             shape="flat"
-                            size="sm"
+                            size="md"
                             ghostText
                         >
                             {_menu}
@@ -54,9 +54,9 @@ const Hero = () => {
                 <div sx={styles.contentGrid} className="content-panel grid-tabletS-up">
                     <div sx={styles.contentDetails} className="A">
                         <div>
-                            <Text className="only-mobile" size={3} mt={2} mb={1}>
-                                Welcome,{' '}
-                                <Text as="span" weight="medium">
+                            <Text className="only-mobile" size={7}>
+                                Hello,{' '}
+                                <Text as="span" weight="bold">
                                     Guest
                                 </Text>
                             </Text>
