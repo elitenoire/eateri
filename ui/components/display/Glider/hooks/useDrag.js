@@ -56,7 +56,7 @@ const useDrag = ({ visibleGlides, enabled, index, gap, ref, animate, onStart, on
                 initial: () => {
                     const glideWidth = calcGlideWidth({ ref, visibleGlides, gap })
 
-                    return [-glideWidth * index.get(), 0]
+                    return [-glideWidth * index.getValue(), 0]
                 },
             },
         }

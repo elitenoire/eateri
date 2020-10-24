@@ -86,12 +86,16 @@ const Carousel = ({
     // Syncs progress bar
     const syncScrollProgress = useCallback(() => ((scrollPosIndexRef.current + 1) / _itemsCount) * 100, [_itemsCount])
 
+    // last item relative to current scroll position index
+    // eg: if index 3 is current scroll, index 2 is last item
+    const tailItem = (scrollPosIndexRef.current - 1 + _itemsCount) % _itemsCount
+
     // Initial Animation
     // StackAnimation is cyclic/infinite
     const [springs, set] = useSprings(_itemsCount, i => ({
         from: { x: visible, o: visible },
         to: { ...getAnimatedValues(i), peek: peekRef.current },
-        immediate: isStackAnimation ? i === (scrollPosIndexRef.current - 1 + _itemsCount) % _itemsCount : true,
+        immediate: isStackAnimation ? i === tailItem : true,
     }))
 
     const [progress, setProgress] = useSpring(() => ({
@@ -232,7 +236,7 @@ const Carousel = ({
 
     // Animation style functions
     const _sxProgress = () => ({
-        width: progress.width.to(w => `${w}%`),
+        width: progress.width.interpolate(w => `${w}%`),
     })
     const _sxSprings = values => ({
         width: `${_width}%`,

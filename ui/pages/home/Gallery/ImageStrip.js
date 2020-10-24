@@ -9,7 +9,7 @@ import { MenuContext } from '~/context/menu'
 import styles from './style'
 
 const getTransformStyle = animatedValue => ({
-    translate3d: animatedValue.to(value => [`${value}px`, 0, 0]),
+    transform: animatedValue.interpolate(value => `translate3d(${value}px,0,0)`),
 })
 
 const ImageStrip = () => {

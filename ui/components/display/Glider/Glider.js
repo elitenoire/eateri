@@ -50,15 +50,15 @@ const Glider = ({ draggable, visibleGlides, gap, children, ...rest }) => {
         () => ({
             glideLeft: () => {
                 _autoplay.start()
-                animate({ index: Math.floor(index.get() - 1) })
+                animate({ index: Math.floor(index.getValue() - 1) })
             },
             glideRight: () => {
                 _autoplay.start()
-                animate({ index: Math.ceil(index.get() + 1) })
+                animate({ index: Math.ceil(index.getValue() + 1) })
             },
             glideTo: newIndex => {
                 const _newIndex = clamp(newIndex, 0, totalGlides - 1)
-                const _index = index.get()
+                const _index = index.getValue()
 
                 _autoplay.start()
                 animate({ index: _index + _newIndex - (_index % totalGlides) })

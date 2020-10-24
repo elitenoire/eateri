@@ -27,7 +27,7 @@ const useAutoplay = ({ interval, animate, index, autoplay, onPlayChange }) => {
         if (!enabledRef.current) return
 
         timer.current = window.setInterval(() => {
-            animate({ index: Math.ceil(index.get() + 1) })
+            animate({ index: Math.ceil(index.getValue() + 1) })
         }, interval)
 
         isPlayingRef.current = true

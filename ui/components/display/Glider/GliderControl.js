@@ -11,7 +11,7 @@ const stopPropagation = e => e.stopPropagation()
 const GliderControl = ({ color = 'accent.base' }) => {
     const { isPlaying, togglePlay } = usePlay()
 
-    const transition = useTransition(isPlaying, {
+    const transitions = useTransition(isPlaying, null, {
         from: { position: 'absolute', opacity: 0, transform: 'scale(0.8)' },
         enter: { opacity: 1, transform: 'scale(1)' },
         leave: { opacity: 0, transform: `scale(0.5)` },
@@ -30,15 +30,15 @@ const GliderControl = ({ color = 'accent.base' }) => {
             onMouseEnter={stopPropagation}
             onMouseLeave={stopPropagation}
         >
-            {transition((style, toggleItem) =>
-                toggleItem ? (
-                    <a.div style={style}>
+            {transitions.map(({ item, key, props }) =>
+                item ? (
+                    <a.div key={key} style={props}>
                         <button type="button" sx={gliderControlStyles.toggle(color)} onClick={handleClick}>
                             <Icon name="stop" />
                         </button>
                     </a.div>
                 ) : (
-                    <a.div style={style}>
+                    <a.div key={key} style={props}>
                         <button type="button" sx={gliderControlStyles.toggle(color)} onClick={handleClick}>
                             <Icon name="play" />
                         </button>

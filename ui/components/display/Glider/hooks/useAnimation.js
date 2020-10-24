@@ -6,10 +6,10 @@ const useAnimation = ({ totalGlides, onChange }) => {
 
     const [{ index }, animate] = useSpring(() => ({
         index: 0,
-        onChange: value => {
+        onFrame: value => {
             if (!onChange) return
 
-            const newIndex = ((Math.round(value) % totalGlides) + totalGlides) % totalGlides
+            const newIndex = ((Math.round(value.index) % totalGlides) + totalGlides) % totalGlides
             if (newIndex === prevIndex.current) return
 
             prevIndex.current = newIndex
