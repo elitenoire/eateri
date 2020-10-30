@@ -15,7 +15,7 @@ const Gallery = () => (
             <Text as="h2" variant="block" mb={2} color="accent.base">
                 Gallery
             </Text>
-            <Heading as="p" variant="headline" color="text" weight="extrabold" title>
+            <Heading as="p" variant="headline" color="text" title>
                 Feed Your Eyes!
             </Heading>
             <Text color="textLight" mb={2} size={3} spacing="wider">

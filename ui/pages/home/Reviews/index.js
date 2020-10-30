@@ -46,7 +46,7 @@ const Reviews = () => {
                     <Text as="h2" variant="block" mb={2} color="accent.base">
                         Happy Guests
                     </Text>
-                    <Heading as="p" variant="headline" color="text" weight="extrabold" title>
+                    <Heading as="p" variant="headline" color="text" title>
                         What They Are Saying
                     </Heading>
                     <Text color="textLight" spacing="wider" size={3}>

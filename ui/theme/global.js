@@ -48,6 +48,8 @@ const styles = t => ({
         }),
         lineHeight: t.lineHeights.body,
         WebkitFontSmoothing: 'antialiased',
+        WebkitTapHighlightColor: 'transparent',
+        textRendering: 'optimizeLegibility',
         scrollbarWidth: 'thin',
         scrollbarColor: `${t.colors.primary.base} ${t.colors.secondary.base}`,
     },

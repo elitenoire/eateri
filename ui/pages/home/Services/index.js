@@ -18,7 +18,7 @@ const Services = () => (
                 <Text as="h2" variant="block" mb={2} color="primary.base">
                     Our Services
                 </Text>
-                <Heading as="p" variant="headline" color="text" weight="extrabold" title>
+                <Heading as="p" variant="headline" color="text" title>
                     Why We Are The Top Faves!
                 </Heading>
                 <Text color="textLight" spacing="wider" size={3}>

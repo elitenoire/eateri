@@ -8,7 +8,7 @@ const styles = {
     },
     container: {
         px: 6,
-        maxWidth: '60em',
+        maxWidth: 'maxContainer',
         margin: '0 auto',
     },
     newsletterWrap: {

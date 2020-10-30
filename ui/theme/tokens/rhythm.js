@@ -53,6 +53,7 @@ export default {
     space,
     sizes: {
         container: '45em',
+        maxContainer: '60em',
         fluid: '100%',
         header: space[9],
     },

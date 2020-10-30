@@ -1,23 +1,35 @@
-import logobgUrl from '~/public/logo-bg.svg'
+import imgUrl from '~/public/fruit-bowl.png'
 
 const styles = {
     cta: {
-        // background: ({ colors }) =>
-        //     `url('${logobgUrl}'), linear-gradient(to bottom, ${colors.secondary.pale}, ${colors.secondary.light})`,
-        backgroundImage: ({ colors }) =>
-            `url('${logobgUrl}'), linear-gradient(to right, ${colors.accent.pale}, ${colors.highlight.pale},${colors.primary.pale},${colors.highlight.pale},${colors.accent.pale})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'bottom',
-        backgroundAttachment: 'fixed',
-        py: 13,
-        textAlign: 'center',
+        bg: 'background',
+        backgroundImage: `url(${imgUrl})`,
+        backgroundSize: ['35%', null, null, null, '15%', null, '10%'],
+        backgroundPosition: ['120% 140%', null, null, null, 'right', null, '75% 50%'],
+        backgroundRepeat: 'no-repeat',
     },
     card: {
-        bg: 'primary.pale', // 'muted',
-        borderRadius: 'round',
-        boxShadow: '2xl',
-        py: 7,
-        px: 8,
+        display: 'flex',
+        flexDirection: ['column', null, null, null, 'row'],
+        alignItems: 'center',
+        justifyContent: [null, null, null, null, 'space-between'],
+        textAlign: ['center', null, null, null, 'left'],
+        maxWidth: 'maxContainer',
+        py: [10, null, null, null, 12],
+        p: {
+            flex: 1,
+            mb: [3, null, null, null, 0],
+            maxWidth: '18em',
+        },
+        'p span:first-of-type': {
+            color: 'accent.base',
+        },
+        'p span:last-of-type': {
+            color: 'primary.base',
+        },
+        button: {
+            fontSize: 4,
+        },
     },
 }
 

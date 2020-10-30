@@ -1,15 +1,15 @@
 import { alpha } from '@theme-ui/color'
 import { mediaQueries as mq } from '~/theme/tokens/rhythm'
 
-import menufoodRUrl from '~/public/menufood-r.png'
-import menufoodLUrl from '~/public/menufood-l.png'
 import menuLeafUrl from '~/public/menuleaf.png'
+import spoonRopeUrl from '~/public/spoon-rope.png'
+import sausagesUrl from '~/public/sausages.png'
 
 const styles = {
     section: {
         position: 'relative',
-        pt: [7, null, 10],
-        pb: 4,
+        pt: [7, null, 10, 13],
+        pb: [4, null, '10em'],
         bg: ['background', null, 'primary.base'],
         overflow: [null, null, null, 'hidden'],
         '.flex-split': {
@@ -23,6 +23,30 @@ const styles = {
     },
     sectionHeader: {
         display: ['none', null, 'block'],
+    },
+    menuContainer: {
+        position: [null, null, null, 'relative'],
+        '::before,::after': {
+            content: [null, null, null, '""'],
+            position: 'absolute',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+            zIndex: 1,
+        },
+        ':before': {
+            backgroundImage: `url(${sausagesUrl})`,
+            width: ['13.5em', null, null, null, '15em'],
+            height: ['13.5em', null, null, null, '15em'],
+            top: '-60%',
+            left: ['-30%', null, null, null, '-27.5%'],
+        },
+        ':after': {
+            backgroundImage: `url(${spoonRopeUrl})`,
+            width: '40%',
+            height: ['11em', null, null, null, '12.5em'],
+            bottom: '-35%',
+            right: ['-20%', null, null, null, '-25%'],
+        },
     },
     menuBox: {
         display: 'block',
@@ -187,37 +211,6 @@ const styles = {
         width: '15%',
         '.pm-bubble': {
             opacity: 0.25,
-        },
-    },
-    menufoodR: {
-        display: ['none', null, null, 'block'],
-        position: 'absolute',
-        backgroundImage: `url('${menufoodRUrl}')`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        width: '5%',
-        height: '75%',
-        right: 0,
-        bottom: 0,
-        transition: 'width 0.5s ease',
-        ':hover': {
-            width: '10%',
-        },
-    },
-    menufoodL: {
-        display: ['none', null, null, 'block'],
-        position: 'absolute',
-        backgroundImage: `url('${menufoodLUrl}')`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'top right',
-        width: '28%',
-        height: '100%',
-        left: '-14%',
-        top: 0,
-        transition: 'left 0.5s ease',
-        ':hover': {
-            left: '-9%',
         },
     },
     menuBoxDecor: {

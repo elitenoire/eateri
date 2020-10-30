@@ -11,6 +11,8 @@ import Gallery from '~/pages/home/Gallery'
 import Reservation from '~/pages/home/Reservation'
 import Cta from '~/pages/home/Cta'
 
+import styles from '~/pages/home/style'
+
 import {
     Media,
     mediaStyles,
@@ -40,7 +42,7 @@ const Index = ({ userAgent }) => (
                 <Services />
             </Media>
             <Menu />
-            <Media greaterThanOrEqual="tabletS">
+            <Media greaterThanOrEqual="tabletS" sx={styles.radialCover}>
                 <Reviews />
                 <Gallery />
             </Media>

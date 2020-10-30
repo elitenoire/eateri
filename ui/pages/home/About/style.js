@@ -4,7 +4,7 @@ const styles = {
     section: {
         pl: ['1.5em', null, '8%', '10%', '20%'],
         pr: [0, null, null, '10%', 0, null, '20%'],
-        pt: [9, null, null, null, 13],
+        pt: 13,
         bg: 'background',
     },
     container: {
@@ -27,6 +27,13 @@ const styles = {
             null,
             `linear-gradient(45deg,${t.colors.secondary.hover},${t.colors.secondary.base})`,
         ],
+    },
+    image: {
+        position: 'absolute',
+        width: '30%',
+        top: ['-5%', null, null, null, 'initial'],
+        bottom: [null, null, null, null, '-20%'],
+        right: 0,
     },
     content: {
         flex: [null, null, null, null, 1],

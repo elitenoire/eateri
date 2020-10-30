@@ -7,6 +7,7 @@ import { Button } from '~@/general'
 import styles from './style'
 
 import chefImgUrl from '~/public/about-chef.jpg'
+import spiceUrl from '~/public/spice-bowl.png'
 
 const About = () => (
     <section id="homepage-about" sx={styles.section}>
@@ -14,11 +15,14 @@ const About = () => (
             <MemphisFrame>
                 <Image src={chefImgUrl} />
             </MemphisFrame>
+            <div sx={styles.image}>
+                <Image src={spiceUrl} />
+            </div>
             <div sx={styles.content}>
                 <Text as="h2" variant="block" mb={2} color="primary.base">
                     About Us
                 </Text>
-                <Heading as="p" variant="headline" color="heroTitle" weight="extrabold" title>
+                <Heading as="p" variant="headline" color="heroTitle" title>
                     The Messi of Great Food
                 </Heading>
                 <Text spacing="wider" size={3}>

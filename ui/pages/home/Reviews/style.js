@@ -3,7 +3,7 @@ import { readableColor, isDark } from '~/lib/utils'
 
 const styles = {
     section: {
-        bg: 'muted',
+        // bg: 'muted',
     },
     container: {
         pt: 4,
@@ -33,7 +33,7 @@ const styles = {
     subText: {
         position: 'relative',
         pl: 7,
-        opacity: 0.5,
+        opacity: 0.7,
         mb: 4,
         svg: {
             position: 'absolute',
@@ -41,7 +41,7 @@ const styles = {
             top: '-0.35em',
             fontSize: '3.5em',
             color: 'textLight',
-            opacity: 0.4,
+            opacity: 0.25,
             zIndex: -1,
         },
     },

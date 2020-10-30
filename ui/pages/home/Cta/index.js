@@ -8,14 +8,11 @@ import styles from './style'
 
 const Cta = () => (
     <Container as="section" variant="loose" id="home-cta" sx={styles.cta}>
-        <Container variant="content" mb={0} sx={styles.card}>
-            <Text size={6} weight="bold" color="primary.base" italic>
-                Feeling Hungry?
+        <Container sx={styles.card}>
+            <Text size={6} weight="bold" line="tight" spacing="wide">
+                <span>Hungry?</span> Order From <span>Our Menu</span> & Have It Delivered To You.
             </Text>
-            <Text size={5} weight="bold" line="snug" mb={2}>
-                Order from our menu and have it delivered to you.
-            </Text>
-            <Button>View Menu</Button>
+            <Button size="lg">View Menu</Button>
         </Container>
     </Container>
 )

@@ -1,4 +1,4 @@
-import menuBg from '~/public/menu-bg.svg'
+import menuBg from '~/public/logo-bg.svg'
 
 // Common styles
 const pageWrap = {
@@ -18,7 +18,8 @@ const styles = {
     container: {
         height: '100%',
         backgroundSize: 'cover',
-        background: t => `url('${menuBg}'), ${t.colors.primary.gradient}`,
+        background: ({ colors }) =>
+            `url('${menuBg}'), linear-gradient(to bottom right, ${colors.secondary.base}, ${colors.secondary.dark})`,
     },
     pageWrap: {
         ...pageWrap,

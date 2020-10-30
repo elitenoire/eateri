@@ -1,4 +1,4 @@
-import { alpha } from '@theme-ui/color'
+import { alpha, lighten } from '@theme-ui/color'
 import logobgUrl from '~/public/logo-bg.svg'
 
 const styles = {
@@ -6,14 +6,9 @@ const styles = {
         position: 'relative',
         mt: t => [`-${t.space.header}`, null, 0],
         pt: [7, null, 13, null, '7em'],
-        bg: 'background',
-        backgroundImage: ({ colors }) => [
-            null,
-            null,
-            `url('${logobgUrl}'), linear-gradient(to right, ${colors.accent.pale}, ${colors.highlight.pale},${colors.primary.pale},${colors.highlight.pale},${colors.accent.pale})`,
-            // `url('${logobgUrl}'), linear-gradient(to bottom, ${colors.secondary.pale}, ${colors.secondary.light})`,
-        ],
-        backgroundSize: 'cover',
+        bg: ['background', null, 'secondary.pale'],
+        backgroundImage: [null, null, `url('${logobgUrl}')`],
+        backgroundSize: '170%',
         backgroundAttachment: 'fixed',
         borderTopLeftRadius: [40, null, 'none'],
         borderTopRightRadius: [40, null, 'none'],
@@ -66,18 +61,17 @@ const styles = {
             position: 'absolute',
             top: 0,
             borderRadius: 'inherit',
-            background: 'inherit',
             zIndex: '-1',
         },
         '&:before': {
             width: '85%',
-            height: '113%',
-            opacity: '0.1',
+            height: '109%', // '113%',
+            bg: t => lighten('secondary.base', 0.7)(t),
         },
         '&:after': {
             width: '92%',
-            height: '107%',
-            opacity: '0.35',
+            height: '105%', // '107%',
+            bg: t => lighten('secondary.base', 0.55)(t),
         },
         '& > span': {
             position: 'absolute',

@@ -7,7 +7,6 @@ import Scrollable from '~@/display/Scrollable'
 import Button from '~@/general/Button'
 import styles from './style'
 
-import PointingManSvg from '~/public/inlineSvg/pointing-man.svg'
 import url from '~/public/dish.png'
 import imgUrl from '~/public/c-rice.jpg'
 
@@ -79,7 +78,7 @@ const Menu = () => (
             <Text as="h2" variant="block" mb={2} color="secondary.pale">
                 Explore Our Menu
             </Text>
-            <Heading as="p" variant="headline" color="text" weight="extrabold" title>
+            <Heading as="p" variant="headline" color="text" title>
                 Explore 80+ Delicious Dishes
             </Heading>
             <Text color="textFade" spacing="wider" size={3}>
@@ -87,7 +86,7 @@ const Menu = () => (
                 you fancy from our menu?
             </Text>
         </Container>
-        <Container as="ul">
+        <Container as="ul" sx={styles.menuContainer}>
             <li sx={styles.menuBox}>
                 <div sx={styles.menuBoxDecor} />
                 <div className="flex-split" sx={styles.menuBoxHeader}>
@@ -154,9 +153,6 @@ const Menu = () => (
                 )}
             </Media>
         </Container>
-        <PointingManSvg sx={styles.pmSvg} />
-        <div sx={styles.menufoodR} />
-        <div sx={styles.menufoodL} />
     </Container>
 )
 

@@ -3,7 +3,6 @@ import strip2Url from '~/public/strip-2.png'
 
 const styles = {
     section: {
-        bg: 'muted',
         pt: [null, null, 7, null, 13],
         textAlign: 'right',
         'h2, p': {
@@ -13,7 +12,7 @@ const styles = {
     subText: {
         position: 'relative',
         display: 'inline-block',
-        opacity: 0.5,
+        opacity: 0.7,
         pr: 7,
         mt: 6,
         textDecoration: 'none',
@@ -26,7 +25,7 @@ const styles = {
             pr: 6,
             svg: {
                 color: 'textLight',
-                opacity: 0.4,
+                opacity: 0.3,
             },
         },
         span: {
