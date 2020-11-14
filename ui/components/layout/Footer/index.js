@@ -3,6 +3,7 @@ import { jsx } from '@theme-ui/core'
 import { Image } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Icon, Logo, Button } from '~@/general'
+import { Reveal, popIn, fadeInRight, fadeInDown } from '~@/general/Reveal'
 import { InputBar } from '~@/form'
 import { SocialMedia, LeafletMap } from '~@/other'
 
@@ -14,17 +15,21 @@ const Footer = () => (
         <div sx={styles.footerSlide}>
             <div sx={styles.container}>
                 <div sx={styles.newsletterWrap}>
-                    <div sx={styles.iconWrap}>
-                        <Icon name="newsletter" />
-                    </div>
+                    <Reveal motion={popIn} delay={400} whenInView>
+                        <>
+                            <div sx={styles.iconWrap}>
+                                <Icon name="newsletter" />
+                            </div>
+                        </>
+                    </Reveal>
                     <div sx={styles.flexWrap}>
-                        <div sx={styles.newsletterText}>
+                        <Reveal as="div" sx={styles.newsletterText} motion={fadeInRight} cascade whenInView>
                             <Heading variant="h2" title color="primary.base">
                                 Don't miss out!
                             </Heading>
                             <Text size={3}>Stay up-to-date with our exciting news and exclusive deals.</Text>
                             <Text size={3}>No spam, we promise.</Text>
-                        </div>
+                        </Reveal>
                         <div sx={styles.formWrap}>
                             <InputBar sx={styles.inputBar} placeholder="Your email...">
                                 <Button margin={0}>Subscribe</Button>
@@ -35,56 +40,60 @@ const Footer = () => (
                 <div sx={styles.footerContentWrap}>
                     <Logo plain color="primary.base" sx={styles.logoBox} />
                     <div sx={styles.footerContent}>
-                        <div id="home-contact" className="footer-card" sx={styles.contactBlock}>
-                            <Heading variant="h6" color="primary.light">
-                                Contact
-                            </Heading>
-                            <ul>
-                                <li>
-                                    <Icon name="location" />
-                                    <span>24 Garden Court, Abuja</span>
-                                </li>
-                                <li>
-                                    <Icon name="phone" />
-                                    <span>
-                                        <a href="tel:08000004444" rel="nofollow">
-                                            080 0000 4444
-                                        </a>
-                                    </span>
-                                </li>
-                                <li>
-                                    <Icon name="mail" />
-                                    <span>
-                                        <a href="mailto:hello@eateri.com" rel="nofollow">
-                                            hello@eateri.com
-                                        </a>
-                                    </span>
-                                </li>
-                            </ul>
-                            <Button size="sm" mx={0} icon="chat">
-                                Need to chat?
-                            </Button>
-                        </div>
+                        <Reveal motion={fadeInDown} threshold={0.5} whenInView>
+                            <div id="home-contact" className="footer-card" sx={styles.contactBlock}>
+                                <Heading variant="h6" color="primary.light">
+                                    Contact
+                                </Heading>
+                                <ul>
+                                    <li>
+                                        <Icon name="location" />
+                                        <span>24 Garden Court, Abuja</span>
+                                    </li>
+                                    <li>
+                                        <Icon name="phone" />
+                                        <span>
+                                            <a href="tel:08000004444" rel="nofollow">
+                                                080 0000 4444
+                                            </a>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <Icon name="mail" />
+                                        <span>
+                                            <a href="mailto:hello@eateri.com" rel="nofollow">
+                                                hello@eateri.com
+                                            </a>
+                                        </span>
+                                    </li>
+                                </ul>
+                                <Button size="sm" mx={0} icon="chat">
+                                    Need to chat?
+                                </Button>
+                            </div>
+                        </Reveal>
                         <div sx={styles.mapBlock}>
                             <LeafletMap />
                         </div>
-                        <div className="footer-card" sx={styles.hoursBlock}>
-                            <Heading variant="h6" color="primary.light">
-                                Opening Hours
-                            </Heading>
-                            <Text size={1} mb={2}>
-                                10:00am - 9:00pm <span>(Mon - Fri)</span>
-                            </Text>
-                            <Text size={1} mb={2}>
-                                11:00am - 10:30pm <span>(Sat - Sun)</span>
-                            </Text>
-                            <Button size="sm" mx={0} brand="outline">
-                                Reserve Now
-                            </Button>
-                            <div sx={styles.socialMediaWrap}>
-                                <SocialMedia />
+                        <Reveal threshold={0.5} whenInView>
+                            <div className="footer-card" sx={styles.hoursBlock}>
+                                <Heading variant="h6" color="primary.light">
+                                    Opening Hours
+                                </Heading>
+                                <Text size={1} mb={2}>
+                                    10:00am - 9:00pm <span>(Mon - Fri)</span>
+                                </Text>
+                                <Text size={1} mb={2}>
+                                    11:00am - 10:30pm <span>(Sat - Sun)</span>
+                                </Text>
+                                <Button size="sm" mx={0} brand="outline">
+                                    Reserve Now
+                                </Button>
+                                <div sx={styles.socialMediaWrap}>
+                                    <SocialMedia />
+                                </div>
                             </div>
-                        </div>
+                        </Reveal>
                     </div>
                 </div>
             </div>

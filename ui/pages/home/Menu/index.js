@@ -4,6 +4,7 @@ import { Container, Image, Badge } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Heading, Text } from '~@/typography'
 import Scrollable from '~@/display/Scrollable'
+import { Reveal, fadeInLeft } from '~@/general/Reveal'
 import Button from '~@/general/Button'
 import styles from './style'
 
@@ -74,7 +75,7 @@ const FavoriteCard = ({ img, title }) => (
 
 const Menu = () => (
     <Container as="section" id="homepage-menu" variant="loose" sx={styles.section}>
-        <Container variant="content" sx={styles.sectionHeader}>
+        <Reveal as={Container} variant="content" sx={styles.sectionHeader} cascade whenInView>
             <Text as="h2" variant="block" mb={2} color="secondary.pale">
                 Explore Our Menu
             </Text>
@@ -85,7 +86,7 @@ const Menu = () => (
                 We have more than 80 dishes with the best tastes, flavours and recipes from around the world. What do
                 you fancy from our menu?
             </Text>
-        </Container>
+        </Reveal>
         <Container as="ul" sx={styles.menuContainer}>
             <li sx={styles.menuBox}>
                 <div sx={styles.menuBoxDecor} />
@@ -99,7 +100,16 @@ const Menu = () => (
                     <Text>See All</Text>
                 </div>
                 <div sx={styles.menuBoxBody}>
-                    <Scrollable as="ul" pad="0.25em" sx={styles.popularScrollable}>
+                    <Reveal
+                        as={Scrollable}
+                        forwardAs="ul"
+                        pad="0.25em"
+                        sx={styles.popularScrollable}
+                        motion={fadeInLeft}
+                        threshold={0.1}
+                        cascade
+                        whenInView
+                    >
                         {[
                             'Jollof Rice',
                             'Egusi Soup',
@@ -112,7 +122,7 @@ const Menu = () => (
                                 <PopularCard title={dish} />
                             </li>
                         ))}
-                    </Scrollable>
+                    </Reveal>
                 </div>
             </li>
             <li sx={styles.menuBox}>
@@ -124,13 +134,22 @@ const Menu = () => (
                     <Text>See All</Text>
                 </div>
                 <div sx={styles.menuBoxBody}>
-                    <Scrollable as="ul" pad={['0.25em', null, '1em']} sx={styles.categoryScrollable}>
+                    <Reveal
+                        as={Scrollable}
+                        forwardAs="ul"
+                        pad={['0.25em', null, '1em']}
+                        sx={styles.categoryScrollable}
+                        motion={fadeInLeft}
+                        threshold={0.1}
+                        cascade
+                        whenInView
+                    >
                         {['African', 'Chinese', 'Vegan', 'Rice', 'Soups', 'Desserts', 'Drinks'].map(c => (
                             <li key={c}>
                                 <CategoryCard img={imgUrl} title={c} />
                             </li>
                         ))}
-                    </Scrollable>
+                    </Reveal>
                 </div>
             </li>
             <Media lessThan="tabletS">
@@ -142,13 +161,13 @@ const Menu = () => (
                             </Heading>
                             <Text>See All</Text>
                         </div>
-                        <ul sx={styles.favoriteList}>
+                        <Reveal as="ul" sx={styles.favoriteList} cascade whenInView>
                             {['Red Lentil Soup', 'Thai Fried Chicken', 'Pasta & Chicken'].map(dish => (
                                 <li key={dish}>
                                     <FavoriteCard title={dish} />
                                 </li>
                             ))}
-                        </ul>
+                        </Reveal>
                     </li>
                 )}
             </Media>

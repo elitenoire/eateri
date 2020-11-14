@@ -5,6 +5,7 @@ import { useTabState, Tab, TabList, TabPanel } from 'reakit/Tab'
 import { Media } from '~/context/media'
 import useCounter from '~/hooks/useCounter'
 import { Button, Icon } from '~@/general'
+import { Reveal, fadeInDown, fadeIn, rollInBottom } from '~@/general/Reveal'
 import { Carousel, CarouselCard } from '~@/display'
 import { Heading, Text } from '~@/typography'
 import { SocialMedia } from '~@/other'
@@ -62,24 +63,25 @@ const Hero = () => {
                             </Text>
                             <Heading sx={styles.contentHeadline}>Chef's Special</Heading>
                         </div>
-                        <Heading
-                            as="h4"
+                        <Reveal
+                            as={Heading}
+                            forwardAs="h4"
                             variant="h1"
                             key={foodMenu[count].name}
-                            className="tabletS-up vivify popIn"
+                            className="tabletS-up"
                             my={1}
                             sx={styles.contentTitle}
+                            motion={fadeInDown}
+                            delay={100}
+                            cascade
                         >
                             {foodMenu[count].name}
-                        </Heading>
-                        <Text
-                            key={`desc-${foodMenu[count].name}`}
-                            className="tabletS-up vivify fadeIn duration-1000"
-                            sx={styles.contentDesc}
-                            overflow
-                        >
-                            {foodMenu[count].description}
-                        </Text>
+                        </Reveal>
+                        <Reveal motion={fadeInDown} duration={800}>
+                            <Text key={foodMenu[count].name} className="tabletS-up" sx={styles.contentDesc} overflow>
+                                {foodMenu[count].description}
+                            </Text>
+                        </Reveal>
                         <Media lessThan="tabletS" sx={styles.carouselMobile}>
                             <Carousel
                                 items={foodMenu}
@@ -93,22 +95,20 @@ const Hero = () => {
                             </Carousel>
                         </Media>
                     </div>
-                    <div sx={styles.contentImage} className="B">
+                    <Reveal as="div" motion={rollInBottom} duration={800} sx={styles.contentImage} className="B">
                         <img
                             key={`img-${foodMenu[count].name}`}
-                            className="vivify rollInBottom"
+                            className="test"
                             src={url}
                             alt={foodMenu[count].name}
                         />
-                    </div>
+                    </Reveal>
                     <div sx={styles.contentOrder} className="C">
-                        <Text
-                            key={foodMenu[count].price}
-                            className="vivify fadeIn duration-1000"
-                            sx={styles.contentPrice}
-                        >
-                            {`₦${foodMenu[count].price}`}
-                        </Text>
+                        <Reveal motion={fadeIn}>
+                            <Text key={foodMenu[count].price} sx={styles.contentPrice}>
+                                {`₦${foodMenu[count].price}`}
+                            </Text>
+                        </Reveal>
                         <Flex sx={styles.contentQty}>
                             <Button
                                 brand="ghost"
@@ -147,9 +147,11 @@ const Hero = () => {
                         disabled={onStart}
                     />
                     <Text sx={styles.counts}>
-                        <Text as="span" key={count} className="vivify fadeIn duration-500" size={5} weight="bold">
-                            {count + 1}
-                        </Text>
+                        <Reveal motion={fadeIn} duration={500}>
+                            <Text as="span" key={count} size={5} weight="bold">
+                                {count + 1}
+                            </Text>
+                        </Reveal>
                         /{foodMenu.length}
                     </Text>
                     <Button

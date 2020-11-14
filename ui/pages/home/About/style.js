@@ -5,7 +5,9 @@ const styles = {
         pl: ['1.5em', null, '8%', '10%', '20%'],
         pr: [0, null, null, '10%', 0, null, '20%'],
         pt: 13,
+        pb: [13, null, null, '8em'],
         bg: 'background',
+        overflow: 'hidden', // for animation popIn of image
     },
     container: {
         position: 'relative',

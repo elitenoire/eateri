@@ -2,46 +2,12 @@
 import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
 import Scrollable from '~@/display/Scrollable'
+import { Reveal, zoomInUp } from '~@/general'
 import { Heading, Text } from '~@/typography'
 import WaveDecoration from '~@/other/WaveDecoration'
 import styles from './style'
 
-const offers = [
-    {
-        title: 'See All Offers',
-    },
-    {
-        title: 'Buy 1, Get 1',
-        text: 'Half Price On Pizzas',
-    },
-    {
-        title: '20% Off',
-        text: 'Vegan Meals',
-    },
-    {
-        title: '3 For 2',
-        text: 'Selected Burgers',
-    },
-    {
-        title: 'Save ₦500',
-        text: 'On Orders Above ₦2000',
-    },
-    {
-        title: 'Buffet',
-        text: 'For Just ₦4000 This Friday',
-    },
-]
-
-const OffersCard = ({ title, text }) => (
-    <li sx={styles.offersCard}>
-        <Text line="normal">
-            <Text as="span" weight="bold">
-                {title}
-            </Text>
-            {text}
-        </Text>
-    </li>
-)
+import { offers } from './data'
 
 const Offers = () => (
     <section sx={styles.section}>
@@ -64,17 +30,26 @@ const Offers = () => (
                     <span />
                     <span />
                 </div>
-                <Text as="h3" variant="title" mt={9} mb={7} size={5} weight="normal" align="center">
+                <Text as="h3" variant="title" mt={7} mb={7} size={5} weight="normal" align="center">
                     Offers Of The Week
                 </Text>
             </Container>
         </Container>
         <Container variant="loose">
-            <Scrollable as="ul" flex hideScroll>
-                {offers.map(({ title, text }) => (
-                    <OffersCard key={title} title={title} text={text} />
-                ))}
-            </Scrollable>
+            <Reveal motion={zoomInUp} duration={600} threshold={0.2} whenInView>
+                <Scrollable as="ul" flex hideScroll>
+                    {offers.map(({ title, text }) => (
+                        <li key={title} sx={styles.offersCard}>
+                            <Text line="normal">
+                                <Text as="span" weight="bold">
+                                    {title}
+                                </Text>
+                                {text}
+                            </Text>
+                        </li>
+                    ))}
+                </Scrollable>
+            </Reveal>
         </Container>
         <WaveDecoration color="background" />
     </section>

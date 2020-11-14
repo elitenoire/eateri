@@ -4,7 +4,7 @@ import { Container, Image } from '@theme-ui/components'
 import useInView from 'react-cool-inview'
 import { Text, Heading } from '~@/typography'
 import { GliderControl, GliderBullets, Glider, GliderProvider, useIndex } from '~@/display'
-import { Icon } from '~@/general'
+import { Icon, Reveal } from '~@/general'
 
 import WaveSvg from '~/public/inlineSvg/wave-applebtm.svg'
 import MBean from '~/public/inlineSvg/m-bean.svg'
@@ -42,7 +42,7 @@ const Reviews = () => {
         <section id="home-feedback" sx={styles.section}>
             <WaveSvg sx={styles.waveSvg} />
             <Container variant="loose" sx={styles.container}>
-                <Container variant="content">
+                <Reveal as={Container} variant="content" cascade whenInView>
                     <Text as="h2" variant="block" mb={2} color="accent.base">
                         Happy Guests
                     </Text>
@@ -53,7 +53,7 @@ const Reviews = () => {
                         At Eateri, we can’t think of anything more exciting than discovering new tastes and sharing them
                         with everyone.
                     </Text>
-                </Container>
+                </Reveal>
                 <GliderProvider autoplay={inView} autoplayInterval={3000}>
                     <div sx={styles.wrapper}>
                         <div sx={styles.imageBlock}>
