@@ -1,11 +1,11 @@
-import { alpha, lighten } from '@theme-ui/color'
+import { alpha } from '@theme-ui/color'
 import logobgUrl from '~/public/logo-bg.svg'
 
 const styles = {
     section: {
         position: 'relative',
         mt: t => [`-${t.space.header}`, null, 0],
-        pt: [7, null, 13, null, '7em'],
+        pt: [7, null, 13, 0],
         bg: ['background', null, 'secondary.pale'],
         backgroundImage: [null, null, `url('${logobgUrl}')`],
         backgroundSize: '170%',
@@ -30,66 +30,65 @@ const styles = {
     stackContext: {
         position: 'relative',
         zIndex: 1,
+        mx: [null, null, null, '-12.5%'],
     },
     header: {
         display: [null, null, 'none'],
-        mb: 0,
+        mb: '1.75em',
         mx: [null, null, 3],
     },
     topOffer: {
         position: 'relative',
-        minHeight: '10em',
-        background: t => [
-            t.colors.heroStripe3,
-            null,
-            null,
-            null,
-            `linear-gradient(to right, ${t.colors.heroStripe3} 50%, ${t.colors.heroStripe2} 50%)`,
-        ],
-        color: 'heroText',
-        borderRadius: ['default', null, '20'],
-        padding: 6,
-        mt: [6, null, 0],
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
+        display: 'grid',
+        gridTemplateColumns: 'auto auto',
+        columnGap: [4, null, 7],
+        placeContent: 'center',
         textAlign: 'center',
+        padding: 6,
         lineHeight: 'snug',
+        bg: 'heroStripe3',
+        color: 'white',
+        borderRadius: ['30', null, null, 0],
+        boxShadow: t => [`0 15px 20px -5px ${alpha('heroStripe3', 0.5)(t)}`, null, null, 'none'],
         '::before,::after': {
-            content: '""',
+            content: ['""', null, null, 'none'],
             position: 'absolute',
-            top: 0,
+            bottom: 0,
             borderRadius: 'inherit',
             zIndex: '-1',
+            placeSelf: 'center',
         },
         '&:before': {
             width: '85%',
-            height: '109%', // '113%',
-            bg: t => lighten('secondary.base', 0.7)(t),
+            height: '112%',
+            bg: t => alpha('accent.base', 0.3)(t),
         },
         '&:after': {
             width: '92%',
-            height: '105%', // '107%',
-            bg: t => lighten('secondary.base', 0.55)(t),
+            height: '107%',
+            bg: t => alpha('accent.base', 0.5)(t),
         },
-        '& > span': {
-            position: 'absolute',
-            size: '1em',
-            color: ['primary.base', null, 'accent.base'],
+        p: {
+            zIndex: 1,
         },
-        '& > span:first-of-type': {
-            top: '1em',
-            left: '1em',
-            borderTop: '1.5px solid',
-            borderLeft: '1.5px solid',
+    },
+    iconGift: {
+        gridRow: 'span 3',
+        placeSelf: 'center',
+        color: 'primary.base',
+        svg: {
+            display: 'block',
+            fontSize: '5em',
+            transform: 'rotate(15deg)',
         },
-        '& > span:last-of-type': {
-            bottom: '1em',
-            right: '1em',
-            borderRight: '1.5px solid',
-            borderBottom: '1.5px solid',
-        },
+    },
+    skewBg: {
+        transform: 'skewX(-5deg)',
+    },
+    doodleBg: {
+        position: 'absolute',
+        size: 'fluid',
+        borderRadius: 'inherit',
     },
     offersCard: {
         display: 'flex',

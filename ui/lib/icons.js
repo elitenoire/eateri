@@ -12,6 +12,7 @@ import PhoneFill from 'remixicon/icons/Device/phone-fill.svg'
 import Menu from 'remixicon/icons/Document/todo-line.svg'
 import DoubleQuotesL from 'remixicon/icons/Editor/double-quotes-l.svg'
 import DoubleQuotesR from 'remixicon/icons/Editor/double-quotes-r.svg'
+import Gift from 'remixicon/icons/Finance/gift-fill.svg'
 import Cart from 'remixicon/icons/Finance/shopping-bag-line.svg'
 import Github from 'remixicon/icons/Logos/github-fill.svg'
 import Instagram from 'remixicon/icons/Logos/instagram-line.svg'
@@ -68,6 +69,7 @@ export default {
     doublequotesl: DoubleQuotesL,
     doublequotesr: DoubleQuotesR,
     gallery: Gallery,
+    gift: Gift,
     github: Github,
     hamburger: HamBurger,
     home: Home,

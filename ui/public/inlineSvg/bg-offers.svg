@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="100%" height="100%">
+    <defs>
+        <pattern id="pattern-bg-offer" width="86" height="86" viewBox="0 0 40,40" patternUnits="userSpaceOnUse"
+            patternTransform="rotate(73)">
+            <rect width="400%" height="400%" class="s-b" fill="rgba(33, 37, 41,1)" />
+            <path class="p-b" fill="rgba(252, 205, 64,0.3)" opacity="0.5"
+                d="M20 20 v5 h-5 v-5z M20 10 v20 l10 -10 h-20z" />
+            <path fill="rgba(255, 255, 255,0.1)" d="M0 10 v10 l20 -20 h-9 z
+                M30 40 h-10 l20 -20 v9 z
+                M20 20 h2 v-2 h-2z" />
+        </pattern>
+    </defs>
+    <rect fill="url(#pattern-bg-offer)" height="100%" width="100%" />
+</svg>
