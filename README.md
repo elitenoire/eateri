@@ -30,7 +30,7 @@ Do you need a touch of inspiration to build a mobile web app to manage restauran
 -   [Theme-ui](https://github.com/system-ui/theme-ui) - Themeable UI
 -   [React-spring](https://github.com/react-spring/react-spring) - Javascript animations, Motion Design
 -   [Vivify](https://github.com/Martz90/vivify) - CSS animations
--   [Sen][senfont], [Objectivity][objfont] _(Object Sans)_ - Typefaces _(Free)_
+-   [Sen][senfont], [Manrope][manropefont] - Typefaces _(Free Google Fonts)_
 
 ### Demo
 
@@ -48,6 +48,7 @@ Coming soon.
 #### Credits
 
 -   [RN Snap Carousel](https://github.com/archriss/react-native-snap-carousel) - inspiration for the carousel.
+-   [baby-i-am-faded][biamfaded], [react-awesome-reveal][rar] - inspiration for scroll reveal animations.
 -   Images dishes are from [Wagamama][wg], [SnapKitchen][sk] and randomly sourced from the internet.
 -   Other images are from [Freepik](https://www.freepik.com/). _(Downloaded with premium subscription)_
 -   Logo by [freepik/@haris99][logomaker] and Logo Title Font (Gnomon-Foreground) by [indestructible type][logofont]
@@ -61,7 +62,10 @@ However, for other copyrighted content, you should obtain permission from the or
 
 _© 2020 @elitenoire for **Eateri**_.
 
+[biamfaded]: https://github.com/remorses/baby-i-am-faded
+[rar]: https://github.com/dennismorello/react-awesome-reveal
 [senfont]: https://fonts.google.com/specimen/Sen
+[manropefont]: https://fonts.google.com/specimen/Manrope
 [objfont]: https://fontsarena.com/objectivity-by-alex-slobzheninov/
 [sk]: https://www.snapkitchen.com/
 [wg]: https://www.wagamama.com/
