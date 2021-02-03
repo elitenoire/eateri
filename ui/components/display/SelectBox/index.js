@@ -48,48 +48,52 @@ const useSelectBoxState = ({ multi, value, loop = true, ...compositeState }) => 
     }
 }
 
-export const SelectBox = ({ value, onChange, multi, toggleable, loop = true, children, compositeState, ...rest }) => {
-    const composite = useCompositeState({
-        ...compositeState,
-        currentId: undefined,
-        loop,
-    })
+export const SelectBox = React.forwardRef(
+    ({ value, onChange, multi, toggleable, loop = true, children, compositeState, ...rest }, ref) => {
+        const composite = useCompositeState({
+            ...compositeState,
+            currentId: undefined,
+            loop,
+        })
 
-    const ariaProps = {
-        role: 'listbox',
-        'aria-orientation': 'horizontal',
-        ...(multi && { 'aria-multiselectable': multi }),
-    }
-
-    // Allows an already selected item (single-select) to be unselected.
-    // By default, multi-select operates this way.
-    const state = multi || toggleable ? value : [value]
-
-    const setState = _value => {
-        // Value from reakit's checkbox is always an array
-        // if value is passed to a checkbox
-        if (Array.isArray(_value) && onChange) {
-            onChange(multi ? _value : _value[_value.length - 1])
+        const ariaProps = {
+            role: 'listbox',
+            'aria-orientation': 'horizontal',
+            ...(multi && { 'aria-multiselectable': multi }),
         }
+
+        // Allows an already selected item (single-select) to be unselected.
+        // By default, multi-select operates this way.
+        const state = multi || toggleable ? value : [value]
+
+        const setState = _value => {
+            // Value from reakit's checkbox is always an array
+            // if value is passed to a checkbox
+            if (Array.isArray(_value) && onChange) {
+                onChange(multi ? _value : _value[_value.length - 1])
+            }
+        }
+
+        const contextValue = { ...composite, state, setState }
+
+        return (
+            <Composite {...composite} {...ariaProps} {...rest} ref={ref}>
+                {compositeProps => (
+                    <Scrollable as="ul" {...compositeProps}>
+                        <SelectBoxContext.Provider value={contextValue}>{children}</SelectBoxContext.Provider>
+                    </Scrollable>
+                )}
+            </Composite>
+        )
     }
+)
 
-    const contextValue = { ...composite, state, setState }
+SelectBox.displayName = 'SelectBox'
 
-    return (
-        <Composite {...composite} {...ariaProps} {...rest}>
-            {compositeProps => (
-                <Scrollable as="ul" {...compositeProps}>
-                    <SelectBoxContext.Provider value={contextValue}>{children}</SelectBoxContext.Provider>
-                </Scrollable>
-            )}
-        </Composite>
-    )
-}
-
-export const SelectBoxOption = ({ value, disabled, children, ...rest }) => {
+export const SelectBoxOption = React.forwardRef(({ value, disabled, children, ...rest }, ref) => {
     const context = useContext(SelectBoxContext)
     return (
-        <CompositeItem role="option" {...context} {...rest}>
+        <CompositeItem role="option" {...context} {...rest} ref={ref}>
             {itemProps => (
                 <Checkbox as="li" value={value} {...itemProps} data-option-disabled={disabled}>
                     {children}
@@ -97,4 +101,6 @@ export const SelectBoxOption = ({ value, disabled, children, ...rest }) => {
             )}
         </CompositeItem>
     )
-}
+})
+
+SelectBoxOption.displayName = 'SelectBoxOption'

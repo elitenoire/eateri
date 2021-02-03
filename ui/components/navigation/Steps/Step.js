@@ -63,6 +63,8 @@ const Step = React.forwardRef(({ as: Tag, status, title, index, children, ...res
     )
 })
 
+Step.displayName = 'Step'
+
 const StepItem = ({ index, title, children }) => {
     const composite = useCompositeContext()
     const { currentStep, moveStep, linear } = useStepContext()

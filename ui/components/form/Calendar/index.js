@@ -33,7 +33,7 @@ const WeekDays = ({ month, year }) => (
 
 const MemoizedWeekDay = React.memo(WeekDays)
 
-const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected, ...rest }) => {
+const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected, ...rest }, ref) => {
     /** *****************************************
      * STATE + COMPUTED PROPERTIES
      ***************************************** */
@@ -310,13 +310,19 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
     if (!calendars.length) return null
 
     return (
-        <div sx={styles.container} role="presentation" tabIndex="0" aria-hidden="false" onKeyDown={handleKeyDown}>
+        <div
+            ref={ref}
+            sx={styles.container}
+            role="presentation"
+            tabIndex="0"
+            aria-hidden="false"
+            onKeyDown={handleKeyDown}
+        >
             <div sx={styles.nav}>
                 <Button
                     type="button"
                     brand="outline"
                     color="secondary"
-                    size="sm"
                     icon="arrowleft"
                     title={isPreviousMonthDisabled ? 'Minimum month reached' : 'Previous month'}
                     {...backProps}
@@ -328,7 +334,6 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
                     type="button"
                     brand="outline"
                     color="secondary"
-                    size="sm"
                     icon="arrowright"
                     title={isNextMonthDisabled ? 'Maximum month reached' : 'Next month'}
                     {...forwardProps}
@@ -388,7 +393,9 @@ const Calender = ({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected
             ))}
         </div>
     )
-}
+})
+
+Calendar.displayName = 'Calendar'
 
 const Single = () => {
     const [selected, setSelected] = useState(new Date())
@@ -402,10 +409,10 @@ const Single = () => {
         }
     }, [])
 
-    return <Calender selected={selected} onDateSelected={onSelectDate} minDate={minDate} maxDate={maxDate} />
+    return <Calendar selected={selected} onDateSelected={onSelectDate} minDate={minDate} maxDate={maxDate} />
 }
 
-export default Calender
+export default Calendar
 
 /**
  * Layout -> default, normal, strip
