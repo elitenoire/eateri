@@ -6,56 +6,64 @@ import { animated } from 'react-spring'
 import { gliderStyles } from './style'
 
 const getTrackTransform = x => ({
-    transform: `translateX(${-x}%)`,
+    transform: x.interpolate(value => `translateX(${-value}%)`),
 })
 
-const getGlideTransform = ({ idx, startIndex, totalGlides }) => {
-    const pos = startIndex <= idx ? -startIndex : totalGlides - startIndex
-    return {
-        transform: `translateX(${pos * 100}%)`,
-    }
-}
+const getGlideTransform = ({ idx, startIndex, totalGlides }) => ({
+    transform: startIndex.interpolate(value => `translateX(${(value <= idx ? -value : totalGlides - value) * 100}%)`),
+})
 
-const GliderTrack = ({ index, gap, visibleGlides, innerRef, children, ...rest }) => {
+const GliderTrack = React.forwardRef(({ index, gap, visibleGlides, children, ...rest }, ref) => {
     const totalGlides = React.Children.count(children)
     const tail = totalGlides - visibleGlides
     const trackWidth = 100 / totalGlides
 
-    let startIndex = 0
-    let x = 0
-
-    if (tail) {
-        startIndex = (totalGlides + ((Math.ceil(index / tail) * tail - tail) % totalGlides)) % totalGlides
-        x = trackWidth * (tail + (index % tail))
-
-        if (index >= 0) {
-            startIndex = (Math.floor(index / tail) * tail) % totalGlides
-            x = trackWidth * (index % tail)
+    const startIndex = index.interpolate(value => {
+        if (!tail) {
+            return 0
         }
-    }
+
+        if (value >= 0) {
+            return (Math.floor(value / tail) * tail) % totalGlides
+        }
+
+        return (totalGlides + ((Math.ceil(value / tail) * tail - tail) % totalGlides)) % totalGlides
+    })
+
+    const x = index.interpolate(value => {
+        if (!tail) {
+            return 0
+        }
+
+        if (value >= 0) {
+            return trackWidth * (value % tail)
+        }
+
+        return trackWidth * (tail + (value % tail))
+    })
 
     return (
-        <div ref={innerRef} className="glider" sx={gliderStyles.glider} {...rest}>
-            <div
+        <div ref={ref} className="glider" sx={gliderStyles.glider} {...rest}>
+            <animated.div
                 className="glider--track"
                 sx={gliderStyles.gliderTrack({ gap, totalGlides, visibleGlides })}
                 style={getTrackTransform(x)}
             >
                 {React.Children.map(children, (child, idx) => (
-                    <div
+                    <animated.div
                         key={idx}
                         className="glider--glide"
                         sx={gliderStyles.glide(gap)}
                         style={getGlideTransform({ idx, startIndex, totalGlides })}
                     >
                         {child}
-                    </div>
+                    </animated.div>
                 ))}
-            </div>
+            </animated.div>
         </div>
     )
-}
+})
 
-const AnimatedGliderTrack = animated(GliderTrack)
+GliderTrack.displayName = 'GliderTrack'
 
-export default AnimatedGliderTrack
+export default GliderTrack

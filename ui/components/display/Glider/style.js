@@ -15,6 +15,9 @@ export const bulletStyles = {
         cursor: 'pointer',
         opacity: t => (isDark(getColor(t, color)) ? 0.5 : 0.85),
         transition: 'all 0.2s ease',
+        '&:hover,:focus': {
+            boxShadow: t => `0 0 0 3px ${alpha(color, 0.25)(t)}`,
+        },
         '&[data-isactive]': {
             width: '2em',
             height: '0.75em',
@@ -68,7 +71,7 @@ export const gliderControlStyles = {
         borderRadius: 'circle',
         padding: 3,
         cursor: 'pointer',
-        transition: 'box-shadow 0.3s ease',
+        transition: 'color 0.3s ease, box-shadow 0.3s ease',
         '&:hover,:focus': {
             boxShadow: t => `0 0 0 5px ${alpha(color, 0.25)(t)}`,
         },

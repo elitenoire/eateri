@@ -79,7 +79,7 @@ const Glider = ({ draggable, visibleGlides, gap, children, ...rest }) => {
 
     return (
         <GliderTrack
-            innerRef={gliderRef}
+            ref={gliderRef}
             index={index}
             gap={gap}
             visibleGlides={visibleGlides}
