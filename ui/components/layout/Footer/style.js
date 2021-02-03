@@ -158,7 +158,7 @@ const styles = {
         },
     },
     copywright: {
-        position: 'fixed',
+        position: 'sticky', // 'fixed',
         bottom: 0,
         width: 'fluid',
         zIndex: 'footerCopywright',
@@ -188,7 +188,7 @@ const styles = {
     },
     footerReveal: {
         zIndex: 'footerReveal',
-        mb: '3.5em',
+        // mb: '3.5em',
     },
     footerRevealPane: {
         py: '2em',
@@ -196,7 +196,6 @@ const styles = {
         boxShadow: '0 -3px 10px hsla(0, 0%, 0%, 0.07)',
     },
     footerRevealContent: {
-        // bg: 'primary.light',
         backgroundImage: ({ colors }) =>
             `linear-gradient(to right, ${colors.accent.pale}, ${colors.highlight.pale},${colors.primary.pale},${colors.highlight.pale},${colors.accent.pale})`,
         color: 'textOnPrimary',
@@ -209,14 +208,7 @@ const styles = {
         },
     },
     specialUnderline: {
-        color: 'highlight.base',
-        backgroundSize: '100% 15%',
-        backgroundRepeat: 'repeat-x',
-        backgroundPosition: 'left 0% bottom 0%',
-        backgroundImage: ({ colors }) =>
-            `linear-gradient(179deg, ${colors.highlight.dark} 0%, ${colors.highlight.dark} 50%,transparent 54%, transparent 100%)`,
-        // backgroundImage: ({ colors }) =>
-        //     `repeating-linear-gradient(135deg, ${colors.highlight.base} 0px, ${colors.highlight.base} 7px,transparent 7px, transparent 14px),repeating-linear-gradient(45deg, ${colors.highlight.hover} 0px, ${colors.highlight.hover} 7px,transparent 7px, transparent 14px),repeating-linear-gradient(135deg, #FFF 0px, #FFF 7px,#FFF 7px, #FFF 14px)`,
+        backgroundImage: ({ colors }) => `linear-gradient(180deg, transparent 60%, ${colors.primary.base} 0)`,
     },
 }
 
