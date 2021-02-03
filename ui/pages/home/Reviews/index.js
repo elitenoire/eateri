@@ -4,17 +4,18 @@ import { Container, Image } from '@theme-ui/components'
 import useInView from 'react-cool-inview'
 import { Text, Heading } from '~@/typography'
 import { GliderControl, GliderBullets, Glider, GliderProvider, useIndex } from '~@/display'
-import { Icon, Reveal } from '~@/general'
+import { Icon, Reveal, fadeInRight } from '~@/general'
 
 import WaveSvg from '~/public/inlineSvg/wave-applebtm.svg'
 import MBean from '~/public/inlineSvg/m-bean.svg'
+import ArrowUp from '~/public/inlineSvg/arrow-up.svg'
 import url from '~/public/dish.png'
 
 import reviews from './data'
 
 import styles from './style'
 
-const colors = ['accent.light', 'primary.base', 'secondary.base', 'highlight.light', 'blue']
+const colors = ['accent.base', 'primary.base', 'red', 'highlight.base', 'blue']
 
 const GliderIndex = ({ children }) => {
     const { index } = useIndex()
@@ -24,9 +25,11 @@ const GliderIndex = ({ children }) => {
 const ReviewCard = ({ author, review, color }) => (
     <div sx={styles.reviewCard(color)}>
         <span>⭐⭐⭐⭐⭐</span>
-        <Text mt={2}>{review}</Text>
+        <Text mt={2} weight="medium" opacity={0.7}>
+            {review}
+        </Text>
         <span>-</span>
-        <Text weight="light" italic>
+        <Text weight="bold" italic>
             {author}
         </Text>
     </div>
@@ -93,11 +96,16 @@ const Reviews = () => {
                                 ))}
                             </Glider>
                             <div sx={styles.gliderControlBlock}>
-                                <GliderControl />
+                                <GliderIndex>{index => <GliderControl color={colors[index]} />}</GliderIndex>
                             </div>
                         </div>
                     </div>
                 </GliderProvider>
+                <Reveal motion={fadeInRight} delay={200} whenInView>
+                    <div sx={styles.arrowUp}>
+                        <ArrowUp />
+                    </div>
+                </Reveal>
             </Container>
         </section>
     )

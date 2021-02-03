@@ -15,7 +15,7 @@ const styles = {
         justifyContent: [null, null, null, null, 'space-between'],
         textAlign: ['center', null, null, null, 'left'],
         maxWidth: 'maxContainer',
-        py: [10, null, null, null, 12],
+        py: 13,
         p: {
             flex: 1,
             mb: [3, null, null, null, 0],

@@ -2,7 +2,7 @@
 import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
 import Scrollable from '~@/display/Scrollable'
-import { Icon, Reveal, zoomInUp } from '~@/general'
+import { Icon, Reveal } from '~@/general'
 import { Heading, Text } from '~@/typography'
 import WaveDecoration from '~@/other/WaveDecoration'
 import DoodleBgSvg from '~/public/inlineSvg/bg-offers.svg'
@@ -45,20 +45,18 @@ const Offers = () => (
             <Text as="h3" variant="title" mt={7} mb={7} size={5} weight="normal" align="center">
                 Offers Of The Week
             </Text>
-            <Reveal motion={zoomInUp} duration={600} threshold={0.2} whenInView>
-                <Scrollable as="ul" flex hideScroll>
-                    {offers.map(({ title, text }) => (
-                        <li key={title} sx={styles.offersCard}>
-                            <Text line="normal">
-                                <Text as="span" weight="bold">
-                                    {title}
-                                </Text>
-                                {text}
+            <Scrollable as="ul" flex hideScroll>
+                {offers.map(({ title, text }) => (
+                    <li key={title} sx={styles.offersCard}>
+                        <Text line="normal">
+                            <Text as="span" weight="bold">
+                                {title}
                             </Text>
-                        </li>
-                    ))}
-                </Scrollable>
-            </Reveal>
+                            {text}
+                        </Text>
+                    </li>
+                ))}
+            </Scrollable>
         </Container>
         <WaveDecoration color="background" />
     </section>

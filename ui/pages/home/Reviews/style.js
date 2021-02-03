@@ -1,5 +1,5 @@
-import { alpha, getColor } from '@theme-ui/color'
-import { readableColor, isDark } from '~/lib/utils'
+import { alpha } from '@theme-ui/color'
+// import { readableColor, isDark } from '~/lib/utils'
 
 const styles = {
     section: {
@@ -53,8 +53,9 @@ const styles = {
         mx: 'auto',
         textAlign: 'center',
         borderRadius: 20,
-        bg: color,
-        color: t => alpha(readableColor(color)(t), isDark(getColor(t, color)) ? 0.75 : 0.85)(t),
+        bg: t => alpha(color, 0.25)(t),
+        color: 'black',
+        // color: t => alpha(readableColor(color)(t), isDark(getColor(t, color)) ? 0.75 : 0.85)(t),
         '& > span:first-of-type': {
             color: 'black',
         },
@@ -81,7 +82,7 @@ const styles = {
     gliderIndex: {
         position: 'absolute',
         top: 0,
-        opacity: 0.7,
+        opacity: 0.5,
         fontSize: ['8em', null, null, null, '10em'],
         zIndex: 2,
     },
@@ -90,6 +91,16 @@ const styles = {
         width: '60%',
         left: '30%',
         bottom: '-10%',
+    },
+    arrowUp: {
+        position: 'relative',
+        pb: [null, null, null, null, '1em'],
+        svg: {
+            position: 'absolute',
+            bottom: ['3em', null, null, null, '1em'],
+            left: [0, null, null, '15%', '20%'],
+            width: ['7em', null, null, null, '10em'],
+        },
     },
 }
 
