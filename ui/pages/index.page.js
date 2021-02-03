@@ -25,12 +25,6 @@ import {
 const Index = ({ userAgent }) => (
     <>
         <Head>
-            <link
-                rel="stylesheet"
-                href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-                integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-                crossOrigin=""
-            />
             <style id={SSRStyleID} type="text/css" dangerouslySetInnerHTML={{ __html: mediaStyles }} />
         </Head>
         <MediaContextProvider onlyMatch={onlyMatchListForUserAgent(userAgent)}>
