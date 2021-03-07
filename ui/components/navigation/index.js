@@ -1,3 +1,5 @@
 export { default as Header } from './Header'
+export { default as Footer } from './Footer'
 export { default as MobileSideMenu } from './MobileSideMenu'
+export { default as BackToTop } from './BackToTop'
 export * from './Steps'
