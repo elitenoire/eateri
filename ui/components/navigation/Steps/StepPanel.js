@@ -1,8 +1,8 @@
 import React from 'react'
-import { useStepContext } from './useStepState'
+import { useStepValue } from './useStepState'
 
 const StepPanel = ({ step, children, ...rest }) => {
-    const { currentStep } = useStepContext()
+    const { currentStep } = useStepValue()
 
     return <div {...rest}>{step === currentStep && children}</div>
 }

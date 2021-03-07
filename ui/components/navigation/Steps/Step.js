@@ -3,7 +3,7 @@ import { jsx } from '@theme-ui/core'
 import React, { useCallback } from 'react'
 import { CompositeItem } from 'reakit/Composite'
 
-import { useCompositeContext, useStepContext } from './useStepState'
+import { useCompositeContext, useStepValue, useStepControl } from './useStepState'
 
 import { stepStyle } from './style'
 
@@ -67,12 +67,16 @@ Step.displayName = 'Step'
 
 const StepItem = ({ index, title, children }) => {
     const composite = useCompositeContext()
-    const { currentStep, moveStep, linear } = useStepContext()
+    const { currentStep, linear } = useStepValue()
+    const { moveStep } = useStepControl()
 
     const stepIndex = index + 1
     const status = getStatus(currentStep, index)
 
-    const handleStepClick = useCallback(() => moveStep(index), [index, moveStep])
+    const handleStepClick = useCallback(() => {
+        if (linear) return
+        moveStep(index)
+    }, [index, moveStep, linear])
 
     if (status === COMPLETED) {
         return (
@@ -89,7 +93,7 @@ const StepItem = ({ index, title, children }) => {
     }
 
     return (
-        <CompositeItem {...composite} role="listitem" onClick={linear ? undefined : handleStepClick}>
+        <CompositeItem {...composite} role="listitem" onClick={handleStepClick}>
             {stepProps => (
                 <Step {...stepProps} as="li" title={title} status={status} index={stepIndex}>
                     {children}

@@ -1,10 +1,7 @@
 import { useState, useCallback } from 'react'
 import constate from 'constate'
 import { useCompositeState } from 'reakit/Composite'
-import { clamp } from '~/lib/utils'
-
-// selectors
-const _selectLevelOne = state => values => values[state]
+import { clamp, selector } from '~/lib/utils'
 
 // state hook
 const useStepState = ({ step = 0, linear = true, maxStep = 2, ...initialComposite } = {}) => {
@@ -23,20 +20,20 @@ const useStepState = ({ step = 0, linear = true, maxStep = 2, ...initialComposit
 
     return {
         composite,
-        step: {
-            currentStep,
-            moveStep,
-            prevStep,
-            nextStep,
-            isFirst,
-            isLast,
-            linear,
-        },
+        currentStep,
+        moveStep,
+        prevStep,
+        nextStep,
+        isFirst,
+        isLast,
+        linear,
     }
 }
 
-export const [StepProvider, useCompositeContext, useStepContext] = constate(
+export const [StepProvider, useCompositeContext, useStepValue, useStepStatus, useStepControl] = constate(
     useStepState,
-    _selectLevelOne('composite'),
-    _selectLevelOne('step')
+    selector('composite'),
+    selector('currentStep', 'linear'),
+    selector('isFirst', 'isLast'),
+    selector('moveStep', 'prevStep', 'nextStep')
 )
