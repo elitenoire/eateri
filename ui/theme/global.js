@@ -83,9 +83,15 @@ const styles = t => ({
         '.a-l': {
             fill: t.colors.accent.light,
         },
+        '.a-h': {
+            fill: t.colors.accent.hover,
+        },
         '.h-b': {
             fill: t.colors.highlight.base,
         },
+    },
+    'ul,ol': {
+        listStyle: 'none',
     },
     'a,a:active,a:visited': {
         color: 'inherit',

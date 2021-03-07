@@ -50,10 +50,9 @@ const styles = {
         mx: ['-1.5em', null, 0],
         p: '2px',
         'button:focus': {
-            boxShadow: 'none',
+            boxShadow: 'none !important',
         },
         'button:focus > span': {
-            // boxShadow: t => `0 0 0 1.5px ${t.colors.highlight.base}`,
             boxShadow: t => `0 0 0 1.5px ${t.colors.focusOutline}`,
         },
         'button[aria-disabled="true"]:focus > span': {

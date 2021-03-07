@@ -65,9 +65,6 @@ const styles = {
         fontSize: [null, null, '0.8em', '0.85em', null, '0.95em'],
     },
     socialLinks: {
-        display: 'flex',
-        flexDirection: ['column', null, 'row', null, 'column'],
-        justifyContent: [null, null, 'flex-end', null, 'center'],
         position: 'absolute',
         top: ['0.25em', null, null, null, 0],
         bottom: [null, null, null, null, 0],
@@ -78,12 +75,21 @@ const styles = {
         borderTopLeftRadius: ['2px', null, 0],
         borderBottomLeftRadius: ['2px', null, 0],
         zIndex: 1,
+        ul: {
+            display: 'flex',
+            flexDirection: ['column', null, 'row', null, 'column'],
+            justifyContent: [null, null, 'flex-end', null, 'center'],
+            height: [null, null, null, null, 'fluid'],
+        },
+        li: {
+            px: [4, null, 2, null, 0],
+            py: 2,
+        },
         a: {
             textDecoration: 'none',
             mx: [null, null, null, null, 1],
             my: [null, null, null, null, 4],
             lineHeight: 0.8,
-            p: ['0.85em', null, '0.5em', null, 0],
             transition: 'transform 0.3s, color 0.3s',
         },
         'a:hover': {

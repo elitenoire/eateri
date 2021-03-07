@@ -7,10 +7,11 @@ import LogoText from '~/public/inlineSvg/logo-tt.svg'
 
 import styles from './style'
 
-const getLogoBoxStyle = ({ plain, color, size, sx }) => ({
+const getLogoBoxStyle = ({ plain, color, size, link, sx }) => ({
     ...styles.logoBox,
     ...(size && { fontSize: size }),
-    ...(plain ? { ...(color && { color }) } : { color: `${color}.base` }),
+    ...(color && link && { '&,&:active,&:visited': { color: plain ? color : `${color}.base` } }),
+    ...(color && !link && { color: plain ? color : `${color}.base` }),
     ...sx,
     '.logo': styles.logoBox['.logo'],
     ...(sx && { '.logo': sx['.logo'] }),
@@ -18,38 +19,30 @@ const getLogoBoxStyle = ({ plain, color, size, sx }) => ({
     ...(sx && { '.logo-text': sx['.logo-text'] }),
 })
 
-const Logo = React.forwardRef(({ color, plain, size, link, noText, sx, ...rest }, ref) => {
-    const _logoProps = noText
-        ? {
-              sx: {
-                  ...(size && { fontSize: size }),
-                  ...(plain ? { ...(color && { color }) } : styles[color]),
-                  ...sx,
-              },
-              ...rest,
-          }
-        : {
-              ...(!plain && {
-                  sx: styles[color],
-              }),
-          }
+const getLogoStyle = ({ noText, size, plain, color }) => ({
+    ...(noText && size && { fontSize: size }),
+    ...(!plain && styles[color]),
+})
 
-    const LogoTag = link ? 'a' : 'div'
+const Logo = React.forwardRef(({ color, plain, size, link, noText, animated, sx, ...rest }, ref) => {
+    const Wrapper = link ? 'a' : 'div'
+    const LogoSvg = plain ? PlainLogo : SolidLogo
 
-    const _logo = plain ? (
-        <PlainLogo aria-hidden="true" focusable="false" className="logo" {..._logoProps} />
-    ) : (
-        <SolidLogo aria-hidden="true" focusable="false" className="logo" {..._logoProps} />
-    )
-
-    if (noText) {
-        return _logo
-    }
     return (
-        <LogoTag ref={ref} sx={getLogoBoxStyle({ plain, color, size, sx })} {...rest}>
-            {_logo}
-            <LogoText aria-hidden="true" focusable="false" className="logo-text" />
-        </LogoTag>
+        <Wrapper
+            ref={ref}
+            data-animated={animated ? '' : null}
+            sx={getLogoBoxStyle({ plain, color, size, link, sx })}
+            {...rest}
+        >
+            <LogoSvg
+                aria-hidden="true"
+                focusable="false"
+                className="logo"
+                sx={getLogoStyle({ noText, size, plain, color })}
+            />
+            {!noText && <LogoText aria-hidden="true" focusable="false" className="logo-text" />}
+        </Wrapper>
     )
 })
 

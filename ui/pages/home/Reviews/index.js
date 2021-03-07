@@ -22,8 +22,8 @@ const GliderIndex = ({ children }) => {
     return children(index)
 }
 
-const ReviewCard = ({ author, review, color }) => (
-    <div sx={styles.reviewCard(color)}>
+const ReviewCard = ({ author, review }) => (
+    <div sx={styles.reviewCard}>
         <span>⭐⭐⭐⭐⭐</span>
         <Text mt={2} weight="medium" opacity={0.7}>
             {review}
@@ -46,7 +46,7 @@ const Reviews = () => {
             <WaveSvg sx={styles.waveSvg} />
             <Container variant="loose" sx={styles.container}>
                 <Reveal as={Container} variant="content" cascade whenInView>
-                    <Text as="h2" variant="block" mb={2} color="accent.base">
+                    <Text as="h2" variant="badge" mb={2} bg="accent.pale" color="accent.base">
                         Happy Guests
                     </Text>
                     <Heading as="p" variant="headline" color="text" title>
@@ -87,12 +87,7 @@ const Reviews = () => {
                             </Text>
                             <Glider>
                                 {reviews.map(({ author, review }, i) => (
-                                    <ReviewCard
-                                        key={i}
-                                        author={author}
-                                        review={review}
-                                        color={colors[i % colors.length]}
-                                    />
+                                    <ReviewCard key={i} author={author} review={review} />
                                 ))}
                             </Glider>
                             <div sx={styles.gliderControlBlock}>

@@ -15,27 +15,28 @@ const blink = keyframes`
     	opacity: 0.2;
     }
 `
+const style = {
+    fontSize: 7,
+    '& > span': {
+        animation: `${blink} 1.4s ease infinite`,
+        animationFillMode: 'both',
+    },
+    '& > span:nth-of-type(2)': {
+        animationDelay: '0.2s',
+    },
+    '& > span:nth-of-type(3)': {
+        animationDelay: '0.4s',
+    },
+}
 
-const LoadingDots = () => (
-    <span
-        sx={{
-            fontSize: 7,
-            '& > span': {
-                animation: `${blink} 1.4s ease infinite`,
-                animationFillMode: 'both',
-            },
-            '& > span:nth-child(2)': {
-                animationDelay: '0.2s',
-            },
-            '& > span:nth-child(3)': {
-                animationDelay: '0.4s',
-            },
-        }}
-    >
-        <span>•</span>
-        <span>•</span>
-        <span>•</span>
-    </span>
-)
+function LoadingDots() {
+    return (
+        <span sx={style}>
+            <span>•</span>
+            <span>•</span>
+            <span>•</span>
+        </span>
+    )
+}
 
 export default LoadingDots

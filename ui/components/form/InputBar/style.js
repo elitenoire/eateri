@@ -3,7 +3,8 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
         borderRadius: radius || 'pill',
-        padding: 2,
+        py: 2,
+        px: 3,
         ...sx,
         input: {
             flex: 1,

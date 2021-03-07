@@ -76,7 +76,7 @@ const FavoriteCard = ({ img, title }) => (
 const Menu = () => (
     <Container as="section" id="homepage-menu" variant="loose" sx={styles.section}>
         <Reveal as={Container} variant="content" sx={styles.sectionHeader} cascade whenInView>
-            <Text as="h2" variant="block" mb={2} color="secondary.pale">
+            <Text as="h2" variant="badge" mb={2} bg="whiteFade.10" color="secondary.pale">
                 Explore Our Menu
             </Text>
             <Heading as="p" variant="headline" color="text" title>

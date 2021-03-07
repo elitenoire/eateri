@@ -3,11 +3,13 @@ import { alpha } from '@theme-ui/color'
 export default {
     buttons: {
         brands: {
-            solid: ({ color }) => ({
+            solid: ({ color, link }) => ({
+                [`&${link ? ',&:active,&:visited' : ''}`]: {
+                    color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
+                },
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
                     bg: `${color}.base`,
                     borderColor: `${color}.base`,
-                    color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
                 },
                 '&:hover': {
                     bg: `${color}.hover`,
@@ -23,12 +25,14 @@ export default {
                     boxShadow: t => `0 2px 4px ${alpha('secondary.base', 0.2)(t)}`,
                 },
             }),
-            outline: ({ color, borderless }) => ({
+            outline: ({ color, borderless, link }) => ({
                 position: 'relative',
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
                     bg: 'transparent',
-                    color: `${color}.base`,
                     borderColor: borderless ? 'transparent' : `${color}.base`,
+                },
+                [`&,${link ? '&:active,&:visited,' : ''}&[aria-disabled="true"]:hover,&:disabled:hover`]: {
+                    color: `${color}.base`,
                 },
                 '&:hover': {
                     bg: `${color}.base`,
@@ -64,10 +68,10 @@ export default {
                     bg: `${color}.hover`,
                 },
             }),
-            ghost: ({ color, ghostText }) => ({
+            ghost: ({ color, ghostText, link }) => ({
                 bg: 'transparent', // 'ghost',
                 borderColor: 'transparent', // 'ghost',
-                '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
+                [`&,${link ? '&:active,&:visited,' : ''}&:disabled:hover,&[aria-disabled="true"]:hover`]: {
                     color: `${color}.base`,
                 },
                 // TODO:
@@ -83,8 +87,10 @@ export default {
                     boxShadow: ghostText ? 'none' : '0 2px 6px 1px rgba(0, 0, 0, 0.08) inset',
                 },
             }),
-            pale: ({ color }) => ({
-                color: `${color}.base`,
+            pale: ({ color, link }) => ({
+                [`&${link ? ',&:active,&:visited' : ''}`]: {
+                    color: `${color}.base`,
+                },
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
                     bg: 'transparent',
                     borderColor: 'transparent',
@@ -192,6 +198,12 @@ export default {
             textTransform: 'uppercase',
             letterSpacing: 'wider',
             fontSize: 0,
+        },
+        badge: {
+            variant: 'text.block',
+            padding: '0.5em 2em',
+            borderRadius: '1.75em',
+            display: 'inline-block',
         },
     },
     cards: {

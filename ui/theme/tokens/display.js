@@ -65,8 +65,9 @@ export default {
         blob3: '70% 30% 30% 70% / 30% 30% 70% 70%',
     },
     zIndices: {
-        header: 1000,
+        backToTop: 2000,
         pageWrap: 1300,
+        header: 1000,
         main: 10,
         footer: 10,
         footerCopywright: 9,

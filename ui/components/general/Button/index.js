@@ -1,6 +1,6 @@
 import React from 'react'
 import { useThemeUI } from '@theme-ui/core'
-import { Button as TUIButton } from '@theme-ui/components'
+import { Button as TUIButton, Link as TUILink } from '@theme-ui/components'
 import Icon from '~@/general/Icon'
 import LoadingDots from '~@/feedback/LoadingDots'
 import styles from './style'
@@ -27,13 +27,14 @@ const _sx = ({
     fluid,
     borderless,
     ghostText,
+    iconOnly,
+    buttonWithIcon,
+    link,
     children,
     sx,
-    buttonWithIcon,
-    iconOnly,
 }) => ({
     ...styles._base,
-    ...buttons.brands[brand]({ color, borderless, ghostText }),
+    ...buttons.brands[brand]({ color, borderless, ghostText, link }),
     ...buttons.shapes[shape],
     ...buttons.sizes[size],
     ...(children && styles.button),
@@ -45,7 +46,23 @@ const _sx = ({
 
 const Button = React.forwardRef(
     (
-        { sx, size, shape, brand, color, icon, fluid, borderless, ghostText, isLoading, ariaLabel, children, ...rest },
+        {
+            sx,
+            size,
+            shape,
+            brand,
+            color,
+            icon,
+            fluid,
+            borderless,
+            ghostText,
+            noFade,
+            isLoading,
+            ariaLabel,
+            link,
+            children,
+            ...rest
+        },
         ref
     ) => {
         const {
@@ -54,8 +71,10 @@ const Button = React.forwardRef(
         const iconOnly = icon && !children
         const buttonWithIcon = icon && children
 
+        const Tag = link ? TUILink : TUIButton
+
         return (
-            <TUIButton
+            <Tag
                 ref={ref}
                 margin="6px"
                 sx={_sx({
@@ -69,10 +88,12 @@ const Button = React.forwardRef(
                     ghostText,
                     iconOnly,
                     buttonWithIcon,
+                    link,
                     children,
                     sx,
                 })}
                 aria-label={iconOnly ? ariaLabel || icon : undefined}
+                data-no-fade={noFade ? '' : null}
                 title={iconOnly ? ariaLabel || icon : undefined}
                 onMouseDown={handleClick}
                 onKeyUp={handleKeyPress}
@@ -91,7 +112,7 @@ const Button = React.forwardRef(
                         {iconOnly && <Icon name={icon} />}
                     </>
                 )}
-            </TUIButton>
+            </Tag>
         )
     }
 )

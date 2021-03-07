@@ -1,6 +1,23 @@
+import { keyframes } from '@emotion/core'
+
+const spin = keyframes`
+0% {
+	transform: rotate(0) scale(1);
+}
+50% {
+	transform: rotate(180deg) scale(1.3);
+}
+100% {
+	transform: rotate(360deg) scale(1);
+}
+`
+
 const styles = {
     logoBox: {
-        display: 'flex',
+        display: 'inline-flex',
+        '&[data-animated]:hover .logo': {
+            animation: `${spin} 1s linear infinite both`,
+        },
         '.logo': {
             size: '2em',
             mr: '0.8em',

@@ -1,6 +1,3 @@
-import { alpha } from '@theme-ui/color'
-// import { readableColor, isDark } from '~/lib/utils'
-
 const styles = {
     section: {
         // bg: 'muted',
@@ -45,21 +42,22 @@ const styles = {
             zIndex: -1,
         },
     },
-    reviewCard: color => ({
+    reviewCard: {
         width: '100%',
         maxWidth: '22.5em',
         padding: 9,
         my: 4,
+        mb: 5,
         mx: 'auto',
         textAlign: 'center',
         borderRadius: 20,
-        bg: t => alpha(color, 0.25)(t),
+        bg: 'white',
         color: 'black',
-        // color: t => alpha(readableColor(color)(t), isDark(getColor(t, color)) ? 0.75 : 0.85)(t),
+        boxShadow: '0 2px 8px 0 rgba(0,0,0,0.04), 0 2px 20px 0 rgba(0,0,0,0.06)',
         '& > span:first-of-type': {
             color: 'black',
         },
-    }),
+    },
     gliderControlBlock: {
         position: 'absolute',
         right: ['10%', null, null, '15%', '7%'],

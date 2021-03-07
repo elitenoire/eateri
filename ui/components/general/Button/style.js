@@ -12,6 +12,9 @@ const styles = {
         fontFamily: 'body',
         backfaceVisibility: 'hidden',
         transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
+        svg: {
+            pointerEvents: 'none',
+        },
         '& .symbol': {
             padding: '0.4em 0.8em',
             borderRadius: 'inherit',
@@ -28,6 +31,9 @@ const styles = {
         '&:disabled,&[aria-disabled="true"]': {
             opacity: 0.4,
             cursor: 'auto',
+        },
+        '&[data-no-fade]:disabled,&[data-no-fade][aria-disabled="true"]': {
+            opacity: 1,
         },
         '&&:enabled:not([aria-disabled="true"]):hover': {
             transform: 'translateY(-2px)',

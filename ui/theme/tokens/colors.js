@@ -22,7 +22,7 @@ export default {
     primary: {
         base: '#fccc3e',
         hover: '#FEC21C',
-        pale: '#FEFBE1', // '#FEF9D8',
+        pale: '#FFFAEC', // '#FEFBE1',
         light: '#FEE78B',
         dark: '#CB9903', // #B5871F,
         neumorph: {
@@ -42,16 +42,16 @@ export default {
     accent: {
         base: '#94d82d',
         hover: '#82c91e',
-        pale: '#e9fac8',
+        pale: '#f4fbea',
         light: '#c0eb75',
         dark: '#326708',
     },
     highlight: {
         base: '#ff922b',
-        hover: '#DB711F',
+        hover: '#e68327',
         pale: '#FFF1D4',
         light: '#FFCA7F',
-        dark: '#933A0D',
+        dark: '#663a11', // '#933A0D',
     },
     background: '#fefefd', // #fafbfd
     text: '#212529', // '#343a40',
@@ -62,6 +62,7 @@ export default {
     textOnPrimary: '#212529',
     textOnSecondary: '#fefefd',
     textOnAccent: '#212529',
+    textOnHighlight: '#fefefd',
     textSelectionColor: '#FEE78B', // primary.light
     textSelectionBg: '#343a40', // secondary.hover
     heroStripe1: 'rgb(70, 78, 86)',

@@ -13,7 +13,7 @@ const Gallery = () => (
     <section id="home-gallery" sx={styles.section}>
         <Container variant="loose" mb={8}>
             <Reveal cascade whenInView>
-                <Text as="h2" variant="block" mb={2} color="accent.base">
+                <Text as="h2" variant="badge" mb={2} bg="accent.pale" color="accent.base">
                     Gallery
                 </Text>
                 <Heading as="p" variant="headline" color="text" title>
