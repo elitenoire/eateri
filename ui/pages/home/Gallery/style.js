@@ -1,17 +1,26 @@
+import { keyframes } from '@emotion/core'
 import strip1Url from '~/public/strip-1.png'
 import strip2Url from '~/public/strip-2.png'
+
+const slide = keyframes`
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-40%, 0, 0);
+    }
+`
 
 const styles = {
     section: {
         pt: [null, null, 7, null, 13],
-        textAlign: 'right',
-        'h2, p': {
-            textAlign: 'left',
-        },
     },
     subText: {
         position: 'relative',
         display: 'inline-block',
+        textAlign: 'center',
+        left: '100%',
+        transform: 'translateX(-100%)',
         opacity: 0.7,
         pr: 7,
         mt: 6,
@@ -31,7 +40,6 @@ const styles = {
         span: {
             display: 'block',
             lineHeight: 1,
-            mr: 12,
         },
         svg: {
             position: 'absolute',
@@ -44,27 +52,49 @@ const styles = {
         },
     },
     stripWrapper: {
+        position: 'relative',
         overflow: 'hidden',
         mx: ['-1.5em', null, '-9.52%', '-12.5%'], // reverses container's padding
-        '& > div:nth-of-type(1)': {
-            backgroundImage: `url('${strip1Url}')`,
+        ':before,:after': {
+            content: '""',
+            width: '2%',
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            zIndex: 1,
+            backgroundImage: t => `linear-gradient(to right, ${t.colors.white} 0%, transparent 100%)`,
         },
-        '& > div:nth-of-type(2)': {
-            backgroundImage: `url('${strip2Url}')`,
-            position: 'relative',
-            right: '300%', // Calc(400% - 100%)
+        ':before': {
+            left: 0,
+        },
+        ':after': {
+            right: 0,
+            transform: 'rotateZ(180deg)',
         },
     },
     strip: {
         willChange: 'transform',
         backfaceVisibility: 'hidden',
 
+        backgroundRepeat: 'repeat-x',
         backgroundSize: 'contain',
-        backgroundRepeatY: 'no-repeat',
 
-        width: '400%',
-        height: '9em', // 180px
+        width: 'calc(63em * 2.5)', // 1890px -> by 2.5, larger screens don't see cutoff
+        height: '9em', // 270px -> 7:1 aspect ratio
         mb: 7,
+
+        '&[data-strip-left]': {
+            backgroundImage: `url('${strip1Url}')`,
+            animation: `${slide} 17s linear infinite`,
+        },
+        '&[data-strip-right]': {
+            backgroundImage: `url('${strip2Url}')`,
+            animation: `${slide} 17s linear reverse infinite`,
+        },
+
+        '&[data-strip-paused]': {
+            animationPlayState: 'paused',
+        },
     },
 }
 
