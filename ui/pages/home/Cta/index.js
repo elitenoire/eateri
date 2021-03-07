@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import Link from 'next/link'
 import { Container } from '@theme-ui/components'
-import { Button } from '~@/general'
-import { Reveal, fadeIn } from '~@/general/Reveal'
+import { Button, Reveal, fadeIn } from '~@/general'
 import { Text } from '~@/typography'
 
 import styles from './style'
@@ -14,7 +14,11 @@ const Cta = () => (
                 <Text size={6} weight="bold" line="tight" spacing="wide">
                     <span>Hungry?</span> Order From <span>Our Menu</span> & Have It Delivered To You.
                 </Text>
-                <Button size="lg">View Menu</Button>
+                <Link href="/menu">
+                    <Button size="lg" link>
+                        View Menu
+                    </Button>
+                </Link>
             </Reveal>
         </Container>
     </Container>

@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import Link from 'next/link'
 import { Image } from '@theme-ui/components'
 import { MemphisFrame } from '~@/other'
 import { Heading, Text } from '~@/typography'
@@ -47,9 +48,13 @@ const About = () => (
                         101% satisfaction guaranteed
                     </Text>
                 </div>
-                <Button color="accent" brand="outline">
-                    Learn More
-                </Button>
+                <div>
+                    <Link href="/about" passHref>
+                        <Button color="accent" brand="outline" link>
+                            Learn More
+                        </Button>
+                    </Link>
+                </div>
             </Reveal>
         </div>
     </section>

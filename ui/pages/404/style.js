@@ -30,7 +30,7 @@ const styles = {
         ml: [null, null, null, null, 11],
         textAlign: ['center', null, null, null, 'left'],
         transition: 'color 0.3s ease',
-        a: {
+        'nav a': {
             textDecorationColor: t => t.colors.primary.base,
             textDecorationStyle: 'wavy',
             textDecorationLine: 'underline',
