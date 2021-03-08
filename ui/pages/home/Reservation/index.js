@@ -1,112 +1,70 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
-import { Text, Heading } from '~@/typography'
-import { Button, Divider, Icon } from '~@/general'
-import { Step, StepList, StepPanel, StepProvider } from '~/components/navigation/Steps'
+import { Media } from '~/context/media'
 
-import FormSteps from './FormSteps'
-import StepFindTable from './StepFindTable'
-import StepGuestDetails from './StepGuestDetails'
-import StepConfirmation from './StepConfirmation'
+import { Text, Heading } from '~@/typography'
+import { Reveal, fadeInLeft } from '~@/general/Reveal'
+import { StepProvider } from '~@/navigation/Steps'
+import { HASH_ID_RESERVATIONS } from '~/constants'
+import MobileSheet from './MobileSheet'
+import MakeReservation from './MakeReservation'
+
+import ReservePatternL from '~/public/inlineSvg/reserve-pattern-l.svg'
+import ReservePatternR from '~/public/inlineSvg/reserve-pattern-r.svg'
+import ArrowDown from '~/public/inlineSvg/arrow-down.svg'
 
 import styles from './style'
 
-const Reservation = () => (
-    <Container as="section" id="homepage-reservation" variant="loose" sx={styles.section}>
-        <Container variant="content" className="mobile-hidden">
-            <Text as="h2" variant="block" mb={2} color="secondary.pale">
-                Reserve A Table
-            </Text>
-            <Heading as="p" variant="h2" color="text" weight="extrabold" title>
-                We've Got You Covered
-            </Heading>
-            <Text>
-                Save time waiting for your meal by booking a table in advance. Reservations can be made up to 3 months
-                maximum.
-            </Text>
-            <Text>We look forward to seeing you soon!</Text>
-            <div className="visually-hidden">
-                <p>Note that, the reservation process involves three steps.</p>
-            </div>
-        </Container>
-        <div sx={styles.mobileHeader}>
-            <Heading as="h3" variant="h4" mb={0}>
-                Reservations
-            </Heading>
-            <button type="button" aria-label="Toggle reservation form">
-                <Icon name="arrowopen" />
-            </button>
-        </div>
-        <Container id="toggle open on mobile">
-            <div data-show-halo="false" className="card-halo" sx={styles.selectWrap}>
-                <div className="card-halo--content" sx={styles.selectLayout}>
-                    <button type="button" sx={styles.selectButton}>
-                        <div>
-                            <Icon name="user" />
-                            <Text size={0}>
-                                Guests{' '}
-                                <Text as="span" weight="medium">
-                                    2
-                                </Text>
+/** StepProvider is at the root to make its Context
+    available to both the mobile sheet and form Dialog.
+    Reason: reset step whenever the modal/dialog closes.
+*/
+
+function Reservation() {
+    return (
+        <StepProvider linear={false}>
+            <Media lessThan="tabletS">
+                <MobileSheet>
+                    <MakeReservation isMobile />
+                </MobileSheet>
+            </Media>
+            <Media greaterThanOrEqual="tabletS">
+                <Container as="section" id={HASH_ID_RESERVATIONS} variant="loose" sx={styles.section}>
+                    <div sx={styles.bgPattern}>
+                        <ReservePatternL />
+                        <ReservePatternR />
+                    </div>
+                    <Container variant="content" className="mobile-hidden">
+                        <Reveal cascade whenInView>
+                            <Text as="h2" variant="badge" mb={2} bg="whiteFade.10" color="secondary.pale">
+                                Reserve A Table
                             </Text>
-                            <Icon className="mobile-hidden" name="arrowdropdown" />
-                        </div>
-                    </button>
-                    <Divider bg={['text', null, 'secondary.light']} my={1} mx={2} vertical />
-                    <button type="button" sx={styles.selectButton}>
-                        <div>
-                            <Icon name="calendar" />
-                            <Text size={0}>
-                                Date{' '}
-                                <Text as="span" weight="medium">
-                                    18 Jul 2020
-                                </Text>
+                            <Heading as="p" variant="headline" color="text" title>
+                                We've Got You Covered
+                            </Heading>
+                            <Text color="textFade" spacing="wider" size={3}>
+                                Save time waiting for your meal by booking a table in advance. Reservations can be made
+                                up to 3 months maximum.
                             </Text>
-                            <Icon className="mobile-hidden" name="arrowdropdown" />
-                        </div>
-                    </button>
-                    <Divider bg={['text', null, 'secondary.light']} my={1} mx={2} vertical />
-                    <button type="button" sx={styles.selectButton}>
-                        <div>
-                            <Icon name="time" />
-                            <Text size={0}>
-                                Time{' '}
-                                <Text as="span" weight="medium">
-                                    17:00pm
-                                </Text>
+                            <Text color="textFade" spacing="wider" size={3}>
+                                We look forward to seeing you soon!
                             </Text>
-                            <Icon className="mobile-hidden" name="arrowdropdown" />
+                        </Reveal>
+                        <Reveal whenInView motion={fadeInLeft}>
+                            <div sx={styles.arrowDown}>
+                                <ArrowDown />
+                            </div>
+                        </Reveal>
+                        <div className="visually-hidden">
+                            <p>Note that, the reservation process involves three steps.</p>
                         </div>
-                    </button>
-                </div>
-                <div className="card-halo--action mobile-hidden" sx={styles.action}>
-                    <Button type="submit">Find Table</Button>
-                </div>
-            </div>
-            <div data-show-halo="true" className="card-halo" sx={styles.formWrap}>
-                <StepProvider linear={false}>
-                    <StepList>
-                        <Step index={0}>Find Table</Step>
-                        <Step index={1}>Guest Details</Step>
-                        <Step index={2}>Confirmation</Step>
-                    </StepList>
-                    <FormSteps id="steppanels">
-                        <StepPanel step={0}>
-                            <StepFindTable />
-                        </StepPanel>
-                        <StepPanel step={1}>
-                            <StepGuestDetails />
-                        </StepPanel>
-                        <StepPanel step={2}>
-                            <StepConfirmation />
-                        </StepPanel>
-                    </FormSteps>
-                </StepProvider>
-                <Button className="mobile-hidden" color="secondary" icon="close" sx={styles.formClose} />
-            </div>
-        </Container>
-    </Container>
-)
+                    </Container>
+                    <MakeReservation />
+                </Container>
+            </Media>
+        </StepProvider>
+    )
+}
 
 export default Reservation

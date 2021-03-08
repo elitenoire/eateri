@@ -11,12 +11,11 @@ import styles from './style'
 
 const StepGuestDetails = () => {
     const { register, errors } = useFormContext()
-
     return (
         <div>
             <GuestCard showOverlay={false} />
             <div sx={styles.guestInputWrap}>
-                <div sx={styles.formSection}>
+                <div className="form-section" sx={styles.formSection} data-form-error={errors.name ? '' : null}>
                     <label htmlFor="rsvp-guest-name" sx={styles.formSectionLabel}>
                         Name
                     </label>
@@ -25,15 +24,15 @@ const StepGuestDetails = () => {
                         id="rsvp-guest-name"
                         name="name"
                         placeholder="Name"
-                        ref={register({ required: true })}
+                        ref={register({ required: 'Name is required.' })}
                     />
                     {errors.name && (
-                        <Text size={0} color="red">
-                            {errors.date.message}
+                        <Text pt={2} pl={6} sx={styles.formError}>
+                            {errors.name.message}
                         </Text>
                     )}
                 </div>
-                <div sx={styles.formSection}>
+                <div className="form-section" sx={styles.formSection} data-form-error={errors.email ? '' : null}>
                     <label htmlFor="rsvp-guest-email" sx={styles.formSectionLabel}>
                         Email
                     </label>
@@ -43,16 +42,22 @@ const StepGuestDetails = () => {
                         name="email"
                         type="email"
                         placeholder="Email"
-                        ref={register({ required: true })}
+                        ref={register({
+                            required: 'Email is required.',
+                            pattern: {
+                                value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
+                                message: 'Email is not valid.',
+                            },
+                        })}
                     />
                     {errors.email && (
-                        <Text size={0} color="red">
+                        <Text pt={2} pl={6} sx={styles.formError}>
                             {errors.email.message}
                         </Text>
                     )}
                 </div>
             </div>
-            <div sx={styles.formSection}>
+            <div className="form-section" sx={styles.formSection}>
                 <label htmlFor="rsvp-guest-note" sx={styles.formSectionLabel}>
                     Note
                 </label>

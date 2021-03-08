@@ -4,7 +4,7 @@ import { useCallback } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
 import { DevTool } from '@hookform/devtools'
 
-import { useStepContext } from '~@/navigation'
+import { useStepControl, useStepStatus } from '~@/navigation'
 import Button from '~@/general/Button'
 
 import styles from './style'
@@ -33,18 +33,23 @@ const getSubmitButtonProps = (isFirst, isLast, isSubmitting) => {
     }
 }
 
-const FormSteps = ({ children, ...rest }) => {
+const FormSteps = ({ children, defaultValues = {}, ...rest }) => {
     const { handleSubmit, ...methods } = useForm({
         mode: 'onSubmit',
         submitFocusError: false,
         shouldUnregister: false,
+        defaultValues,
     })
 
-    const { isSubmitting } = methods.formState
+    const {
+        formState: { isSubmitting },
+        reset,
+        getValues,
+    } = methods
 
-    const { isFirst, isLast, prevStep, nextStep } = useStepContext()
-
-    const _onSubmit = data => console.log(data)
+    const { prevStep, nextStep } = useStepControl()
+    const { isFirst, isLast } = useStepStatus()
+    // const _onSubmit = data => console.log(data)
 
     const onSubmit = async data => {
         if (isLast) {
@@ -58,10 +63,12 @@ const FormSteps = ({ children, ...rest }) => {
         nextStep()
     }
 
-    const goBack = () => {
-        methods.reset(methods.getValues())
+    const goBack = useCallback(() => {
+        if (isSubmitting) return
+
+        reset(getValues())
         prevStep()
-    }
+    }, [isSubmitting, prevStep, reset, getValues])
 
     const { ariaLabel, title, submitText } = getSubmitButtonProps(isFirst, isLast, isSubmitting)
 
@@ -74,25 +81,29 @@ const FormSteps = ({ children, ...rest }) => {
                         <Button
                             color="secondary"
                             type="button"
-                            onClick={!isSubmitting ? goBack : undefined}
+                            size="lg"
+                            onClick={goBack}
                             disabled={isSubmitting}
                             title="Previous Step"
+                            noFade
                         >
                             Back
                         </Button>
                     )}
                     <Button
                         type="submit"
+                        size="lg"
                         disabled={isSubmitting}
                         isLoading={isSubmitting}
                         title={title}
                         aria-label={ariaLabel}
+                        noFade
                     >
                         {submitText}
                     </Button>
                 </div>
             </form>
-            <DevTool control={methods.control} />
+            {/* <DevTool control={methods.control} /> */}
         </FormProvider>
     )
 }

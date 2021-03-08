@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="0 0 1000 250" style="enable-background:new 0 0 1000 250;" xml:space="preserve">
+	<g transform="scale(0.8347245409015025)">
+		<rect x="0" y="0" fill="transparent" width="1198" height="299.5" />
+		<rect x="0" y="0" fill="transparent" width="299.5" height="299.5" />
+		<rect x="0" y="0" class="a-b" width="149.7" height="149.7" />
+		<path class="a-h" d="M0,149.7C0,67,67,0,149.7,0v37.4c-62,0-112.3,50.3-112.3,112.3" />
+		<rect x="149.7" y="0" class="a-h" width="149.7" height="149.7" />
+		<path class="a-b" d="M149.7,0c82.7,0,149.7,67,149.7,149.7l0,0h-37.4c0-62-50.3-112.3-112.3-112.3" />
+		<rect x="0" y="149.7" class="a-h" width="149.7" height="149.7" />
+		<path class="a-b" d="M0,149.7c0,82.7,67,149.7,149.7,149.7v-37.4c-62,0-112.3-50.3-112.3-112.3" />
+		<rect x="149.7" y="149.7" class="a-b" width="149.7" height="149.7" />
+		<path class="a-b" d="M149.7,299.5c82.7,0,149.7-67,149.7-149.7h-37.4c0,62-50.3,112.3-112.3,112.3" />
+		<rect x="299.5" y="0" class="a-h" width="299.5" height="299.5" />
+		<rect x="299.5" y="0" class="a-h" width="299.5" height="299.5" />
+		<rect x="599" y="0" fill="transparent" width="299.5" height="299.5" />
+		<rect x="599" y="0" class="a-h" width="149.7" height="149.7" />
+		<circle class="a-h" cx="673.9" cy="74.9" r="74.9" />
+		<rect x="748.7" y="0" class="a-h" width="149.7" height="149.7" />
+		<rect x="748.7" y="0" class="a-b" width="149.7" height="149.7" />
+		<rect x="599" y="149.7" class="a-h" width="149.7" height="149.7" />
+		<circle class="a-b" cx="673.9" cy="224.6" r="74.9" />
+		<rect x="748.7" y="149.7" class="a-h" width="149.7" height="149.7" />
+		<rect x="748.7" y="149.7" class="a-h" width="149.7" height="149.7" />
+		<rect x="898.5" y="0" class="a-b" width="299.5" height="299.5" />
+		<path class="a-h" d="M898.5,299.5C898.5,134.1,1032.6,0,1198,0L898.5,299.5C1063.9,299.5,1198,165.4,1198,0" />
+	</g>
+</svg>

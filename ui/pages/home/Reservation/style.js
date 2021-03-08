@@ -1,37 +1,70 @@
 import { alpha } from '@theme-ui/color'
 import { mediaQueries as mq } from '~/theme/tokens/rhythm'
+import { jelly } from '~@/general'
+
+const customScrollBarStyle = {
+    '& ::-webkit-scrollbar': {
+        width: '0.5em',
+        height: '0.5em',
+    },
+    '& ::-webkit-scrollbar-thumb': {
+        borderRadius: '5px',
+        background: t => t.colors.accent.light,
+        boxShadow: 'none',
+    },
+    '& ::-webkit-scrollbar-track': {
+        background: 'transparent', // t => t.colors.accent.pale,
+        borderRadius: '5px',
+    },
+    '& ::-webkit-scrollbar-track-piece:end': {
+        background: 'transparent',
+        mb: 5,
+    },
+    '& ::-webkit-scrollbar-track-piece:start': {
+        background: 'transparent',
+        mt: 5,
+    },
+}
 
 const styles = {
+    mobileSheetTrigger: {
+        pt: '50px',
+    },
+    mobileSheet: {
+        '[data-rsbs-overlay]': {
+            bg: 'accent.base',
+            borderTopLeftRadius: 40,
+            borderTopRightRadius: 40,
+            [mq.tabletS]: {
+                '.mobile-hidden': {
+                    display: 'none',
+                },
+                'form.card-halo': {
+                    bg: t => alpha('accent.pale', 0.2)(t),
+                    boxShadow: t => `${t.shadows.xl} !important`,
+                },
+            },
+            ...customScrollBarStyle,
+        },
+        '[data-rsbs-backdrop]': {
+            opacity: 'var(--rsbs-backdrop-opacity)',
+        },
+        '[data-rsbs-header]': {
+            px: 6,
+            boxShadow: '0 1px 0 rgba(255, 255, 255, 0.125)',
+        },
+    },
     section: {
+        position: 'relative',
         pt: [4, null, 7],
-        pb: 10,
+        pb: '6em', // 10,
+        mt: [4, null, 0],
         bg: 'accent.base',
-        borderTopLeftRadius: [40, null, 'none'],
-        borderTopRightRadius: [40, null, 'none'],
-        '& ::-webkit-scrollbar': {
-            width: '10px',
-            height: '10px',
-        },
-        '& ::-webkit-scrollbar-thumb': {
-            borderRadius: '5px',
-            background: t => t.colors.accent.light,
-            boxShadow: 'none',
-        },
-        '& ::-webkit-scrollbar-track': {
-            background: 'transparent', // t => t.colors.accent.pale,
-            borderRadius: '5px',
-        },
-        '& ::-webkit-scrollbar-track-piece:end': {
-            background: 'transparent',
-            mb: 5,
-        },
-        '& ::-webkit-scrollbar-track-piece:start': {
-            background: 'transparent',
-            mt: 5,
-        },
+        ...customScrollBarStyle,
         '.card-halo': {
             position: 'relative',
             bg: ['rgba(255,255,255,0.2)', null, 'white'], //
+            mb: 9,
             transition: 'all 0.3s ease-out',
             '&[data-show-halo="true"]': {
                 boxShadow: t => [null, null, `0 0 0 0.9em ${t.colors.accent.base}, 0 0 0 1em white`], //
@@ -44,21 +77,40 @@ const styles = {
                 },
             },
         },
-        [mq.tabletS]: {
-            '.mobile-hidden': {
-                display: 'none',
-            },
-            'form.card-halo': {
-                bg: t => alpha('accent.pale', 0.2)(t),
-                boxShadow: t => `${t.shadows.xl} !important`,
-            },
+    },
+    bgPattern: {
+        svg: {
+            position: 'absolute',
+            opacity: 0.8,
+        },
+        'svg:first-of-type': {
+            top: ['20px', null, null, 0],
+            height: ['40vw', null, null, '27.5vw'],
+            left: 0,
+        },
+        'svg:last-of-type': {
+            right: 0,
+            bottom: '3.5em',
+            height: ['25vw', null, null, '15vw'],
+        },
+    },
+    arrowDown: {
+        position: 'relative',
+        pb: '1em',
+        display: ['none', null, null, 'block'],
+        svg: {
+            position: 'absolute',
+            color: 'secondary.pale',
+            right: ['-2em', null, null, null, '-4em'],
+            bottom: 0,
+            width: ['6em', null, null, null, '7em'],
         },
     },
     mobileHeader: {
         display: ['flex', null, 'none'],
         justifyContent: 'space-between',
         alignItems: 'center',
-        mb: 4,
+        mb: 2,
         button: {
             color: 'inherit',
             bg: 'transparent',
@@ -78,7 +130,7 @@ const styles = {
         boxShadow: 'xl', //
         width: [null, null, '75%', '100%'], //
         margin: [null, null, 'auto'], //
-        mb: [6, null, 9], //
+        // mb: [6, null, 9], //
     },
     selectLayout: {
         display: 'flex',
@@ -87,21 +139,29 @@ const styles = {
         pb: [null, null, 2],
     },
     action: {
-        position: 'absolute',
-        left: 0,
-        bottom: '-2em',
+        position: ['relative', null, 'absolute'],
+        left: [null, null, 0],
+        bottom: ['-1.75em', null, '-2.5em'],
         width: '100%',
         display: 'flex',
         justifyContent: 'center',
+        button: {
+            boxShadow: '0 25px 36px -8px rgba(0,0,0,0.35)',
+            ':hover': {
+                boxShadow: '0 12px 30px -12px rgba(0,0,0,0.35)',
+            },
+        },
     },
     selectButton: {
         display: 'flex',
         flex: [null, null, 1],
+        alignItems: 'center',
         borderRadius: 'round',
         border: 0,
         bg: t => ['transparent', null, alpha('accent.pale', 0.5)(t)],
         py: 2,
         px: [null, null, 2],
+        minHeight: [null, null, null, '4.15em'],
         cursor: [null, null, 'pointer'],
         font: 'inherit',
         color: 'inherit',
@@ -123,10 +183,31 @@ const styles = {
             },
             'p span': {
                 display: ['block', null, 'initial', 'block'], //
-                ml: [null, null, 2, 0], //
+                ml: [null, null, 4, 0], //
                 fontSize: [3, null, 4],
             },
         },
+    },
+    // hack to smoothen leave animation of modal dialog
+    dialogWrap: {
+        '&::after': {
+            content: [null, null, '""'],
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: 0,
+            pb: '3.5em',
+            bg: 'accent.base',
+            transform: 'translateY(0%)',
+            transition: 'transform 0.35s',
+        },
+        '&[data-leave]::after': {
+            transform: 'translateY(99%)',
+            transition: 'transform 0.2s',
+        },
+    },
+    formDialog: {
+        position: 'relative',
     },
     formClose: {
         position: 'absolute',
@@ -137,46 +218,79 @@ const styles = {
         display: 'flex',
         flexDirection: 'column',
         bg: ['rgba(255,255,255,0.2)', null, 'white'],
-        py: [7, null, null, null, 8],
+        pt: [7, null, null, null, 8],
+        pb: [null, null, 7, null, 8],
         px: [4, 6, 7, null, 8],
-        borderRadius: 30,
+        mt: [6, null, 0],
+        mb: [13, null, 0],
+        mx: [3, null, 0],
+        borderTopLeftRadius: ['4em', null, 30],
+        borderTopRightRadius: ['4em', null, 30],
+        borderBottomLeftRadius: ['6em', null, 30],
+        borderBottomRightRadius: ['6em', null, 30],
+        '.form-section': {
+            bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.pale', 0.5)(t)],
+            borderRadius: '2em',
+            mt: 6,
+            transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
+            ':hover': {
+                bg: [null, null, 'accent.pale'],
+            },
+            ':hover input,:hover textarea': {
+                bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.light', 0.3)(t)],
+            },
+            [mq.tabletS]: {
+                '& *:focus, & button.calendar--day:focus > span': {
+                    boxShadow: '0 0 0 3px rgba(255,255,255,0.5)',
+                },
+            },
+            '&[data-form-error]': {
+                bg: t => [null, null, alpha('red', 0.1)(t)],
+            },
+            '&[data-form-error]:hover': {
+                bg: t => [null, null, alpha('red', 0.13)(t)],
+            },
+            '&[data-form-error]:hover input': {
+                bg: t => [null, null, alpha('red', 0.08)(t)],
+            },
+            '&[data-form-error] input': {
+                bg: t => [null, null, alpha('red', 0.06)(t)],
+                animation: `${jelly} 0.5s`,
+                '::placeholder': {
+                    color: t => [null, null, alpha('red', 0.5)(t)],
+                },
+                ':hover': {
+                    bg: t => [null, null, alpha('red', 0.08)(t)],
+                },
+                ':focus': {
+                    border: t => `1px solid ${t.colors.red}`,
+                },
+            },
+            '&[data-form-error] > p:first-of-type, &[data-form-error] > label': {
+                color: ['red', null, 'inherit'],
+                opacity: 0.8,
+            },
+            '&[data-form-error] *:focus, &[data-form-error] button.calendar--day:focus > span': {
+                boxShadow: t => [null, null, `0 0 0 3px ${alpha('red', 0.2)(t)}`],
+            },
+            textarea: {
+                display: 'block',
+                resize: 'none',
+                py: ['10px', null, '14px'],
+                fontSize: 'inherit',
+            },
+        },
     },
     formLayout: {
         display: 'flex',
         flexDirection: ['column', null, null, 'row'],
         flexWrap: [null, null, null, 'wrap'],
         alignItems: [null, null, null, 'flex-start'],
-        '& > div': {
-            bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.pale', 0.5)(t)],
-            borderRadius: '2em',
-            minHeight: '5em',
-            mt: 6,
-            transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
-            ':hover': {
-                bg: [null, null, 'accent.pale'],
-            },
-        },
     },
     formSection: {
-        bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.pale', 0.5)(t)],
-        borderRadius: '2em',
         minHeight: '5em',
-        mt: 6,
         pb: 4,
         fontSize: 1, // TODO: try different sizes
-        transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
-        ':hover': {
-            bg: [null, null, 'accent.pale'],
-        },
-        ':hover input,:hover textarea': {
-            bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.light', 0.3)(t)],
-        },
-        textarea: {
-            display: 'block',
-            resize: 'none',
-            py: ['10px', null, '14px'],
-            fontSize: 'inherit',
-        },
     },
     formSectionLabel: {
         display: 'block',
@@ -184,7 +298,7 @@ const styles = {
         pb: 2,
         fontWeight: 'bold',
         textAlign: 'center',
-        textTransform: 'uppercase',
+        textTransform: 'capitalize',
         borderTopLeftRadius: 'inherit',
         borderTopRightRadius: 'inherit',
         bg: 'rgba(255,255,255,0.35)',
@@ -282,19 +396,27 @@ const styles = {
         bg: ['rgba(255,255,255,0.2)', null, 'accent.pale'],
         border: '1px solid transparent',
         borderRadius: 'inherit',
-        color: ['inherit', null, 'accent.dark'],
+        color: 'inherit',
         fontFamily: 'inherit',
         transition: 'border 0.3s, boxShadow 0.3s, background-color 0.3s',
         '::placeholder': {
-            color: t => ['rgba(0,0,0,0.25)', null, alpha('accent.dark', 0.25)(t)],
+            color: t => ['rgba(0,0,0,0.25)', null, alpha('accent.dark', 0.45)(t)],
         },
         ':hover': {
             bg: t => ['rgba(255,255,255,0.35)', null, alpha('accent.light', 0.5)(t)],
         },
         ':focus': {
-            boxShadow: t => [`0 0 0 3px rgba(255,255,255,0.5)`, null, `0 0 0 3px ${t.colors.accent.light}`],
+            boxShadow: t => [null, null, `0 0 0 3px ${t.colors.accent.light}`],
             border: t => `1px solid ${t.colors.accent.dark}`,
         },
+    },
+    formError: {
+        width: '90%',
+        margin: '0 auto',
+        fontStyle: 'italic',
+        color: 'red',
+        fontSize: 0,
+        textAlign: 'center',
     },
     guestInputWrap: {
         display: 'flex',
@@ -312,6 +434,7 @@ const styles = {
         borderRadius: 'pill',
         maxWidth: '25em',
         mt: 7,
+        mb: 2,
         mx: 'auto',
         background: ({ colors }) => [
             'rgba(255,255,255,0.35)',

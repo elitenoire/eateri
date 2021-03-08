@@ -20,8 +20,11 @@ const StepConfirmation = () => (
         <Text weight="bold" size={5} color="accent.dark">
             Eva Raymond
         </Text>
-        <Text size={1} line="snug" mx="auto" mt={2} mb={7}>
-            This is your reservation overview. Now all you need to do is confirm your reservation.
+        <Text mx="auto" mt={2}>
+            This is your reservation overview.
+        </Text>
+        <Text mx="auto" mb={7}>
+            Now all you need to do is confirm your reservation.
         </Text>
         <div sx={styles.confirmDetailsBox}>
             <div sx={styles.confirmDetails}>
