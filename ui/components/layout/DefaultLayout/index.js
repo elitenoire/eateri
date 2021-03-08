@@ -1,56 +1,29 @@
 /** @jsx jsx */
-import { useContext } from 'react'
+import { useContext, useCallback } from 'react'
 import { jsx } from '@theme-ui/core'
 import { MenuContext } from '~/context/menu'
-import Header from '~@/navigation/Header'
-import MobileSideMenu from '~@/navigation/MobileSideMenu'
-import Footer from '../Footer'
+import { Header, Footer, MobileSideMenu, BackToTop } from '~@/navigation'
 import styles from './style'
 
-const menuItems = [
-    {
-        label: 'About',
-        to: '/about',
-        icon: 'profile',
-    },
-    {
-        label: 'Menu',
-        to: '/menu',
-        icon: 'menu',
-    },
-    {
-        label: 'Gallery',
-        to: '/gallery',
-        icon: 'gallery',
-    },
-    {
-        label: 'Contact Us',
-        to: '#contact',
-        icon: 'phone',
-    },
-    {
-        label: 'Reservations',
-        to: '#reservations',
-        icon: 'reserved',
-    },
-]
-
-const MainLayout = ({ children }) => {
+export default function DefaultLayout({ children, hasMap, mini }) {
     const { isOpen, closeMenu, toggleMenu, firstMenuItemRef, pageScrollRef } = useContext(MenuContext)
 
-    const preventTabbing = e => {
-        if (isOpen) {
-            e.persist()
-            if (e.keyCode === 9) {
-                e.preventDefault()
-                firstMenuItemRef.focus()
+    const preventTabbing = useCallback(
+        e => {
+            if (isOpen) {
+                e.persist()
+                if (e.keyCode === 9) {
+                    e.preventDefault()
+                    firstMenuItemRef.focus()
+                }
             }
-        }
-    }
+        },
+        [firstMenuItemRef, isOpen]
+    )
 
     return (
         <div id="outer-container" sx={styles.container}>
-            <MobileSideMenu>{menuItems}</MobileSideMenu>
+            <MobileSideMenu />
             <div
                 id="page-wrap"
                 role="presentation"
@@ -70,10 +43,14 @@ const MainLayout = ({ children }) => {
                     <main role="main" sx={styles.mainStyle}>
                         {children}
                     </main>
-                    <Footer />
+                    <Footer hasMap={hasMap} mini={mini} />
+                    <BackToTop />
                 </div>
             </div>
         </div>
     )
 }
-export default MainLayout
+
+export function getLayout(page, props) {
+    return <DefaultLayout {...props}>{page}</DefaultLayout>
+}

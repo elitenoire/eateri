@@ -55,6 +55,17 @@ export const fadeInDown = keyframes`
         transform: translateY(0);
     }
 `
+export const fadeOutDown = keyframes`
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+        animation-timing-function: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+`
 
 // From https://github.com/Martz90/vivify
 export const rollInBottom = keyframes`
@@ -125,5 +136,35 @@ export const zoomInUp = keyframes`
         opacity: 1;
         transform: scale3d(0.875, 0.875, 0.875) translate3d(0, -20px, 0);
         animation-timing-function: cubic-bezier(0.175, 0.885, 0.320, 1);
+    }
+`
+
+export const grow = keyframes`
+    0% {
+        opacity: 0;
+        transform: translateY(10%) scale(0.7);
+        animation-timing-function: ease-out;
+    }
+    60% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(0) scale(1);
+    }
+`
+
+export const jelly = keyframes`
+    0%,
+    100% {
+        transform: scale(1, 1);
+    }
+    25% {
+        transform: scale(0.9, 1.1);
+    }
+    50% {
+        transform: scale(1.1, 0.9);
+    }
+    75% {
+        transform: scale(0.95, 1.05);
     }
 `

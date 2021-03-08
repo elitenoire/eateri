@@ -1,14 +1,16 @@
 import App from 'next/app'
-// import Router from 'next/router'
 import Head from 'next/head'
 import React from 'react'
+import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from '@theme-ui/core'
 import { ColorModeProvider } from '@theme-ui/color-modes'
 import whyDidYouRender from '@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js'
 import MenuProvider from '~/context/menu'
 import theme from '~/theme'
 import GlobalStyle from '~/theme/global'
-import MainLayout from '~@/layout/Main'
+import { getLayout as getDefaultLayout } from '~@/layout/DefaultLayout'
+
+import SEO from '../next-seo.config'
 
 // Vivify css animations
 import '~/css/vivify-lite.css'
@@ -26,47 +28,29 @@ export default class MyApp extends App {
     render() {
         const { Component, pageProps } = this.props
 
-        // const {
-        //     Component,
-        //     pageProps,
-        //     router: { asPath, route },
-        // } = this.props
-
-        // Next.js currently does not allow trailing slash in a route.
-        // This is a client side redirect in case trailing slash occurs.
-        // See https://github.com/zeit/next.js/issues/5214#issuecomment-575612685
-
-        // if (pageProps.statusCode === 404 && asPath && asPath.length > 1) {
-        //     const [path, query = ''] = asPath.split('?')
-        //     if (path.endsWith('/') && path.length > 1) {
-        //         const asPathWithoutTrailingSlash = path.replace(/\/*$/gim, '') + (query ? `?${query}` : '')
-        //         if (typeof window !== 'undefined') {
-        //             Router.replace(asPathWithoutTrailingSlash, undefined, { shallow: true })
-        //             return null
-        //         }
-        //     }
-        // }
+        const getLayout = Component.getLayout || getDefaultLayout
 
         return (
             <>
                 <Head>
-                    <meta charSet="UTF-8" />
-                    <title key="title">The Messi of Great Food - Eateri Restaurant</title>
-                    <meta name="viewport" content="initial-scale=1.0, width=device-width" key="viewport" />
-                    <meta httpEquiv="X-UA-Compatible" content="ie=edge" />
-                    <meta
-                        name="description"
-                        content="Dine in to sample our tasty dishes, or have it delivered to you. Make table reservations for free."
-                        key="description"
-                    />
+                    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+                    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
+                    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png" />
+                    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png" />
+                    <link rel="manifest" href="/favicons/site.webmanifest" />
+                    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#fccc3e" />
+                    <meta name="apple-mobile-web-app-title" content="Eateri" />
+                    <meta name="application-name" content="Eateri" />
+                    <meta name="msapplication-TileColor" content="#fccc3e" />
+                    <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+                    <meta name="theme-color" content="#fccc3e" />
                 </Head>
+                <DefaultSeo {...SEO} />
                 <ThemeProvider theme={theme}>
                     <MenuProvider>
                         <ColorModeProvider>
                             <GlobalStyle />
-                            <MainLayout>
-                                <Component {...pageProps} />
-                            </MainLayout>
+                            {getLayout(<Component {...pageProps} />)}
                         </ColorModeProvider>
                     </MenuProvider>
                 </ThemeProvider>

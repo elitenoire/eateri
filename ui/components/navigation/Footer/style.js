@@ -168,6 +168,7 @@ export const fwmStyles = {
     logoBox: {
         display: 'flex',
         justifyContent: 'center',
+        alignItems: 'center',
         fontSize: '1.5em',
         '.logo': {
             size: '3em',

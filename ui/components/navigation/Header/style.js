@@ -1,41 +1,5 @@
-import { keyframes } from '@emotion/core'
-
-const upwards = keyframes`
-from {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-to {
-    transform: translateY(0);
-    opacity: 1;
-}
-`
-
-const downwards = keyframes`
-from {
-    transform: translateY(100%);
-    opacity: 0;
-}
-to {
-    transform: translateY(0);
-    opacity: 1;
-}
-`
-
-const spin = keyframes`
-0% {
-	transform: rotate(0) scale(1);
-}
-50% {
-	transform: rotate(180deg) scale(1.3);
-}
-100% {
-	transform: rotate(360deg) scale(1);
-}
-`
-
 const styles = {
-    header: barWidth => ({
+    header: (barWidth, height) => ({
         position: 'absolute',
         top: 0,
         left: 0,
@@ -43,12 +7,12 @@ const styles = {
         overflow: 'hidden',
         borderTopLeftRadius: 'inherit',
         zIndex: 'header',
-        // height: `${height}${Number.isInteger(height) ? 'px' : ''} !important`,
+        height: `${height}${Number.isInteger(height) ? 'px' : ''} !important`,
         '.headroom': {
             width: 'fluid',
             height: 'header',
             bg: ['transparent', null, 'primary.base'],
-            transition: 'background 0.2s ease-in-out',
+            transition: 'background-color 0.2s ease-in-out',
         },
         '.headroom--pinned': {
             boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2)',
@@ -79,9 +43,6 @@ const styles = {
         alignItems: 'flex-start',
         mr: [null, null, null, null, 'auto'],
         ml: ['10%', null, null, 0],
-        '&:hover .logo': {
-            animation: `${spin} 1s linear infinite both`,
-        },
         '.logo-text': {
             display: ['none', null, 'initial'],
         },
@@ -91,20 +52,18 @@ const styles = {
         mr: [null, null, null, null, '10%'],
         color: 'textOnPrimary',
         ul: {
-            listStyle: 'none',
-            '& > li:nth-of-type(odd)': {
-                animation: `${upwards} 1s forwards`,
-            },
-            '& > li:nth-of-type(even)': {
-                animation: `${downwards} 1s forwards`,
-            },
             '& > li': {
                 display: 'inline-block',
                 padding: '0 10px',
                 margin: '0 10px',
+                a: {
+                    display: 'inline-block',
+                    transition: 'all 0.3s ease',
+                    fontWeight: 'bold',
+                    textDecoration: 'none',
+                },
             },
             '& > li:not(:last-of-type) a': {
-                transition: 'all 0.3s ease',
                 position: 'relative',
                 '::before': {
                     content: '""',
@@ -124,27 +83,15 @@ const styles = {
             },
             '& > li:last-of-type a': {
                 border: '1.5px solid',
-                borderRadius: '5px',
-                padding: '0.3125em 0.625em',
-                transition: 'all 0.3s ease-in',
+                borderRadius: 'pill',
+                padding: '0.25em 1em',
                 ':hover': {
                     color: 'textOnSecondary',
                     bg: 'secondary.base',
-                    borderWidth: '4.5px',
-                    borderColor: 'muted', // 'primary.hover',
-                    backgroundClip: 'padding-box',
-                    borderRadius: '20px/10px',
-                    margin: '-3px',
-                    boxShadow: '0 1px 3px 0 rgba(16,22,64,.16)',
+                    borderWidth: '2px',
+                    margin: '-0.5px',
+                    boxShadow: 'sm',
                 },
-            },
-            '& > li a': {
-                display: 'inline-block',
-            },
-            a: {
-                color: 'inherit',
-                textDecoration: 'none',
-                fontWeight: 'bold',
             },
         },
     },

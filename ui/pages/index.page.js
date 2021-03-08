@@ -10,6 +10,7 @@ import Reviews from '~/pages/home/Reviews'
 import Gallery from '~/pages/home/Gallery'
 import Reservation from '~/pages/home/Reservation'
 import Cta from '~/pages/home/Cta'
+import { getLayout } from '~@/layout/DefaultLayout'
 
 import styles from '~/pages/home/style'
 
@@ -22,38 +23,38 @@ import {
     // SortedBreakpoints,
 } from '~/context/media'
 
-const Index = ({ userAgent }) => (
-    <>
-        <Head>
-            <style id={SSRStyleID} type="text/css" dangerouslySetInnerHTML={{ __html: mediaStyles }} />
-        </Head>
-        <MediaContextProvider onlyMatch={onlyMatchListForUserAgent(userAgent)}>
-            <h1 className="visually-hidden">What Eateri offers</h1>
-            <Hero />
-            <Offers />
-            <Media greaterThanOrEqual="tabletS">
-                <About />
-                <Services />
-            </Media>
-            <Menu />
-            <Media greaterThanOrEqual="tabletS" sx={styles.radialCover}>
-                <Reviews />
-                <Gallery />
-            </Media>
-            <Reservation />
-            <Media greaterThanOrEqual="tabletS">
-                <Cta />
-            </Media>
-        </MediaContextProvider>
-    </>
-)
+const fresnelStyles = { __html: mediaStyles }
 
-Index.getInitialProps = async ({ req }) => {
-    if (req) {
-        // console.log({ req })
-        // return { userAgent: req.header('User-Agent') }
-        return { userAgent: req.headers['user-agent'] }
-    }
+export default function Home({ userAgent }) {
+    return (
+        <>
+            <Head>
+                <style id={SSRStyleID} type="text/css" dangerouslySetInnerHTML={fresnelStyles} />
+            </Head>
+            <MediaContextProvider onlyMatch={onlyMatchListForUserAgent(userAgent)}>
+                <h1 className="visually-hidden">What Eateri offers</h1>
+                <Hero />
+                <Offers />
+                <Media greaterThanOrEqual="tabletS">
+                    <About />
+                    <Services />
+                </Media>
+                <Menu />
+                <Media greaterThanOrEqual="tabletS" sx={styles.radialCover}>
+                    <Reviews />
+                    <Gallery />
+                </Media>
+                <Reservation />
+                <Media greaterThanOrEqual="tabletS">
+                    <Cta />
+                </Media>
+            </MediaContextProvider>
+        </>
+    )
 }
 
-export default Index
+Home.getLayout = page => getLayout(page, { hasMap: true })
+
+export const getServerSideProps = async ({ req }) => ({
+    props: { userAgent: req ? req.headers['user-agent'] || '' : navigator.userAgent },
+})
