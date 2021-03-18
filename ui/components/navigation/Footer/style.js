@@ -154,9 +154,6 @@ const styles = {
             fontSize: [7, null, null, 8],
         },
     },
-    specialUnderline: {
-        backgroundImage: ({ colors }) => `linear-gradient(180deg, transparent 60%, ${colors.primary.base} 0)`,
-    },
 }
 
 export const fwmStyles = {
@@ -231,7 +228,7 @@ export const fwlStyles = {
             order: [null, null, null, null, -1],
             section: {
                 pt: [7, null, null, null, 5],
-                mb: 9,
+                mb: 7,
                 textAlign: 'center',
                 borderTop: '4px dashed',
                 borderTopColor: 'secondary.base',

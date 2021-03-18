@@ -31,8 +31,8 @@ export default function Home({ userAgent }) {
             <Head>
                 <style id={SSRStyleID} type="text/css" dangerouslySetInnerHTML={fresnelStyles} />
             </Head>
-            <MediaContextProvider onlyMatch={onlyMatchListForUserAgent(userAgent)}>
-                <h1 className="visually-hidden">What Eateri offers</h1>
+            <MediaContextProvider>
+                <h1 className="visually-hidden">Welcome to Eateri.</h1>
                 <Hero />
                 <Offers />
                 <Media greaterThanOrEqual="tabletS">

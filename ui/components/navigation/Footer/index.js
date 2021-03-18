@@ -65,8 +65,7 @@ function Footer({ hasMap, mini }) {
                             <div sx={styles.footerRevealPane} />
                             <div sx={styles.footerRevealContent}>
                                 <Text weight="bold" variant="title">
-                                    &#128081; The <span sx={styles.specialUnderline}>Messi</span> of Great Food
-                                    &#128081;
+                                    &#128081; The <span className="underline">Messi</span> of Great Food &#128081;
                                 </Text>
                             </div>
                         </div>

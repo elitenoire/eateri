@@ -1,9 +1,6 @@
 const path = require('path')
-const withCSS = require('@zeit/next-css')
 const withPlugins = require('next-compose-plugins')
-const withFonts = require('next-fonts')
 const withImages = require('next-images')
-// const withSvgr = require('@inabagumi/next-svg')
 
 const pageExtensions = ['page.js']
 
@@ -45,8 +42,6 @@ const withSvgr = (nextConfig = {}) => ({
 })
 
 module.exports = withPlugins([
-    withCSS,
-    withFonts,
     [withImages, imgOptions],
     [withSvgr, { svgrOptions, pageExtensions }],
 ])

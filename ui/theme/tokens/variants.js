@@ -228,6 +228,7 @@ export default {
     layout: {
         content: { maxWidth: '35em', mb: 10, textAlign: 'center' },
         mini: { maxWidth: '30em' },
+        base: { maxWidth: 'none', width: 'auto', px: '1.5em' },
         loose: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%'] },
         tight: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%', '20%'] },
     },

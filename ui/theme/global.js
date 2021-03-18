@@ -96,6 +96,9 @@ const styles = t => ({
     'a,a:active,a:visited': {
         color: 'inherit',
     },
+    '.underline': {
+        backgroundImage: `linear-gradient(180deg, transparent 65%, ${t.colors.primary.base} 0)`,
+    },
     '.visually-hidden': {
         position: 'absolute',
         width: '1px',
