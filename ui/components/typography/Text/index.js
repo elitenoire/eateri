@@ -1,80 +1,98 @@
 import React from 'react'
 import { Text as TUIText } from '@theme-ui/components'
+import { getColor } from '@theme-ui/color'
 import styles from './style.js'
 
-const _sx = ({
+const base = ({
     italic,
     opacity,
     truncate,
     overflow,
     weight,
     size,
+    title,
     line,
     align,
     decoration,
     transform,
     spacing,
-    sx,
+    stroke,
+    underline,
+    display,
+    __css,
 }) => ({
+    ...__css,
+    ...(display && { display }),
     ...(weight && { fontWeight: weight }),
     ...((size || size === 0) && { fontSize: size }),
     ...(spacing && { letterSpacing: spacing }),
     ...(decoration && { textDecoration: decoration }),
     ...(line && { lineHeight: line }),
+    ...(title && { fontFamily: 'title' }),
+    ...(italic && { fontStyle: 'italic' }),
     ...(align && { textAlign: align }),
     ...(transform && { textTransform: transform }),
-    ...(italic && { fontStyle: 'italic' }),
     ...((opacity || opacity === 0) && { opacity }),
-    ...(typeof truncate === 'number' && { ...styles.trim, WebkitLineClamp: truncate }),
+    ...(typeof truncate === 'number' && {
+        ...styles.trim,
+        WebkitLineClamp: truncate,
+    }),
     ...(truncate === true && styles.truncate),
     ...(overflow && styles.overflow),
-    ...sx,
+    ...(stroke && {
+        WebkitTextFillColor: 'transparent',
+        WebkitTextStrokeWidth: '1px',
+    }),
+    ...(underline && {
+        backgroundImage: t => `linear-gradient(180deg,transparent 65%,${getColor(t, underline)} 0)`,
+    }),
 })
 
-const Text = React.forwardRef(
-    (
-        {
-            italic,
-            truncate,
-            overflow,
-            weight,
-            size,
-            line,
-            align,
-            decoration,
-            transform,
-            opacity,
-            spacing,
-            sx,
-            children,
-            ...rest
-        },
-        ref
-    ) => (
+export const Text = React.forwardRef(function Text(
+    {
+        italic,
+        opacity,
+        truncate,
+        overflow,
+        weight,
+        size,
+        title,
+        line,
+        align,
+        decoration,
+        transform,
+        spacing = 'wide',
+        stroke,
+        underline,
+        display,
+        __css,
+        ...rest
+    },
+    ref
+) {
+    return (
         <TUIText
             ref={ref}
             as="p"
-            sx={_sx({
+            {...rest}
+            __css={base({
                 italic,
                 opacity,
                 truncate,
                 overflow,
                 weight,
                 size,
+                title,
                 line,
                 align,
                 decoration,
                 transform,
                 spacing,
-                sx,
+                stroke,
+                underline,
+                display,
+                __css,
             })}
-            {...rest}
-        >
-            {children}
-        </TUIText>
+        />
     )
-)
-
-Text.displayName = 'Text'
-
-export default Text
+})

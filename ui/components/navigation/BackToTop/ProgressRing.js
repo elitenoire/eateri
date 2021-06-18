@@ -27,7 +27,6 @@ function ProgressRing({ size = 50, strokeWidth = size / 12.5, value = 0, max = 1
         >
             <circle sx={styles.ringBg(color)} cx={center} cy={center} r={radius} strokeWidth={strokeWidth * 0.5} />
             <a.circle
-                // ref={ref}
                 sx={styles.ringFill(color)}
                 cx={center}
                 cy={center}

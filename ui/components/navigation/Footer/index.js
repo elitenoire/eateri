@@ -47,7 +47,11 @@ function Footer({ hasMap, mini }) {
                                     </div>
                                 </div>
                             </div>
-                            <div id={HASH_ID_CONTACT} sx={styles.footerContentWrap}>
+                            <div
+                                id={HASH_ID_CONTACT}
+                                sx={styles.footerContentWrap}
+                                data-footer-compact={hasMap ? null : ''}
+                            >
                                 {hasMap ? (
                                     <FooterWithMap linkScroll={linkScroll} />
                                 ) : (

@@ -16,6 +16,10 @@ const zoomLevels = {
     maxZoom: 18,
 }
 
+const other = {
+    scrollWheelZoom: false,
+}
+
 const LeafletMap = () => {
     const {
         theme: { colors },
@@ -25,7 +29,7 @@ const LeafletMap = () => {
 
     return (
         <div sx={styles.wrapper}>
-            <Map center={position} {...zoomLevels}>
+            <Map center={position} {...zoomLevels} {...other}>
                 {!token && (
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

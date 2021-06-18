@@ -148,6 +148,14 @@ export default {
                 bg: 'highlight.pale',
             },
         },
+        back: {
+            display: 'inline-block',
+            textDecoration: 'none',
+            textTransform: 'uppercase',
+            letterSpacing: 'wider',
+            fontWeight: 'bold',
+            fontSize: 1,
+        },
     },
     text: {
         h1: {
@@ -190,6 +198,15 @@ export default {
             fontSize: 9,
             my: 2,
         },
+        massive: {
+            fontSize: 10,
+            mb: 2,
+        },
+        intro: {
+            fontSize: 11,
+            mb: 2,
+            letterSpacing: 'tight',
+        },
         title: {
             fontFamily: 'title',
         },
@@ -212,24 +229,33 @@ export default {
             padding: 5,
             borderRadius: 'tiny',
             boxShadow: 'sm',
-            cursor: 'pointer',
-            transition: 'transform 0.4s ease-out, box-shadow 0.5s ease-out',
-            backfaceVisibility: 'hidden',
-            transformStyle: 'preserve-3d',
-            '&:hover': {
-                transform: 'scale(1.05)',
-                boxShadow: 'xl',
-            },
-            'p span': {
+            'svg,p span': {
                 display: 'block',
+            },
+        },
+    },
+    images: {
+        hoverScale: {
+            transition: 'transform 0.7s ease-out',
+            ':hover': {
+                transform: 'scale(1.1)',
             },
         },
     },
     layout: {
         content: { maxWidth: '35em', mb: 10, textAlign: 'center' },
         mini: { maxWidth: '30em' },
+        maxi: { maxWidth: 'maxContainer' },
         base: { maxWidth: 'none', width: 'auto', px: '1.5em' },
-        loose: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%'] },
-        tight: { maxWidth: 'none', width: 'auto', px: ['1.5em', null, '8%', '10%', '20%'] },
+        loose: {
+            maxWidth: 'none',
+            width: 'auto',
+            px: ['1.5em', null, '8%', '10%'],
+        },
+        tight: {
+            maxWidth: 'none',
+            width: 'auto',
+            px: ['1.5em', null, '8%', '10%', '20%'],
+        },
     },
 }

@@ -61,10 +61,15 @@ const styles = {
         bg: t => alpha('secondary.hover', 0.5)(t),
         borderTopLeftRadius: 'round',
         borderTopRightRadius: 'round',
+        '&[data-footer-compact]': {
+            borderRadius: 'round',
+            pb: 4,
+        },
         'section ul': {
             mb: 2,
             li: {
                 fontSize: 0,
+                mb: 2,
                 svg: {
                     display: 'inline-block',
                     verticalAlign: 'middle',
@@ -113,10 +118,10 @@ const styles = {
     },
     copywright: {
         width: 'fluid',
-        bg: 'secondary.dark',
         pt: 6,
         pb: 4,
         '&[data-footer-sticky]': {
+            bg: 'secondary.dark',
             position: 'sticky', // 'fixed',
             bottom: 0,
             zIndex: 'footerCopywright',

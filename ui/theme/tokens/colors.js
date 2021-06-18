@@ -1,7 +1,7 @@
 export default {
-    black: '#212529',
+    black: '#090a0c',
     white: '#ffffff',
-    gray: '#f8f9fa',
+    gray: '#eeeeee', // '#f8f9fa',
     muted: '#f9fafb', // '#fefcf7',
     whiteFade: {
         10: 'rgba(255, 255, 255, 0.1)',
@@ -12,12 +12,12 @@ export default {
         80: 'rgba(255, 255, 255, 0.85)',
     },
     blackFade: {
-        10: 'rgba(35, 33, 41, 0.1)',
-        30: 'rgba(35, 33, 41, 0.3)',
-        50: 'rgba(35, 33, 41, 0.5)',
-        60: 'rgba(35, 33, 41, 0.6)',
-        70: 'rgba(35, 33, 41, 0.7)',
-        80: 'rgba(35, 33, 41, 0.85)',
+        10: 'rgba(23, 26, 29, 0.1)',
+        30: 'rgba(23, 26, 29, 0.3)',
+        50: 'rgba(23, 26, 29, 0.5)',
+        60: 'rgba(23, 26, 29, 0.6)',
+        70: 'rgba(23, 26, 29, 0.7)',
+        80: 'rgba(23, 26, 29, 0.85)',
     },
     primary: {
         base: '#fccc3e',
@@ -32,11 +32,11 @@ export default {
         gradient: 'linear-gradient(to bottom right, #fccc3e, #CB9903)',
     },
     secondary: {
-        base: '#212529',
-        hover: '#343a40',
-        pale: '#f1f3f5',
-        light: '#EAF1F4',
-        dark: '#060A13', // '#0A0F17',
+        base: '#171a1d',
+        hover: '#232528', // '#343a40',
+        pale: '#f2f2f3', // '#f1f3f5',
+        light: '#eceded', // '#EAF1F4',
+        dark: '#090a0c', // '#060A13', // '#0A0F17',
         gradient: 'linear-gradient(60deg, #29323c 0%, #485563 100%)',
     },
     accent: {
@@ -54,22 +54,22 @@ export default {
         dark: '#663a11', // '#933A0D',
     },
     background: '#fefefd', // #fafbfd
-    text: '#212529', // '#343a40',
-    textFade: 'rgba(33, 37, 41,0.75)',
-    textDark: '#060A13',
+    text: '#171a1d',
+    textFade: 'rgba(23, 26, 29,0.75)',
+    textDark: '#090a0c',
     textLight: '#6c767e', // '#909cac', // '#464e56',
     textLighter: '#a8b5bE', // '#a0aec0', // '#868b96',
-    textOnPrimary: '#212529',
+    textOnPrimary: '#171a1d',
     textOnSecondary: '#fefefd',
-    textOnAccent: '#212529',
+    textOnAccent: '#171a1d',
     textOnHighlight: '#fefefd',
     textSelectionColor: '#FEE78B', // primary.light
-    textSelectionBg: '#343a40', // secondary.hover
-    heroStripe1: 'rgb(70, 78, 86)',
-    heroStripe2: 'rgb(52, 58, 64)',
-    heroStripe3: 'rgb(33, 37, 41)',
+    textSelectionBg: '#2e3134', // secondary.hover
+    heroStripe1: 'rgb(46,49,52)', // 10%
+    heroStripe2: 'rgb(35,37,40)', // 5%
+    heroStripe3: 'rgb(23, 26, 29)', // primary.base
     heroTitle: '#e9ecef',
-    heroText: '#ced4da',
+    heroText: '#babdbf', // 20%
     blue: 'rgb(10,132,255)',
     green: 'rgb(48,209,88)',
     indigo: 'rgb(94,92,230)',

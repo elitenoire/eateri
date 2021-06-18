@@ -19,6 +19,8 @@ export default {
         '2em', // [7] - 32px
         '2.375em', // [8] - 38px
         '2.75em', // [9] - 44px
+        '3.375em', // [10] - 54px
+        '4em', // [11] - 64px
     ],
     fontWeights: {
         hairline: '100',
@@ -40,7 +42,7 @@ export default {
         normal: '1.5',
         relaxed: '1.625',
         loose: '2',
-        body: '1.75',
+        body: '1.5',
         heading: '1.1',
     },
     letterSpacings: {

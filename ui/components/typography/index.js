@@ -1,2 +1,2 @@
-export { default as Heading } from './Heading'
-export { default as Text } from './Text'
+export { Heading } from './Heading'
+export { Text } from './Text'

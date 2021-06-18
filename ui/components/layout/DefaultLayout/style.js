@@ -72,6 +72,7 @@ const styles = {
         zIndex: 'main',
         bg: 'background',
         pt: 'header',
+        overflow: 'hidden',
     },
 }
 

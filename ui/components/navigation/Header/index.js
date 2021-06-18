@@ -13,9 +13,12 @@ const ariaLabels = {
     cart: 'Items in cart',
     user: 'My account',
     hmenu: 'Open menu',
+    search: 'Search menu',
 }
 
-const NavLinks = ({ children, ...rest }) => {
+const getNonWindowParent = () => document.getElementById('headroom-scroll')
+
+function NavLinks({ children, ...rest }) {
     const { linkScroll } = useScrollTo({ offset: 20 })
 
     return (
@@ -44,7 +47,7 @@ const NavLinks = ({ children, ...rest }) => {
     )
 }
 
-const Header = ({ isOpen, toggleMenu }) => {
+function Header({ isOpen, toggleMenu }) {
     const [scrollbarWidth, setScrollbarWidth] = useState(0)
     const [headerHeight, setHeaderHeight] = useState(0)
     const headerRef = useRef({})
@@ -53,7 +56,7 @@ const Header = ({ isOpen, toggleMenu }) => {
     // Use to trigger a rerender on resize, not necessarily need the height as that is calculated by headroom
     useLayoutEffect(() => {
         // Get non-parent window
-        const elem = document.getElementById('headroom-scroll')
+        const elem = getNonWindowParent()
 
         // timeoutId for debounce mechanism
         let timeoutId = null
@@ -83,7 +86,7 @@ const Header = ({ isOpen, toggleMenu }) => {
     return (
         <Headroom
             disableInlineStyles={isOpen}
-            parent={() => document.getElementById('headroom-scroll')}
+            parent={getNonWindowParent}
             // style={{
             // 	width: withShadow ? `calc(100% - ${scrollbarWidth}px)` : '100%',
             // }}
@@ -115,8 +118,9 @@ const Header = ({ isOpen, toggleMenu }) => {
                     {['/menu', '/about', `#${HASH_ID_CONTACT}`, `#${HASH_ID_RESERVATIONS}`]}
                 </NavLinks>
                 <div sx={styles.actions}>
+                    <Button brand="ghost" color="secondary" size="lg" icon="search" ariaLabel={ariaLabels.search} />
                     <Button brand="ghost" color="secondary" size="lg" icon="cart" ariaLabel={ariaLabels.cart} />
-                    <Button brand="outline" color="secondary" size="sm" icon="user" ariaLabel={ariaLabels.user} />
+                    <Button brand="outline" color="secondary" size="lg" icon="user" ariaLabel={ariaLabels.user} />
                 </div>
             </div>
         </Headroom>

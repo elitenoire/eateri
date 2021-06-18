@@ -5,6 +5,7 @@ import rhythm from './tokens/rhythm'
 import variants from './tokens/variants'
 
 export default {
+    // TODO: >= 0.8 config options scopes to a config object
     useColorSchemeMediaQuery: true,
     initialColorModeName: 'light',
     useCustomProperties: true,

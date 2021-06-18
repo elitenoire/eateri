@@ -35,10 +35,10 @@ const styles = {
         '&[data-no-fade]:disabled,&[data-no-fade][aria-disabled="true"]': {
             opacity: 1,
         },
-        '&&:enabled:not([aria-disabled="true"]):hover': {
+        '&[href]:hover,&&:enabled:not([aria-disabled="true"]):hover': {
             transform: 'translateY(-2px)',
         },
-        '&&:enabled:not([aria-disabled="true"]):active': {
+        '&[href]:active,&&:enabled:not([aria-disabled="true"]):active': {
             transform: 'scale(0.95)',
         },
     },
