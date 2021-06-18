@@ -1,5 +1,6 @@
 export { default as Carousel } from './Carousel'
 export { default as CarouselCard } from './CarouselCard'
 export { default as Scrollable } from './Scrollable'
+export { default as RouteModal } from './RouteModal'
 export * from './SelectBox'
 export * from './Glider'
