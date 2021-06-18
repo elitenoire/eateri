@@ -5,7 +5,7 @@ import Image from 'next/image'
 import { Container, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Button, Reveal } from '~@/general'
-import MorphCard from './MorphCard'
+import MorphCard from '~@/services/common/MorphCard'
 import styles from './style'
 
 import CateringSvg from '~/public/inlineSvg/catering.svg'
@@ -17,25 +17,26 @@ import snacksUrl from '~/public/cater-snacks.jpg'
 
 function ServicesPage() {
     return (
-        <Container variant="base" py={13}>
-            <h1 className="visually-hidden">Our Services</h1>
-            <Reveal as={Container} variant="content" cascade whenInView>
-                <Heading as="p" variant="headline" color="text" title>
-                    All You Need Is <span className="underline">Eateri!</span>
-                </Heading>
-                <Text color="textLight" spacing="wider" size={3}>
-                    We're all about celebrating life and sharing real food that's fresh, fun and offers excellent value.
-                    Order to-go, online or for delivery.
-                </Text>
-            </Reveal>
+        <Container variant="base" pt={11} pb={13}>
+            <Container as="header" variant="content">
+                <h1 className="visually-hidden">Our Services</h1>
+                <Reveal cascade whenInView>
+                    <Heading as="p" variant="intro" color="text" title>
+                        All You Need Is <span className="underline">Eateri!</span>
+                    </Heading>
+                    <Text color="textLight" spacing="wider" size={3}>
+                        We're all about celebrating life and sharing real food that's fresh, fun and offers excellent
+                        value. Order to-go, online or for delivery.
+                    </Text>
+                </Reveal>
+            </Container>
             <Container my={13} sx={styles.container}>
                 <Grid gap={6} sx={styles.grid}>
                     <div>
                         <MorphCard
-                            color="secondary.hover"
+                            bg="secondary.hover"
+                            color="secondary.light"
                             title="Dine-in & Buffet"
-                            href="/services/dine-in-buffet"
-                            sx={styles.cardDine}
                             svg={<DineSvg sx={styles.svgDine} />}
                         >
                             <Heading as="h2" variant="h5" mb={2} color="primary.base" title>
@@ -47,19 +48,20 @@ function ServicesPage() {
                             <Text line="normal" size={3} spacing="wider">
                                 We offer a wide range of mouth-watering dishes cooked to perfection.
                             </Text>
-                            <Link href="/services/dine-in-buffet" passHref>
-                                <Button mx={0} my={6} size="lg" brand="outline" color="primary" link>
-                                    See Options
-                                </Button>
-                            </Link>
+                            <div>
+                                <Link href="/services/dining" passHref>
+                                    <Button mx={0} my={6} size="lg" brand="outline" color="primary" link>
+                                        See Options
+                                    </Button>
+                                </Link>
+                            </div>
                         </MorphCard>
                     </div>
                     <div>
                         <MorphCard
-                            color="primary.base"
+                            bg="primary.base"
+                            color="textOnPrimary"
                             title="Click + Collect"
-                            href="/services/takeaway"
-                            sx={styles.cardTakeouts}
                             svg={<TakeoutsSvg sx={styles.svgTakeouts} />}
                         >
                             <Heading as="h2" variant="h5" mb={2} color="secondary.pale" title>
@@ -71,18 +73,20 @@ function ServicesPage() {
                             <Text line="normal" size={3} spacing="wider">
                                 You can order ahead and skip the line. Ready when you are...
                             </Text>
-                            <Link href="/services/takeaway" passHref>
-                                <Button mx={0} my={6} size="lg" icon="arrowright" color="secondary" link>
-                                    Go Go Go
-                                </Button>
-                            </Link>
+                            <div>
+                                <Link href="/services/takeaway" passHref>
+                                    <Button mx={0} my={6} size="lg" icon="arrowright" color="secondary" link>
+                                        Go Go Go
+                                    </Button>
+                                </Link>
+                            </div>
                         </MorphCard>
                     </div>
                     <div>
                         <MorphCard
-                            color="secondary.light"
+                            bg="secondary.light"
+                            color="text"
                             title="Food Delivery"
-                            href="/services/delivery"
                             sx={styles.cardDelivery}
                             svg={<DeliverySvg sx={styles.svgDelivery} />}
                         >
@@ -95,17 +99,19 @@ function ServicesPage() {
                             <Text line="normal" size={3} spacing="wider">
                                 Just stay in, we'll bring your Eateri fix to you fresh and on time.
                             </Text>
-                            <Link href="/services/delivery" passHref>
-                                <Button mx={0} my={6} size="lg" brand="outline" color="secondary" link>
-                                    Order Now
-                                </Button>
-                            </Link>
+                            <div>
+                                <Link href="/services/delivery" passHref>
+                                    <Button mx={0} my={6} size="lg" brand="outline" color="secondary" link>
+                                        Order Now
+                                    </Button>
+                                </Link>
+                            </div>
                         </MorphCard>
                     </div>
                     <div>
-                        <div sx={styles.imageSplit}>
+                        <figure sx={styles.imageSplit}>
                             <Reveal as="div" duration={500} whenInView>
-                                <Text variant="h4" weight="bold" line="tight" spacing="wide">
+                                <Text as="figcaption" variant="h4" weight="bold" line="tight" spacing="wide">
                                     Healthy snacks at a party buffet.
                                 </Text>
                             </Reveal>
@@ -116,20 +122,21 @@ function ServicesPage() {
                                     layout="fill"
                                     objectFit="cover"
                                     objectPosition="center"
+                                    className="hover-scale"
                                 />
                             </div>
-                        </div>
+                        </figure>
                     </div>
                     <div>
                         <MorphCard
-                            color="secondary.base"
-                            title="Event & Catering"
-                            href="/services/catering"
+                            bg="secondary.base"
+                            color="textOnSecondary"
+                            title="Events & Catering"
                             sx={styles.cardCatering}
                             svg={<CateringSvg sx={styles.svgCatering} />}
                         >
                             <Heading as="h2" variant="h5" mb={2} color="accent.base" title>
-                                Event & Catering
+                                Events & Catering
                             </Heading>
                             <Text variant="h3" weight="bold" line="tight" spacing="wide">
                                 Custom menus, delicious food to complement any event.
@@ -137,11 +144,13 @@ function ServicesPage() {
                             <Text line="normal" size={2} spacing="wider">
                                 Turn your event plans into a tasty reality courtesy of our dedicated caterers.
                             </Text>
-                            <Link href="/services/catering" passHref>
-                                <Button mx={0} my={6} size="lg" brand="outline" color="accent" link>
-                                    Learn More
-                                </Button>
-                            </Link>
+                            <div>
+                                <Link href="/services/catering" passHref>
+                                    <Button mx={0} my={6} size="lg" brand="outline" color="accent" link>
+                                        Learn More
+                                    </Button>
+                                </Link>
+                            </div>
                         </MorphCard>
                     </div>
                 </Grid>
