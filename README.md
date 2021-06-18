@@ -37,7 +37,7 @@ Do you need a touch of inspiration to build a mobile web app to manage restauran
 
 ## Demo 🔗
 
-Coming soon.
+[Eateri App](https://eateri.vercel.app)
 
 ## ScreenShots 📷
 
@@ -52,6 +52,7 @@ Coming soon.
 
 -   [RN Snap Carousel](https://github.com/archriss/react-native-snap-carousel) - inspiration for the carousel.
 -   [baby-i-am-faded][biamfaded], [react-awesome-reveal][rar] - inspiration for scroll reveal animations.
+-   [pietile-carousel][pietile] - adapted to support autoplay, play/pause.
 -   Images dishes are from [Wagamama][wg], [SnapKitchen][sk] and randomly sourced from the internet.
 -   Other images are from [Freepik](https://www.freepik.com/). _(Downloaded with premium subscription)_
 -   Logo by [freepik/@haris99][logomaker] and Logo Title Font (Gnomon-Foreground) by [indestructible type][logofont]
@@ -77,6 +78,7 @@ However, for other copyrighted content, you should obtain permission from the or
 
 [biamfaded]: https://github.com/remorses/baby-i-am-faded
 [rar]: https://github.com/dennismorello/react-awesome-reveal
+[pietile]: https://github.com/pietile/pietile-carousel
 [senfont]: https://fonts.google.com/specimen/Sen
 [manropefont]: https://fonts.google.com/specimen/Manrope
 [objfont]: https://fontsarena.com/objectivity-by-alex-slobzheninov/
