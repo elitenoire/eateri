@@ -4,6 +4,7 @@ import React from 'react'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from '@theme-ui/core'
 import { ColorModeProvider } from '@theme-ui/color-modes'
+import { Flipper } from 'react-flip-toolkit'
 import whyDidYouRender from '@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js'
 import MenuProvider from '~/context/menu'
 import theme from '~/theme'
@@ -26,7 +27,7 @@ if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
 
 export default class MyApp extends App {
     render() {
-        const { Component, pageProps } = this.props
+        const { Component, pageProps, router } = this.props
 
         const getLayout = Component.getLayout || getDefaultLayout
 
@@ -50,7 +51,10 @@ export default class MyApp extends App {
                     <MenuProvider>
                         <ColorModeProvider>
                             <GlobalStyle />
-                            {getLayout(<Component {...pageProps} />)}
+                            <Flipper className="rft-flipper" flipKey={router.asPath}>
+                                {getLayout(<Component {...pageProps} />)}
+                            </Flipper>
+                            )} */}
                         </ColorModeProvider>
                     </MenuProvider>
                 </ThemeProvider>
