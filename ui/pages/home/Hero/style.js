@@ -184,7 +184,7 @@ const styles = {
         my: 'auto',
         mx: 2,
         px: 2,
-        borderLeft: t => `1.5px solid ${t.colors.primary.base}`,
+        borderLeft: t => `5px solid ${t.colors.primary.base}`,
         borderRadius: '1px',
     },
     contentImage: {

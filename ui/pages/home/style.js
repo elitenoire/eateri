@@ -5,12 +5,11 @@ const styles = {
         position: 'relative',
         mt: '-9em', // should match pb of section above
 
-        bg: 'background',
+        bg: 'white',
         backgroundImage: t =>
-            `radial-gradient(circle at center center, ${alpha('secondary.pale', 0.5)(t)}, ${alpha(
-                'background',
-                0.5
-            )(t)}), repeating-radial-gradient(circle at center center, ${alpha('secondary.pale', 0.5)(t)}, ${alpha(
+            `radial-gradient(circle at center center, ${alpha('secondary.pale', 0.5)(t)}, ${
+                t.colors.whiteFade[80]
+            } ), repeating-radial-gradient(circle at center center, ${alpha('secondary.pale', 0.5)(t)}, ${alpha(
                 'secondary.pale',
                 0.5
             )(t)}, 100px, transparent 200px, transparent 100px)`,

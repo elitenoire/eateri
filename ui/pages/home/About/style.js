@@ -21,7 +21,7 @@ const styles = {
         pb: [null, null, null, null, 10],
         maxWidth: [null, null, null, null, null, null, 'container'],
         mx: [null, null, null, null, null, null, 'auto'],
-        color: t => alpha('heroText', 0.85)(t),
+        color: 'heroText',
         background: t => [
             null,
             null,
@@ -61,8 +61,7 @@ const styles = {
         mb: 3,
         p: {
             position: 'relative',
-            fontSize: '0.95em',
-            fontWeight: 'medium',
+            fontWeight: 'light',
             pl: 7,
             mb: 1,
             ':before': {

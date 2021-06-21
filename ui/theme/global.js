@@ -74,6 +74,9 @@ const styles = t => ({
         '.s-b': {
             fill: t.colors.secondary.base,
         },
+        '.s-h': {
+            fill: t.colors.secondary.hover,
+        },
         '.s-p': {
             fill: t.colors.secondary.pale,
         },
@@ -98,6 +101,12 @@ const styles = t => ({
     },
     '.underline': {
         backgroundImage: `linear-gradient(180deg, transparent 65%, ${t.colors.primary.base} 0)`,
+    },
+    '.hover-scale': {
+        transition: 'transform 0.7s ease-out',
+        ':hover': {
+            transform: 'scale(1.1)',
+        },
     },
     '.visually-hidden': {
         position: 'absolute',
