@@ -4,7 +4,7 @@ import { Input } from '@theme-ui/components'
 import { useFormContext } from 'react-hook-form'
 import TextareaAutosize from 'react-textarea-autosize'
 
-import Text from '~@/typography/Text'
+import { Text } from '~@/typography'
 import GuestCard from './GuestCard'
 
 import styles from './style'

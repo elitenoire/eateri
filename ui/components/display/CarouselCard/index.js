@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import Text from '~@/typography/Text'
+import { Text } from '~@/typography'
 import Button from '~@/general/Button'
 import styles from './style'
 import url from '~/public/dish.png'
