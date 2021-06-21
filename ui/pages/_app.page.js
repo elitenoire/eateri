@@ -54,7 +54,6 @@ export default class MyApp extends App {
                             <Flipper className="rft-flipper" flipKey={router.asPath}>
                                 {getLayout(<Component {...pageProps} />)}
                             </Flipper>
-                            )} */}
                         </ColorModeProvider>
                     </MenuProvider>
                 </ThemeProvider>
