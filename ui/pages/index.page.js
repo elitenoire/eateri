@@ -32,7 +32,7 @@ export default function Home({ userAgent }) {
                 <style id={SSRStyleID} type="text/css" dangerouslySetInnerHTML={fresnelStyles} />
             </Head>
             <MediaContextProvider>
-                <h1 className="visually-hidden">Welcome to Eateri.</h1>
+                <h1 className="visually-hidden">Welcome to Eateri Restaurant & Cafe Bar.</h1>
                 <Hero />
                 <Offers />
                 <Media greaterThanOrEqual="tabletS">

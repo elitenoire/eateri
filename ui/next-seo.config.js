@@ -1,6 +1,6 @@
 export default {
-    titleTemplate: '%s | Eateri',
-    defaultTitle: 'Eateri | The Messi of Great Food',
+    titleTemplate: '%s | Eateri Restaurant & Cafe Bar',
+    defaultTitle: 'Eateri Restaurant & Cafe Bar | The Messi of Great Food',
     description: 'Dine in to sample our tasty dishes, or have it delivered to you. Make table reservations for free.',
     additionalMetaTags: [
         {
