@@ -12,40 +12,47 @@ const styles = {
         m: '0 auto',
         mb: [null, null, 8],
     },
+    gridItem: {
+        gridColumn: [null, null, null, 'span 2', 'initial'],
+        gridRow: [null, null, null, null, 'span 2'],
+    },
     gridRowFlex: {
         display: 'flex',
         gridColumn: [null, null, null, 'span 2'],
+        '& > div:first-of-type': {
+            flex: 1,
+        },
     },
     cardDine: {
         flexDirection: [null, null, null, 'column'],
-        alignItems: ['center', null, null, 'unset'],
-        justifyContent: ['space-around', null, null, 'unset'],
+        alignItems: ['center', null, null, 'initial'],
+        justifyContent: ['space-around', null, null, 'initial'],
         bg: 'secondary.hover',
         color: 'textOnSecondary',
+        height: '100%',
         'p span': {
             ml: 7,
         },
     },
-    cardTakeouts: {
+    cardTakeaway: {
         flexDirection: ['row-reverse', null, null, 'column'],
-        alignItems: ['center', null, null, 'unset'],
+        alignItems: ['center', null, null, 'initial'],
         justifyContent: ['space-around', null, null, 'space-between'],
         textAlign: ['right', null, null, 'left'],
         bg: 'primary.base',
+        height: '100%',
     },
     cardDelivery: {
-        gridColumn: [null, null, null, 'span 2', 'unset'],
-        gridRow: [null, null, null, null, 'span 2'],
         flexDirection: [null, null, null, null, 'column'],
-        alignItems: ['center', null, null, null, 'unset'],
+        alignItems: ['center', null, null, null, 'initial'],
         justifyContent: ['space-around', null, null, null, 'space-between'],
-        bg: 'secondary.pale',
+        bg: 'secondary.light',
+        height: '100%',
         'p span': {
             fontWeight: 'bold',
         },
     },
     cardReserve: {
-        flex: 1,
         justifyContent: 'space-between',
         alignItems: 'center',
         bg: 'accent.base',
@@ -71,7 +78,7 @@ const styles = {
         height: 'auto',
         alignSelf: [null, null, null, 'flex-end'],
     },
-    svgTakeouts: {
+    svgTakeaway: {
         width: ['45%', null, null, '90%'],
         height: 'auto',
         alignSelf: [null, null, null, 'center'],
