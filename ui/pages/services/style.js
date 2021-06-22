@@ -2,6 +2,9 @@ import { alpha } from '@theme-ui/color'
 
 const styles = {
     container: {
+        position: 'relative',
+    },
+    gridContainer: {
         maxWidth: [null, null, null, '40em', 'maxContainer'],
     },
     grid: {
@@ -74,6 +77,23 @@ const styles = {
             boxShadow: t => `0 0 0 8px ${t.colors.accent.pale}, 0 10px 20px rgba(0,0,0,0.2)`,
             margin: '8px',
         },
+    },
+    squiggle: {
+        position: 'absolute',
+        top: '2%',
+        right: 0,
+    },
+    squiggle2: {
+        position: 'absolute',
+        top: '12%',
+        left: '-3%',
+        zIndex: -1,
+    },
+    squiggle3: {
+        position: 'absolute',
+        bottom: '1%',
+        right: '40%',
+        zIndex: -1,
     },
 }
 

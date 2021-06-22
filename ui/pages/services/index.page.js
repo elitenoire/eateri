@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { Container, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Button, Reveal } from '~@/general'
+import Squiggle from '~@/other/Squiggle'
 import MorphCard from '~@/services/common/MorphCard'
 import styles from './style'
 
@@ -17,7 +18,7 @@ import snacksUrl from '~/public/cater-snacks.jpg'
 
 function ServicesPage() {
     return (
-        <Container variant="base" pt={11} pb={13}>
+        <Container variant="base" pt={11} pb={13} sx={styles.container}>
             <Container as="header" variant="content">
                 <h1 className="visually-hidden">Our Services</h1>
                 <Reveal cascade whenInView>
@@ -30,7 +31,7 @@ function ServicesPage() {
                     </Text>
                 </Reveal>
             </Container>
-            <Container my={13} sx={styles.container}>
+            <Container my={13} sx={styles.gridContainer}>
                 <Grid gap={6} sx={styles.grid}>
                     <div>
                         <MorphCard
@@ -155,6 +156,15 @@ function ServicesPage() {
                     </div>
                 </Grid>
             </Container>
+            <div sx={styles.squiggle}>
+                <Squiggle bg="primary.light" />
+            </div>
+            <div sx={styles.squiggle2}>
+                <Squiggle bg="highlight.light" design={2} shape="diamond" />
+            </div>
+            <div sx={styles.squiggle3}>
+                <Squiggle bg="accent.light" design={2} size="lg" shape="blob2" />
+            </div>
         </Container>
     )
 }
