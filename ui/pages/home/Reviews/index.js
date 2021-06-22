@@ -17,25 +17,27 @@ import styles from './style'
 
 const colors = ['accent.base', 'primary.base', 'red', 'highlight.base', 'blue']
 
-const GliderIndex = ({ children }) => {
+function GliderIndex({ children }) {
     const { index } = useIndex()
     return children(index)
 }
 
-const ReviewCard = ({ author, review }) => (
-    <div sx={styles.reviewCard}>
-        <span>⭐⭐⭐⭐⭐</span>
-        <Text mt={2} weight="medium" opacity={0.7}>
-            {review}
-        </Text>
-        <span>-</span>
-        <Text weight="bold" italic>
-            {author}
-        </Text>
-    </div>
-)
+function ReviewCard({ author, review }) {
+    return (
+        <div sx={styles.reviewCard}>
+            <span>⭐⭐⭐⭐⭐</span>
+            <Text mt={2} weight="medium" opacity={0.7}>
+                {review}
+            </Text>
+            <span>-</span>
+            <Text weight="bold" italic>
+                {author}
+            </Text>
+        </div>
+    )
+}
 
-const Reviews = () => {
+function Reviews() {
     const { ref: reviewBlockRef, inView } = useInView({
         threshold: 0,
         rootMargin: '100px 0px 100px 0px',
@@ -45,7 +47,7 @@ const Reviews = () => {
         <section id="home-feedback" sx={styles.section}>
             <WaveSvg sx={styles.waveSvg} />
             <Container variant="loose" sx={styles.container}>
-                <Reveal as={Container} variant="content" cascade whenInView>
+                <Reveal as={Container} forwardAs="header" variant="content" cascade whenInView>
                     <Text as="h2" variant="badge" mb={2} bg="accent.pale" color="accent.base">
                         Happy Guests
                     </Text>

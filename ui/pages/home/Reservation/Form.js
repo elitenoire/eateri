@@ -2,7 +2,7 @@
 import { jsx } from '@theme-ui/core'
 import { useCallback } from 'react'
 import { useForm, FormProvider } from 'react-hook-form'
-import { DevTool } from '@hookform/devtools'
+// import { DevTool } from '@hookform/devtools'
 
 import { useStepControl, useStepStatus } from '~@/navigation'
 import Button from '~@/general/Button'
@@ -33,7 +33,7 @@ const getSubmitButtonProps = (isFirst, isLast, isSubmitting) => {
     }
 }
 
-const FormSteps = ({ children, defaultValues = {}, ...rest }) => {
+function FormSteps({ children, defaultValues = {}, ...rest }) {
     const { handleSubmit, ...methods } = useForm({
         mode: 'onSubmit',
         submitFocusError: false,
@@ -50,7 +50,6 @@ const FormSteps = ({ children, defaultValues = {}, ...rest }) => {
     const { prevStep, nextStep } = useStepControl()
     const { isFirst, isLast } = useStepStatus()
     // const _onSubmit = data => console.log(data)
-
     const onSubmit = async data => {
         if (isLast) {
             console.log(data)

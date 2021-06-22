@@ -7,21 +7,25 @@ import { Text } from '~@/typography'
 
 import styles from './style'
 
-const Cta = () => (
-    <Container as="section" variant="loose" id="home-cta" sx={styles.cta}>
-        <Container sx={styles.card}>
-            <Reveal motion={fadeIn} duration={600} whenInView>
-                <Text size={6} weight="bold" line="tight" spacing="wide">
-                    <span>Hungry?</span> Order From <span>Our Menu</span> & Have It Delivered To You.
-                </Text>
-                <Link href="/menu">
-                    <Button size="lg" link>
-                        View Menu
-                    </Button>
-                </Link>
-            </Reveal>
+function Cta() {
+    return (
+        <Container as="section" variant="loose" id="home-cta" sx={styles.cta}>
+            <Container sx={styles.card}>
+                <Reveal motion={fadeIn} duration={600} whenInView>
+                    <Text size={6} weight="bold" line="tight" spacing="wide">
+                        <span>Hungry?</span> Order From <span>Our Menu</span> & Have It Delivered To You.
+                    </Text>
+                    <div>
+                        <Link href="/menu">
+                            <Button size="lg" link>
+                                View Menu
+                            </Button>
+                        </Link>
+                    </div>
+                </Reveal>
+            </Container>
         </Container>
-    </Container>
-)
+    )
+}
 
 export default Cta

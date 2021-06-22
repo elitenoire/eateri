@@ -12,7 +12,7 @@ import { useFormDialogUpdate } from './useFormDialogState'
 
 import styles from './style'
 
-const StepFindTable = ({ guestRef, dateRef, timeRef }) => {
+function StepFindTable({ guestRef, dateRef, timeRef }) {
     const minDate = startOfDay(new Date())
     const maxDate = addMonths(new Date(), 3)
 
@@ -20,7 +20,6 @@ const StepFindTable = ({ guestRef, dateRef, timeRef }) => {
     //     mode: 'onSubmit',
     //     submitFocusError: false,
     // })
-
     const { errors, control } = useFormContext()
     const updateFormDialog = useFormDialogUpdate()
     // Needed as the function only exists for non-mobile

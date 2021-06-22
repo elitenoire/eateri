@@ -9,7 +9,7 @@ import GuestCard from './GuestCard'
 
 import styles from './style'
 
-const StepGuestDetails = () => {
+function StepGuestDetails() {
     const { register, errors } = useFormContext()
     return (
         <div>

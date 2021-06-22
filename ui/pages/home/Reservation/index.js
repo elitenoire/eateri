@@ -35,7 +35,7 @@ function Reservation() {
                         <ReservePatternL />
                         <ReservePatternR />
                     </div>
-                    <Container variant="content" className="mobile-hidden">
+                    <Container as="header" variant="content" className="mobile-hidden">
                         <Reveal cascade whenInView>
                             <Text as="h2" variant="badge" mb={2} bg="whiteFade.10" color="secondary.pale">
                                 Reserve A Table

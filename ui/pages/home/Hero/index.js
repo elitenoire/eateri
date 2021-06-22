@@ -13,7 +13,7 @@ import styles from './style'
 import { foodMenu, menuList } from './data'
 import url from '~/public/dish.png'
 
-const Hero = () => {
+function Hero() {
     const { count, direction, increment: goNext, decrement: goPrev, isCyclic, goto, onStart, onEnd } = useCounter({
         end: foodMenu.length > 1 ? foodMenu.length - 1 : foodMenu.length || 0,
         isCyclic: true,
