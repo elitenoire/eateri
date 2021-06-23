@@ -1,5 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import Link from 'next/link'
 import { Container, Image, Badge } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Heading, Text } from '~@/typography'
@@ -69,8 +70,10 @@ function Menu() {
     return (
         <Container as="section" id="homepage-menu" variant="loose" sx={styles.section}>
             <Reveal as={Container} forwardAs="header" variant="content" sx={styles.sectionHeader} cascade whenInView>
-                <Text as="h2" variant="badge" mb={2} bg="whiteFade.10" color="secondary.pale">
-                    Explore Our Menu
+                <Text as="h2" variant="badgeLink" mb={2} bg="whiteFade.10" color="secondary.pale">
+                    <Link href="/menu" passHref>
+                        <a>Explore Our Menu</a>
+                    </Link>
                 </Text>
                 <Heading as="p" variant="headline" color="text" title>
                     Explore 80+ Delicious Dishes

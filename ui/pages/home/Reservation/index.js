@@ -1,8 +1,8 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import Link from 'next/link'
 import { Container } from '@theme-ui/components'
 import { Media } from '~/context/media'
-
 import { Text, Heading } from '~@/typography'
 import { Reveal, fadeInLeft } from '~@/general/Reveal'
 import { StepProvider } from '~@/navigation/Steps'
@@ -37,8 +37,10 @@ function Reservation() {
                     </div>
                     <Container as="header" variant="content" className="mobile-hidden">
                         <Reveal cascade whenInView>
-                            <Text as="h2" variant="badge" mb={2} bg="whiteFade.10" color="secondary.pale">
-                                Reserve A Table
+                            <Text as="h2" variant="badgeLink" mb={2} bg="whiteFade.10" color="secondary.pale">
+                                <Link href="/reservations" passHref>
+                                    <a>Reserve A Table</a>
+                                </Link>
                             </Text>
                             <Heading as="p" variant="headline" color="text" title>
                                 We've Got You Covered

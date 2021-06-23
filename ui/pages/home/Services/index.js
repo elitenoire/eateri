@@ -2,7 +2,7 @@
 import { jsx } from '@theme-ui/core'
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-
+import Link from 'next/link'
 import { Container, Card, Grid, Box } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Reveal, grow } from '~@/general/Reveal'
@@ -40,8 +40,10 @@ function Services() {
             <section id="homepage-services" sx={styles.section}>
                 <Container variant="loose">
                     <Reveal as={Container} forwardAs="header" variant="content" cascade whenInView>
-                        <Text as="h2" variant="badge" mb={2} bg="primary.pale" color="primary.base">
-                            Our Services
+                        <Text as="h2" variant="badgeLink" mb={2} bg="primary.pale" color="primary.base">
+                            <Link href="/services" passHref>
+                                <a>Our Services</a>
+                            </Link>
                         </Text>
                         <Heading as="p" variant="headline" color="text" title>
                             Why We Are The Top Faves!

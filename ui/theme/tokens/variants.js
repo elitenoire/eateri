@@ -222,6 +222,18 @@ export default {
             borderRadius: '1.75em',
             display: 'inline-block',
         },
+        badgeLink: {
+            variant: 'text.badge',
+            position: 'relative',
+            ':after': {
+                position: 'absolute',
+                content: '"🔗"',
+                left: 0,
+            },
+            a: {
+                textDecoration: 'none',
+            },
+        },
     },
     cards: {
         services: {

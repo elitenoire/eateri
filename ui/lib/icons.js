@@ -1,6 +1,7 @@
 import Home from 'remixicon/icons/Buildings/home-6-line.svg'
 import Location2 from 'remixicon/icons/Buildings/store-2-line.svg'
 import Calendar from 'remixicon/icons/Business/calendar-fill.svg'
+import Links from 'remixicon/icons/Business/links-line.svg'
 import Mail from 'remixicon/icons/Business/mail-fill.svg'
 import Newsletter from 'remixicon/icons/Business/mail-send-fill.svg'
 import Profile from 'remixicon/icons/Business/profile-line.svg'
@@ -76,6 +77,7 @@ export default {
     instagram: Instagram,
     layoutrow: LayoutRow,
     layoutmasonry: LayoutMasonry,
+    links: Links,
     loader: Loader,
     location: Location,
     location2: Location2,
