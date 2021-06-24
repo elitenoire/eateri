@@ -1,28 +1,12 @@
 /** @jsx jsx */
-import { useContext, useCallback, useRef, useEffect } from 'react'
+import { useContext, useCallback } from 'react'
 import { jsx } from '@theme-ui/core'
 import { MenuContext } from '~/context/menu'
 import { Header, Footer, MobileSideMenu, BackToTop } from '~@/navigation'
 import styles from './style'
 
 export default function DefaultLayout({ children, hasMap, mini }) {
-    const { isOpen, closeMenu, toggleMenu, firstMenuItemRef, pageScrollRef } = useContext(MenuContext)
-    const flipperRef = useRef()
-
-    useEffect(() => {
-        // eslint-disable-next-line prefer-destructuring
-        flipperRef.current = document.getElementsByClassName('rft-flipper')[0]
-    }, [])
-
-    // helps react flip toolkit to work well
-    // height 100% is used by react burger menu
-    useEffect(() => {
-        if (isOpen) {
-            flipperRef.current.style = 'height: 100%'
-        } else {
-            flipperRef.current.style.removeProperty('height')
-        }
-    }, [isOpen])
+    const { isOpen, closeMenu, toggleMenu, firstMenuItemRef } = useContext(MenuContext)
 
     const preventTabbing = useCallback(
         e => {
@@ -47,7 +31,6 @@ export default function DefaultLayout({ children, hasMap, mini }) {
                 onClick={closeMenu}
             >
                 <div
-                    ref={pageScrollRef}
                     id="headroom-scroll"
                     className="hide-overflow"
                     role="presentation"

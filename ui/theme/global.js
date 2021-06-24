@@ -36,8 +36,10 @@ const styles = t => ({
         color: t.colors.textSelectionColor,
         background: t.colors.textSelectionBg,
     },
-    'html,body,#__next': {
-        height: '100%',
+    'html.height-100': {
+        '&,body,#__next,.rft-flipper': {
+            height: '100%',
+        },
     },
     body: {
         fontFamily: t.fonts.body,

@@ -1,13 +1,12 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { useRef, useState, useContext, useCallback, useEffect } from 'react'
+import { useRef, useState, useCallback, useEffect } from 'react'
 import useInView from 'react-cool-inview'
 import { BottomSheet } from 'react-spring-bottom-sheet'
 import { useSpring } from 'react-spring'
 import { Heading } from '~@/typography'
 import { Icon } from '~@/general'
 import { useStepControl } from '~@/navigation'
-import { MenuContext } from '~/context/menu'
 
 import 'react-spring-bottom-sheet/dist/style.css'
 
@@ -16,8 +15,6 @@ import styles from './style'
 const getBackdropStyle = spring => ({ '--rsbs-backdrop-opacity': spring.opacity })
 
 function MobileSheet({ children }) {
-    const { pageScrollRef } = useContext(MenuContext)
-
     const sheetRef = useRef()
     const snapPointsRef = useRef([])
 
@@ -25,7 +22,6 @@ function MobileSheet({ children }) {
     const { ref, inView } = useInView({
         threshold: 0,
         rootMargin: '200px 0px 20px 0px',
-        root: pageScrollRef.current,
     })
 
     const { moveStep } = useStepControl()

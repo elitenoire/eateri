@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { useContext, useEffect, useState } from 'react'
+import { useContext, useEffect, useState, useRef } from 'react'
 import { useScroll } from 'react-use-gesture'
 import { useSpring } from 'react-spring'
 import { Button } from '~@/general'
@@ -12,8 +12,9 @@ import ProgressRing from './ProgressRing'
 import styles from './style'
 
 function BackToTop({ color = 'highlight', offset = 50 }) {
-    const { pageScrollRef } = useContext(MenuContext)
+    const { isOpen } = useContext(MenuContext)
     const { linkScroll } = useScrollTo()
+    const _window = useRef(null)
 
     const [show, setShow] = useState(false)
 
@@ -26,17 +27,26 @@ function BackToTop({ color = 'highlight', offset = 50 }) {
     const bind = useScroll(
         ({
             event: {
-                target: { scrollTop, scrollHeight, clientHeight },
+                target: {
+                    documentElement: { scrollHeight, clientHeight },
+                },
             },
+            xy: [, y],
         }) => {
-            setShow(scrollTop > offset)
-            set({ scroll: scrollTop, max: scrollHeight - clientHeight, immediate: key => key === 'max' })
+            setShow(y > offset)
+            set({ scroll: y, max: scrollHeight - clientHeight, immediate: key => key === 'max' })
         },
         {
-            domTarget: pageScrollRef,
+            domTarget: _window,
         }
     )
+    useEffect(() => {
+        _window.current = window
+    }, [])
+
     useEffect(bind, [bind])
+
+    if (isOpen) return null
 
     return (
         <div sx={styles.wrapper} data-show-progress={show ? '' : null}>

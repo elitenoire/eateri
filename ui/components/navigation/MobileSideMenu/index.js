@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import Router from 'next/router'
 import Menu from 'react-burger-menu/lib/menus/scaleRotate'
@@ -39,12 +39,29 @@ const menuItems = [
 const MenuLink = ({ to, children, ...props }) => <Link href={to}>{children(props)}</Link>
 
 const MobileSideMenu = () => {
-    const { isOpen, closeMenu, onStateChange, firstMenuItemRef } = useContext(MenuContext)
+    const { isOpen, closeMenu, firstMenuItemRef } = useContext(MenuContext)
+    const htmlElementRef = useRef()
+
+    useEffect(() => {
+        htmlElementRef.current = document.querySelector('html')
+    }, [])
 
     useEffect(() => {
         Router.router.events.on('routeChangeStart', closeMenu)
         return () => Router.router.events.off('routeChangeStart', closeMenu)
     })
+
+    const onStateChange = useCallback(state => {
+        if (state.isOpen) {
+            // apply height 100%
+            htmlElementRef.current.classList.add('height-100')
+        } else {
+            // remove height-100% after close animation
+            setTimeout(() => {
+                htmlElementRef.current.classList.remove('height-100')
+            }, 500)
+        }
+    }, [])
 
     return (
         <div sx={style(isOpen)}>
@@ -52,6 +69,7 @@ const MobileSideMenu = () => {
                 onStateChange={onStateChange}
                 isOpen={isOpen}
                 pageWrapId="page-wrap"
+                onClose={closeMenu}
                 outerContainerId="outer-container"
                 width="100%"
                 customBurgerIcon={false}

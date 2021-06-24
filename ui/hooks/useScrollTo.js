@@ -1,14 +1,10 @@
-import { useContext } from 'react'
 import { useSpring } from 'react-spring'
-import { MenuContext } from '~/context/menu'
 
 const documentObject = typeof document !== `undefined` && document
 
 function useScrollTo({ offset: initialOffset = 0, ...initialSpringProps } = {}) {
-    const { pageScrollRef } = useContext(MenuContext)
-
-    const [, setSpring] = useSpring(() => ({
-        scrollTop: 0,
+    const [, set] = useSpring(() => ({
+        y: 0,
     }))
 
     const smoothScrollTo = (to = 0, { offset = 0, ...springProps } = {}) => {
@@ -21,18 +17,19 @@ function useScrollTo({ offset: initialOffset = 0, ...initialSpringProps } = {}) 
 
         if (typeof to !== 'number') {
             $element = $element?.current || $element
-            topPos = $element.offsetTop + $element.offsetParent.offsetTop
-            // topPos = $element?.current?.offsetTop || $element?.offsetTop
+            const { top } = $element.getBoundingClientRect()
+            const { scrollTop } = documentObject.documentElement
+            topPos = top + scrollTop
         }
 
         if (!topPos && topPos !== 0) return
 
-        setSpring({
-            scrollTop: topPos - (offset || initialOffset),
+        set({
+            y: topPos - (offset || initialOffset),
             reset: true,
-            from: { scrollTop: pageScrollRef?.current?.scrollTop || 0 },
-            onFrame: props => {
-                pageScrollRef.current.scrollTop = props.scrollTop
+            from: { y: window.scrollY || 0 },
+            onFrame: ({ y }) => {
+                window.scroll(0, y)
             },
             ...initialSpringProps,
             ...springProps,

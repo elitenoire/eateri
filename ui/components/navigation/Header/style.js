@@ -1,5 +1,5 @@
 const styles = {
-    header: (barWidth, height) => ({
+    header: {
         position: 'absolute',
         top: 0,
         left: 0,
@@ -7,7 +7,6 @@ const styles = {
         overflow: 'hidden',
         borderTopLeftRadius: 'inherit',
         zIndex: 'header',
-        height: `${height}${Number.isInteger(height) ? 'px' : ''} !important`,
         '.headroom': {
             width: 'fluid',
             height: 'header',
@@ -16,10 +15,9 @@ const styles = {
         },
         '.headroom--pinned': {
             boxShadow: '0 4px 24px rgba(0, 0, 0, 0.2)',
-            width: `calc(100% - ${barWidth}px)`,
             bg: ['white', null, 'primary.base'],
         },
-    }),
+    },
     container: {
         position: 'relative',
         display: 'flex',
