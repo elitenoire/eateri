@@ -66,14 +66,14 @@ const styles = {
     },
     socialLinks: {
         position: 'absolute',
-        top: ['0.25em', null, null, null, 0],
+        top: [0, null, '0.25em', null, 0],
         bottom: [null, null, null, null, 0],
         right: [0, null, null, null, 'unset'],
         mr: [null, null, 'calc(2vw + 0.6em - 0.25em)', null, 0],
         ml: [null, null, null, null, '2vw'],
         bg: ['primary.base', null, 'inherit'],
-        borderTopLeftRadius: ['2px', null, 0],
-        borderBottomLeftRadius: ['2px', null, 0],
+        borderBottomLeftRadius: ['25', null, 0],
+
         zIndex: 1,
         ul: {
             display: 'flex',
@@ -83,6 +83,8 @@ const styles = {
         },
         li: {
             px: [4, null, 2, null, 0],
+            pl: ['1.25em', null, 2, null, 0],
+            pr: ['1.75em', null, 2, null, 0],
             py: 2,
         },
         a: {

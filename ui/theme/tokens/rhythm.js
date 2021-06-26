@@ -47,7 +47,7 @@ const space = [
     '5em', // [13]
 ]
 // aliases
-space.header = space[9]
+space.header = space[10]
 
 export default {
     space,
@@ -55,7 +55,7 @@ export default {
         container: '45em',
         maxContainer: '60em',
         fluid: '100%',
-        header: space[9],
+        header: space[10],
     },
     breakpoints,
     fresnelBreakpoints,

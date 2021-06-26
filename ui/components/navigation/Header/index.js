@@ -1,22 +1,23 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import { useState, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import Headroom from 'react-headroom'
 import { Button, Logo } from '~@/general'
 import useScrollTo from '~/hooks/useScrollTo'
+import useOnClickOutside from '~/hooks/useOnClickOutside'
 import { HASH_ID_CONTACT, HASH_ID_RESERVATIONS } from '~/constants'
 import styles from './style'
 
 const ariaLabels = {
     cart: 'Items in cart',
-    user: 'My account',
-    hmenu: 'Open menu',
-    search: 'Search menu',
+    user: 'Accounts',
+    hmenu: 'Navigate',
+    search: 'Explore food',
 }
 
 function NavLinks({ children, ...rest }) {
     const { linkScroll } = useScrollTo({ offset: 20 })
-
     return (
         <nav {...rest}>
             <ul>
@@ -44,19 +45,42 @@ function NavLinks({ children, ...rest }) {
 }
 
 function Header({ isOpen, toggleMenu }) {
+    const headerRef = useRef()
+    const [show, setShow] = useState(false)
+
+    const toggle = useCallback(() => {
+        setShow(_show => !_show)
+    }, [])
+
+    const close = useCallback(() => {
+        setShow(false)
+    }, [])
+
+    useOnClickOutside(headerRef, close)
+
     return (
-        <Headroom disableInlineStyles={isOpen} sx={styles.header}>
-            <div sx={styles.container}>
-                <Button
-                    id="toggle-menu"
-                    brand="outline"
-                    color="secondary"
-                    icon="hamburger"
-                    size="lg"
-                    ariaLabel={ariaLabels.hmenu}
-                    onClick={toggleMenu}
-                    borderless
-                />
+        <Headroom onUnpin={close} disableInlineStyles={isOpen} sx={styles.header}>
+            <div ref={headerRef} sx={styles.container}>
+                <div sx={styles.toggleWrap}>
+                    <Button
+                        brand="outline"
+                        color="secondary"
+                        icon="hamburger"
+                        size="lg"
+                        ariaLabel={ariaLabels.hmenu}
+                        onClick={toggleMenu}
+                        borderless
+                    />
+                    <Button
+                        brand="outline"
+                        color="secondary"
+                        icon={show ? 'close' : 'hamburger'}
+                        size="lg"
+                        ariaLabel={ariaLabels.hmenu}
+                        onClick={toggle}
+                        borderless
+                    />
+                </div>
                 <Link href="/" passHref>
                     <Logo
                         aria-label="Eateri Home"
@@ -67,12 +91,19 @@ function Header({ isOpen, toggleMenu }) {
                         sx={styles.logoBox}
                     />
                 </Link>
-                <NavLinks sx={styles.navlinks}>
+                <NavLinks sx={styles.navlinks} data-collapse={show ? '' : null}>
                     {['/menu', '/about', `#${HASH_ID_CONTACT}`, `#${HASH_ID_RESERVATIONS}`]}
                 </NavLinks>
                 <div sx={styles.actions}>
                     <Button brand="ghost" color="secondary" size="lg" icon="search" ariaLabel={ariaLabels.search} />
-                    <Button brand="ghost" color="secondary" size="lg" icon="cart" ariaLabel={ariaLabels.cart} />
+                    <Button
+                        brand="ghost"
+                        color="secondary"
+                        size="lg"
+                        icon="cart"
+                        ariaLabel={ariaLabels.cart}
+                        sx={styles.cartButton}
+                    />
                     <Button brand="outline" color="secondary" size="lg" icon="user" ariaLabel={ariaLabels.user} />
                 </div>
             </div>

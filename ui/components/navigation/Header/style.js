@@ -1,16 +1,16 @@
+import { mediaQueries as mq } from '~/theme/tokens/rhythm'
+
 const styles = {
     header: {
         position: 'absolute',
         top: 0,
         left: 0,
         right: 0,
-        overflow: 'hidden',
-        borderTopLeftRadius: 'inherit',
         zIndex: 'header',
         '.headroom': {
             width: 'fluid',
             height: 'header',
-            bg: ['transparent', null, 'primary.base'],
+            bg: 'primary.base',
             transition: 'background-color 0.2s ease-in-out',
         },
         '.headroom--pinned': {
@@ -25,52 +25,82 @@ const styles = {
         alignItems: 'center',
         width: 'fluid',
         height: 'inherit',
-        fontSize: '0.8em',
-        padding: ['0.2em 2%', null, '0.5em 2%'],
+        px: '2%',
         transition: 'box-shadow 0.2s ease-in-out',
         'svg.logo-text': {
             fill: 'secondary.hover',
         },
-        '#toggle-menu': {
-            display: [null, null, null, 'none'],
-            margin: '-1.5%',
+    },
+    toggleWrap: {
+        [mq.tabletL]: {
+            ml: '-1.5%',
+        },
+        'button:first-of-type': {
+            display: [null, null, 'none'],
+        },
+        'button:last-of-type': {
+            display: ['none', null, 'inline-flex', null, 'none'],
         },
     },
     logoBox: {
-        display: 'inline-flex',
+        display: ['none', null, 'inline-flex'],
         alignItems: 'flex-start',
         mr: [null, null, null, null, 'auto'],
-        ml: ['10%', null, null, 0],
-        '.logo-text': {
-            display: ['none', null, 'initial'],
-        },
+        ml: ['10%', null, null, null, 0],
     },
     navlinks: {
-        display: ['none', null, null, 'initial'],
-        mr: [null, null, null, null, '10%'],
-        color: 'textOnPrimary',
+        mr: [null, null, null, null, '5%'],
+        [mq.tabletL]: {
+            position: 'absolute',
+            bg: 'white',
+            top: ({ sizes }) => `calc(${sizes.header} + 2vw)`,
+            left: '2%',
+            minWidth: '200px',
+            zIndex: 'modal',
+            boxShadow: 'xl',
+            borderRadius: 'default',
+            p: '25px 15px',
+            border: '1.5px solid',
+            opacity: 0,
+            visibility: 'hidden',
+            pointerEvents: 'none',
+            transform: 'scale(0.95)',
+            transformOrigin: 'top left',
+            transition: '0.25s',
+            transitionProperty: 'transform,opacity,visibility',
+            '&[data-collapse]': {
+                opacity: 1,
+                visibility: 'visible',
+                transform: 'scale(1)',
+                pointerEvents: 'auto',
+            },
+            ul: {
+                fontSize: 3,
+                li: {
+                    mt: '-1.5px',
+                },
+            },
+        },
         ul: {
-            '& > li': {
-                display: 'inline-block',
-                padding: '0 10px',
-                margin: '0 10px',
+            li: {
+                display: [null, null, null, null, 'inline-block'],
+                px: [null, null, null, null, '10px'],
+                mx: [null, null, null, null, '10px'],
                 a: {
-                    display: 'inline-block',
-                    transition: 'all 0.3s ease',
                     fontWeight: 'bold',
                     textDecoration: 'none',
                 },
             },
-            '& > li:not(:last-of-type) a': {
+            'li:not(:last-of-type) a': {
                 position: 'relative',
                 '::before': {
-                    content: '""',
+                    content: [null, null, null, null, '""'],
                     position: 'absolute',
                     left: '50%',
                     bottom: '-5px',
-                    width: '110%',
+                    width: '70%',
                     height: '2px',
-                    backgroundColor: 'muted',
+                    backgroundColor: 'primary.light',
                     transformOrigin: 'center',
                     transform: 'translate(-50%, 0) scaleX(0)',
                     transition: 'transform 0.3s ease-in-out',
@@ -78,17 +108,40 @@ const styles = {
                 ':hover::before': {
                     transform: 'translate(-50%, 0) scaleX(1)',
                 },
+                [mq.tabletL]: {
+                    display: 'flex',
+                    flexWrap: 'wrap',
+                    alignItems: 'center',
+                    padding: '5px 10px 0',
+                    borderRadius: 'tiny',
+                    ':hover': {
+                        bg: 'primary.pale',
+                    },
+                    '::after': {
+                        content: '""',
+                        width: '100%',
+                        borderBottom: '1.5px solid',
+                        borderColor: 'secondary.pale',
+                        mt: '4px',
+                        zIndex: -1,
+                    },
+                },
             },
-            '& > li:last-of-type a': {
+            'li:last-of-type a': {
                 border: '1.5px solid',
                 borderRadius: 'pill',
-                padding: '0.25em 1em',
+                padding: '0.35em 1em',
                 ':hover': {
-                    color: 'textOnSecondary',
+                    color: ['white', null, null, null, 'primary.light'],
                     bg: 'secondary.base',
-                    borderWidth: '2px',
-                    margin: '-0.5px',
                     boxShadow: 'sm',
+                },
+                [mq.tabletL]: {
+                    display: 'flex',
+                    justifyContent: 'center',
+                    mt: 4,
+                    borderColor: 'accent.base',
+                    bg: 'accent.base',
                 },
             },
         },
@@ -96,6 +149,9 @@ const styles = {
     actions: {
         display: 'flex',
         alignItems: 'center',
+    },
+    cartButton: {
+        bg: 'primary.light',
     },
 }
 
