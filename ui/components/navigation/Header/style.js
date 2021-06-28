@@ -66,13 +66,15 @@ const styles = {
             pointerEvents: 'none',
             transform: 'scale(0.95)',
             transformOrigin: 'top left',
-            transition: '0.25s',
-            transitionProperty: 'transform,opacity,visibility',
             '&[data-collapse]': {
                 opacity: 1,
                 visibility: 'visible',
                 transform: 'scale(1)',
                 pointerEvents: 'auto',
+            },
+            '&[data-animating]': {
+                transition: '0.25s',
+                transitionProperty: 'transform,opacity,visibility',
             },
             ul: {
                 fontSize: 3,

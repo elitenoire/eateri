@@ -6,6 +6,7 @@ import Headroom from 'react-headroom'
 import { Button, Logo } from '~@/general'
 import useScrollTo from '~/hooks/useScrollTo'
 import useOnClickOutside from '~/hooks/useOnClickOutside'
+import useSafeTimeout from '~/hooks/useSafeTimeout'
 import { HASH_ID_CONTACT, HASH_ID_RESERVATIONS } from '~/constants'
 import styles from './style'
 
@@ -44,17 +45,32 @@ function NavLinks({ children, ...rest }) {
     )
 }
 
+// TODO: Close open menus on resizing to viewports where they are not enabled.
+// This will close issue #2 on github
 function Header({ isOpen, toggleMenu }) {
     const headerRef = useRef()
+    const timerRef = useRef()
     const [show, setShow] = useState(false)
+    const [animating, setAnimating] = useState(false)
+    const { safeSetTimeout, safeClearTimeout } = useSafeTimeout()
+
+    const animate = useCallback(() => {
+        setAnimating(true)
+        safeClearTimeout(timerRef.current)
+        timerRef.current = safeSetTimeout(() => {
+            setAnimating(false)
+        }, 250)
+    }, [safeSetTimeout, safeClearTimeout])
 
     const toggle = useCallback(() => {
         setShow(_show => !_show)
-    }, [])
+        animate()
+    }, [animate])
 
     const close = useCallback(() => {
         setShow(false)
-    }, [])
+        animate()
+    }, [animate])
 
     useOnClickOutside(headerRef, close)
 
@@ -91,7 +107,7 @@ function Header({ isOpen, toggleMenu }) {
                         sx={styles.logoBox}
                     />
                 </Link>
-                <NavLinks sx={styles.navlinks} data-collapse={show ? '' : null}>
+                <NavLinks sx={styles.navlinks} data-collapse={show ? '' : null} data-animating={animating ? '' : null}>
                     {['/menu', '/about', `#${HASH_ID_CONTACT}`, `#${HASH_ID_RESERVATIONS}`]}
                 </NavLinks>
                 <div sx={styles.actions}>
