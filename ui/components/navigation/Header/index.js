@@ -68,9 +68,11 @@ function Header({ isOpen, toggleMenu }) {
     }, [animate])
 
     const close = useCallback(() => {
-        setShow(false)
-        animate()
-    }, [animate])
+        if (show) {
+            setShow(false)
+            animate()
+        }
+    }, [animate, show])
 
     useOnClickOutside(headerRef, close)
 

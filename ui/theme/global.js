@@ -56,6 +56,7 @@ const styles = t => ({
         scrollbarColor: `${t.colors.primary.base} ${t.colors.secondary.base}`,
     },
     svg: {
+        display: 'block',
         fill: 'currentColor',
         '&.ri-icon': {
             width: '1.2em',

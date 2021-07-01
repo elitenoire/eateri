@@ -77,7 +77,7 @@ function ServicesPage() {
                             <div>
                                 <Link href="/services/takeaway" passHref>
                                     <Button mx={0} my={6} size="lg" icon="arrowright" color="secondary" link>
-                                        Go Go Go
+                                        Grab It
                                     </Button>
                                 </Link>
                             </div>

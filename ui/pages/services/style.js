@@ -80,8 +80,9 @@ const styles = {
     },
     squiggle: {
         position: 'absolute',
-        top: '2%',
+        top: '1%',
         right: 0,
+        zIndex: -1,
     },
     squiggle2: {
         position: 'absolute',

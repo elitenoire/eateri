@@ -162,6 +162,7 @@ const styles = {
         py: [null, null, 4],
         '& > div:first-of-type': {
             mb: ['auto', null, 0],
+            pt: [4, null, 0],
         },
     },
     contentHeadline: {

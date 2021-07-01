@@ -16,7 +16,7 @@ function Cta() {
                         <span>Hungry?</span> Order From <span>Our Menu</span> & Have It Delivered To You.
                     </Text>
                     <div>
-                        <Link href="/menu">
+                        <Link href="/menu" passHref>
                             <Button size="lg" link>
                                 View Menu
                             </Button>

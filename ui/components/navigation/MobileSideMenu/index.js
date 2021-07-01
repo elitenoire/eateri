@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Router from 'next/router'
 import Menu from 'react-burger-menu/lib/menus/scaleRotate'
 import { MenuContext } from '~/context/menu'
+import useSafeTimeout from '~/hooks/useSafeTimeout'
 import Icon from '~@/general/Icon'
 import style from './style'
 
@@ -41,6 +42,8 @@ const MenuLink = ({ to, children, ...props }) => <Link href={to}>{children(props
 const MobileSideMenu = () => {
     const { isOpen, closeMenu, firstMenuItemRef } = useContext(MenuContext)
     const htmlElementRef = useRef()
+    const timerRef = useRef()
+    const { safeSetTimeout, safeClearTimeout } = useSafeTimeout()
 
     useEffect(() => {
         htmlElementRef.current = document.querySelector('html')
@@ -57,7 +60,8 @@ const MobileSideMenu = () => {
             htmlElementRef.current.classList.add('height-100')
         } else {
             // remove height-100% after close animation
-            setTimeout(() => {
+            safeClearTimeout(timerRef.current)
+            timerRef.current = safeSetTimeout(() => {
                 htmlElementRef.current.classList.remove('height-100')
             }, 500)
         }

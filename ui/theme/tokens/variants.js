@@ -87,17 +87,18 @@ export default {
                     boxShadow: ghostText ? 'none' : '0 2px 6px 1px rgba(0, 0, 0, 0.08) inset',
                 },
             }),
-            pale: ({ color, link }) => ({
+            pale: ({ color, opaque, link }) => ({
                 [`&${link ? ',&:active,&:visited' : ''}`]: {
                     color: `${color}.base`,
                 },
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
-                    bg: 'transparent',
-                    borderColor: 'transparent',
+                    bg: opaque ? `${color}.pale` : 'transparent',
+                    borderColor: opaque ? `${color}.pale` : 'transparent',
                 },
                 '&:hover': {
-                    bg: `${color}.pale`,
-                    borderColor: `${color}.pale`,
+                    bg: opaque ? `${color}.light` : `${color}.pale`,
+                    borderColor: opaque ? `${color}.light` : `${color}.pale`,
+                    ...(opaque && { color: `black` }),
                 },
             }),
         },
