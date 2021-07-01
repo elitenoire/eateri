@@ -5,10 +5,12 @@ import styles from './style'
 
 import SquiggleSvg from '~/public/inlineSvg/squiggle.svg'
 import Squiggle2Svg from '~/public/inlineSvg/squiggle-2.svg'
+import Squiggle3Svg from '~/public/inlineSvg/squiggle-3.svg'
 
 const squiggles = {
     1: SquiggleSvg,
     2: Squiggle2Svg,
+    3: Squiggle3Svg,
 }
 
 export default function Squiggle({ color, bg = 'primary.base', size = null, shape = null, design = 1, ...props }) {

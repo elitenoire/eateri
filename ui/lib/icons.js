@@ -6,13 +6,13 @@ import Mail from 'remixicon/icons/Business/mail-fill.svg'
 import Newsletter from 'remixicon/icons/Business/mail-send-fill.svg'
 import Profile from 'remixicon/icons/Business/profile-line.svg'
 import Chat from 'remixicon/icons/Communication/chat-smile-2-line.svg'
-import LayoutRow from 'remixicon/icons/Design/layout-row-fill.svg'
-import LayoutMasonry from 'remixicon/icons/Design/layout-masonry-fill.svg'
+import LayoutGrid from 'remixicon/icons/Design/layout-grid-fill.svg'
 import Phone from 'remixicon/icons/Device/phone-line.svg'
 import PhoneFill from 'remixicon/icons/Device/phone-fill.svg'
 import Menu from 'remixicon/icons/Document/todo-line.svg'
 import DoubleQuotesL from 'remixicon/icons/Editor/double-quotes-l.svg'
 import DoubleQuotesR from 'remixicon/icons/Editor/double-quotes-r.svg'
+import LayoutList from 'remixicon/icons/Editor/list-unordered.svg'
 import Gift from 'remixicon/icons/Finance/gift-fill.svg'
 import Cart from 'remixicon/icons/Finance/shopping-bag-line.svg'
 import Github from 'remixicon/icons/Logos/github-fill.svg'
@@ -37,6 +37,8 @@ import ArrowRight from 'remixicon/icons/System/arrow-right-s-line.svg'
 import ArrowUp from 'remixicon/icons/System/arrow-up-s-line.svg'
 import Close from 'remixicon/icons/System/close-line.svg'
 import Dashboard from 'remixicon/icons/System/dashboard-line.svg'
+import Filter from 'remixicon/icons/System/filter-2-line.svg'
+import FilterFill from 'remixicon/icons/System/filter-2-fill.svg'
 import Loader from 'remixicon/icons/System/loader-4-line.svg'
 import Password from 'remixicon/icons/System/lock-password-fill.svg'
 import Lock from 'remixicon/icons/System/lock-fill.svg'
@@ -69,14 +71,16 @@ export default {
     dashboard: Dashboard,
     doublequotesl: DoubleQuotesL,
     doublequotesr: DoubleQuotesR,
+    filter: Filter,
+    filterfill: FilterFill,
     gallery: Gallery,
     gift: Gift,
     github: Github,
     hamburger: HamBurger,
     home: Home,
     instagram: Instagram,
-    layoutrow: LayoutRow,
-    layoutmasonry: LayoutMasonry,
+    layoutgrid: LayoutGrid,
+    layoutlist: LayoutList,
     links: Links,
     loader: Loader,
     location: Location,
