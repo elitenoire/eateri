@@ -12,9 +12,11 @@ export default {
                     borderColor: `${color}.base`,
                 },
                 '&:hover': {
+                    boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
+                },
+                '&:hover,&[data-active]': {
                     bg: `${color}.hover`,
                     borderColor: `${color}.hover`,
-                    boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
                 },
                 '&:disabled:hover,&[aria-disabled="true"]:hover': {
                     boxShadow: 'none',
@@ -35,9 +37,11 @@ export default {
                     color: `${color}.base`,
                 },
                 '&:hover': {
+                    boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
+                },
+                '&:hover,&[data-active]': {
                     bg: `${color}.base`,
                     color: `textOn${color.charAt(0).toUpperCase() + color.slice(1)}`,
-                    boxShadow: t => `0 0.5em 0.7em -0.3em ${alpha(`${color}.hover`, 0.7)(t)}`,
                 },
                 '&:disabled:hover,&[aria-disabled="true"]:hover': {
                     boxShadow: 'none',
@@ -59,7 +63,7 @@ export default {
                     opacity: 0,
                     transition: 'transform 0.8s, opacity 0.3s',
                 },
-                '&:hover::after': {
+                '&:hover::after,&[data-active]::after': {
                     transform: 'scaleX(1)',
                     opacity: 1,
                     transition: 'transform 0.3s, opacity 0.3s',
@@ -67,6 +71,25 @@ export default {
                 '&:enabled:not([aria-disabled="true"]):active': {
                     bg: `${color}.hover`,
                 },
+            }),
+            subtle: ({ color, outline, link }) => ({
+                [`&${link ? ',&:active,&:visited' : ''}`]: {
+                    color: 'text',
+                },
+                '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
+                    bg: outline ? 'transparent' : 'gray',
+                    borderColor: outline ? 'grayDark' : 'gray',
+                },
+                '&:hover,&[data-active]': {
+                    borderColor: outline ? `${color}.base` : 'grayHover',
+                    ...(!outline && { bg: 'grayHover' }),
+                },
+                ...(outline && {
+                    '&:focus': {
+                        borderColor: `${color}.base`,
+                        boxShadow: t => `0 0 0 3px ${t.colors[color].light}`,
+                    },
+                }),
             }),
             ghost: ({ color, ghostText, link }) => ({
                 bg: 'transparent', // 'ghost',
@@ -76,7 +99,7 @@ export default {
                 },
                 // TODO:
                 // alpha(0.02) black for light hues and white for dark hues parent bg
-                '&:hover': {
+                '&:hover,&[data-active]': {
                     color: `${color}.hover`,
                     boxShadow: ghostText ? 'none' : '0 1px 10px 1px rgba(0, 0, 0, 0.08)',
                 },
@@ -95,7 +118,7 @@ export default {
                     bg: opaque ? `${color}.pale` : 'transparent',
                     borderColor: opaque ? `${color}.pale` : 'transparent',
                 },
-                '&:hover': {
+                '&:hover,&[data-active]': {
                     bg: opaque ? `${color}.light` : `${color}.pale`,
                     borderColor: opaque ? `${color}.light` : `${color}.pale`,
                     ...(opaque && { color: `black` }),
@@ -263,12 +286,12 @@ export default {
         loose: {
             maxWidth: 'none',
             width: 'auto',
-            px: ['1.5em', null, '8%', '10%'],
+            px: ['body', null, '8%', '10%'],
         },
         tight: {
             maxWidth: 'none',
             width: 'auto',
-            px: ['1.5em', null, '8%', '10%', '20%'],
+            px: ['body', null, '8%', '10%', '20%'],
         },
     },
 }

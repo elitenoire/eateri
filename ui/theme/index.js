@@ -10,7 +10,7 @@ export default {
     initialColorModeName: 'light',
     useCustomProperties: true,
     useBorderBox: false,
-    fluidBodyFontSize: [1, null, 2, null, 3, null, 4],
+    fluidBodyFontSize: [2, null, 2, null, 3, null, 4],
     // fluidBodyLineHeight: ['none', null, null, null, 'tight', null, 'snug'],
     colors,
     ...fonts,

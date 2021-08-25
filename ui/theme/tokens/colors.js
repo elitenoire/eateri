@@ -2,6 +2,9 @@ export default {
     black: '#090a0c',
     white: '#ffffff',
     gray: '#eeeeee', // '#f8f9fa',
+    grayLight: '#f5f5f5',
+    grayHover: '#e0e0e0',
+    grayDark: '#cccccc',
     muted: '#f9fafb', // '#fefcf7',
     whiteFade: {
         10: 'rgba(255, 255, 255, 0.1)',

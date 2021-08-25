@@ -28,7 +28,7 @@ const fresnelBreakpoints = breakpointsAlias.reduce((bp, alias, i) => {
 fresnelBreakpoints.default = 0
 
 // For fluid typography
-breakpoints.fluidStart = breakpoints[0]
+breakpoints.fluidStart = breakpoints[1]
 
 const space = [
     '0', // [0]
@@ -48,12 +48,14 @@ const space = [
 ]
 // aliases
 space.header = space[10]
+space.body = '1.25em'
+space.bodyNegative = '-1.25em'
 
 export default {
     space,
     sizes: {
         container: '45em',
-        maxContainer: '60em',
+        maxContainer: '75em',
         fluid: '100%',
         header: space[10],
     },
