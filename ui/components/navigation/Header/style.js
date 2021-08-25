@@ -23,8 +23,10 @@ const styles = {
         display: 'flex',
         justifyContent: ['space-between', null, null, null, 'flex-end'],
         alignItems: 'center',
-        width: 'fluid',
         height: 'inherit',
+        width: 'fluid',
+        maxWidth: 'maxContainer',
+        margin: '0 auto',
         px: '2%',
         transition: 'box-shadow 0.2s ease-in-out',
         'svg.logo-text': {

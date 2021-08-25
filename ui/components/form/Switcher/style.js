@@ -17,45 +17,51 @@ const styles = {
             ...(simple && outline && { bg: 'white' }),
         },
         'input[type="checkbox"]:focus + label': {
-            ...(!outline && !simple && { borderColor: `${color}.base` }),
+            borderColor: `${color}.base`,
             boxShadow: t => `0 0 0 3px ${t.colors[color].light}`,
         },
         'input[type="checkbox"]:checked + label > span:first-of-type,label > span:last-of-type': {
             opacity: 0.5,
+            color: `${color}.hover`,
         },
-        'input[type="checkbox"]:checked + label > span:last-of-type': {
+        'input[type="checkbox"]:checked + label > span:last-of-type,label > span:first-of-type': {
             opacity: 1,
+            color: outline ? 'white' : `${color}.hover`,
         },
         'input[type="checkbox"]:disabled + label,input[type="checkbox"][aria-disabled="true"] + label': {
             opacity: 0.4,
             cursor: 'not-allowed',
         },
     }),
-    label: ({ color, radius, outline, simple }) => ({
+    label: ({ color, radius, subtle, outline, simple }) => ({
         display: 'flex',
         alignItems: 'center',
         cursor: 'pointer',
-        color: `${color}.hover`,
         userSelect: 'none',
-        borderWidth: '1px',
+        borderWidth: '1.5px',
         borderStyle: 'solid',
-        // borderColor: outline ? `${color}.base` : 'transparent',
         borderRadius: radius,
         ...(simple
             ? {
-                  borderColor: outline ? 'black' : 'transparent',
+                  borderColor: outline ? (subtle ? 'grayDark' : 'black') : 'transparent',
                   bg: outline ? 'transparent' : 'gray',
                   width: '3.5em',
                   height: '2em',
-                  transition: 'background-color 0.3s, border-color 0.3s',
+                  transition: 'background-color 0.3s, border-color 0.2s',
               }
             : {
-                  borderColor: outline ? `${color}.base` : 'transparent',
+                  borderColor: outline ? (subtle ? 'grayDark' : `${color}.base`) : 'transparent',
                   bg: outline ? 'transparent' : `${color}.pale`,
                   px: '1.25em', // 0.5em + 0.75em
                   py: '0.85em', // 0.6em + 0.25em
+                  transition: 'border-color 0.2s',
               }),
         ...(!outline && { boxShadow: 'inner' }),
+        ...(outline && {
+            '&:hover': {
+                borderColor: `${color}.base`,
+            },
+        }),
         '::before': {
             position: 'absolute',
             content: '""',
@@ -64,14 +70,14 @@ const styles = {
             bottom: '0.3em',
             ...(simple
                 ? {
-                      bg: outline ? `${color}.base` : 'white',
+                      bg: outline ? 'grayDark' : 'white',
                       left: '0.3em',
                       right: '50%',
                       ...(!outline && { boxShadow: 'lg' }),
                       transitionProperty: outline ? 'transform,background-color' : 'transform',
                   }
                 : {
-                      bg: outline ? `${color}.pale` : 'white',
+                      bg: outline ? (subtle ? 'blackFade.80' : `${color}.base`) : 'white',
                       left: 2,
                       right: '48%',
                       boxShadow: t =>
@@ -79,7 +85,6 @@ const styles = {
                       transitionProperty: 'transform',
                   }),
             transitionDuration: '0.3s',
-            // transition: 'transform 0.3s',
         },
         span: {
             zIndex: 1,

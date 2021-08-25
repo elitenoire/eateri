@@ -21,7 +21,6 @@ const style = isOpen => ({
         top: 0,
         left: 0,
         transition: 'initial !important',
-        fontSize: 3,
         letterSpacing: 'wider',
     },
     '.bm-menu': {
@@ -53,6 +52,7 @@ const style = isOpen => ({
             transform: 'translateX(1.5em)',
         },
         svg: {
+            display: 'inline',
             mr: '0.5em',
             verticalAlign: 'sub',
         },

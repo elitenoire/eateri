@@ -38,6 +38,9 @@ const styles = {
         '&[href]:hover,&&:enabled:not([aria-disabled="true"]):hover': {
             transform: 'translateY(-2px)',
         },
+        '&[href][data-no-hoverup]:hover,&&[data-no-hoverup]:enabled:not([aria-disabled="true"]):hover': {
+            transform: 'translateY(0)',
+        },
         '&[href]:active,&&:enabled:not([aria-disabled="true"]):active': {
             transform: 'scale(0.95)',
         },

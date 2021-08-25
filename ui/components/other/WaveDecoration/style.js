@@ -3,7 +3,6 @@ const styles = {
         position: 'relative',
     },
     svgWave: color => ({
-        display: 'block',
         fill: color,
     }),
     svgCutlery: {
@@ -11,7 +10,8 @@ const styles = {
         bottom: ['0.5em', null, null, '1em', '2em'],
         left: 0,
         right: 0,
-        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'center',
         svg: {
             width: ['3.5em', null, null, '4em'],
             mx: 1,

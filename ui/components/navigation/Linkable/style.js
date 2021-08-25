@@ -10,6 +10,10 @@ const styles = {
             transform: 'scale(1.05)',
             boxShadow: 'xl',
         },
+        '.link-block': {
+            position: 'relative',
+            zIndex: 1,
+        },
     },
     link: {
         position: 'absolute',

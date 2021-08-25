@@ -11,7 +11,7 @@ const styles = {
         bg,
         color: `${color}.base`,
         borderRadius: radius,
-        borderWidth: '1px',
+        borderWidth: '1.5px',
         borderStyle: 'solid',
         borderColor: outline ? 'currentColor' : 'transparent',
         ...(shadow && { boxShadow: shadow }),

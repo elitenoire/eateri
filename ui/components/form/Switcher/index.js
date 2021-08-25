@@ -15,23 +15,24 @@ const Switcher = forwardRef(function (
         radius = 'pill',
         outline,
         simple,
+        subtle,
         id,
         checkedIcon,
         checkedTitle,
         uncheckedIcon,
         uncheckedTitle,
         ariaLabel,
-        ...props
+        ...rest
     },
     ref
 ) {
     return (
-        <div sx={styles.wrapper({ color, outline, simple })}>
-            <Checkbox ref={ref} id={id} className="visually-hidden" {...props} />
+        <div sx={styles.wrapper({ color, outline, subtle, simple })}>
+            <Checkbox ref={ref} id={id} className="visually-hidden" {...rest} />
             <label
                 htmlFor={id}
                 {...(ariaLabel && { 'aria-label': ariaLabel })}
-                sx={styles.label({ radius, color, outline, simple })}
+                sx={styles.label({ radius, color, outline, subtle, simple })}
             >
                 {!simple && (
                     <>

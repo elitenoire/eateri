@@ -1,5 +1,5 @@
 const styles = {
-    scrollable: ({ flex, pad, gap, hideScroll, sx }) => ({
+    scrollable: ({ flex, pad, gap, hideScroll, cursor, sx }) => ({
         ...(flex
             ? {
                   display: 'flex',
@@ -28,6 +28,7 @@ const styles = {
                 display: 'none',
                 background: 'transparent',
             },
+            cursor: cursor || 'grab',
         }),
         listStyle: 'none',
         ...sx,

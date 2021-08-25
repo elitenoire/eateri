@@ -5,11 +5,11 @@ import React from 'react'
 import styles from './style'
 
 const Scrollable = React.forwardRef(
-    ({ as: Tag, children, hideScroll, flex, gap, pad, className, sx, ...rest }, ref) => (
+    ({ as: Tag, children, hideScroll, flex, gap, pad, cursor, className, sx, ...rest }, ref) => (
         <Tag
             ref={ref}
             className={`scrollable ${className || ''}`}
-            sx={styles.scrollable({ hideScroll, flex, pad, gap, sx })}
+            sx={styles.scrollable({ hideScroll, flex, pad, gap, cursor, sx })}
             {...rest}
         >
             {children}

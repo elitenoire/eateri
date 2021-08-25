@@ -28,6 +28,7 @@ const _sx = ({
     borderless,
     ghostText,
     opaque,
+    outline,
     iconOnly,
     buttonWithIcon,
     link,
@@ -35,7 +36,7 @@ const _sx = ({
     sx,
 }) => ({
     ...styles._base,
-    ...buttons.brands[brand]({ color, borderless, opaque, ghostText, link }),
+    ...buttons.brands[brand]({ color, borderless, opaque, outline, ghostText, link }),
     ...buttons.shapes[shape],
     ...buttons.sizes[size],
     ...(children && styles.button),
@@ -58,7 +59,10 @@ const Button = React.forwardRef(
             borderless,
             ghostText,
             opaque,
+            outline,
             noFade,
+            noHoverUp,
+            active,
             isLoading,
             ariaLabel,
             link,
@@ -89,6 +93,7 @@ const Button = React.forwardRef(
                     borderless,
                     ghostText,
                     opaque,
+                    outline,
                     iconOnly,
                     buttonWithIcon,
                     link,
@@ -97,6 +102,8 @@ const Button = React.forwardRef(
                 })}
                 aria-label={iconOnly ? ariaLabel || icon : undefined}
                 data-no-fade={noFade ? '' : null}
+                data-no-hoverup={noHoverUp ? '' : null}
+                data-active={active ? '' : null}
                 title={iconOnly ? ariaLabel || icon : undefined}
                 onMouseDown={handleClick}
                 onKeyUp={handleKeyPress}

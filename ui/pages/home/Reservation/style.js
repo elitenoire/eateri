@@ -371,7 +371,7 @@ const styles = {
             bg: ['rgba(0,0,0,0.08)', null, 'accent.light'],
             transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
         },
-        'li[aria-checked="true"]': {
+        'li[aria-selected="true"]': {
             bg: ['secondary.base', null, 'accent.dark'],
             color: ['accent.base', null, 'white'],
             fontWeight: 'medium',
@@ -380,7 +380,7 @@ const styles = {
             cursor: 'auto',
             opacity: 0.4,
         },
-        'li:not([data-option-disabled="true"]):not([aria-checked="true"]):hover': {
+        'li:not([data-option-disabled="true"]):not([aria-selected="true"]):hover': {
             bg: ['rgba(0,0,0,0.15)', null, 'accent.base'],
             color: [null, null, 'white'],
             transform: 'translateY(-2px)',
