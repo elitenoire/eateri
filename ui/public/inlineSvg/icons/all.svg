@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+    version="1.1" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+    class="">
+    <g>
+        <g xmlns="http://www.w3.org/2000/svg" id="Food_Tray">
+            <path
+                d="m512 80c0 26.51-21.49 48-48 48h-64c-8.837 0-16 7.163-16 16v16h-32v-16c0-26.51 21.49-48 48-48h64c8.837 0 16-7.163 16-16 0-8.837-7.163-16-16-16h-80v-32h80c26.51 0 48 21.49 48 48z"
+                fill="#171a1d" data-original="#4db5ff" style="" class="" />
+            <path
+                d="m512 384c0 17.6-7.039 33.6-18.881 45.119-11.519 11.84-27.519 18.881-45.119 18.881h-64l-32 32h-192l-32-32h-64c-35.199 0-64-28.801-64-64z"
+                fill="#171a1d" data-original="#4db5ff" style="" class="" />
+            <path d="m480 384h-448c0-123.712 100.288-224 224-224 123.712 0 224 100.288 224 224z" fill="#fccc3e"
+                data-original="#80eaff" style="" class="" />
+            <path d="m32 384h448v32h-448z" fill="#7e661f" data-original="#3377ff" style="" class="" />
+            <path d="m272 160.959v31.041h-32v-31.041c5.119-.639 10.561-.959 16-.959s10.881.32 16 .959z" fill="#171a1d"
+                data-original="#4db5ff" style="" class="" />
+            <path d="m272 160.959v31.041h-32v-31.041c5.119-.639 10.561-.959 16-.959s10.881.32 16 .959z" fill="#7e661f"
+                data-original="#3377ff" style="" class="" />
+            <path d="m272 128v32.959c-5.119-.639-10.561-.959-16-.959s-10.881.32-16 .959v-32.959z" fill="#171a1d"
+                data-original="#4db5ff" style="" class="" />
+        </g>
+    </g>
+</svg>

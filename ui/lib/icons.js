@@ -15,6 +15,8 @@ import DoubleQuotesR from 'remixicon/icons/Editor/double-quotes-r.svg'
 import LayoutList from 'remixicon/icons/Editor/list-unordered.svg'
 import Gift from 'remixicon/icons/Finance/gift-fill.svg'
 import Cart from 'remixicon/icons/Finance/shopping-bag-line.svg'
+import Heart from 'remixicon/icons/Health/heart-line.svg'
+import HeartFill from 'remixicon/icons/Health/heart-fill.svg'
 import Github from 'remixicon/icons/Logos/github-fill.svg'
 import Instagram from 'remixicon/icons/Logos/instagram-line.svg'
 import Twitter from 'remixicon/icons/Logos/twitter-line.svg'
@@ -27,6 +29,7 @@ import Reserved from 'remixicon/icons/Others/reserved-line.svg'
 import ReservedFill from 'remixicon/icons/Others/reserved-fill.svg'
 import Add from 'remixicon/icons/System/add-line.svg'
 import ArrowDropDown from 'remixicon/icons/System/arrow-drop-down-line.svg'
+import ArrowDropUp from 'remixicon/icons/System/arrow-drop-up-line.svg'
 import ArrowBack from 'remixicon/icons/System/arrow-go-back-line.svg'
 import ArrowGo from 'remixicon/icons/System/arrow-right-circle-line.svg'
 import ArrowGoFill from 'remixicon/icons/System/arrow-right-circle-fill.svg'
@@ -35,6 +38,10 @@ import ArrowHide from 'remixicon/icons/System/arrow-down-circle-fill.svg'
 import ArrowLeft from 'remixicon/icons/System/arrow-left-s-line.svg'
 import ArrowRight from 'remixicon/icons/System/arrow-right-s-line.svg'
 import ArrowUp from 'remixicon/icons/System/arrow-up-s-line.svg'
+import Sort from 'remixicon/icons/System/arrow-up-down-line.svg'
+import Check from 'remixicon/icons/System/check-line.svg'
+import CheckboxBlankCircle from 'remixicon/icons/System/checkbox-blank-circle-line.svg'
+import CheckboxFillCircle from 'remixicon/icons/System/checkbox-circle-fill.svg'
 import Close from 'remixicon/icons/System/close-line.svg'
 import Dashboard from 'remixicon/icons/System/dashboard-line.svg'
 import Filter from 'remixicon/icons/System/filter-2-line.svg'
@@ -57,6 +64,7 @@ export default {
     add: Add,
     arrowback: ArrowBack,
     arrowdropdown: ArrowDropDown,
+    arrowdropup: ArrowDropUp,
     arrowgo: ArrowGo,
     arrowgofill: ArrowGoFill,
     arrowhide: ArrowHide,
@@ -67,6 +75,9 @@ export default {
     calendar: Calendar,
     cart: Cart,
     chat: Chat,
+    check: Check,
+    checkboxblankcircle: CheckboxBlankCircle,
+    checkboxfillcircle: CheckboxFillCircle,
     close: Close,
     dashboard: Dashboard,
     doublequotesl: DoubleQuotesL,
@@ -77,6 +88,8 @@ export default {
     gift: Gift,
     github: Github,
     hamburger: HamBurger,
+    heart: Heart,
+    heartfill: HeartFill,
     home: Home,
     instagram: Instagram,
     layoutgrid: LayoutGrid,
@@ -101,6 +114,7 @@ export default {
     reserved: Reserved,
     reservedfill: ReservedFill,
     search: Search,
+    sort: Sort,
     stop: Stop,
     subtract: Subtract,
     time: Time,

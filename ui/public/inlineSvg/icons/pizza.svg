@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs"
+    version="1.1" x="0" y="0" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512" xml:space="preserve"
+    class="">
+    <g>
+        <g xmlns="http://www.w3.org/2000/svg" id="Pizza">
+            <path
+                d="m308.363 288h-104.726c-24.29 0-39.724 25.999-28.093 47.323l40.641 74.51c5.128 9.401 7.814 19.938 7.814 30.646v39.521c0 17.674 14.326 32 32 32s32-14.326 32-32v-39.521c0-10.708 2.687-21.245 7.814-30.646l40.641-74.51c11.633-21.324-3.801-47.323-28.091-47.323z"
+                fill="#fccc3e" data-original="#fffa50" style="" />
+            <path
+                d="m256 0c-105.92 0-192 64-192 64l124.48 227.84 67.52 28.16 67.52-28.16 124.48-227.84s-86.08-64-192-64z"
+                fill="#171a1d" data-original="#ffe600" style="" class="" />
+            <path
+                d="m323.52 291.84-67.52 124.16-67.52-124.16c4.16-2.561 9.6-3.84 15.039-3.84h104.961c5.44 0 10.879 1.279 15.04 3.84z"
+                fill="#7e661f" data-original="#ffa65c" style="" class="" />
+            <g fill="#fffa50">
+                <circle cx="256" cy="192" r="32" fill="#fccc3e" data-original="#fffa50" style="" />
+                <circle cx="192" cy="96" r="32" fill="#fccc3e" data-original="#fffa50" style="" />
+                <circle cx="320" cy="96" r="32" fill="#fccc3e" data-original="#fffa50" style="" />
+            </g>
+        </g>
+    </g>
+</svg>
