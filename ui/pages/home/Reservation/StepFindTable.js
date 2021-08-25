@@ -6,7 +6,7 @@ import startOfDay from 'date-fns/startOfDay'
 import addMonths from 'date-fns/addMonths'
 
 import Calendar from '~@/form/Calendar'
-import { SelectBox, SelectBoxOption } from '~@/display'
+import { SelectBox, SelectBoxOption } from '~@/form'
 import { Text } from '~@/typography'
 import { useFormDialogUpdate } from './useFormDialogState'
 

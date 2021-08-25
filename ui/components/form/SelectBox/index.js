@@ -1,13 +1,8 @@
 import React, { useContext } from 'react'
 import { useCompositeState, Composite, CompositeItem } from 'reakit/Composite'
 import { Checkbox, useCheckboxState } from 'reakit/Checkbox'
-
 import Scrollable from '~@/display/Scrollable'
-
-const isString = value => typeof value === 'string' || value instanceof String
-
-// function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
-const isNumber = value => typeof value === 'number' && !isNaN(value - value)
+import { isString, isNumber } from '~/lib/utils'
 
 const SelectBoxContext = React.createContext()
 
@@ -58,7 +53,6 @@ export const SelectBox = React.forwardRef(
 
         const ariaProps = {
             role: 'listbox',
-            'aria-orientation': 'horizontal',
             ...(multi && { 'aria-multiselectable': multi }),
         }
 
@@ -77,7 +71,7 @@ export const SelectBox = React.forwardRef(
         const contextValue = { ...composite, state, setState }
 
         return (
-            <Composite {...composite} {...ariaProps} {...rest} ref={ref}>
+            <Composite {...composite} {...rest} {...ariaProps} ref={ref}>
                 {compositeProps => (
                     <Scrollable as="ul" {...compositeProps}>
                         <SelectBoxContext.Provider value={contextValue}>{children}</SelectBoxContext.Provider>
@@ -93,11 +87,11 @@ SelectBox.displayName = 'SelectBox'
 export const SelectBoxOption = React.forwardRef(({ value, disabled, children, ...rest }, ref) => {
     const context = useContext(SelectBoxContext)
     return (
-        <CompositeItem role="option" {...context} {...rest} ref={ref}>
-            {itemProps => (
-                <Checkbox as="li" value={value} {...itemProps} data-option-disabled={disabled}>
+        <CompositeItem as={Checkbox} value={value} {...context} {...rest} ref={ref}>
+            {({ 'aria-checked': ariaChecked, ...checkboxProps }) => (
+                <li {...checkboxProps} role="option" aria-selected={ariaChecked} data-option-disabled={disabled}>
                     {children}
-                </Checkbox>
+                </li>
             )}
         </CompositeItem>
     )
