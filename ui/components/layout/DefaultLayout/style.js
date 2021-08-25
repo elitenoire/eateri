@@ -26,7 +26,7 @@ const styles = {
         borderRadius: 'none',
         '.hide-overflow': {
             ...hideOverflow,
-            overflow: 'auto',
+            overflow: ['auto', null, 'initial'],
         },
     },
     pageWrapOpen: {
@@ -72,7 +72,7 @@ const styles = {
         zIndex: 'main',
         bg: 'background',
         pt: 'header',
-        overflow: 'hidden',
+        // overflow: 'hidden',
     },
 }
 
