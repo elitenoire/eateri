@@ -2,6 +2,13 @@ import { useMemo } from 'react'
 import { getColor } from '@theme-ui/color'
 import { mediaQueries as mq } from '~/theme/tokens/rhythm'
 
+export const isString = value => typeof value === 'string' || value instanceof String
+
+export const isObject = value => typeof value === 'object' && value !== null && !Array.isArray(value)
+
+// function isNumber(n) { return !isNaN(parseFloat(n)) && !isNaN(n - 0) }
+export const isNumber = value => typeof value === 'number' && !isNaN(value - value)
+
 // https://youmightnotneed.com/lodash/#clamp
 export const clamp = (num, lower, upper) => (upper ? Math.min(Math.max(num, lower), upper) : Math.min(num, lower))
 
