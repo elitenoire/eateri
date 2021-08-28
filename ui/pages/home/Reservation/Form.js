@@ -78,6 +78,7 @@ function FormSteps({ children, defaultValues = {}, ...rest }) {
                 <div sx={styles.action}>
                     {!isFirst && (
                         <Button
+                            mr={3}
                             color="secondary"
                             type="button"
                             size="lg"

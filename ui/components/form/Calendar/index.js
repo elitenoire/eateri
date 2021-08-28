@@ -331,6 +331,7 @@ const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selecte
                     onClick={isPreviousMonthDisabled ? undefined : goPrevMonth}
                 />
                 <Button
+                    ml={2}
                     type="button"
                     brand="outline"
                     color="secondary"

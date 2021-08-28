@@ -126,7 +126,7 @@ const styles = {
                         width: '100%',
                         borderBottom: '1.5px solid',
                         borderColor: 'secondary.pale',
-                        mt: '4px',
+                        mt: 'tiny',
                         zIndex: -1,
                     },
                 },

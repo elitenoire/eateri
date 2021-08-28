@@ -1,9 +1,7 @@
-import { alpha } from '@theme-ui/color'
-
 const styles = {
     container: {
         position: 'relative',
-        padding: '1.5em',
+        padding: 6,
         maxWidth: [null, null, '25em'], // 500 px
         margin: [null, null, 'auto'],
         userSelect: 'none',
@@ -13,9 +11,6 @@ const styles = {
         position: 'absolute',
         right: 0,
         pr: 'inherit',
-        button: {
-            m: '0 0 0 0.45em',
-        },
     },
     month: {
         display: 'flex',
@@ -47,7 +42,7 @@ const styles = {
     monthGridDays: {
         // scrollable
         flexDirection: [null, null, 'column'],
-        mx: ['-1.5em', null, 0],
+        mx: ['bodyNegative', null, 0],
         p: '2px',
         'button:focus': {
             boxShadow: 'none !important',

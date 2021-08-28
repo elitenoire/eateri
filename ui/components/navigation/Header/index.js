@@ -84,6 +84,7 @@ function Header({ isOpen, toggleMenu }) {
                         brand="outline"
                         color="secondary"
                         icon="hamburger"
+                        scaleIcon="sm"
                         size="lg"
                         ariaLabel={ariaLabels.hmenu}
                         onClick={toggleMenu}
@@ -93,6 +94,7 @@ function Header({ isOpen, toggleMenu }) {
                         brand="outline"
                         color="secondary"
                         icon={show ? 'close' : 'hamburger'}
+                        scaleIcon="sm"
                         size="lg"
                         ariaLabel={ariaLabels.hmenu}
                         onClick={toggle}
@@ -117,12 +119,20 @@ function Header({ isOpen, toggleMenu }) {
                     <Button
                         brand="ghost"
                         color="secondary"
+                        ml="tiny"
                         size="lg"
                         icon="cart"
                         ariaLabel={ariaLabels.cart}
                         sx={styles.cartButton}
                     />
-                    <Button brand="outline" color="secondary" size="lg" icon="user" ariaLabel={ariaLabels.user} />
+                    <Button
+                        brand="outline"
+                        color="secondary"
+                        ml="tiny"
+                        size="lg"
+                        icon="user"
+                        ariaLabel={ariaLabels.user}
+                    />
                 </div>
             </div>
         </Headroom>

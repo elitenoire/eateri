@@ -1,4 +1,5 @@
 import { alpha } from '@theme-ui/color'
+import { isNumber } from '~/lib/utils'
 
 export default {
     buttons: {
@@ -110,18 +111,26 @@ export default {
                     boxShadow: ghostText ? 'none' : '0 2px 6px 1px rgba(0, 0, 0, 0.08) inset',
                 },
             }),
-            pale: ({ color, opaque, link }) => ({
+            pale: ({ color, opaque, link, bg, alpha: _alpha }) => ({
                 [`&${link ? ',&:active,&:visited' : ''}`]: {
-                    color: `${color}.base`,
+                    color: _alpha ? color : `${color}.base`,
                 },
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
                     bg: opaque ? `${color}.pale` : 'transparent',
                     borderColor: opaque ? `${color}.pale` : 'transparent',
+                    ...(_alpha && {
+                        bg: t => `${alpha(bg || color, isNumber(_alpha) ? _alpha : 0.1)(t)}`,
+                        borderColor: 'transparent',
+                    }),
                 },
                 '&:hover,&[data-active]': {
                     bg: opaque ? `${color}.light` : `${color}.pale`,
                     borderColor: opaque ? `${color}.light` : `${color}.pale`,
-                    ...(opaque && { color: `black` }),
+                    ...(_alpha && {
+                        bg: t => `${alpha(bg || color, isNumber(_alpha) ? _alpha + 0.025 : 0.125)(t)}`,
+                        borderColor: 'transparent',
+                    }),
+                    ...(opaque && !_alpha && { color: `black` }),
                 },
             }),
         },
@@ -282,7 +291,7 @@ export default {
         content: { maxWidth: '35em', mb: 10, textAlign: 'center' },
         mini: { maxWidth: '30em' },
         maxi: { maxWidth: 'maxContainer' },
-        base: { maxWidth: 'none', width: 'auto', px: '1.5em' },
+        base: { maxWidth: 'none', width: 'auto', px: 'body' },
         loose: {
             maxWidth: 'none',
             width: 'auto',

@@ -60,6 +60,15 @@ const styles = {
     icon: {
         px: '0.6em',
         py: '0.6em',
+        '&[data-scale=sm] svg': {
+            transform: 'scale(1.15)',
+        },
+        '&[data-scale=md] svg': {
+            transform: 'scale(1.25)',
+        },
+        '&[data-scale=lg] svg': {
+            transform: 'scale(1.35)',
+        },
     },
 }
 

@@ -42,7 +42,7 @@ function Footer({ hasMap, mini }) {
                                     </Reveal>
                                     <div sx={styles.formWrap}>
                                         <InputBar sx={styles.inputBar} placeholder="Your email...">
-                                            <Button margin={0}>Subscribe</Button>
+                                            <Button>Subscribe</Button>
                                         </InputBar>
                                     </div>
                                 </div>

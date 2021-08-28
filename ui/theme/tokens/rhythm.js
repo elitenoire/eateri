@@ -50,6 +50,7 @@ const space = [
 space.header = space[10]
 space.body = '1.25em'
 space.bodyNegative = '-1.25em'
+space.tiny = '6px'
 
 export default {
     space,

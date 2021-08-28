@@ -211,8 +211,8 @@ const styles = {
     },
     formClose: {
         position: 'absolute',
-        top: '-2.125em',
-        right: '-2.125em',
+        top: '-2em',
+        right: '-1.5em',
     },
     formWrap: {
         display: 'flex',

@@ -130,7 +130,7 @@ function Hero() {
                                 disabled={isMaxQty}
                             />
                         </Flex>
-                        <Button brand="outline" size="lg" icon="cart">
+                        <Button mt={2} brand="outline" size="lg" icon="cart">
                             Order Now
                         </Button>
                     </div>
@@ -139,6 +139,7 @@ function Hero() {
             <Media greaterThanOrEqual="tabletS" sx={styles.controls}>
                 <div sx={styles.arrows}>
                     <Button
+                        mr={1}
                         brand="outline"
                         color="accent"
                         icon="arrowleft"
@@ -155,6 +156,7 @@ function Hero() {
                         /{foodMenu.length}
                     </Text>
                     <Button
+                        ml={1}
                         brand="outline"
                         color="accent"
                         icon="arrowright"

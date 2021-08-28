@@ -14,7 +14,7 @@ import { offers } from './data'
 function Offers() {
     return (
         <section sx={styles.section}>
-            <Container variant="loose">
+            <Container variant="loose" sx={styles.container}>
                 <Heading as="h2" variant="h4" sx={styles.header}>
                     All Offers
                 </Heading>
@@ -32,7 +32,7 @@ function Offers() {
                                 <br />
                                 Your first online order!
                             </Text>
-                            <Text sx={styles.textSkew} size={3} my={2} color="textOnAccent" bg="accent.light">
+                            <Text sx={styles.textSkew} my={2} color="textOnAccent" bg="accent.light">
                                 Code:{' '}
                                 <Text as="span" weight="bold" spacing="wide">
                                     welcome30

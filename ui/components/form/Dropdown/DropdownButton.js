@@ -10,7 +10,7 @@ const DropdownButton = forwardRef(function (
     ref
 ) {
     return (
-        <Button ref={ref} m={0} brand={brand} active={active} {...rest} sx={ddButtonSX.button({ bg })}>
+        <Button ref={ref} brand={brand} active={active} {...rest} sx={ddButtonSX.button({ bg })}>
             {icon && (
                 <span sx={ddButtonSX.icon}>
                     <Icon name={icon} />

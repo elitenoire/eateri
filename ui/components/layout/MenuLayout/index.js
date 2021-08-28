@@ -44,7 +44,7 @@ export default function MenuLayout({ children }) {
                 <div sx={styles.searchFilter}>
                     <div sx={styles.searchContainer}>
                         <SearchBar color="secondary" outline>
-                            <Button m={0} brand="pale" color="secondary" icon="filter" opaque />
+                            <Button brand="pale" color="secondary" icon="filter" opaque />
                         </SearchBar>
                     </div>
                 </div>

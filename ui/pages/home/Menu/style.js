@@ -106,8 +106,8 @@ const styles = {
         },
         button: {
             position: 'absolute',
-            top: '-1.75em',
-            right: '-1em',
+            top: '-1.5em',
+            right: '-0.5em',
         },
         'p,button': {
             zIndex: 1, // avoids neumorph shadow bleed

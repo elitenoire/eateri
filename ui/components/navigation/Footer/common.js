@@ -6,7 +6,7 @@ import { HASH_ID_RESERVATIONS } from '~/constants'
 
 export function ChatButton() {
     return (
-        <Button size="sm" mx={0} icon="chat">
+        <Button size="sm" icon="chat">
             Need to chat?
         </Button>
     )
@@ -14,7 +14,7 @@ export function ChatButton() {
 
 export function ReservationButton({ linkScroll }) {
     return (
-        <Button href={`#${HASH_ID_RESERVATIONS}`} size="sm" mx={0} brand="outline" link onClick={linkScroll}>
+        <Button href={`#${HASH_ID_RESERVATIONS}`} size="sm" brand="outline" link onClick={linkScroll}>
             Reserve Now
         </Button>
     )

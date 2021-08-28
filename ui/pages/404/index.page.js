@@ -64,7 +64,7 @@ export default function Error404() {
                     <br />• <a>Reservation</a> • <a>Catering</a>
                 </nav>
                 <Link href="/services" passHref>
-                    <Button mt={4} ml={0} link>
+                    <Button mt={4} mr={2} mb={3} link>
                         See Our Services
                     </Button>
                 </Link>
@@ -86,7 +86,7 @@ export default function Error404() {
                 Not to worry, we have coffee!
             </Text>
             <Link href="/" passHref>
-                <Button mt={6} ml={0} link>
+                <Button mt={6} link>
                     Take Me Home
                 </Button>
             </Link>

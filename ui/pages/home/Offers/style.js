@@ -4,7 +4,7 @@ import logobgUrl from '~/public/logo-bg.svg'
 const styles = {
     section: {
         position: 'relative',
-        mt: t => [`-${t.space.header}`, null, 0],
+        zIndex: 1,
         pt: [7, null, 13],
         bg: ['background', null, 'secondary.pale'],
         backgroundImage: [null, null, `url('${logobgUrl}')`],
@@ -27,6 +27,9 @@ const styles = {
             maxWidth: 'container',
         },
     },
+    container: {
+        maxWidth: 'maxContainer',
+    },
     stackContext: {
         position: 'relative',
         zIndex: 1,
@@ -43,9 +46,9 @@ const styles = {
         columnGap: [4, null, 7],
         placeContent: 'center',
         textAlign: 'center',
-        px: 6,
-        py: [6, null, null, 7],
-        lineHeight: 'snug',
+        px: 4,
+        py: [4, null, null, 7],
+        lineHeight: 'tight',
         bg: ['heroStripe3', null, null, 'primary.base'],
         color: ['white', null, null, 'textOnPrimary'],
         borderTop: [null, null, null, '20px solid'],
@@ -89,12 +92,12 @@ const styles = {
         color: ['primary.base', null, null, 'secondary.hover'],
         svg: {
             display: 'block',
-            fontSize: '5em',
+            fontSize: ['3.5em', null, '5em'],
             transform: 'rotate(15deg)',
         },
     },
     textDiscount: {
-        fontSize: 8,
+        fontSize: [6, null, 8],
         color: ['primary.base', null, null, 'white'],
         fontWeight: 'bold',
     },

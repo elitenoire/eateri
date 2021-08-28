@@ -120,6 +120,7 @@ const styles = {
             position: 'absolute',
             left: 0,
             right: 0,
+            bottom: '-1em',
             display: 'flex',
             justifyContent: 'center',
         },

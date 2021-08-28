@@ -51,7 +51,7 @@ function ServicesPage() {
                             </Text>
                             <div>
                                 <Link href="/services/dining" passHref>
-                                    <Button mx={0} my={6} size="lg" brand="outline" color="primary" link>
+                                    <Button my={6} size="lg" brand="outline" color="primary" link>
                                         See Options
                                     </Button>
                                 </Link>
@@ -76,7 +76,7 @@ function ServicesPage() {
                             </Text>
                             <div>
                                 <Link href="/services/takeaway" passHref>
-                                    <Button mx={0} my={6} size="lg" icon="arrowright" color="secondary" link>
+                                    <Button my={6} size="lg" icon="arrowright" color="secondary" link>
                                         Grab It
                                     </Button>
                                 </Link>
@@ -102,7 +102,7 @@ function ServicesPage() {
                             </Text>
                             <div>
                                 <Link href="/services/delivery" passHref>
-                                    <Button mx={0} my={6} size="lg" brand="outline" color="secondary" link>
+                                    <Button my={6} size="lg" brand="outline" color="secondary" link>
                                         Order Now
                                     </Button>
                                 </Link>
@@ -147,7 +147,7 @@ function ServicesPage() {
                             </Text>
                             <div>
                                 <Link href="/services/catering" passHref>
-                                    <Button mx={0} my={6} size="lg" brand="outline" color="accent" link>
+                                    <Button my={6} size="lg" brand="outline" color="accent" link>
                                         Learn More
                                     </Button>
                                 </Link>

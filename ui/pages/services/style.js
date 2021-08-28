@@ -3,6 +3,7 @@ import { alpha } from '@theme-ui/color'
 const styles = {
     container: {
         position: 'relative',
+        overflow: 'hidden',
     },
     gridContainer: {
         maxWidth: [null, null, null, '40em', 'maxContainer'],

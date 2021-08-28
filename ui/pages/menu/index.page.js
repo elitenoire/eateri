@@ -33,10 +33,19 @@ function MenuFoodCard() {
                     </Text>
                 </div>
                 <div sx={foodCardStyle.actionCart}>
-                    <Button brand="solid" m={0} color="secondary" icon="add" ariaLabel="Add to cart" />
+                    <Button brand="solid" color="secondary" icon="add" ariaLabel="Add to cart" />
                 </div>
                 <div sx={foodCardStyle.actionFav}>
-                    <Button m={0} brand="subtle" color="secondary" size="sm" icon="heart" ariaLabel="Save for Later" />
+                    <Button
+                        brand="pale"
+                        color="secondary.base"
+                        bg="secondary.light"
+                        alpha={0.95}
+                        size="sm"
+                        icon="heart"
+                        scaleIcon="lg"
+                        ariaLabel="Save for Later"
+                    />
                 </div>
             </div>
         </Linkable>

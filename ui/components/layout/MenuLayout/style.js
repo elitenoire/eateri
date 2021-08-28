@@ -163,7 +163,7 @@ export const styles = {
         display: 'flex',
         flexWrap: 'wrap',
         gap: 3,
-        fontSize: [0, null, null, 1],
+        fontSize: 1,
         justifyContent: ['space-between', null, null, null, 'flex-end'],
     },
 

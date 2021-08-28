@@ -57,7 +57,7 @@ function BackToTop({ color = 'highlight', offset = 50 }) {
                 aria-label="Page scroll progress"
                 sx={styles.progressRing}
             />
-            <Button href="#" color={color} icon="arrowup" ariaLabel="Back to Top" link onClick={linkScroll} />
+            <Button href="#" color={color} m="tiny" icon="arrowup" ariaLabel="Back to Top" link onClick={linkScroll} />
         </div>
     )
 }
