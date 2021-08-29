@@ -6,6 +6,11 @@ const styles = {
         pt: 10,
         pb: 6,
         height: '100%',
+        overflow: 'hidden',
+        '& > div': {
+            position: 'relative',
+            zIndex: 1,
+        },
     },
     cardBg: {
         position: 'absolute',

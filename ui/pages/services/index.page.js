@@ -38,7 +38,7 @@ function ServicesPage() {
                             bg="secondary.hover"
                             color="secondary.light"
                             title="Dine-in & Buffet"
-                            svg={<DineSvg sx={styles.svgDine} />}
+                            svg={<DineSvg sx={styles.svgScale} />}
                         >
                             <Heading as="h2" variant="h5" mb={2} color="primary.base" title>
                                 Dine-in & Buffet
@@ -63,7 +63,7 @@ function ServicesPage() {
                             bg="primary.base"
                             color="textOnPrimary"
                             title="Click + Collect"
-                            svg={<TakeoutsSvg sx={styles.svgTakeouts} />}
+                            svg={<TakeoutsSvg sx={styles.svgScale} />}
                         >
                             <Heading as="h2" variant="h5" mb={2} color="secondary.pale" title>
                                 Click + Collect
