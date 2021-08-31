@@ -25,15 +25,13 @@ function MenuFoodCard() {
                     <div>
                         <Box p={2} bg="gray" />
                     </div>
-                    <Text size={0} mb={2} weight="500" decoration="none" truncate={2}>
+                    <Text size={[null, null, null, 1]} mb={2} weight="500" decoration="none" truncate={2}>
                         Chicken Fried Rice with Egg Sauce
                     </Text>
-                    <Text size={1} weight="bold">
-                        N1500
-                    </Text>
+                    <Text weight="bold">N1500</Text>
                 </div>
                 <div sx={foodCardStyle.actionCart}>
-                    <Button brand="solid" color="secondary" icon="add" ariaLabel="Add to cart" />
+                    <Button brand="solid" color="secondary" size="lg" icon="add" ariaLabel="Add to cart" />
                 </div>
                 <div sx={foodCardStyle.actionFav}>
                     <Button
@@ -41,7 +39,6 @@ function MenuFoodCard() {
                         color="secondary.base"
                         bg="secondary.light"
                         alpha={0.95}
-                        size="sm"
                         icon="heart"
                         scaleIcon="lg"
                         ariaLabel="Save for Later"

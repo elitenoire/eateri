@@ -37,17 +37,17 @@ const useCounter = ({ count, direction = 0, start = 0, end = 4, isCyclic = false
 
     const goto = useCallback(index => dispatch({ type: GOTO, index }), [dispatch])
 
-    const onStart = !isCyclic && state.count === state.start
+    const isStart = !isCyclic && state.count === state.start
 
-    const onEnd = !isCyclic && state.count === state.end
+    const isEnd = !isCyclic && state.count === state.end
 
     return {
         ...state,
         increment,
         decrement,
         goto,
-        onStart,
-        onEnd,
+        isStart,
+        isEnd,
     }
 }
 

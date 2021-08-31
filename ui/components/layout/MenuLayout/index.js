@@ -64,7 +64,7 @@ export default function MenuLayout({ children }) {
                     </Scrollable>
                 </div>
                 <div sx={styles.searchTermCount}>
-                    <Heading as="h3" variant="h6" mb={1} mt={[2, null, 4]}>
+                    <Heading as="h3" variant="h5" mb={1} mt={[2, null, 4]}>
                         All (178)
                     </Heading>
                 </div>

@@ -1,28 +1,25 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { Flex } from '@theme-ui/components'
 import { useTabState, Tab, TabList, TabPanel } from 'reakit/Tab'
 import { Media } from '~/context/media'
 import useCounter from '~/hooks/useCounter'
-import { Button, Icon } from '~@/general'
+import { Button } from '~@/general'
 import { Reveal, fadeInDown, fadeIn, rollInBottom } from '~@/general/Reveal'
 import { Carousel, CarouselCard } from '~@/display'
 import { Heading, Text } from '~@/typography'
+import { QtyInput, useQtyInputState } from '~@/form'
 import { SocialMedia } from '~@/other'
 import styles from './style'
 import { foodMenu, menuList } from './data'
 import url from '~/public/dish.png'
 
 function Hero() {
-    const { count, direction, increment: goNext, decrement: goPrev, isCyclic, goto, onStart, onEnd } = useCounter({
+    const { count, direction, increment: goNext, decrement: goPrev, isCyclic, goto, isStart, isEnd } = useCounter({
         end: foodMenu.length > 1 ? foodMenu.length - 1 : foodMenu.length || 0,
         isCyclic: true,
     })
 
-    const { count: qty, increment, decrement, onStart: isMinQty, onEnd: isMaxQty } = useCounter({
-        start: 1,
-        end: 5,
-    })
+    const { qty, onQtyChange } = useQtyInputState()
 
     const tabState = useTabState({
         baseId: 'chef-menu',
@@ -106,30 +103,10 @@ function Hero() {
                     <div sx={styles.contentOrder} className="C">
                         <Reveal motion={fadeIn}>
                             <Text key={foodMenu[count].price} sx={styles.contentPrice}>
-                                {`₦${foodMenu[count].price}`}
+                                {`₦${foodMenu[count].price * qty}`}
                             </Text>
                         </Reveal>
-                        <Flex sx={styles.contentQty}>
-                            <Button
-                                brand="ghost"
-                                color="accent"
-                                size="sm"
-                                icon="subtract"
-                                ariaLabel="Decrease meal quantity"
-                                onClick={decrement}
-                                disabled={isMinQty}
-                            />
-                            <Text mx={3}>{qty}</Text>
-                            <Button
-                                brand="ghost"
-                                color="accent"
-                                size="sm"
-                                icon="add"
-                                ariaLabel="Increase meal quantity"
-                                onClick={increment}
-                                disabled={isMaxQty}
-                            />
-                        </Flex>
+                        <QtyInput size="sm" color="accent" qty={qty} onChange={onQtyChange} sx={styles.contentQty} />
                         <Button mt={2} brand="outline" size="lg" icon="cart">
                             Order Now
                         </Button>
@@ -145,7 +122,7 @@ function Hero() {
                         icon="arrowleft"
                         ariaLabel="Previous Special"
                         onClick={goPrev}
-                        disabled={onStart}
+                        disabled={isStart}
                     />
                     <Text sx={styles.counts}>
                         <Reveal motion={fadeIn} duration={500}>
@@ -162,7 +139,7 @@ function Hero() {
                         icon="arrowright"
                         ariaLabel="Next Special"
                         onClick={goNext}
-                        disabled={onEnd}
+                        disabled={isEnd}
                     />
                 </div>
                 <Carousel

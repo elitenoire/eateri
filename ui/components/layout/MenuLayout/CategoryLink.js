@@ -17,7 +17,7 @@ export default function CategoryLink({ icon: SvgIcon, exact, href, children, ...
                 <span sx={styles.iconWrap} data-active={active ? '' : null}>
                     <SvgIcon />
                 </span>
-                <Text as="span" size={0} weight="bold" transform="capitalize" truncate={2}>
+                <Text as="span" size={1} weight="bold" transform="capitalize" truncate={2}>
                     {children}
                 </Text>
             </a>

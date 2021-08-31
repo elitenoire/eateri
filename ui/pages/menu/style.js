@@ -34,7 +34,7 @@ export const foodCardStyle = {
     actionCart: {
         position: 'absolute',
         zIndex: 1,
-        bottom: '-1.25em',
+        bottom: '-1.5em',
         alignSelf: 'center',
     },
     actionFav: {
@@ -42,6 +42,7 @@ export const foodCardStyle = {
         zIndex: 1,
         top: '-1em',
         right: '5%',
+        fontSize: [null, null, null, null, 1],
     },
 }
 const styles = {
