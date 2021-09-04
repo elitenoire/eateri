@@ -1,31 +1,49 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
+import { useEffect, useRef } from 'react'
 import { useTabState, Tab, TabList, TabPanel } from 'reakit/Tab'
 import { Media } from '~/context/media'
-import useCounter from '~/hooks/useCounter'
 import { Button } from '~@/general'
 import { Reveal, fadeInDown, fadeIn, rollInBottom } from '~@/general/Reveal'
 import { Carousel, CarouselCard } from '~@/display'
 import { Heading, Text } from '~@/typography'
 import { QtyInput, useQtyInputState } from '~@/form'
 import { SocialMedia } from '~@/other'
+import useCounter from '~/hooks/useCounter'
+import useEffectExceptOnMount from '~/hooks/useEffectExceptOnMount'
 import styles from './style'
 import { foodMenu, menuList } from './data'
+
 import url from '~/public/dish.png'
 
 function Hero() {
+    const carouselItemChanged = useRef(false)
+
     const { count, direction, increment: goNext, decrement: goPrev, isCyclic, goto, isStart, isEnd } = useCounter({
         end: foodMenu.length > 1 ? foodMenu.length - 1 : foodMenu.length || 0,
         isCyclic: true,
     })
 
-    const { qty, onQtyChange } = useQtyInputState()
+    const { qty, defaultQty, onQtyChange, reset, resetQty } = useQtyInputState()
 
     const tabState = useTabState({
         baseId: 'chef-menu',
         manual: true,
         selectedId: `chef-menu-${menuList[0]}`,
     })
+
+    useEffectExceptOnMount(() => {
+        carouselItemChanged.current = true
+    }, [count])
+
+    useEffect(() => {
+        if (carouselItemChanged.current) {
+            if (qty !== defaultQty) {
+                resetQty()
+            }
+            carouselItemChanged.current = false
+        }
+    }, [count, qty, defaultQty, resetQty])
 
     return (
         <section id="homepage-hero" sx={styles.section}>
@@ -106,7 +124,14 @@ function Hero() {
                                 {`₦${foodMenu[count].price * qty}`}
                             </Text>
                         </Reveal>
-                        <QtyInput size="sm" color="accent" qty={qty} onChange={onQtyChange} sx={styles.contentQty} />
+                        <QtyInput
+                            size="sm"
+                            color="accent"
+                            qty={qty}
+                            reset={reset}
+                            onChange={onQtyChange}
+                            sx={styles.contentQty}
+                        />
                         <Button mt={2} brand="outline" size="lg" icon="cart">
                             Order Now
                         </Button>
@@ -120,7 +145,7 @@ function Hero() {
                         brand="outline"
                         color="accent"
                         icon="arrowleft"
-                        ariaLabel="Previous Special"
+                        ariaLabel="Previous special dish"
                         onClick={goPrev}
                         disabled={isStart}
                     />
@@ -137,7 +162,7 @@ function Hero() {
                         brand="outline"
                         color="accent"
                         icon="arrowright"
-                        ariaLabel="Next Special"
+                        ariaLabel="Next special dish"
                         onClick={goNext}
                         disabled={isEnd}
                     />

@@ -1,19 +1,40 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import { useState, useCallback, useEffect } from 'react'
+import { useReducer, useCallback, useEffect } from 'react'
 import { Text } from '~@/typography'
 import Button from '~@/general/Button'
 import useCounter from '~/hooks/useCounter'
 
 import styles from './style'
 
-export function useQtyInputState(defaultQty) {
-    const [qtyState, setQtyState] = useState({ qty: defaultQty })
-    const onQtyChange = useCallback((qty, isMinQty, isMaxQty) => {
-        setQtyState(prevQtyState => ({ ...prevQtyState, qty, isMinQty, isMaxQty }))
-    }, [])
+const reducer = (state, { type, qty, isMinQty, isMaxQty }) => {
+    switch (type) {
+        case 'SET':
+            return {
+                ...state,
+                qty,
+                isMinQty,
+                isMaxQty,
+                reset: false,
+            }
+        case 'RESET':
+            return {
+                ...state,
+                qty: state.defaultQty,
+                reset: true,
+            }
+        default:
+            return state
+    }
+}
 
-    return { ...qtyState, onQtyChange }
+export function useQtyInputState(defaultQty = 1) {
+    const initialState = { qty: defaultQty, defaultQty, reset: false }
+    const [qtyState, dispatch] = useReducer(reducer, initialState)
+    const onQtyChange = useCallback(state => dispatch({ type: 'SET', ...state }), [dispatch])
+    const resetQty = useCallback(() => dispatch({ type: 'RESET' }), [dispatch])
+
+    return { ...qtyState, resetQty, onQtyChange }
 }
 
 export function QtyInput({
@@ -26,17 +47,32 @@ export function QtyInput({
     disabled,
     className,
     vertical,
+    reset,
     ...rest
 }) {
-    const { count: _qty, increment, decrement, isStart: isMinQty, isEnd: isMaxQty } = useCounter({
+    const {
+        count: qty,
+        defaultCount: defaultQty,
+        goto,
+        increment,
+        decrement,
+        isStart: isMinQty,
+        isEnd: isMaxQty,
+    } = useCounter({
         start,
         end,
         count,
     })
 
     useEffect(() => {
-        onChange?.(_qty, isMinQty, isMaxQty)
-    }, [_qty, isMinQty, isMaxQty, onChange])
+        onChange?.({ qty, isMinQty, isMaxQty, defaultQty })
+    }, [qty, isMinQty, isMaxQty, defaultQty, onChange])
+
+    useEffect(() => {
+        if (reset) {
+            goto(defaultQty)
+        }
+    }, [reset, goto, defaultQty])
 
     return (
         <div sx={styles.qtyWrapper} className={`qty-input ${className || ''}`} data-vertical={vertical ? '' : null}>
@@ -51,7 +87,7 @@ export function QtyInput({
                 disabled={disabled || isMinQty}
             />
             <Text sx={styles.qtyText} className="qty-input--text" mx={3}>
-                {_qty}
+                {qty}
             </Text>
             <Button
                 className="qty-input--btn qty-input--btn-inc"

@@ -27,7 +27,9 @@ const reducer = (state, { type, index }) => {
 }
 
 const useCounter = ({ count, direction = 0, start = 0, end = 4, isCyclic = false }) => {
-    const initialState = { count: count || start, direction, start, end, isCyclic }
+    const defaultCount = count || start
+
+    const initialState = { count: defaultCount, defaultCount, direction, start, end, isCyclic }
 
     const [state, dispatch] = useReducer(reducer, initialState)
 
