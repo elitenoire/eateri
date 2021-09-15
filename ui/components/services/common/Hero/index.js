@@ -1,10 +1,10 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
-import NextLink from 'next/link'
 import { Flipped } from 'react-flip-toolkit'
-import { Box, Container, Card, Grid, Link } from '@theme-ui/components'
+import { Box, Container, Card, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
-import { Icon, Reveal, fadeIn } from '~@/general'
+import { Reveal, fadeIn } from '~@/general'
+import { BackLink } from '~@/navigation'
 import WaveDecoration from '~@/other/WaveDecoration'
 
 import styles from './style'
@@ -26,12 +26,9 @@ export default function Hero({
         <Box bg={bg} sx={styles.background} data-padded={hideBackLink ? '' : null}>
             <Container variant="loose" sx={styles.container}>
                 {!hideBackLink && (
-                    <NextLink href="/services" passHref scroll={false}>
-                        <Link variant="back" sx={styles.backLink}>
-                            <Icon name="arrowleft" />
-                            Back to all services
-                        </Link>
-                    </NextLink>
+                    <BackLink href="/services" scroll={false} mb={7}>
+                        Back to all services
+                    </BackLink>
                 )}
                 <Grid sx={styles.grid}>
                     <Reveal as="div" when cascade sx={styles.header}>

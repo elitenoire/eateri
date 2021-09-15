@@ -16,19 +16,6 @@ const styles = {
             px: '1.5em',
         },
     },
-    backLink: {
-        opacity: 0.6,
-        my: 7,
-        transition: 'opacity 0.2s',
-        ':hover': {
-            opacity: 0.9,
-        },
-        svg: {
-            display: 'inline',
-            mr: 2,
-            verticalAlign: 'sub',
-        },
-    },
     grid: {
         gridTemplateColumns: [null, null, null, null, '3fr 2fr'],
         gridColumnGap: '13',
