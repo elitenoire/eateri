@@ -25,7 +25,7 @@ export default {
     primary: {
         base: '#fccc3e',
         hover: '#FEC21C',
-        pale: '#FFFAEC', // '#FEFBE1',
+        pale: '#FBF9F4', // '#FFFAEC', // '#FEFBE1',
         light: '#FEE78B',
         dark: '#CB9903', // #B5871F,
         neumorph: {

@@ -6,6 +6,7 @@ const styles = {
         display: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',
+        flexWrap: 'wrap',
         userSelect: 'none',
         borderWidth: '1.5px',
         borderStyle: 'solid',

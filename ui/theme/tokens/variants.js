@@ -1,5 +1,5 @@
 import { alpha } from '@theme-ui/color'
-import { isNumber } from '~/lib/utils'
+import { isNumber, readableColor } from '~/lib/utils'
 
 export default {
     buttons: {
@@ -73,17 +73,20 @@ export default {
                     bg: `${color}.hover`,
                 },
             }),
-            subtle: ({ color, outline, link }) => ({
+            subtle: ({ color, outline, outlineColor, bg, link }) => ({
                 [`&${link ? ',&:active,&:visited' : ''}`]: {
                     color: 'text',
                 },
                 '&,&:disabled:hover,&[aria-disabled="true"]:hover': {
                     bg: outline ? 'transparent' : 'gray',
-                    borderColor: outline ? 'grayDark' : 'gray',
+                    borderColor: outline ? outlineColor || 'grayDark' : 'gray',
+                    ...(bg && { color: 'text' }),
                 },
                 '&:hover,&[data-active]': {
                     borderColor: outline ? `${color}.base` : 'grayHover',
-                    ...(!outline && { bg: 'grayHover' }),
+                    bg: outline ? bg || 'transparent' : 'grayHover',
+                    ...(bg && { color: t => readableColor(bg)(t) }),
+                    // ...(!outline && { bg: 'grayHover' }),
                 },
                 ...(outline && {
                     '&:focus': {
@@ -92,8 +95,8 @@ export default {
                     },
                 }),
             }),
-            ghost: ({ color, ghostText, link }) => ({
-                bg: 'transparent', // 'ghost',
+            ghost: ({ color, ghostText, bg, link }) => ({
+                bg: bg || 'transparent', // 'ghost',
                 borderColor: 'transparent', // 'ghost',
                 [`&,${link ? '&:active,&:visited,' : ''}&:disabled:hover,&[aria-disabled="true"]:hover`]: {
                     color: `${color}.base`,

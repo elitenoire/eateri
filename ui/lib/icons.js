@@ -25,6 +25,7 @@ import Menu2 from 'remixicon/icons/Map/restaurant-2-line.svg'
 import Gallery from 'remixicon/icons/Media/gallery-line.svg'
 import Play from 'remixicon/icons/Media/play-circle-fill.svg'
 import Stop from 'remixicon/icons/Media/stop-circle-fill.svg'
+import Leaf from 'remixicon/icons/Others/leaf-fill.svg'
 import Reserved from 'remixicon/icons/Others/reserved-line.svg'
 import ReservedFill from 'remixicon/icons/Others/reserved-fill.svg'
 import Add from 'remixicon/icons/System/add-line.svg'
@@ -56,6 +57,8 @@ import More from 'remixicon/icons/System/more-line.svg'
 import Search from 'remixicon/icons/System/search-2-line.svg'
 import Subtract from 'remixicon/icons/System/subtract-line.svg'
 import Time from 'remixicon/icons/System/time-fill.svg'
+import Timer from 'remixicon/icons/System/timer-fill.svg'
+import Fire from 'remixicon/icons/Weather/fire-fill.svg'
 import User from 'remixicon/icons/User/user-fill.svg'
 
 export const CloseIcon = Close
@@ -84,6 +87,7 @@ export default {
     doublequotesr: DoubleQuotesR,
     filter: Filter,
     filterfill: FilterFill,
+    fire: Fire,
     gallery: Gallery,
     gift: Gift,
     github: Github,
@@ -94,6 +98,7 @@ export default {
     instagram: Instagram,
     layoutgrid: LayoutGrid,
     layoutlist: LayoutList,
+    leaf: Leaf,
     links: Links,
     loader: Loader,
     location: Location,
@@ -118,6 +123,7 @@ export default {
     stop: Stop,
     subtract: Subtract,
     time: Time,
+    timer: Timer,
     twitter: Twitter,
     user: User,
 }

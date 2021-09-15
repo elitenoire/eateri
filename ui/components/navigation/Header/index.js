@@ -118,12 +118,12 @@ function Header({ isOpen, toggleMenu }) {
                     <Button brand="ghost" color="secondary" size="lg" icon="search" ariaLabel={ariaLabels.search} />
                     <Button
                         brand="ghost"
+                        bg="primary.light"
                         color="secondary"
                         ml="tiny"
                         size="lg"
                         icon="cart"
                         ariaLabel={ariaLabels.cart}
-                        sx={styles.cartButton}
                     />
                     <Button
                         brand="outline"

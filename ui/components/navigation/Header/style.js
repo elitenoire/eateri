@@ -154,9 +154,6 @@ const styles = {
         display: 'flex',
         alignItems: 'center',
     },
-    cartButton: {
-        bg: 'primary.light',
-    },
 }
 
 export default styles
