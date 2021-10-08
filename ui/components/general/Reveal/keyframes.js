@@ -67,6 +67,23 @@ export const fadeOutDown = keyframes`
     }
 `
 
+export const slideUp = keyframes`
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+`
+export const slideDown = keyframes`
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+`
+
 // From https://github.com/Martz90/vivify
 export const rollInBottom = keyframes`
 	0% {

@@ -71,6 +71,7 @@ const Reveal = React.forwardRef(
             delay,
             when,
             whenInView,
+            hideUntilReveal,
             threshold,
             triggerOnce,
             className,
@@ -82,6 +83,8 @@ const Reveal = React.forwardRef(
     ) => {
         const animationProps = { cascade, damping, duration, timingFunction, fillMode, motion, delay }
         const styleProps = { className, style }
+
+        const _hiddenCss = hideUntilReveal ? hiddenCss : null
 
         const makeAnimated = nodes => {
             if (!nodes) return null
@@ -100,7 +103,7 @@ const Reveal = React.forwardRef(
                 }
 
                 return (
-                    <AnimatedText textRef={ref} when={when} {...animationProps}>
+                    <AnimatedText textRef={ref} when={when} hideUntilReveal={hideUntilReveal} {...animationProps}>
                         {nodes}
                     </AnimatedText>
                 )
@@ -139,7 +142,7 @@ const Reveal = React.forwardRef(
                         css={
                             when
                                 ? getAnimationCss({ keyframes: motion, delay, duration, timingFunction, fillMode })
-                                : null
+                                : _hiddenCss
                         }
                         {...(!Tag && styleProps)}
                         {...(!Tag && rest)}
@@ -195,7 +198,7 @@ const Reveal = React.forwardRef(
 
                 return cloneElement(nodeElement, {
                     ref,
-                    css: t => getNodeCss(t, when),
+                    css: t => getNodeCss(t, when, _hiddenCss),
                 })
             })
         }
