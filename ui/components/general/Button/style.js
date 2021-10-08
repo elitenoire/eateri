@@ -8,8 +8,6 @@ const styles = {
         alignItems: 'center',
         flexWrap: 'wrap',
         userSelect: 'none',
-        borderWidth: '1.5px',
-        borderStyle: 'solid',
         fontFamily: 'body',
         backfaceVisibility: 'hidden',
         transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
@@ -42,9 +40,13 @@ const styles = {
         '&[href][data-no-hoverup]:hover,&&[data-no-hoverup]:enabled:not([aria-disabled="true"]):hover': {
             transform: 'translateY(0)',
         },
-        '&[href]:active,&&:enabled:not([aria-disabled="true"]):active': {
+        '&[href]:active,&[href][data-no-hoverup]:active,&&:enabled:not([aria-disabled="true"]):active,&&[data-no-hoverup]:enabled:not([aria-disabled="true"]):active': {
             transform: 'scale(0.95)',
         },
+    },
+    _baseExtra: {
+        borderWidth: '1.5px',
+        borderStyle: 'solid',
     },
     button: {
         letterSpacing: 'wide',

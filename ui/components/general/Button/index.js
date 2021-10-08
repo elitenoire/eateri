@@ -18,13 +18,21 @@ const handleKeyPress = e => {
     }
 }
 
+const _sxBase = ({ fluid, buttonWithIcon, iconOnly, sx: { sx, ...sxBtn } }) => ({
+    ...styles._base,
+    ...sxBtn,
+    ...(buttonWithIcon && styles.buttonWithIcon),
+    ...(iconOnly && styles.icon),
+    ...(fluid && { width: 'fluid' }),
+    ...sx,
+})
+
 const _sx = ({
     buttons,
     size,
     shape,
     brand,
     color,
-    fluid,
     borderless,
     ghostText,
     opaque,
@@ -32,21 +40,56 @@ const _sx = ({
     bg,
     outline,
     outlineColor,
-    iconOnly,
-    buttonWithIcon,
     link,
     children,
     sx,
 }) => ({
-    ...styles._base,
+    ...styles._baseExtra,
     ...buttons.brands[brand]({ color, borderless, opaque, alpha, bg, outline, outlineColor, ghostText, link }),
     ...buttons.shapes[shape],
     ...buttons.sizes[size],
     ...(children && styles.button),
-    ...(buttonWithIcon && styles.buttonWithIcon),
-    ...(iconOnly && styles.icon),
-    ...(fluid && { width: 'fluid' }),
-    ...sx,
+    sx,
+})
+
+export const ButtonBase = React.forwardRef(function ButtonBase(
+    { icon, link, fluid, noFade, noHoverUp, active, scaleIcon, isLoading, type, ariaLabel, sx = {}, children, ...rest },
+    ref
+) {
+    const iconOnly = icon && !children
+    const buttonWithIcon = icon && children
+    const Tag = link ? TUILink : TUIButton
+
+    return (
+        <Tag
+            ref={ref}
+            aria-label={iconOnly ? ariaLabel || icon : undefined}
+            data-no-fade={noFade ? '' : null}
+            data-no-hoverup={noHoverUp ? '' : null}
+            data-active={active ? '' : null}
+            data-scale={scaleIcon || null}
+            title={iconOnly ? ariaLabel || icon : undefined}
+            onMouseDown={handleClick}
+            onKeyUp={handleKeyPress}
+            sx={_sxBase({ sx, fluid, buttonWithIcon, iconOnly })}
+            {...(!link && { type: type || 'button' })}
+            {...rest}
+        >
+            {isLoading ? (
+                <LoadingDots />
+            ) : (
+                <>
+                    {children}
+                    {buttonWithIcon && (
+                        <span className="symbol">
+                            <Icon name={icon} />
+                        </span>
+                    )}
+                    {iconOnly && <Icon name={icon} />}
+                </>
+            )}
+        </Tag>
+    )
 })
 
 const Button = React.forwardRef(
@@ -57,8 +100,6 @@ const Button = React.forwardRef(
             shape,
             brand,
             color,
-            icon,
-            fluid,
             borderless,
             ghostText,
             opaque,
@@ -66,12 +107,6 @@ const Button = React.forwardRef(
             bg,
             outline,
             outlineColor,
-            noFade,
-            noHoverUp,
-            active,
-            scaleIcon,
-            isLoading,
-            ariaLabel,
             link,
             children,
             ...rest
@@ -81,22 +116,17 @@ const Button = React.forwardRef(
         const {
             theme: { buttons },
         } = useThemeUI()
-        const iconOnly = icon && !children
-        const buttonWithIcon = icon && children
-
-        const Tag = link ? TUILink : TUIButton
 
         return (
-            <Tag
+            <ButtonBase
                 ref={ref}
-                // margin="6px"
+                link={link}
                 sx={_sx({
                     buttons,
                     size,
                     shape,
                     brand,
                     color,
-                    fluid,
                     borderless,
                     ghostText,
                     opaque,
@@ -104,36 +134,14 @@ const Button = React.forwardRef(
                     bg,
                     outline,
                     outlineColor,
-                    iconOnly,
-                    buttonWithIcon,
                     link,
                     children,
                     sx,
                 })}
-                aria-label={iconOnly ? ariaLabel || icon : undefined}
-                data-no-fade={noFade ? '' : null}
-                data-no-hoverup={noHoverUp ? '' : null}
-                data-active={active ? '' : null}
-                data-scale={scaleIcon || null}
-                title={iconOnly ? ariaLabel || icon : undefined}
-                onMouseDown={handleClick}
-                onKeyUp={handleKeyPress}
                 {...rest}
             >
-                {isLoading ? (
-                    <LoadingDots />
-                ) : (
-                    <>
-                        {children}
-                        {buttonWithIcon && (
-                            <span className="symbol">
-                                <Icon name={icon} />
-                            </span>
-                        )}
-                        {iconOnly && <Icon name={icon} />}
-                    </>
-                )}
-            </Tag>
+                {children}
+            </ButtonBase>
         )
     }
 )
