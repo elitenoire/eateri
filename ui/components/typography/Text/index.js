@@ -19,10 +19,12 @@ const base = ({
     stroke,
     underline,
     display,
+    fluid,
     __css,
 }) => ({
     ...__css,
     ...(display && { display }),
+    ...(fluid && { width: '100%' }),
     ...(weight && { fontWeight: weight }),
     ...((size || size === 0) && { fontSize: size }),
     ...(spacing && { letterSpacing: spacing }),
@@ -65,6 +67,7 @@ export const Text = React.forwardRef(function Text(
         stroke,
         underline,
         display,
+        fluid,
         __css,
         ...rest
     },
@@ -91,6 +94,7 @@ export const Text = React.forwardRef(function Text(
                 stroke,
                 underline,
                 display,
+                fluid,
                 __css,
             })}
         />

@@ -4,35 +4,13 @@ import Link from 'next/link'
 import { Container, Image, Badge } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Heading, Text } from '~@/typography'
-import Scrollable from '~@/display/Scrollable'
+import { Scrollable, FoodCard } from '~@/display'
 import { Reveal, fadeInLeft } from '~@/general/Reveal'
 import Button from '~@/general/Button'
 import styles from './style'
 
 import url from '~/public/dish.png'
 import imgUrl from '~/public/c-rice.jpg'
-
-function PopularCard({ title }) {
-    return (
-        <div sx={styles.popularCard}>
-            <div sx={styles.imageWrap}>
-                <Image src={url} />
-            </div>
-            <Text mb={1} weight="bold" truncate={2}>
-                {title}
-            </Text>
-            <div className="flex-split">
-                <Text line="tight" color={['textLight', null, 'textFade']}>
-                    ₦1500
-                </Text>
-                <Badge as="p" variant="highlight" sx={styles.badgeRating}>
-                    ★4.8
-                </Badge>
-            </div>
-            <Button brand="solid" size="lg" color="secondary" icon="add" ariaLabel="Add to cart" />
-        </div>
-    )
-}
 
 function CategoryCard({ img, title }) {
     return (
@@ -61,7 +39,7 @@ function FavoriteCard({ img, title }) {
                     ★4.8
                 </Badge>
             </div>
-            <Button brand="solid" size="lg" color="secondary" icon="add" ariaLabel="Add to cart" />
+            <Button brand="solid" size="lg" color="secondary" icon="add" ariaLabel="Add to bag" />
         </div>
     )
 }
@@ -115,7 +93,7 @@ function Menu() {
                                 'Grilled Steak Tomato Salad',
                             ].map(dish => (
                                 <li key={dish}>
-                                    <PopularCard title={dish} />
+                                    <FoodCard title={dish} imgUrl={url} sx={styles.popularCard} />
                                 </li>
                             ))}
                         </Reveal>

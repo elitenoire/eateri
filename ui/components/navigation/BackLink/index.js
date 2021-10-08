@@ -9,7 +9,7 @@ import styles from './style'
 function BackLink({ href, as, children, ...rest }) {
     return (
         <NextLink href={href} as={as} passHref {...rest}>
-            <Link variant="back" sx={styles.backLink} {...rest}>
+            <Link variant="back" mt={7} sx={styles.backLink} {...rest}>
                 <Icon name="arrowleft" />
                 {children || 'Back'}
             </Link>

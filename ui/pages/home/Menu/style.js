@@ -57,7 +57,7 @@ const styles = {
         border: [null, null, '1px solid'],
         borderRadius: [null, null, 40],
         '.scrollable': {
-            mx: ['-1.5em', null, 'auto'],
+            mx: ['bodyNegative', null, 'auto'],
             [mq.tabletS]: {
                 overflow: '-moz-scrollbars-none',
                 MsOverflowStyle: 'none',
@@ -95,25 +95,17 @@ const styles = {
         pb: 4,
     },
     popularCard: {
-        position: 'relative',
-        width: '9em',
-        display: 'flex',
-        alignSelf: 'start',
-        flexDirection: 'column',
-        cursor: 'pointer',
-        p: {
-            mx: 3,
+        '.food-card--image': {
+            bg: [null, null, 'inherit'],
+            boxShadow: ({ colors: { primary } }) => [
+                null,
+                null,
+                `1em 1em 3em ${primary.neumorph.dark}, -1em -1em 3em ${primary.neumorph.light}`,
+            ],
         },
-        button: {
-            position: 'absolute',
-            top: '-1.5em',
-            right: '-0.5em',
-        },
-        'p,button': {
-            zIndex: 1, // avoids neumorph shadow bleed
-        },
-        '&:hover > div:first-of-type': {
-            transform: 'translateY(-0.5em)',
+        '.food-card--rating': {
+            color: [null, null, 'secondary.pale'],
+            bg: t => [null, null, alpha('secondary.base', 0.08)(t)],
         },
     },
     imageWrap: {
@@ -129,10 +121,6 @@ const styles = {
             `1em 1em 3em ${primary.neumorph.dark}, -1em -1em 3em ${primary.neumorph.light}`,
         ],
         transition: 'transform 0.5s ease-out',
-    },
-    badgeRating: {
-        color: [null, null, 'secondary.pale'],
-        bg: t => [null, null, alpha('secondary.base', 0.08)(t)],
     },
     categoryScrollable: {
         gridGap: 4,
@@ -163,7 +151,7 @@ const styles = {
         padding: 3,
         cursor: 'pointer',
         boxShadow: '0 4px 6px -1px rgba(0,0,0,0.25), 0 2px 4px -1px rgba(0,0,0,0.06)',
-        transition: 'transform 0.5s ease-out, box-shadow 0.5s, background-size 0.7s ease-out',
+        transition: 'transform 0.3s, box-shadow 0.5s, background-size 0.5s ease-out',
         ':hover': {
             transform: 'translateY(-0.5em)',
             backgroundSize: '120%',

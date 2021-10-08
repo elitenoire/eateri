@@ -132,7 +132,7 @@ function Hero() {
                             onChange={onQtyChange}
                             sx={styles.contentQty}
                         />
-                        <Button mt={2} brand="outline" size="lg" icon="cart">
+                        <Button mt={2} brand="outline" size="lg" icon="bag">
                             Order Now
                         </Button>
                     </div>

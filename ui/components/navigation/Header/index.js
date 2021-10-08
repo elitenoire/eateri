@@ -11,7 +11,7 @@ import { HASH_ID_CONTACT, HASH_ID_RESERVATIONS } from '~/constants'
 import styles from './style'
 
 const ariaLabels = {
-    cart: 'Items in cart',
+    bag: 'Items in bag',
     user: 'Accounts',
     hmenu: 'Navigate',
     search: 'Explore food',
@@ -122,8 +122,8 @@ function Header({ isOpen, toggleMenu }) {
                         color="secondary"
                         ml="tiny"
                         size="lg"
-                        icon="cart"
-                        ariaLabel={ariaLabels.cart}
+                        icon="bag"
+                        ariaLabel={ariaLabels.bag}
                     />
                     <Button
                         brand="outline"

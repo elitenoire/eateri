@@ -72,7 +72,7 @@ export default function Star({
             onMouseDown={onMouseDown}
             onMouseUp={onMouseUp}
             onClick={onClick}
-            sx={styles.star}
+            sx={styles.star({ isReadOnly, starSpacing })}
             {...rest}
         >
             {isGradient && (

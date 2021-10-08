@@ -9,7 +9,7 @@ const stopBubbling = e => {
     e.stopPropagation()
 }
 const CarouselCard = ({ data, isMobile }) => {
-    const addToCart = e => console.log('ADDED TO CART')
+    const addToBag = e => console.log('ADDED TO BAG')
 
     return (
         <div sx={styles.carouselCard}>
@@ -24,9 +24,9 @@ const CarouselCard = ({ data, isMobile }) => {
                         brand="solid"
                         size="sm"
                         color="primary"
-                        icon="cart"
-                        ariaLabel="Add to cart"
-                        onClick={addToCart}
+                        icon="bag"
+                        ariaLabel="Add to bag"
+                        onClick={addToBag}
                         onMouseDown={stopBubbling}
                         onTouchStart={stopBubbling}
                     />

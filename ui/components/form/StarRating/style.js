@@ -2,9 +2,11 @@ const styles = {
     rating: { display: 'flex' },
     star: ({ isReadOnly, starSpacing }) => ({
         mr: starSpacing,
-        cursor: `${isReadOnly ? '' : 'pointer'}`,
-        transition: 'transform 0.2s',
-        backfaceVisibility: 'hidden',
+        ...(!isReadOnly && {
+            transition: 'transform 0.2s',
+            backfaceVisibility: 'hidden',
+            cursor: 'pointer',
+        }),
     }),
 }
 

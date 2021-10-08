@@ -14,7 +14,7 @@ import DoubleQuotesL from 'remixicon/icons/Editor/double-quotes-l.svg'
 import DoubleQuotesR from 'remixicon/icons/Editor/double-quotes-r.svg'
 import LayoutList from 'remixicon/icons/Editor/list-unordered.svg'
 import Gift from 'remixicon/icons/Finance/gift-fill.svg'
-import Cart from 'remixicon/icons/Finance/shopping-bag-line.svg'
+import Bag from 'remixicon/icons/Finance/shopping-bag-line.svg'
 import Heart from 'remixicon/icons/Health/heart-line.svg'
 import HeartFill from 'remixicon/icons/Health/heart-fill.svg'
 import Github from 'remixicon/icons/Logos/github-fill.svg'
@@ -76,7 +76,7 @@ export default {
     arrowright: ArrowRight,
     arrowup: ArrowUp,
     calendar: Calendar,
-    cart: Cart,
+    bag: Bag,
     chat: Chat,
     check: Check,
     checkboxblankcircle: CheckboxBlankCircle,
