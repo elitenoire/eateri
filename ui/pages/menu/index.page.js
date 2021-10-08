@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@theme-ui/core'
 import Image from 'next/image'
-import { Box, AspectRatio } from '@theme-ui/components'
+import { Box, Container, AspectRatio, Progress } from '@theme-ui/components'
 
 import { Text } from '~@/typography'
 import { Button } from '~@/general'
@@ -31,7 +31,7 @@ function MenuFoodCard() {
                     <Text weight="bold">N1500</Text>
                 </div>
                 <div sx={foodCardStyle.actionCart}>
-                    <Button brand="solid" color="secondary" size="lg" icon="add" ariaLabel="Add to cart" />
+                    <Button brand="solid" color="secondary" size="lg" icon="add" ariaLabel="Add to bag" />
                 </div>
                 <div sx={foodCardStyle.actionFav}>
                     <Button
@@ -69,19 +69,15 @@ function MenuPage() {
                 <MenuFoodCard />
                 <MenuFoodCard />
             </div>
-
-            <Box bg="gray" p={13} mt={2}>
-                F
-            </Box>
-            <Box bg="gray" p={13} mt={2}>
-                F
-            </Box>
-            <Box bg="gray" p={13} mt={2}>
-                F
-            </Box>
-            <Box bg="gray" p={13} mt={2}>
-                F
-            </Box>
+            <div sx={styles.container}>
+                <Text size={0} mb={4}>
+                    Showing 15 of 48 items
+                </Text>
+                <Progress max={48} value={15} color="primary.base" />
+                <Button mt={4} brand="subtle" shape="flat" bg="gray" outlineColor="gray" outline fluid>
+                    Load More
+                </Button>
+            </div>
         </div>
     )
 }

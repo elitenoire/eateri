@@ -52,6 +52,13 @@ const styles = {
         gridColumnGap: '1.5em',
         gridRowGap: '2.5em',
     },
+    container: {
+        maxWidth: '18em',
+        margin: '0 auto',
+        textAlign: 'center',
+        my: 13,
+        px: 4,
+    },
 }
 
 export default styles
