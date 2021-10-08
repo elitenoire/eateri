@@ -3,11 +3,13 @@ export default {
     white: '#ffffff',
     gray: '#eeeeee', // '#f8f9fa',
     grayLight: '#f5f5f5',
+    grayMedium: '#e8e8e8',
     grayHover: '#e0e0e0',
     grayDark: '#cccccc',
     muted: '#f9fafb', // '#fefcf7',
     whiteFade: {
         10: 'rgba(255, 255, 255, 0.1)',
+        20: 'rgba(255, 255, 255, 0.2)',
         30: 'rgba(255, 255, 255, 0.3)',
         50: 'rgba(255, 255, 255, 0.5)',
         60: 'rgba(255, 255, 255, 0.6)',
@@ -16,6 +18,7 @@ export default {
     },
     blackFade: {
         10: 'rgba(23, 26, 29, 0.1)',
+        20: 'rgba(23, 26, 29, 0.2)',
         30: 'rgba(23, 26, 29, 0.3)',
         50: 'rgba(23, 26, 29, 0.5)',
         60: 'rgba(23, 26, 29, 0.6)',

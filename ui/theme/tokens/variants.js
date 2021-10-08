@@ -83,7 +83,7 @@ export default {
                     ...(bg && { color: 'text' }),
                 },
                 '&:hover,&[data-active]': {
-                    borderColor: outline ? `${color}.base` : 'grayHover',
+                    borderColor: outline ? bg || `${color}.base` : 'grayHover',
                     bg: outline ? bg || 'transparent' : 'grayHover',
                     ...(bg && { color: t => readableColor(bg)(t) }),
                     // ...(!outline && { bg: 'grayHover' }),
