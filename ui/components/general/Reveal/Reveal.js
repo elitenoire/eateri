@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import React from 'react'
-import { jsx } from '@emotion/core'
+import { forwardRef, Fragment } from 'react'
+import { jsx } from '@emotion/react'
 import { isFragment, isValidElementType } from 'react-is'
 import { fadeInUp } from './keyframes'
 
@@ -19,7 +19,7 @@ const hiddenCss = {
     pointerEvents: 'none',
 }
 
-const AnimatedText = ({
+function AnimatedText({
     textRef,
     motion,
     delay,
@@ -31,7 +31,7 @@ const AnimatedText = ({
     hideUntilReveal,
     children,
     ...rest
-}) => {
+}) {
     const _css = hideUntilReveal ? hiddenCss : null
 
     const words = children.split(' ')
@@ -57,19 +57,19 @@ const AnimatedText = ({
     return <span ref={textRef}>{animatedWords}</span>
 }
 
-const Reveal = React.forwardRef(
+const Reveal = forwardRef(function Reveal
     (
         {
             as: Tag,
             forwardAs: as,
-            cascade,
-            damping,
-            duration,
+            cascade = false,
+            damping = 0.3,
+            duration = 400,
+            motion = fadeInUp,
+            delay = 0,
+            when = true,
             timingFunction,
             fillMode,
-            motion,
-            delay,
-            when,
             whenInView,
             hideUntilReveal,
             threshold,
@@ -80,7 +80,7 @@ const Reveal = React.forwardRef(
             ...rest
         },
         ref
-    ) => {
+    ) {
         const animationProps = { cascade, damping, duration, timingFunction, fillMode, motion, delay }
         const styleProps = { className, style }
 
@@ -212,19 +212,8 @@ const Reveal = React.forwardRef(
             )
         }
 
-        return <React.Fragment>{makeAnimated(children)}</React.Fragment>
+        return <Fragment>{makeAnimated(children)}</Fragment>
     }
 )
-
-Reveal.defaultProps = {
-    cascade: false,
-    damping: 0.3,
-    duration: 400,
-    delay: 0,
-    when: true,
-    motion: fadeInUp,
-}
-
-Reveal.displayName = 'Reveal'
 
 export default Reveal

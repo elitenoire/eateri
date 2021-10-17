@@ -1,22 +1,61 @@
 {
-	"plugins": ["react-perf", "babel"],
-	"extends": ["wesbos", "plugin:react-perf/recommended"],
-	"parser": "babel-eslint",
+	"extends": [
+		"wesbos",
+		"plugin:react-perf/recommended",
+		"plugin:@next/next/recommended",
+		"plugin:prettier/recommended"
+	],
+	"plugins": [
+		"react-perf"
+	],
 	"rules": {
-		// Use the `eslint-babel-plugin` version of `no-unused-expressions` to
-		// support optional chaining operators
-		"no-unused-expressions": 0,
-		"babel/no-unused-expressions": 1,
-		"react/prop-types": [2, { "skipUndeclared": true }],
+		"no-nested-ternary": 0,
+		"react/prop-types": [
+			2,
+			{
+				"skipUndeclared": true
+			}
+		],
+		// "import/no-anonymous-default-export": "warn",
+		// "react/react-in-jsx-scope": 0,
 		"react/no-danger": 0,
-		"react/jsx-props-no-spreading": 0,
-		"arrow-parens": [2, "as-needed"],
+		// "react/jsx-props-no-spreading": 0,
+		"arrow-parens": [
+			2,
+			"as-needed"
+		],
+		"jsx-a11y/alt-text": [
+			"warn",
+			{
+				"elements": [
+					"img"
+				],
+				"img": [
+					"Image"
+				]
+			}
+		],
 		"jsx-a11y/label-has-associated-control": [
 			"error",
 			{
 				"required": {
-					"some": ["nesting", "id"]
+					"some": [
+						"nesting",
+						"id"
+					]
 				}
+			}
+		],
+		"react-perf/jsx-no-new-object-as-prop": [
+			"error",
+			{
+				"nativeAllowList": "all"
+			}
+		],
+		"react-perf/jsx-no-new-array-as-prop": [
+			"error",
+			{
+				"nativeAllowList": "all"
 			}
 		],
 		"prettier/prettier": [
@@ -34,7 +73,9 @@
 	},
 	"settings": {
 		"import/resolver": {
-			"babel-module": {}
+			"jsconfig": {
+				"config": "jsconfig.json"
+			}
 		}
 	}
 }

@@ -5,7 +5,6 @@ import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from '@theme-ui/core'
 import { ColorModeProvider } from '@theme-ui/color-modes'
 import { Flipper } from 'react-flip-toolkit'
-import whyDidYouRender from '@welldone-software/why-did-you-render/dist/no-classes-transpile/umd/whyDidYouRender.min.js'
 import MenuProvider from '~/context/menu'
 import theme from '~/theme'
 import GlobalStyle from '~/theme/global'
@@ -19,11 +18,6 @@ import '~/css/vivify-lite.css'
 // Custom fonts
 import 'fontsource-sen/latin.css'
 import 'fontsource-manrope/latin.css'
-
-// For debugging reasons for re-rendering components we use whyDidYouRender in dev mode
-if (process.env.NODE_ENV !== 'production' && typeof window !== 'undefined') {
-    whyDidYouRender(React)
-}
 
 export default class MyApp extends App {
     render() {

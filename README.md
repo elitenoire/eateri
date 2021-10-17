@@ -58,6 +58,10 @@ Do you need a touch of inspiration to build a mobile web app to manage restauran
 -   Logo by [freepik/@haris99][logomaker] and Logo Title Font (Gnomon-Foreground) by [indestructible type][logofont]
 -   Free screenshots from [Screely](https://www.screely.com/)
 
+### Environment 💻
+
+Node v14.18.1
+
 ---
 
 ### Support Me 💖

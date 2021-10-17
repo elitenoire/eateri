@@ -1,4 +1,4 @@
-import { css, jsx } from '@emotion/core'
+import { css, jsx } from '@emotion/react'
 
 export const getAnimationCss = ({
     duration = 1000,

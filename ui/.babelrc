@@ -1,17 +1,17 @@
 {
-	"presets": ["next/babel"],
-	"plugins": [
+	"presets": [
 		[
-			"module-resolver",
+			"next/babel",
 			{
-				"root": ["./"],
-				"alias": {
-					"^~/(.+)": "./\\1",
-					"^~@/(.+)": "./components/\\1"
+				"preset-react": {
+					// "importSource": "@theme-ui/core",
+					"runtime": "classic", // automatic
+					"throwIfNamespace": false
 				}
 			}
-		],
-		["emotion"],
-		["@babel/plugin-proposal-optional-chaining"]
+		]
+	],
+	"plugins": [
+		"@emotion"
 	]
 }

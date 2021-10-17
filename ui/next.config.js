@@ -4,6 +4,17 @@ const withImages = require('next-images')
 
 const pageExtensions = ['page.js']
 
+const otherOptions = {
+	eslint: {
+		// Warning: This allows production builds to successfully complete even if
+		// your project has ESLint errors.
+		ignoreDuringBuilds: true,
+	},
+	images: {
+		disableStaticImages: true,
+	},
+}
+
 const svgrOptions = {
     titleProp: true,
     svgoConfig: {
@@ -43,5 +54,5 @@ const withSvgr = (nextConfig = {}) => ({
 
 module.exports = withPlugins([
     [withImages, imgOptions],
-    [withSvgr, { svgrOptions, pageExtensions }],
+    [withSvgr, { svgrOptions, pageExtensions, ...otherOptions }],
 ])

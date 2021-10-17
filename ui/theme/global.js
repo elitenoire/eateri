@@ -1,5 +1,5 @@
 import React from 'react'
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 import fluid from 'fluid-system'
 import typography from '@styled-system/typography'
 

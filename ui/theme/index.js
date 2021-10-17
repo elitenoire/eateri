@@ -5,13 +5,11 @@ import rhythm from './tokens/rhythm'
 import variants from './tokens/variants'
 
 export default {
-    // TODO: >= 0.8 config options scopes to a config object
-    useColorSchemeMediaQuery: true,
-    initialColorModeName: 'light',
-    useCustomProperties: true,
-    useBorderBox: false,
+    config: {
+        initialColorModeName: 'light',
+        useBorderBox: false,
+    },
     fluidBodyFontSize: [2, null, 2, null, 3, null, 4],
-    // fluidBodyLineHeight: ['none', null, null, null, 'tight', null, 'snug'],
     colors,
     ...fonts,
     ...display,
