@@ -31,6 +31,10 @@ export const foodCardStyle = {
             minHeight: [null, null, null, '3em'],
         },
     },
+    title: {
+        fontSize: [null, null, null, 1],
+        textDecoration: 'none',
+    },
     actionCart: {
         position: 'absolute',
         zIndex: 1,

@@ -1,4 +1,3 @@
-import React from 'react'
 import { Icon } from '~@/general'
 
 function SocialMedia({ className = '', ...rest }) {

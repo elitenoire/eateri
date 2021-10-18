@@ -1,11 +1,12 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React from 'react'
+import { forwardRef } from 'react'
 
 import styles from './style'
 
-const Scrollable = React.forwardRef(
-    ({ as: Tag, children, hideScroll, flex, gap, pad, cursor, className, sx, ...rest }, ref) => (
+const Scrollable = forwardRef(function Scrollable(
+    { as: Tag = 'div', children, hideScroll, flex, gap, pad, cursor, className, sx, ...rest },
+    ref
+) {
+    return (
         <Tag
             ref={ref}
             className={`scrollable ${className || ''}`}
@@ -15,12 +16,6 @@ const Scrollable = React.forwardRef(
             {children}
         </Tag>
     )
-)
-
-Scrollable.defaultProps = {
-    as: 'div',
-}
-
-Scrollable.displayName = 'Scrollable'
+})
 
 export default Scrollable

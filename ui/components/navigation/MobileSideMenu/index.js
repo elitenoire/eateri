@@ -1,12 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useContext, useEffect, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import Router from 'next/router'
 import Menu from 'react-burger-menu/lib/menus/scaleRotate'
+import { Icon } from '~@/general'
 import { MenuContext } from '~/context/menu'
 import useSafeTimeout from '~/hooks/useSafeTimeout'
-import Icon from '~@/general/Icon'
 import style from './style'
 
 const menuItems = [
@@ -37,9 +35,13 @@ const menuItems = [
     },
 ]
 
-const MenuLink = ({ to, children, ...props }) => <Link href={to}>{children(props)}</Link>
+function MenuLink({ to, children, ...rest }) {
+    return (
+        <Link href={to}>{children(rest)}</Link>
+    )
+}
 
-const MobileSideMenu = () => {
+function MobileSideMenu() {
     const { isOpen, closeMenu, firstMenuItemRef } = useContext(MenuContext)
     const htmlElementRef = useRef()
     const timerRef = useRef()

@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import { Heading } from '~@/typography'
 import { Logo } from '~@/general'

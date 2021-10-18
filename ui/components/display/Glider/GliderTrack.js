@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React from 'react'
+import { forwardRef, Children as ReactChildren } from 'react'
 import { animated } from 'react-spring'
 
 import { gliderStyles } from './style'
@@ -13,8 +11,8 @@ const getGlideTransform = ({ idx, startIndex, totalGlides }) => ({
     transform: startIndex.interpolate(value => `translateX(${(value <= idx ? -value : totalGlides - value) * 100}%)`),
 })
 
-const GliderTrack = React.forwardRef(({ index, gap, visibleGlides, children, ...rest }, ref) => {
-    const totalGlides = React.Children.count(children)
+const GliderTrack = forwardRef(function GliderTrack({ index, gap, visibleGlides, children, ...rest }, ref) {
+    const totalGlides = ReactChildren.count(children)
     const tail = totalGlides - visibleGlides
     const trackWidth = 100 / totalGlides
 
@@ -49,7 +47,7 @@ const GliderTrack = React.forwardRef(({ index, gap, visibleGlides, children, ...
                 sx={gliderStyles.gliderTrack({ gap, totalGlides, visibleGlides })}
                 style={getTrackTransform(x)}
             >
-                {React.Children.map(children, (child, idx) => (
+                {ReactChildren.map(children, (child, idx) => (
                     <animated.div
                         key={idx}
                         className="glider--glide"
@@ -63,7 +61,5 @@ const GliderTrack = React.forwardRef(({ index, gap, visibleGlides, children, ...
         </div>
     )
 })
-
-GliderTrack.displayName = 'GliderTrack'
 
 export default GliderTrack

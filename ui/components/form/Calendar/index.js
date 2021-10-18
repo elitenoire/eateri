@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React, { useState, useRef, useEffect, useCallback } from 'react'
+import { memo, forwardRef, useState, useRef, useEffect, useCallback } from 'react'
 import { useDayzed } from 'dayzed'
 import startOfDay from 'date-fns/startOfDay'
 import addMonths from 'date-fns/addMonths'
@@ -10,30 +8,35 @@ import startOfWeek from 'date-fns/startOfWeek'
 import lastDayOfWeek from 'date-fns/lastDayOfWeek'
 import getWeekOfMonth from 'date-fns/getWeekOfMonth'
 
+import { Scrollable } from '~@/display'
+import { Button } from '~@/general'
 import CalendarWeek from './Week'
-import Scrollable from '~@/display/Scrollable'
-import Button from '~@/general/Button'
 
 import { monthNames, weekDayNames } from './locale'
 import styles from './style'
 
 import { ESC, ENTER, SPACE, LEFT, UP, DOWN, RIGHT, HOME, END, PAGEUP, PAGEDOWN } from './keys'
 
-const WeekDays = ({ month, year }) => (
-    <div role="rowgroup">
-        <div role="row" sx={styles.monthWeekDays}>
-            {weekDayNames.map(({ short: weekday, long: weekdayLong }) => (
-                <div role="columnheader" key={`${month}${year}${weekday}`}>
-                    <abbr title={weekdayLong}>{weekday}</abbr>
-                </div>
-            ))}
+function WeekDays({ month, year }) {
+    return (
+        <div role="rowgroup">
+            <div role="row" sx={styles.monthWeekDays}>
+                {weekDayNames.map(({ short: weekday, long: weekdayLong }) => (
+                    <div role="columnheader" key={`${month}${year}${weekday}`}>
+                        <abbr title={weekdayLong}>{weekday}</abbr>
+                    </div>
+                ))}
+            </div>
         </div>
-    </div>
-)
+    )
+}
 
-const MemoizedWeekDay = React.memo(WeekDays)
+const MemoizedWeekDay = memo(WeekDays)
 
-const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selected, onDateSelected, ...rest }, ref) => {
+const Calendar = forwardRef(function Calendar(
+    { ariaDateStatus, onKeyDown, onClose, selected, onDateSelected, ...rest },
+    ref
+) {
     /** *****************************************
      * STATE + COMPUTED PROPERTIES
      ***************************************** */
@@ -60,7 +63,12 @@ const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selecte
         }
     }
 
-    const { calendars = [], getBackProps, getForwardProps, getDateProps } = useDayzed({
+    const {
+        calendars = [],
+        getBackProps,
+        getForwardProps,
+        getDateProps,
+    } = useDayzed({
         selected: _normalizedSelected,
         onDateSelected: _onDateSelected,
         offset,
@@ -71,12 +79,16 @@ const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selecte
     const _getDateProps = useCallback(_props => getDateProps(_props), [])
 
     const { firstDayOfMonth, lastDayOfMonth, month: currentMonth } = calendars[0] || {}
-    const { disabled: isPreviousMonthDisabled, onClick: goPrevMonth, ...backProps } = calendars.length
-        ? getBackProps({ calendars })
-        : {}
-    const { disabled: isNextMonthDisabled, onClick: goNextMonth, ...forwardProps } = calendars.length
-        ? getForwardProps({ calendars })
-        : {}
+    const {
+        disabled: isPreviousMonthDisabled,
+        onClick: goPrevMonth,
+        ...backProps
+    } = calendars.length ? getBackProps({ calendars }) : {}
+    const {
+        disabled: isNextMonthDisabled,
+        onClick: goNextMonth,
+        ...forwardProps
+    } = calendars.length ? getForwardProps({ calendars }) : {}
     const { disabled: isPreviousYearDisabled, onClick: goPrevYear } = calendars.length
         ? getBackProps({ calendars, offset: 12 })
         : {}
@@ -300,6 +312,7 @@ const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selecte
                     break
             }
         }, // change in offset results in first and last day change
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [currentMonth, offset, isNextMonthDisabled, isPreviousMonthDisabled, _onWeekChange]
     )
 
@@ -345,13 +358,7 @@ const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selecte
             </div>
             {calendars.map(calendar => (
                 <div key={`${calendar.month}${calendar.year}`} sx={styles.month}>
-                    <div
-                        id="id-calendar-label"
-                        role="heading"
-                        aria-live="polite"
-                        aria-atomic="true"
-                        sx={styles.monthTitle}
-                    >
+                    <div id="id-calendar-label" aria-live="polite" aria-atomic="true" sx={styles.monthTitle}>
                         <span className="visually-hidden">{`Currently viewing calender month, ${
                             monthNames[calendar.month].long
                         }`}</span>
@@ -396,9 +403,7 @@ const Calendar = React.forwardRef(({ ariaDateStatus, onKeyDown, onClose, selecte
     )
 })
 
-Calendar.displayName = 'Calendar'
-
-const Single = () => {
+export function Single() {
     const [selected, setSelected] = useState(new Date())
 
     const minDate = startOfDay(new Date())

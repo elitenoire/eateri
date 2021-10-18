@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Image from 'next/image'
 import { Box, Card } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'

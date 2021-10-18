@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { a } from 'react-spring'
 
 import styles from './style'

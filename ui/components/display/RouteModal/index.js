@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useEffect, useCallback, memo } from 'react'
 import { useRouter } from 'next/router'
 import { useDialogState, Dialog, DialogBackdrop } from 'reakit/Dialog'
@@ -10,7 +8,7 @@ import styles from './style'
 // Animation Helper
 // Delay rendering until after exit animation
 const shouldUpdate = (prev, next) => !(prev.animating && !next.animating)
-const DelayGate = memo(function ({ children }) {
+const DelayGate = memo(function DelayGate({ children }) {
     return <>{children}</>
 }, shouldUpdate)
 

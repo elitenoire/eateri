@@ -1,12 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useCallback } from 'react'
 import { useForm, useFormContext, Controller } from 'react-hook-form'
 import startOfDay from 'date-fns/startOfDay'
 import addMonths from 'date-fns/addMonths'
 
-import Calendar from '~@/form/Calendar'
-import { SelectBox, SelectBoxOption } from '~@/form'
+import { Calendar, SelectBox, SelectBoxOption } from '~@/form'
 import { Text } from '~@/typography'
 import { useFormDialogUpdate } from './useFormDialogState'
 
@@ -87,7 +84,9 @@ function StepFindTable({ guestRef, dateRef, timeRef }) {
                 )}
             </div>
             <div className="form-section" sx={styles.formSectionDate} data-form-error={errors.date ? '' : null}>
-                <p sx={styles.formSectionLabel}>Select a Date</p>
+                <p id="form-label-date" sx={styles.formSectionLabel}>
+                    Select a Date
+                </p>
                 <Controller
                     name="date"
                     control={control}

@@ -40,9 +40,10 @@ const styles = {
         '&[href][data-no-hoverup]:hover,&&[data-no-hoverup]:enabled:not([aria-disabled="true"]):hover': {
             transform: 'translateY(0)',
         },
-        '&[href]:active,&[href][data-no-hoverup]:active,&&:enabled:not([aria-disabled="true"]):active,&&[data-no-hoverup]:enabled:not([aria-disabled="true"]):active': {
-            transform: 'scale(0.95)',
-        },
+        '&[href]:active,&[href][data-no-hoverup]:active,&&:enabled:not([aria-disabled="true"]):active,&&[data-no-hoverup]:enabled:not([aria-disabled="true"]):active':
+            {
+                transform: 'scale(0.95)',
+            },
     },
     _baseExtra: {
         borderWidth: '1.5px',

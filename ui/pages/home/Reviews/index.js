@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Container, Image } from '@theme-ui/components'
 import useInView from 'react-cool-inview'
 import { Text, Heading } from '~@/typography'

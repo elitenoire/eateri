@@ -1,7 +1,7 @@
-import React from 'react'
+import { forwardRef } from 'react'
 import { useThemeUI } from '@theme-ui/core'
 import { Button as TUIButton, Link as TUILink } from '@theme-ui/components'
-import Icon from '~@/general/Icon'
+import { Icon } from '~@/general'
 import LoadingDots from '~@/feedback/LoadingDots'
 import styles from './style'
 
@@ -52,7 +52,7 @@ const _sx = ({
     sx,
 })
 
-export const ButtonBase = React.forwardRef(function ButtonBase(
+export const ButtonBase = forwardRef(function ButtonBase(
     { icon, link, fluid, noFade, noHoverUp, active, scaleIcon, isLoading, type, ariaLabel, sx = {}, children, ...rest },
     ref
 ) {
@@ -92,67 +92,54 @@ export const ButtonBase = React.forwardRef(function ButtonBase(
     )
 })
 
-const Button = React.forwardRef(
-    (
-        {
-            sx,
-            size,
-            shape,
-            brand,
-            color,
-            borderless,
-            ghostText,
-            opaque,
-            alpha,
-            bg,
-            outline,
-            outlineColor,
-            link,
-            children,
-            ...rest
-        },
-        ref
-    ) => {
-        const {
-            theme: { buttons },
-        } = useThemeUI()
+export const Button = forwardRef(function Button(
+    {
+        sx,
+        size = 'md',
+        shape = 'pill',
+        brand = 'solid',
+        color = 'primary',
+        borderless,
+        ghostText,
+        opaque,
+        alpha,
+        bg,
+        outline,
+        outlineColor,
+        link,
+        children,
+        ...rest
+    },
+    ref
+) {
+    const {
+        theme: { buttons },
+    } = useThemeUI()
 
-        return (
-            <ButtonBase
-                ref={ref}
-                link={link}
-                sx={_sx({
-                    buttons,
-                    size,
-                    shape,
-                    brand,
-                    color,
-                    borderless,
-                    ghostText,
-                    opaque,
-                    alpha,
-                    bg,
-                    outline,
-                    outlineColor,
-                    link,
-                    children,
-                    sx,
-                })}
-                {...rest}
-            >
-                {children}
-            </ButtonBase>
-        )
-    }
-)
-
-Button.defaultProps = {
-    shape: 'pill',
-    size: 'md',
-    brand: 'solid',
-    color: 'primary',
-}
-
-Button.displayName = 'Button'
-
-export default Button
+    return (
+        <ButtonBase
+            ref={ref}
+            link={link}
+            sx={_sx({
+                buttons,
+                size,
+                shape,
+                brand,
+                color,
+                borderless,
+                ghostText,
+                opaque,
+                alpha,
+                bg,
+                outline,
+                outlineColor,
+                link,
+                children,
+                sx,
+            })}
+            {...rest}
+        >
+            {children}
+        </ButtonBase>
+    )
+})

@@ -1,11 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Flipped } from 'react-flip-toolkit'
 import { Box, Container, Card, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Reveal, fadeIn } from '~@/general'
 import { BackLink } from '~@/navigation'
-import WaveDecoration from '~@/other/WaveDecoration'
+import { WaveDecoration } from '~@/other'
 
 import styles from './style'
 

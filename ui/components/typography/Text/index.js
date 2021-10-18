@@ -1,4 +1,4 @@
-import React from 'react'
+import { forwardRef } from 'react'
 import { Text as TUIText } from '@theme-ui/components'
 import { getColor } from '@theme-ui/color'
 import styles from './style.js'
@@ -50,7 +50,7 @@ const base = ({
     }),
 })
 
-export const Text = React.forwardRef(function Text(
+export const Text = forwardRef(function Text(
     {
         italic,
         opacity,

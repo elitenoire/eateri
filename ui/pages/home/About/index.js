@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import { Image } from '@theme-ui/components'
 import { MemphisFrame } from '~@/other'

@@ -57,17 +57,17 @@ const styles = {
     section: {
         position: 'relative',
         pt: [4, null, 7],
-        pb: '6em', // 10,
+        pb: '6em',
         mt: [4, null, 0],
         bg: 'accent.base',
         ...customScrollBarStyle,
         '.card-halo': {
             position: 'relative',
-            bg: ['rgba(255,255,255,0.2)', null, 'white'], //
+            bg: ['whiteFade.20', null, 'white'],
             mb: 9,
             transition: 'all 0.3s ease-out',
             '&[data-show-halo="true"]': {
-                boxShadow: t => [null, null, `0 0 0 0.9em ${t.colors.accent.base}, 0 0 0 1em white`], //
+                boxShadow: t => [null, null, `0 0 0 0.9em ${t.colors.accent.base}, 0 0 0 1em white`],
                 ':hover': {
                     boxShadow: t => [
                         null,
@@ -96,7 +96,7 @@ const styles = {
     },
     arrowDown: {
         position: 'relative',
-        pb: '1em',
+        pb: 4,
         display: ['none', null, null, 'block'],
         svg: {
             position: 'absolute',
@@ -120,21 +120,19 @@ const styles = {
             fontSize: 'inherit',
         },
         svg: {
-            display: 'block',
             size: '3em',
         },
     },
     selectWrap: {
         padding: 4,
-        borderRadius: ['round', null, 25], //
-        boxShadow: 'xl', //
-        width: [null, null, '75%', '100%'], //
-        margin: [null, null, 'auto'], //
-        // mb: [6, null, 9], //
+        borderRadius: ['round', null, 25],
+        boxShadow: 'xl',
+        width: [null, null, '75%', '100%'],
+        margin: [null, null, 'auto'],
     },
     selectLayout: {
         display: 'flex',
-        flexDirection: [null, null, 'column', 'row'], //
+        flexDirection: [null, null, 'column', 'row'],
         justifyContent: ['space-around', null, 'space-between'],
         pb: [null, null, 2],
     },
@@ -142,7 +140,7 @@ const styles = {
         position: ['relative', null, 'absolute'],
         left: [null, null, 0],
         bottom: ['-1.75em', null, '-2.5em'],
-        width: '100%',
+        width: 'fluid',
         display: 'flex',
         justifyContent: 'center',
         button: {
@@ -182,8 +180,8 @@ const styles = {
                 ml: [4, null, 0],
             },
             'p span': {
-                display: ['block', null, 'initial', 'block'], //
-                ml: [null, null, 4, 0], //
+                display: ['block', null, 'initial', 'block'],
+                ml: [null, null, 4, 0],
                 fontSize: [3, null, 4],
             },
         },
@@ -196,7 +194,7 @@ const styles = {
             left: 0,
             right: 0,
             bottom: 0,
-            pb: '3.5em',
+            pb: 10,
             bg: 'accent.base',
             transform: 'translateY(0%)',
             transition: 'transform 0.35s',
@@ -217,7 +215,7 @@ const styles = {
     formWrap: {
         display: 'flex',
         flexDirection: 'column',
-        bg: ['rgba(255,255,255,0.2)', null, 'white'],
+        bg: ['whiteFade.20', null, 'white'],
         pt: [7, null, null, null, 8],
         pb: [null, null, 7, null, 8],
         px: [4, 6, 7, null, 8],
@@ -229,19 +227,19 @@ const styles = {
         borderBottomLeftRadius: ['6em', null, 30],
         borderBottomRightRadius: ['6em', null, 30],
         '.form-section': {
-            bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.pale', 0.5)(t)],
-            borderRadius: '2em',
+            bg: t => ['whiteFade.20', null, alpha('accent.pale', 0.5)(t)],
+            borderRadius: '30',
             mt: 6,
             transition: 'background-color 0.35s cubic-bezier(.21,.6,.35,1)',
             ':hover': {
                 bg: [null, null, 'accent.pale'],
             },
             ':hover input,:hover textarea': {
-                bg: t => ['rgba(255,255,255,0.2)', null, alpha('accent.light', 0.3)(t)],
+                bg: t => ['whiteFade.20', null, alpha('accent.light', 0.3)(t)],
             },
             [mq.tabletS]: {
                 '& *:focus, & button.calendar--day:focus > span': {
-                    boxShadow: '0 0 0 3px rgba(255,255,255,0.5)',
+                    boxShadow: ({ colors }) => `0 0 0 3px ${colors.whiteFade['50']}`,
                 },
             },
             '&[data-form-error]': {
@@ -290,7 +288,7 @@ const styles = {
     formSection: {
         minHeight: '5em',
         pb: 4,
-        fontSize: 1, // TODO: try different sizes
+        fontSize: 1,
     },
     formSectionLabel: {
         display: 'block',
@@ -301,7 +299,7 @@ const styles = {
         textTransform: 'capitalize',
         borderTopLeftRadius: 'inherit',
         borderTopRightRadius: 'inherit',
-        bg: 'rgba(255,255,255,0.35)',
+        bg: 'whiteFade.35',
     },
     formSectionGuest: {
         width: '100%',
@@ -393,7 +391,7 @@ const styles = {
         mt: 4,
         px: 4,
         letterSpacing: 'wider',
-        bg: ['rgba(255,255,255,0.2)', null, 'accent.pale'],
+        bg: ['whiteFade.20', null, 'accent.pale'],
         border: '1px solid transparent',
         borderRadius: 'inherit',
         color: 'inherit',
@@ -403,7 +401,7 @@ const styles = {
             color: t => ['rgba(0,0,0,0.25)', null, alpha('accent.dark', 0.45)(t)],
         },
         ':hover': {
-            bg: t => ['rgba(255,255,255,0.35)', null, alpha('accent.light', 0.5)(t)],
+            bg: t => ['whiteFade.35', null, alpha('accent.light', 0.5)(t)],
         },
         ':focus': {
             boxShadow: t => [null, null, `0 0 0 3px ${t.colors.accent.light}`],
@@ -437,7 +435,7 @@ const styles = {
         mb: 2,
         mx: 'auto',
         background: ({ colors }) => [
-            'rgba(255,255,255,0.35)',
+            'whiteFade.35',
             null,
             `linear-gradient(to bottom left, ${colors.accent.light}, ${colors.accent.base})`,
         ],
@@ -485,13 +483,10 @@ const styles = {
     confirmIcon: {
         display: 'inline-block',
         borderRadius: 'icon',
-        padding: '0.5em',
+        padding: 2,
         fontSize: '1.2em',
         boxShadow: 'inner',
         bg: t => alpha('accent.base', 0.5)(t),
-        svg: {
-            display: 'block',
-        },
     },
     confirmSvg: {
         position: 'absolute',

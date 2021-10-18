@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
 import { FormDialogProvider } from './useFormDialogState'
 
 import FormWizard from './FormWizard'
-import FormDialog from './FormDialog'
+import FormWizardDialog from './FormWizardDialog'
 
 const defaultValues = {
     date: null,
@@ -22,7 +20,7 @@ function MakeReservation({ isMobile }) {
     }
     return (
         <FormDialogProvider {...defaultValues}>
-            <FormDialog defaultValues={defaultValues} />
+            <FormWizardDialog defaultValues={defaultValues} />
         </FormDialogProvider>
     )
 }

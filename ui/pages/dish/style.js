@@ -161,12 +161,16 @@ const styles = {
         mt: 7,
         button: {
             flex: 'auto',
+            flexGrow: 1,
         },
         'button:first-of-type': {
             justifyContent: 'center',
+            '.symbol': {
+                display: ['none', null, 'initial'],
+            },
         },
         'button:last-of-type': {
-            flexGrow: 10,
+            flexGrow: [null, null, 10],
         },
     },
     mobileVisible: {

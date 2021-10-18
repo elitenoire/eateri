@@ -1,17 +1,15 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React, { useRef } from 'react'
+import { useRef, useImperativeHandle, Children as ReactChildren } from 'react'
 import GliderTrack from './GliderTrack'
 import { useAnimation, useAutoplay, useDragGesture, useGliderProps } from './hooks'
 import { clamp } from '~/lib/utils'
 
-const Glider = ({ draggable, visibleGlides, gap, children, ...rest }) => {
+function Glider({ draggable = true, visibleGlides = 1, gap = 40, children, ...rest }) {
     const gliderRef = useRef(null)
     const dragging = useRef(false)
 
     const { ref, autoplay, autoplayInterval, onChange, onPlayChange } = useGliderProps()
 
-    const totalGlides = React.Children.count(children)
+    const totalGlides = ReactChildren.count(children)
     const { index, animate } = useAnimation({ totalGlides, onChange })
 
     const _autoplay = useAutoplay({ interval: autoplayInterval, autoplay, index, animate, onPlayChange })
@@ -45,7 +43,7 @@ const Glider = ({ draggable, visibleGlides, gap, children, ...rest }) => {
         },
     })
 
-    React.useImperativeHandle(
+    useImperativeHandle(
         ref,
         () => ({
             glideLeft: () => {
@@ -89,12 +87,6 @@ const Glider = ({ draggable, visibleGlides, gap, children, ...rest }) => {
             {children}
         </GliderTrack>
     )
-}
-
-Glider.defaultProps = {
-    visibleGlides: 1,
-    draggable: true,
-    gap: 40, // 40px
 }
 
 export default Glider

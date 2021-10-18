@@ -1,12 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import { Container, Image, Badge } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Heading, Text } from '~@/typography'
 import { Scrollable, FoodCard } from '~@/display'
-import { Reveal, fadeInLeft } from '~@/general/Reveal'
-import Button from '~@/general/Button'
+import { Button, Reveal, fadeInLeft } from '~@/general'
 import styles from './style'
 
 import url from '~/public/dish.png'

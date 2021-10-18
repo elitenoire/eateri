@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React from 'react'
+import { forwardRef } from 'react'
 import SolidLogo from '~/public/inlineSvg/logo.svg'
 import PlainLogo from '~/public/inlineSvg/logo-cutout.svg'
 import LogoText from '~/public/inlineSvg/logo-tt.svg'
@@ -24,7 +22,7 @@ const getLogoStyle = ({ noText, size, plain, color }) => ({
     ...(!plain && styles[color]),
 })
 
-const Logo = React.forwardRef(({ color, plain, size, link, noText, animated, sx, ...rest }, ref) => {
+const Logo = forwardRef(function Logo({ color = 'primary', plain, size, link, noText, animated, sx, ...rest }, ref) {
     const Wrapper = link ? 'a' : 'div'
     const LogoSvg = plain ? PlainLogo : SolidLogo
 
@@ -45,11 +43,5 @@ const Logo = React.forwardRef(({ color, plain, size, link, noText, animated, sx,
         </Wrapper>
     )
 })
-
-Logo.defaultProps = {
-    color: 'primary',
-}
-
-Logo.displayName = 'Logo'
 
 export default Logo

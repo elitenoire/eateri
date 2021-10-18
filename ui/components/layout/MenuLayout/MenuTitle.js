@@ -1,7 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useRouter } from 'next/router'
-
 import { Text, Heading } from '~@/typography'
 
 import { styles } from './style'

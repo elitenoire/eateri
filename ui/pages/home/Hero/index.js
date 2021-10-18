@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useEffect, useRef } from 'react'
 import { useTabState, Tab, TabList, TabPanel } from 'reakit/Tab'
 import { Media } from '~/context/media'
@@ -19,7 +17,16 @@ import url from '~/public/dish.png'
 function Hero() {
     const carouselItemChanged = useRef(false)
 
-    const { count, direction, increment: goNext, decrement: goPrev, isCyclic, goto, isStart, isEnd } = useCounter({
+    const {
+        count,
+        direction,
+        increment: goNext,
+        decrement: goPrev,
+        isCyclic,
+        goto,
+        isStart,
+        isEnd,
+    } = useCounter({
         end: foodMenu.length > 1 ? foodMenu.length - 1 : foodMenu.length || 0,
         isCyclic: true,
     })

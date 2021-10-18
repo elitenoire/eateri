@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useReducer, useCallback, useEffect } from 'react'
 import { Text } from '~@/typography'
-import Button from '~@/general/Button'
+import { Button } from '~@/general'
 import useCounter from '~/hooks/useCounter'
 
 import styles from './style'

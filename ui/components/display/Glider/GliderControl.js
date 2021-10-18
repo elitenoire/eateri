@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { a, useTransition } from 'react-spring'
 import { Icon } from '~@/general'
 import { usePlay } from './hooks'
@@ -8,7 +6,7 @@ import { gliderControlStyles } from './style'
 
 const stopPropagation = e => e.stopPropagation()
 
-const GliderControl = ({ color = 'accent.base' }) => {
+function GliderControl({ color = 'accent.base' }) {
     const { isPlaying, togglePlay } = usePlay()
 
     const transitions = useTransition(isPlaying, null, {

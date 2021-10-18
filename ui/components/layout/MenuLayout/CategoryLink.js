@@ -1,8 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
-
 import { Text } from '~@/typography'
 
 import { categoryLinkStyle as styles } from './style'

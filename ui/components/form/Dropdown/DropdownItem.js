@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { forwardRef } from 'react'
 
 import { Button } from 'reakit/Button'
@@ -45,7 +43,7 @@ function renderMiddle({ label, meta, children }) {
     )
 }
 
-const DropdownItem = forwardRef(function (
+const DropdownItem = forwardRef(function DropdownItem(
     { as: Tag, icon, iconR, showCheck, showCheckbox, checked, label, meta, children, ...rest },
     ref
 ) {

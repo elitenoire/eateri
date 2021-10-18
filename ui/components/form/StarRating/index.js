@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useState, useMemo } from 'react'
 import Star from './star'
 

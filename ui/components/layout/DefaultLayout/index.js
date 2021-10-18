@@ -1,6 +1,4 @@
-/** @jsx jsx */
 import { useContext, useCallback } from 'react'
-import { jsx } from '@theme-ui/core'
 import { MenuContext } from '~/context/menu'
 import { Header, Footer, MobileSideMenu, BackToTop } from '~@/navigation'
 import styles from './style'

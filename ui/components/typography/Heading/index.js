@@ -1,4 +1,4 @@
-import React from 'react'
+import { forwardRef } from 'react'
 import { Text } from '../Text'
 
 const base = {
@@ -7,6 +7,6 @@ const base = {
     lineHeight: 'heading',
 }
 
-export const Heading = React.forwardRef(function Heading(props, ref) {
+export const Heading = forwardRef(function Heading(props, ref) {
     return <Text ref={ref} as="h2" variant="heading" spacing={0} {...props} __css={base} />
 })

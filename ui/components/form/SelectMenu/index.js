@@ -1,13 +1,11 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { forwardRef, useContext, Children, isValidElement, cloneElement } from 'react'
 import { MenuButton, Menu, MenuItemRadio, MenuItemCheckbox, MenuGroup } from 'reakit/Menu'
 import { unstable_IdProvider as IdProvider, unstable_useId as useId } from 'reakit/Id'
 
-import Dropdown from '../Dropdown'
-import Select, { SelectContext } from './context'
+import { Dropdown } from '../Dropdown'
+import { SelectContext, Select } from './context'
 
-export const SelectButton = forwardRef(function ({ children, ...rest }, ref) {
+export const SelectButton = forwardRef(function SelectButton({ children, ...rest }, ref) {
     const select = useContext(SelectContext)
 
     return (
@@ -24,7 +22,7 @@ export const SelectButton = forwardRef(function ({ children, ...rest }, ref) {
     )
 })
 
-export const SelectList = forwardRef(function ({ prefix, id, children, name, ...rest }, ref) {
+export const SelectList = forwardRef(function SelectList({ prefix, id, children, name, ...rest }, ref) {
     const { isGroup, isMulti, hasTags, ...select } = useContext(SelectContext)
     const asProp = isGroup ? 'div' : 'ul'
     const showTags = isMulti && hasTags
@@ -52,7 +50,7 @@ export const SelectList = forwardRef(function ({ prefix, id, children, name, ...
     )
 })
 
-export const SelectGroup = forwardRef(function ({ id: defaultId, label, name, children, ...rest }, ref) {
+export const SelectGroup = forwardRef(function SelectGroup({ id: defaultId, label, name, children, ...rest }, ref) {
     const select = useContext(SelectContext)
     const { id } = useId({ id: defaultId })
 
@@ -72,7 +70,7 @@ export const SelectGroup = forwardRef(function ({ id: defaultId, label, name, ch
     )
 })
 
-export const SelectOption = forwardRef(function ({ children, ...rest }, ref) {
+export const SelectOption = forwardRef(function SelectOption({ children, ...rest }, ref) {
     const { isMulti, ...select } = useContext(SelectContext)
     const Element = isMulti ? MenuItemCheckbox : MenuItemRadio
 
@@ -92,4 +90,4 @@ Select.List = SelectList
 Select.Group = SelectGroup
 Select.Item = SelectOption
 
-export default Select
+export { Select }

@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Reveal } from '~@/general'
-import { Step, StepList, StepPanel } from '~/components/navigation/Steps'
+import { Step, StepList, StepPanel } from '~@/navigation'
 import Form from './Form'
 import StepFindTable from './StepFindTable'
 import StepGuestDetails from './StepGuestDetails'

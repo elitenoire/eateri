@@ -1,11 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
 import { Heading, Text } from '~@/typography'
 import { Icon, Reveal } from '~@/general'
+import { WaveDecoration } from '~@/other'
 
 import ImageStrip from './ImageStrip'
-import WaveDecoration from '~@/other/WaveDecoration'
 
 import styles from './style'
 

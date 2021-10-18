@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useState, useCallback } from 'react'
 import { Box, Container } from '@theme-ui/components'
 
@@ -7,8 +5,7 @@ import Headroom from 'react-headroom'
 
 import { Heading, Text } from '~@/typography'
 import { Scrollable } from '~@/display'
-import { SearchBar, Switcher } from '~@/form'
-import Select from '~@/form/SelectMenu'
+import { SearchBar, Switcher, Select } from '~@/form'
 import { Button } from '~@/general'
 
 import MenuTitle from './MenuTitle'
@@ -64,7 +61,7 @@ export default function MenuLayout({ children }) {
                     </Scrollable>
                 </div>
                 <div sx={styles.searchTermCount}>
-                    <Heading as="h3" variant="h5" mb={1} mt={[2, null, 4]}>
+                    <Heading as="h3" variant="h5" sx={styles.searchTermCountHeading}>
                         All (178)
                     </Heading>
                 </div>

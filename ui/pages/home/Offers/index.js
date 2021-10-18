@@ -1,10 +1,8 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Container } from '@theme-ui/components'
-import Scrollable from '~@/display/Scrollable'
+import { Scrollable } from '~@/display'
 import { Icon, Reveal } from '~@/general'
 import { Heading, Text } from '~@/typography'
-import WaveDecoration from '~@/other/WaveDecoration'
+import { WaveDecoration } from '~@/other'
 import DoodleBgSvg from '~/public/inlineSvg/bg-blobring.svg'
 
 import styles from './style'

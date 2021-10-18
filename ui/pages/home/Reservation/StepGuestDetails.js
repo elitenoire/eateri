@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Input } from '@theme-ui/components'
 import { useFormContext } from 'react-hook-form'
 import TextareaAutosize from 'react-textarea-autosize'

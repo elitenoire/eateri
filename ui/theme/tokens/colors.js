@@ -1,4 +1,4 @@
-export default {
+export const colors = {
     black: '#090a0c',
     white: '#ffffff',
     gray: '#eeeeee', // '#f8f9fa',
@@ -11,6 +11,7 @@ export default {
         10: 'rgba(255, 255, 255, 0.1)',
         20: 'rgba(255, 255, 255, 0.2)',
         30: 'rgba(255, 255, 255, 0.3)',
+        35: 'rgba(255, 255, 255, 0.35)',
         50: 'rgba(255, 255, 255, 0.5)',
         60: 'rgba(255, 255, 255, 0.6)',
         70: 'rgba(255, 255, 255, 0.7)',
@@ -20,6 +21,7 @@ export default {
         10: 'rgba(23, 26, 29, 0.1)',
         20: 'rgba(23, 26, 29, 0.2)',
         30: 'rgba(23, 26, 29, 0.3)',
+        35: 'rgba(23, 26, 29, 0.35)',
         50: 'rgba(23, 26, 29, 0.5)',
         60: 'rgba(23, 26, 29, 0.6)',
         70: 'rgba(23, 26, 29, 0.7)',
@@ -60,6 +62,7 @@ export default {
         dark: '#663a11', // '#933A0D',
     },
     background: '#fefefd', // #fafbfd
+    autofillBackgroundColor: '#fff1d4',
     text: '#171a1d',
     textFade: 'rgba(23, 26, 29,0.75)',
     textDark: '#090a0c',

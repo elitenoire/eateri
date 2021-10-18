@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Flipped } from 'react-flip-toolkit'
 import { Card } from '@theme-ui/components'
 import { Reveal } from '~@/general/Reveal'

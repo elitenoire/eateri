@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { forwardRef, Fragment } from 'react'
-import { jsx } from '@emotion/react'
+import { forwardRef, Fragment, Children as ReactChildren } from 'react'
 import { isFragment, isValidElementType } from 'react-is'
 import { fadeInUp } from './keyframes'
 
@@ -57,163 +55,161 @@ function AnimatedText({
     return <span ref={textRef}>{animatedWords}</span>
 }
 
-const Reveal = forwardRef(function Reveal
-    (
-        {
-            as: Tag,
-            forwardAs: as,
-            cascade = false,
-            damping = 0.3,
-            duration = 400,
-            motion = fadeInUp,
-            delay = 0,
-            when = true,
-            timingFunction,
-            fillMode,
-            whenInView,
-            hideUntilReveal,
-            threshold,
-            triggerOnce,
-            className,
-            style,
-            children,
-            ...rest
-        },
-        ref
-    ) {
-        const animationProps = { cascade, damping, duration, timingFunction, fillMode, motion, delay }
-        const styleProps = { className, style }
+const Reveal = forwardRef(function Reveal(
+    {
+        as: Tag,
+        forwardAs: as,
+        cascade = false,
+        damping = 0.3,
+        duration = 400,
+        motion = fadeInUp,
+        delay = 0,
+        when = true,
+        timingFunction,
+        fillMode,
+        whenInView,
+        hideUntilReveal,
+        threshold,
+        triggerOnce,
+        className,
+        style,
+        children,
+        ...rest
+    },
+    ref
+) {
+    const animationProps = { cascade, damping, duration, timingFunction, fillMode, motion, delay }
+    const styleProps = { className, style }
 
-        const _hiddenCss = hideUntilReveal ? hiddenCss : null
+    const _hiddenCss = hideUntilReveal ? hiddenCss : null
 
-        const makeAnimated = nodes => {
-            if (!nodes) return null
+    const makeAnimated = nodes => {
+        if (!nodes) return null
 
-            if (typeof nodes === 'string') {
-                if (whenInView) {
-                    return (
-                        <InView threshold={threshold} triggerOnce={triggerOnce}>
-                            {({ inView, ref: targetRef }) => (
-                                <AnimatedText textRef={targetRef} when={inView} hideUntilReveal {...animationProps}>
-                                    {nodes}
-                                </AnimatedText>
-                            )}
-                        </InView>
-                    )
-                }
-
+        if (typeof nodes === 'string') {
+            if (whenInView) {
                 return (
-                    <AnimatedText textRef={ref} when={when} hideUntilReveal={hideUntilReveal} {...animationProps}>
-                        {nodes}
-                    </AnimatedText>
+                    <InView threshold={threshold} triggerOnce={triggerOnce}>
+                        {({ inView, ref: targetRef }) => (
+                            <AnimatedText textRef={targetRef} when={inView} hideUntilReveal {...animationProps}>
+                                {nodes}
+                            </AnimatedText>
+                        )}
+                    </InView>
                 )
             }
 
-            if (isFragment(nodes)) {
-                if (whenInView) {
-                    return (
-                        <InView threshold={threshold} triggerOnce={triggerOnce}>
-                            {({ inView, ref: targetRef }) => (
-                                <div
-                                    ref={targetRef}
-                                    css={
-                                        inView
-                                            ? getAnimationCss({
-                                                  keyframes: motion,
-                                                  delay,
-                                                  duration,
-                                                  timingFunction,
-                                                  fillMode,
-                                              })
-                                            : hiddenCss
-                                    }
-                                    {...(!Tag && styleProps)}
-                                    {...(!Tag && rest)}
-                                >
-                                    {nodes}
-                                </div>
-                            )}
-                        </InView>
-                    )
-                }
-                return (
-                    <div
-                        ref={ref}
-                        css={
-                            when
-                                ? getAnimationCss({ keyframes: motion, delay, duration, timingFunction, fillMode })
-                                : _hiddenCss
-                        }
-                        {...(!Tag && styleProps)}
-                        {...(!Tag && rest)}
-                    >
-                        {nodes}
-                    </div>
-                )
-            }
-
-            return React.Children.map(nodes, (node, index) => {
-                if (!isValidElementType(node.type)) return node
-                const nodeElement = node
-
-                const getNodeCss = (theme, reveal, hiddencss) => {
-                    const nodeCss = []
-
-                    if (nodeElement.props.css) {
-                        const _css =
-                            typeof nodeElement.props.css === 'function'
-                                ? nodeElement.props.css(theme)
-                                : nodeElement.props.css
-                        nodeCss.push(_css)
-                    }
-
-                    if (reveal) {
-                        nodeCss.push(
-                            getAnimationCss({
-                                keyframes: motion,
-                                delay: delay + (cascade ? index * duration * damping : 0),
-                                duration,
-                                timingFunction,
-                                fillMode,
-                            })
-                        )
-                    } else if (hiddencss) {
-                        nodeCss.push(hiddencss)
-                    }
-                    return nodeCss
-                }
-
-                if (whenInView) {
-                    return (
-                        <InView threshold={threshold} triggerOnce={triggerOnce}>
-                            {({ inView, ref: targetRef }) =>
-                                cloneElement(nodeElement, {
-                                    ref: targetRef,
-                                    css: t => getNodeCss(t, inView, hiddenCss),
-                                })
-                            }
-                        </InView>
-                    )
-                }
-
-                return cloneElement(nodeElement, {
-                    ref,
-                    css: t => getNodeCss(t, when, _hiddenCss),
-                })
-            })
-        }
-
-        if (Tag) {
-            const asProp = as ? { as } : {}
             return (
-                <Tag {...asProp} className={className} style={style} {...rest}>
-                    {makeAnimated(children)}
-                </Tag>
+                <AnimatedText textRef={ref} when={when} hideUntilReveal={hideUntilReveal} {...animationProps}>
+                    {nodes}
+                </AnimatedText>
             )
         }
 
-        return <Fragment>{makeAnimated(children)}</Fragment>
+        if (isFragment(nodes)) {
+            if (whenInView) {
+                return (
+                    <InView threshold={threshold} triggerOnce={triggerOnce}>
+                        {({ inView, ref: targetRef }) => (
+                            <div
+                                ref={targetRef}
+                                css={
+                                    inView
+                                        ? getAnimationCss({
+                                              keyframes: motion,
+                                              delay,
+                                              duration,
+                                              timingFunction,
+                                              fillMode,
+                                          })
+                                        : hiddenCss
+                                }
+                                {...(!Tag && styleProps)}
+                                {...(!Tag && rest)}
+                            >
+                                {nodes}
+                            </div>
+                        )}
+                    </InView>
+                )
+            }
+            return (
+                <div
+                    ref={ref}
+                    css={
+                        when
+                            ? getAnimationCss({ keyframes: motion, delay, duration, timingFunction, fillMode })
+                            : _hiddenCss
+                    }
+                    {...(!Tag && styleProps)}
+                    {...(!Tag && rest)}
+                >
+                    {nodes}
+                </div>
+            )
+        }
+
+        return ReactChildren.map(nodes, (node, index) => {
+            if (!isValidElementType(node.type)) return node
+            const nodeElement = node
+
+            const getNodeCss = (theme, reveal, hiddencss) => {
+                const nodeCss = []
+
+                if (nodeElement.props.css) {
+                    const _css =
+                        typeof nodeElement.props.css === 'function'
+                            ? nodeElement.props.css(theme)
+                            : nodeElement.props.css
+                    nodeCss.push(_css)
+                }
+
+                if (reveal) {
+                    nodeCss.push(
+                        getAnimationCss({
+                            keyframes: motion,
+                            delay: delay + (cascade ? index * duration * damping : 0),
+                            duration,
+                            timingFunction,
+                            fillMode,
+                        })
+                    )
+                } else if (hiddencss) {
+                    nodeCss.push(hiddencss)
+                }
+                return nodeCss
+            }
+
+            if (whenInView) {
+                return (
+                    <InView threshold={threshold} triggerOnce={triggerOnce}>
+                        {({ inView, ref: targetRef }) =>
+                            cloneElement(nodeElement, {
+                                ref: targetRef,
+                                css: t => getNodeCss(t, inView, hiddenCss),
+                            })
+                        }
+                    </InView>
+                )
+            }
+
+            return cloneElement(nodeElement, {
+                ref,
+                css: t => getNodeCss(t, when, _hiddenCss),
+            })
+        })
     }
-)
+
+    if (Tag) {
+        const asProp = as ? { as } : {}
+        return (
+            <Tag {...asProp} className={className} style={style} {...rest}>
+                {makeAnimated(children)}
+            </Tag>
+        )
+    }
+
+    return <>{makeAnimated(children)}</>
+})
 
 export default Reveal

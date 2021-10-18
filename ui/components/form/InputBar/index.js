@@ -1,27 +1,25 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React from 'react'
+import { forwardRef } from 'react'
 import { Input } from '@theme-ui/components'
 
 import styles from './style'
 
-const InputBar = React.forwardRef(
-    (
-        {
-            radius,
-            bg,
-            color,
-            borderColor,
-            borderColorFocus,
-            boxShadowFocus,
-            placeholderColor,
-            className,
-            sx,
-            children,
-            ...rest
-        },
-        ref
-    ) => (
+const InputBar = forwardRef(function InputBar(
+    {
+        radius,
+        bg,
+        color,
+        borderColor,
+        borderColorFocus,
+        boxShadowFocus,
+        placeholderColor,
+        className,
+        sx,
+        children,
+        ...rest
+    },
+    ref
+) {
+    return (
         <div
             className={className}
             sx={styles.inputBar({
@@ -39,8 +37,6 @@ const InputBar = React.forwardRef(
             {children}
         </div>
     )
-)
-
-InputBar.displayName = 'InputBar'
+})
 
 export default InputBar

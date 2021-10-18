@@ -1,12 +1,11 @@
 import App from 'next/app'
 import Head from 'next/head'
-import React from 'react'
 import { DefaultSeo } from 'next-seo'
 import { ThemeProvider } from '@theme-ui/core'
 import { ColorModeProvider } from '@theme-ui/color-modes'
 import { Flipper } from 'react-flip-toolkit'
 import MenuProvider from '~/context/menu'
-import theme from '~/theme'
+import { theme } from '~/theme'
 import GlobalStyle from '~/theme/global'
 import { getLayout as getDefaultLayout } from '~@/layout/DefaultLayout'
 

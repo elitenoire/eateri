@@ -1,14 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React, { useCallback } from 'react'
+import { forwardRef, useCallback } from 'react'
 import { CompositeItem } from 'reakit/Composite'
 
 import { useCompositeContext, useStepValue, useStepControl } from './useStepState'
+import { CURRENT, COMPLETED } from '~/constants'
 
 import { stepStyle } from './style'
-
-const CURRENT = 'current'
-const COMPLETED = 'completed'
 
 const getStatus = (currentStep, index) => {
     if (index === currentStep) {
@@ -21,7 +17,7 @@ const getStatus = (currentStep, index) => {
     return undefined
 }
 
-const Step = React.forwardRef(({ as: Tag, status, title, index, children, ...rest }, ref) => {
+const Step = forwardRef(function Step({ as: Tag, status, title, index, children, ...rest }, ref) {
     const label = `Step ${index}: ${children}`
     if (status === COMPLETED) {
         const ariaLabel = `Go to completed ${label}`
@@ -63,9 +59,7 @@ const Step = React.forwardRef(({ as: Tag, status, title, index, children, ...res
     )
 })
 
-Step.displayName = 'Step'
-
-const StepItem = ({ index, title, children }) => {
+function StepItem({ index, title, children }) {
     const composite = useCompositeContext()
     const { currentStep, linear } = useStepValue()
     const { moveStep } = useStepControl()

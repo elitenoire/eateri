@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Heading, Text } from '~@/typography'
 import { Icon, Button } from '~@/general'
 import { HASH_ID_RESERVATIONS } from '~/constants'

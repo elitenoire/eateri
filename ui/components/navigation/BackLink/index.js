@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import NextLink from 'next/link'
 import { Link } from '@theme-ui/components'
 import { Icon } from '~@/general'

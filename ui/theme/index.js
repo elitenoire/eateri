@@ -1,10 +1,10 @@
-import colors from './tokens/colors'
-import display from './tokens/display'
-import fonts from './tokens/fonts'
-import rhythm from './tokens/rhythm'
-import variants from './tokens/variants'
+import { colors } from './tokens/colors'
+import { display } from './tokens/display'
+import { fonts } from './tokens/fonts'
+import { variants } from './tokens/variants'
+import { rhythm } from './tokens/rhythm'
 
-export default {
+export const theme = {
     config: {
         initialColorModeName: 'light',
         useBorderBox: false,

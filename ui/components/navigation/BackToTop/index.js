@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useContext, useEffect, useState, useRef } from 'react'
 import { useScroll } from 'react-use-gesture'
 import { useSpring } from 'react-spring'

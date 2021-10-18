@@ -154,6 +154,10 @@ export const styles = {
     },
 
     searchTermCount: { gridArea: 'stc' },
+    searchTermCountHeading: {
+        mb: 1,
+        mt: [2, null, 4],
+    },
 
     sortView: {
         gridArea: 'sv',

@@ -1,9 +1,7 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import { Image, Badge } from '@theme-ui/components'
 import { Text } from '~@/typography'
-import Button from '~@/general/Button'
+import { Button } from '~@/general'
 import styles from './style'
 
 function FoodCard({

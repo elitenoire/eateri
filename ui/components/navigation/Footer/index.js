@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { memo } from 'react'
 import { Heading, Text } from '~@/typography'
 import { Icon, Button, Reveal, popIn, fadeInRight } from '~@/general'

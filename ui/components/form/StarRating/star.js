@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { jsx, useThemeUI } from '@theme-ui/core'
 import { useState, useCallback } from 'react'
+import { useThemeUI } from '@theme-ui/core'
 import { getColor } from '@theme-ui/color'
 
 import styles from './style'

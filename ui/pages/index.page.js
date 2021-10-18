@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Head from 'next/head'
 import Hero from '~/pages/home/Hero'
 import Offers from '~/pages/home/Offers'

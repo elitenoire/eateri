@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Avatar, Image } from '@theme-ui/components'
 import { Text } from '~@/typography'
 import styles from './style'

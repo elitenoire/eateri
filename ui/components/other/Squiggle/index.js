@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Box } from '@theme-ui/components'
 import styles from './style'
 

@@ -42,7 +42,7 @@ export const SelectContext = createContext()
  * selectionLimit -> applies only to multi select
  */
 
-function Select({ name = 'test-item', value, onChange, multi, group, children, ...initialState }) {
+export function Select({ name = 'select-item', value, onChange, multi, group, children, ...initialState }) {
     const menu = useMenuState({ unstable_values: normalizer(name, value), ...initialState })
 
     const [{ isGroup, isMulti }] = useState(makeOptions({ value, multi, group }))
@@ -64,5 +64,3 @@ function Select({ name = 'test-item', value, onChange, multi, group, children, .
     }, [_value, isGroup, onChange])
     return <SelectContext.Provider value={values}>{children}</SelectContext.Provider>
 }
-
-export default Select

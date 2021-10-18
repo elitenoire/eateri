@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Container, Grid } from '@theme-ui/components'

@@ -1,7 +1,7 @@
 import { alpha } from '@theme-ui/color'
 import { isNumber, readableColor } from '~/lib/utils'
 
-export default {
+export const variants = {
     buttons: {
         brands: {
             solid: ({ color, link }) => ({

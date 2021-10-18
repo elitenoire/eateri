@@ -1,7 +1,5 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import Image from 'next/image'
-import { Box, Container, AspectRatio, Progress } from '@theme-ui/components'
+import { Box, AspectRatio, Progress } from '@theme-ui/components'
 
 import { Text } from '~@/typography'
 import { Button } from '~@/general'
@@ -25,7 +23,7 @@ function MenuFoodCard() {
                     <div>
                         <Box p={2} bg="gray" />
                     </div>
-                    <Text size={[null, null, null, 1]} mb={2} weight="500" decoration="none" truncate={2}>
+                    <Text mb={2} weight="500" truncate={2} sx={styles.title}>
                         Chicken Fried Rice with Egg Sauce
                     </Text>
                     <Text weight="bold">N1500</Text>

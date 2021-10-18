@@ -1,4 +1,4 @@
-import R from '~/theme/tokens/rhythm'
+import { rhythm as R } from '~/theme/tokens/rhythm'
 import logobgUrl from '~/public/logo-bg.svg'
 
 const styles = {

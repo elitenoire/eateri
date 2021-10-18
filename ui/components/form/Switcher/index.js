@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { forwardRef } from 'react'
 import { Checkbox, useCheckboxState } from 'reakit/Checkbox'
 
@@ -9,7 +7,7 @@ import styles from './style'
 
 export const useSwitcherState = useCheckboxState
 
-const Switcher = forwardRef(function (
+const Switcher = forwardRef(function Switcher(
     {
         color = 'secondary',
         radius = 'pill',

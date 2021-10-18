@@ -1,14 +1,12 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { Text } from '~@/typography'
-import Button from '~@/general/Button'
+import { Button } from '~@/general'
 import styles from './style'
 import url from '~/public/dish.png'
 
 const stopBubbling = e => {
     e.stopPropagation()
 }
-const CarouselCard = ({ data, isMobile }) => {
+function CarouselCard({ data, isMobile }) {
     const addToBag = e => console.log('ADDED TO BAG')
 
     return (

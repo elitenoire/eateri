@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { keyframes } from '@emotion/react'
 
 // https://github.com/jferrettiboke/ds/blob/master/src/components/LoadingDots.js

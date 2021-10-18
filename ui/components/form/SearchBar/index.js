@@ -1,12 +1,10 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { forwardRef, useState, useCallback } from 'react'
 import { Input } from '@theme-ui/components'
 import { Icon } from '~@/general'
 
 import styles from './style'
 
-const SearchBar = forwardRef(function (
+const SearchBar = forwardRef(function SearchBar(
     {
         radius = 'pill',
         bg,

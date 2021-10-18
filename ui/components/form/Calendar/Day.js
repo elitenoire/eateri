@@ -1,6 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import React, { useRef, useEffect } from 'react'
+import { useRef, useEffect, memo } from 'react'
 import format from 'date-fns/format'
 
 import { weekDayNames } from './locale'
@@ -11,7 +9,7 @@ const getDateStatus = ({ selectable, selected }) => {
     return selected ? 'Selected. ' : _status
 }
 
-const Day = ({
+function Day({
     rowId,
     index,
     day,
@@ -29,7 +27,7 @@ const Day = ({
     ariaDateStatus,
     onWeekChange,
     onDayKeyDown,
-}) => {
+}) {
     const dayRef = useRef()
     const date = new Date(year, month, day)
     const dateObj = { date, selected, selectable, today, prevMonth, nextMonth }
@@ -95,6 +93,6 @@ const updateDay = (prev, next) =>
     prev.today === next.today &&
     prev.canTabFirstDay === next.canTabFirstDay
 
-const CalendarDay = React.memo(Day, updateDay)
+const CalendarDay = memo(Day, updateDay)
 
 export default CalendarDay

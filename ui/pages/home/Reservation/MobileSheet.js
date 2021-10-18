@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useRef, useState, useCallback, useEffect } from 'react'
 import useInView from 'react-cool-inview'
 import { BottomSheet } from 'react-spring-bottom-sheet'
@@ -14,6 +12,7 @@ import styles from './style'
 
 const getBackdropStyle = spring => ({ '--rsbs-backdrop-opacity': spring.opacity })
 
+// TODO: After mobile sheet reveal, page becomes unresponsive due to body scroll lock
 function MobileSheet({ children }) {
     const sheetRef = useRef()
     const snapPointsRef = useRef([])

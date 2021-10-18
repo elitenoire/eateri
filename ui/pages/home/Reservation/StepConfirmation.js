@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useFormContext, Controller } from 'react-hook-form'
 import { Image } from '@theme-ui/components'
 

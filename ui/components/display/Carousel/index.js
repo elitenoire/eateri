@@ -1,27 +1,25 @@
-/** @jsx jsx */
 import { useRef, useEffect, useCallback } from 'react'
 import { useSpring, useSprings, a } from 'react-spring'
 import { useWheel, useDrag } from 'react-use-gesture'
-import { jsx } from '@theme-ui/core'
 import { clamp } from '~/lib/utils'
 import * as animations from './animation'
 import styles from './style'
 
-const Carousel = ({
+function Carousel({
+    animation = 'slide',
+    visible = 2,
+    infinite = true,
+    selected = 0,
+    progressBar = true,
+    progressDelay = 500,
+    itemOffset = 0.2,
+    itemWidth = 60,
     items,
-    animation,
-    visible,
-    infinite,
-    selected,
-    progressBar,
-    progressDelay,
-    goto,
     direction,
-    itemOffset,
-    itemWidth,
-    children,
+    goto,
     onSelect,
-}) => {
+    children,
+}) {
     // Internal variables
     const isStackAnimation = animation === 'stack'
     const _width = isStackAnimation ? itemWidth : 100 / (visible + itemOffset)
@@ -266,17 +264,6 @@ const Carousel = ({
             )}
         </>
     )
-}
-
-Carousel.defaultProps = {
-    animation: 'slide',
-    visible: 2,
-    itemWidth: 60,
-    itemOffset: 0.2,
-    infinite: true,
-    selected: 0,
-    progressBar: true,
-    progressDelay: 500,
 }
 
 export default Carousel

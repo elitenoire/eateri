@@ -1,5 +1,5 @@
 import { alpha } from '@theme-ui/color'
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import { toEm, breakpointsMap } from '~/theme/tokens/rhythm'
 
 const pop = keyframes`

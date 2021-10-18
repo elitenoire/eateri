@@ -1,7 +1,4 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import { Logo } from '~@/general'
-import { Reveal, fadeInDown } from '~@/general/Reveal'
+import { Logo, Reveal, fadeInDown } from '~@/general'
 import { LeafletMap } from '~@/other'
 import { HoursBlock, ContactBlock, ChatButton, ReservationButton } from './common'
 

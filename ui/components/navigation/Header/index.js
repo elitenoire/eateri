@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useState, useCallback, useRef } from 'react'
 import Link from 'next/link'
 import Headroom from 'react-headroom'

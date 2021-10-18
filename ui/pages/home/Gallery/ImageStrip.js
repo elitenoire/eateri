@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import useInView from 'react-cool-inview'
 
 import styles from './style'

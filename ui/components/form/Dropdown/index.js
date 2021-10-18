@@ -10,4 +10,4 @@ Dropdown.Item = DropdownItem
 Dropdown.List = DropdownList
 Dropdown.Separator = MenuSeparator
 
-export default Dropdown
+export { Dropdown }

@@ -1,11 +1,9 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { forwardRef } from 'react'
 import { Icon, Button } from '~@/general'
 
 import { ddButtonSX } from './style'
 
-const DropdownButton = forwardRef(function (
+const DropdownButton = forwardRef(function DropdownButton(
     { brand = 'muted', bg, icon, label, value, active, hideArrow, children, ...rest },
     ref
 ) {

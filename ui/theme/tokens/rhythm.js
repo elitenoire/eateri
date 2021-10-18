@@ -52,7 +52,7 @@ space.body = '1.25em'
 space.bodyNegative = '-1.25em'
 space.tiny = '6px'
 
-export default {
+export const rhythm = {
     space,
     sizes: {
         container: '45em',
@@ -64,3 +64,5 @@ export default {
     fresnelBreakpoints,
     mediaQueries,
 }
+
+// export default rhythm

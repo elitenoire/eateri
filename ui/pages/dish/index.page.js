@@ -1,5 +1,3 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
 import { useState, useRef, useEffect } from 'react'
 import Image from 'next/image'
 import useInView from 'react-cool-inview'
@@ -326,7 +324,7 @@ function DishLayout() {
                         </div>
                     </div>
                 </section>
-                <Box as="section" data-lined bg={[null, null, null, 'primary.light']} sx={styles.otherSection}>
+                <section data-lined sx={{ ...styles.otherSection, bg: [null, null, null, 'primary.light'] }}>
                     <div sx={styles.flexLayout}>
                         <div sx={styles.sectionHeader}>
                             <div>
@@ -385,7 +383,7 @@ function DishLayout() {
                             </Scrollable>
                         </div>
                     </div>
-                </Box>
+                </section>
                 <aside sx={styles.fixedToBottom}>
                     <Reveal
                         motion={showBar ? slideUp : slideDown}

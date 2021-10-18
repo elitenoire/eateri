@@ -1,6 +1,5 @@
-/** @jsx jsx */
-import { jsx, useThemeUI } from '@theme-ui/core'
-import React from 'react'
+import { memo } from 'react'
+import { useThemeUI } from '@theme-ui/core'
 import { Map, Marker, TileLayer, Popup, CircleMarker } from 'react-leaflet'
 
 import styles from './styles'
@@ -20,7 +19,7 @@ const other = {
     scrollWheelZoom: false,
 }
 
-const LeafletMap = () => {
+function LeafletMap() {
     const {
         theme: { colors },
     } = useThemeUI()
@@ -57,6 +56,6 @@ const LeafletMap = () => {
     )
 }
 
-const MemoizedMap = React.memo(LeafletMap)
+const MemoizedMap = memo(LeafletMap)
 
 export default MemoizedMap

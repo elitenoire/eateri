@@ -1,6 +1,6 @@
-import React, { useState, useRef } from 'react'
+import { createContext, useState, useRef } from 'react'
 
-export const MenuContext = React.createContext({
+export const MenuContext = createContext({
     isOpen: false,
     closeMenu: () => ({}),
     toggleMenu: () => ({}),

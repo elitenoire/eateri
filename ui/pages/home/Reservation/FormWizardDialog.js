@@ -1,13 +1,11 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
-import { Container } from '@theme-ui/components'
 import { useRef, useCallback, useEffect } from 'react'
+import { Container } from '@theme-ui/components'
 import { useDialogState, Dialog, DialogDisclosure } from 'reakit/Dialog'
 import format from 'date-fns/format'
 
 import { Text } from '~@/typography'
 import { Button, Divider, fadeInUp, Icon, Reveal, fadeOutDown, zoomInUp } from '~@/general'
-import { useStepControl } from '~@/navigation/Steps'
+import { useStepControl } from '~@/navigation'
 
 import FormWizard from './FormWizard'
 import { useDateValue, useGuestValue, useTimeValue, useIsToday } from './useFormDialogState'
@@ -64,7 +62,7 @@ function GuestText({ title }) {
     )
 }
 
-function FormDialog({ defaultValues }) {
+function FormWizardDialog({ defaultValues }) {
     const guestRef = useRef()
     const dateRef = useRef()
     const timeRef = useRef()
@@ -169,4 +167,4 @@ function FormDialog({ defaultValues }) {
     )
 }
 
-export default FormDialog
+export default FormWizardDialog

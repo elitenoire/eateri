@@ -1,8 +1,6 @@
-/** @jsx jsx */
-import { jsx } from '@theme-ui/core'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import { useState, useEffect } from 'react'
 import { NextSeo } from 'next-seo'
 import { Container } from '@theme-ui/components'
 import { Button } from '~@/general'
@@ -45,7 +43,7 @@ export default function Error404() {
 
     useEffect(() => {
         const path = router.asPath.toLowerCase()
-        const pathMatch = path.match(/\/services\/[^\/]+$/)
+        const pathMatch = path.match(/\/services\/[^/]+\/*$/)
         const isServicesScreen = !!pathMatch
         setIsServices(isServicesScreen)
     }, [router.asPath])
