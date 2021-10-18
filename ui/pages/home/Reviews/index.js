@@ -36,7 +36,7 @@ function ReviewCard({ author, review }) {
 }
 
 function Reviews() {
-    const { ref: reviewBlockRef, inView } = useInView({
+    const { observe, inView } = useInView({
         threshold: 0,
         rootMargin: '100px 0px 100px 0px',
     })
@@ -79,7 +79,7 @@ function Reviews() {
                                 <Image src={url} />
                             </div>
                         </div>
-                        <div ref={reviewBlockRef} sx={styles.reviewBlock}>
+                        <div ref={observe} sx={styles.reviewBlock}>
                             <GliderBullets colors={colors} count={reviews.length} />
                             <Text color="textLight" weight="light" size={7} italic sx={styles.subText}>
                                 ~See for yourself~

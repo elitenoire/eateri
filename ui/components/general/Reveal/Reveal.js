@@ -90,8 +90,8 @@ const Reveal = forwardRef(function Reveal(
             if (whenInView) {
                 return (
                     <InView threshold={threshold} triggerOnce={triggerOnce}>
-                        {({ inView, ref: targetRef }) => (
-                            <AnimatedText textRef={targetRef} when={inView} hideUntilReveal {...animationProps}>
+                        {({ inView, observe }) => (
+                            <AnimatedText textRef={observe} when={inView} hideUntilReveal {...animationProps}>
                                 {nodes}
                             </AnimatedText>
                         )}
@@ -110,9 +110,9 @@ const Reveal = forwardRef(function Reveal(
             if (whenInView) {
                 return (
                     <InView threshold={threshold} triggerOnce={triggerOnce}>
-                        {({ inView, ref: targetRef }) => (
+                        {({ inView, observe }) => (
                             <div
-                                ref={targetRef}
+                                ref={observe}
                                 css={
                                     inView
                                         ? getAnimationCss({
@@ -183,9 +183,9 @@ const Reveal = forwardRef(function Reveal(
             if (whenInView) {
                 return (
                     <InView threshold={threshold} triggerOnce={triggerOnce}>
-                        {({ inView, ref: targetRef }) =>
+                        {({ inView, observe }) =>
                             cloneElement(nodeElement, {
-                                ref: targetRef,
+                                ref: observe,
                                 css: t => getNodeCss(t, inView, hiddenCss),
                             })
                         }

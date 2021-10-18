@@ -18,7 +18,7 @@ function MobileSheet({ children }) {
     const snapPointsRef = useRef([])
 
     // reveal sheet when page ends
-    const { ref, inView } = useInView({
+    const { observe, inView } = useInView({
         threshold: 0,
         rootMargin: '200px 0px 20px 0px',
     })
@@ -75,7 +75,7 @@ function MobileSheet({ children }) {
 
     return (
         <>
-            <div ref={ref} style={styles.mobileSheetTrigger} />
+            <div ref={observe} style={styles.mobileSheetTrigger} />
             <BottomSheet
                 ref={sheetRef}
                 open={inView}

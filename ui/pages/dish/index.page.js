@@ -20,7 +20,7 @@ function DishLayout() {
     const firstRenderRef = useRef(true)
     const [showBar, setShowBar] = useState(false)
 
-    const { ref: otherRef } = useInView({
+    const { observe } = useInView({
         threshold: 0.2,
         onEnter: () => {
             setShowBar(true)
@@ -195,7 +195,7 @@ function DishLayout() {
                     </div>
                 </div>
             </div>
-            <div ref={otherRef} sx={styles.otherWrap}>
+            <div ref={observe} sx={styles.otherWrap}>
                 <section sx={styles.otherSection}>
                     <div sx={styles.flexSplit}>
                         <div>
