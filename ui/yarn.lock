@@ -2725,7 +2725,7 @@ eslint-config-prettier@^8.3.0:
   resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-8.3.0.tgz#f7471b20b6fe8a9a9254cc684454202886a2dd7a"
   integrity sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==
 
-eslint-config-wesbos@^2.0.0:
+eslint-config-wesbos@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/eslint-config-wesbos/-/eslint-config-wesbos-2.0.1.tgz#9b5a7e669c9ae78faa1461257beaf5b4cf303ffc"
   integrity sha512-8wxHUCEdpjrjda7y8JgFqx8vsRKd2jx6oXSaP7OJ9aCFzWO7BdeGXDCxOCgQIllRFPBHNJERG6mDgApFpEyE/Q==

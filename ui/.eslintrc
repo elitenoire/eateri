@@ -10,16 +10,14 @@
 	],
 	"rules": {
 		"no-nested-ternary": 0,
+		"import/no-anonymous-default-export": "warn",
+		"react/no-danger": 0,
 		"react/prop-types": [
-			2,
+			"error",
 			{
 				"skipUndeclared": true
 			}
 		],
-		// "import/no-anonymous-default-export": "warn",
-		// "react/react-in-jsx-scope": 0,
-		"react/no-danger": 0,
-		// "react/jsx-props-no-spreading": 0,
 		"arrow-parens": [
 			2,
 			"as-needed"
