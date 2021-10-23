@@ -1,7 +1,7 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
 import useInView from 'react-cool-inview'
 import { BottomSheet } from 'react-spring-bottom-sheet'
-import { useSpring } from 'react-spring'
+import { useSpring } from '@react-spring/web'
 import { Heading } from '~@/typography'
 import { Icon } from '~@/general'
 import { useStepControl } from '~@/navigation'
@@ -10,7 +10,7 @@ import 'react-spring-bottom-sheet/dist/style.css'
 
 import styles from './style'
 
-const getBackdropStyle = spring => ({ '--rsbs-backdrop-opacity': spring.opacity })
+const getBackdropStyle = style => ({ '--rsbs-backdrop-opacity': style.opacity })
 
 // TODO: After mobile sheet reveal, page becomes unresponsive due to body scroll lock
 function MobileSheet({ children }) {
@@ -30,7 +30,7 @@ function MobileSheet({ children }) {
     const [blocking, setBlocking] = useState(false)
 
     // custom override to animate backdrop
-    const backdropSpring = useSpring({ opacity: expand ? 1 : 0 })
+    const animatedBackdropStyle = useSpring({ opacity: expand ? 1 : 0 })
 
     const setDefaultSnap = useCallback(({ headerHeight, snapPoints }) => {
         snapPointsRef.current = snapPoints
@@ -49,7 +49,8 @@ function MobileSheet({ children }) {
                 if (index > -1) {
                     setExpand(!!index)
                     // show backdrop for an open sheet
-                    if (index) setBlocking(true)
+                    // if (index) setBlocking(true)
+                    setBlocking(!!index)
                 }
             })
         }
@@ -81,8 +82,9 @@ function MobileSheet({ children }) {
                 open={inView}
                 blocking={blocking}
                 skipInitialTransition
+                expandOnContentDrag
                 sx={styles.mobileSheet}
-                style={getBackdropStyle(backdropSpring)}
+                style={getBackdropStyle(animatedBackdropStyle)}
                 defaultSnap={setDefaultSnap}
                 snapPoints={setSnapPoints}
                 onSpringStart={onSnapStart}

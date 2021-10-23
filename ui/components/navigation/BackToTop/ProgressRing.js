@@ -1,11 +1,11 @@
-import { a } from 'react-spring'
+import { a } from '@react-spring/web'
 
 import styles from './style'
 
-const getValueNow = max => value => Math.min(100, Math.round((value / max.getValue()) * 1000) / 10)
+const getValueNow = max => value => Math.min(100, Math.round((value / max.get()) * 1000) / 10)
 
 const getOffset = (max, circumference) => value => {
-    const offset = circumference - (value / max.getValue()) * circumference
+    const offset = circumference - (value / max.get()) * circumference
     return isNaN(offset) ? circumference : offset
 }
 
@@ -19,7 +19,7 @@ function ProgressRing({ size = 50, strokeWidth = size / 12.5, value = 0, max = 1
             role="progressbar"
             aria-valuemax={100}
             aria-valuemin={0}
-            aria-valuenow={value.interpolate(getValueNow(max))}
+            aria-valuenow={value.to(getValueNow(max))}
             viewBox={`0 0 ${size} ${size}`}
             {...rest}
         >
@@ -31,7 +31,7 @@ function ProgressRing({ size = 50, strokeWidth = size / 12.5, value = 0, max = 1
                 r={radius}
                 strokeWidth={strokeWidth}
                 strokeDasharray={circumference}
-                strokeDashoffset={value.interpolate(getOffset(max, circumference))}
+                strokeDashoffset={value.to(getOffset(max, circumference))}
                 strokeLinecap="round"
                 transform={`rotate(-90 ${size / 2} ${size / 2})`}
             />

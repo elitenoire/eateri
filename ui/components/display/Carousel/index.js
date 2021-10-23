@@ -1,9 +1,15 @@
 import { useRef, useEffect, useCallback } from 'react'
-import { useSpring, useSprings, a } from 'react-spring'
-import { useWheel, useDrag } from 'react-use-gesture'
+import { useSpring, useSprings, a } from '@react-spring/web'
+import { useWheel, useDrag } from '@use-gesture/react'
+import Langour from 'languor'
 import { clamp } from '~/lib/utils'
 import * as animations from './animation'
 import styles from './style'
+
+// removes inertial scrolling from wheel gesture
+// Note - the official example uses lethargy lib but
+// it's buggy using track pad hence using langour
+const langour = new Langour()
 
 function Carousel({
     animation = 'slide',
@@ -40,11 +46,9 @@ function Carousel({
     // Swipe Time Interval threshold in ms
     const SWIPE_INTERVAL_THRESHOLD = 400
     // Last swipe occurrence
-    const swipeTimeStampRef = useRef(0) // performance.now())
-    // Each new wheel
-    const isNewWheelRef = useRef(false)
-    // Threshold swipe to scroll more items
-    const WHEEL_VELOCITY_THRESHOLD = 2
+    const swipeTimeStampRef = useRef(0)
+    // Carousel Ref Element
+    const carouselEl = useRef()
     // Stack or Swipe config
     const getAnimationStyle = (style, animatedValues) =>
         _animation[style]({
@@ -89,14 +93,14 @@ function Carousel({
     const tailItem = (scrollPosIndexRef.current - 1 + _itemsCount) % _itemsCount
 
     // Initial Animation
-    // StackAnimation is cyclic/infinite
-    const [springs, set] = useSprings(_itemsCount, i => ({
+    // StackAnimation is cyclic/infinite by default
+    const [springs, api] = useSprings(_itemsCount, i => ({
         from: { x: visible, o: visible },
         to: { ...getAnimatedValues(i), peek: peekRef.current },
         immediate: isStackAnimation ? i === tailItem : true,
     }))
 
-    const [progress, setProgress] = useSpring(() => ({
+    const [progress, progressApi] = useSpring(() => ({
         from: { width: 0 },
         to: { width: syncScrollProgress() },
         delay: progressDelay,
@@ -108,7 +112,7 @@ function Carousel({
         // scroll animation
         scrollPosIndexRef.current = changeScrollPosIndex(scrollPosIndexRef.current, direction)
 
-        set(i => {
+        api.start(i => {
             const { x, z, o } = getAnimatedValues(i)
 
             return {
@@ -118,9 +122,9 @@ function Carousel({
                 immediate: () => (x <= -1 && direction < 0) || (x >= visible && direction > 0),
             }
         })
-    }, [changeScrollPosIndex, getAnimatedValues, direction, isStackAnimation, selected, visible, set])
+    }, [changeScrollPosIndex, getAnimatedValues, direction, isStackAnimation, selected, visible, api])
 
-    // Touch gesture triggers animation
+    // Drag and Wheel gestures trigger animation
     const onDrag = ({
         down,
         distance,
@@ -162,12 +166,12 @@ function Carousel({
                 scrollPosIndexRef.current = changeScrollPosIndex(scrollPosIndexRef.current, dir)
                 // sync selected stack item with current scroll progress
                 if (_showProgressBar) {
-                    setProgress({ width: syncScrollProgress() })
+                    progressApi.start({ width: syncScrollProgress() })
                 }
             }
         }
 
-        set(i => {
+        api.start(i => {
             peekRef.current = 0 // initial peek value
             if (isStackAnimation) {
                 // For non-swipe gesture, drag first/selected item, peek at the rest
@@ -196,45 +200,52 @@ function Carousel({
         })
     }
 
-    const onWheel = ({ direction: [xDir], velocity, elapsedTime, first }) => {
-        if (first) return (isNewWheelRef.current = true)
-        if (isNewWheelRef.current) {
-            const dir = xDir < 0 ? -1 : 1 // Direction should either point left or right
-            const swipeByOne = velocity > 0 && velocity < WHEEL_VELOCITY_THRESHOLD && elapsedTime <= 50
-            const swipeByTwo = velocity >= WHEEL_VELOCITY_THRESHOLD && elapsedTime <= 50
-            // eslint-disable-next-line no-nested-ternary
-            const swipes = swipeByTwo ? 2 : swipeByOne ? 1 : 0
-            // eslint-disable-next-line no-plusplus
-            for (let i = 0; i < swipes; i++) {
-                // TODO: Using i + 1 is causing infinite loop
+    const onWheel = ({ direction: [xDir, yDir], event, last, memo: wait = false }) => {
+        // event can be undefined as the last event is debounced
+        if (last) return
+        // prevent native browser scroll, stop propagation
+        event.preventDefault()
+        event.stopPropagation()
+        // true - inertia, false - intentional
+        const isInertia = langour.check(event)
+        if (!isInertia) {
+            // wait is going to switch from false to true when an intentional wheel
+            // event has been detected
+            if (!wait) {
+                // up/left/next: dir -> +1, down/right/prev: dir -> -1
+                const dir = yDir || xDir
                 scrollPosIndexRef.current = changeScrollPosIndex(scrollPosIndexRef.current, dir)
-                set(_i => {
+                api.start(_i => {
                     const { x, z, o } = getAnimatedValues(_i)
                     return {
                         x,
                         z,
                         o,
-                        immediate: () => (x <= -1 && xDir < 0) || (x >= visible && xDir > 0),
-                        delay: i * 100,
+                        // animate only visible items & their prev/next items
+                        immediate: () => (x <= -1 && dir < 0) || (x >= visible && dir > 0),
                     }
                 })
             }
-            isNewWheelRef.current = false
+            return true // will set to wait to true in the next event frame
         }
+        return false // will set to wait to false in the next event frame
     }
 
-    // Bind gestures
+    // bind and use gestures
     const bindDrag = useDrag(onDrag, {
         axis: 'x',
-        swipeVelocity: 0.2,
-        swipeDistance: 20,
+        swipe: {
+            velocity: 0.2,
+            distance: 20,
+        },
         filterTaps: true,
     })
-    const bindWheel = useWheel(onWheel, { enabled: !isStackAnimation, axis: 'x' })
 
-    // Animation style functions
+    useWheel(onWheel, { target: carouselEl, eventOptions: { passive: false }, enabled: !isStackAnimation })
+
+    // functions to apply animation styles
     const _sxProgress = () => ({
-        width: progress.width.interpolate(w => `${w}%`),
+        width: progress.width.to(w => `${w}%`),
     })
     const _sxSprings = values => ({
         width: `${_width}%`,
@@ -245,7 +256,7 @@ function Carousel({
 
     return (
         <>
-            <div className="carousel" sx={styles.carousel} {...bindWheel()}>
+            <div ref={carouselEl} className="carousel" sx={styles.carousel}>
                 {springs.map((animatedValues, i) => (
                     <a.div className="carousel-slide" key={i} {...bindDrag(i)} style={_sxSprings(animatedValues)}>
                         <a.div

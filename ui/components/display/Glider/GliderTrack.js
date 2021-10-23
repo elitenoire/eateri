@@ -1,14 +1,14 @@
 import { forwardRef, Children as ReactChildren } from 'react'
-import { animated } from 'react-spring'
+import { animated } from '@react-spring/web'
 
 import { gliderStyles } from './style'
 
 const getTrackTransform = x => ({
-    transform: x.interpolate(value => `translateX(${-value}%)`),
+    transform: x.to(value => `translateX(${-value}%)`),
 })
 
 const getGlideTransform = ({ idx, startIndex, totalGlides }) => ({
-    transform: startIndex.interpolate(value => `translateX(${(value <= idx ? -value : totalGlides - value) * 100}%)`),
+    transform: startIndex.to(value => `translateX(${(value <= idx ? -value : totalGlides - value) * 100}%)`),
 })
 
 const GliderTrack = forwardRef(function GliderTrack({ index, gap, visibleGlides, children, ...rest }, ref) {
@@ -16,7 +16,7 @@ const GliderTrack = forwardRef(function GliderTrack({ index, gap, visibleGlides,
     const tail = totalGlides - visibleGlides
     const trackWidth = 100 / totalGlides
 
-    const startIndex = index.interpolate(value => {
+    const startIndex = index.to(value => {
         if (!tail) {
             return 0
         }
@@ -28,7 +28,7 @@ const GliderTrack = forwardRef(function GliderTrack({ index, gap, visibleGlides,
         return (totalGlides + ((Math.ceil(value / tail) * tail - tail) % totalGlides)) % totalGlides
     })
 
-    const x = index.interpolate(value => {
+    const x = index.to(value => {
         if (!tail) {
             return 0
         }

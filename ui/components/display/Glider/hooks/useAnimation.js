@@ -1,12 +1,12 @@
 import { useRef } from 'react'
-import { useSpring } from 'react-spring'
+import { useSpring } from '@react-spring/web'
 
 const useAnimation = ({ totalGlides, onChange }) => {
     const prevIndex = useRef(0)
 
-    const [{ index }, animate] = useSpring(() => ({
+    const [{ index }, api] = useSpring(() => ({
         index: 0,
-        onFrame: value => {
+        onChange: ({ value }) => {
             if (!onChange) return
 
             const newIndex = ((Math.round(value.index) % totalGlides) + totalGlides) % totalGlides
@@ -18,7 +18,7 @@ const useAnimation = ({ totalGlides, onChange }) => {
         },
     }))
 
-    return { index, animate }
+    return { index, animate: api }
 }
 
 export default useAnimation

@@ -1,5 +1,4 @@
-import { useEffect } from 'react'
-import { useGesture } from 'react-use-gesture'
+import { useGesture } from '@use-gesture/react'
 
 const calcGlideWidth = ({ ref, visibleGlides, gap }) => {
     if (!(ref && ref.current)) return 0
@@ -10,7 +9,7 @@ const calcGlideWidth = ({ ref, visibleGlides, gap }) => {
 }
 
 const useDrag = ({ visibleGlides, enabled, index, gap, ref, animate, onStart, onEnd }) => {
-    const bind = useGesture(
+    useGesture(
         {
             onDragStart: () => {
                 onStart()
@@ -18,7 +17,7 @@ const useDrag = ({ visibleGlides, enabled, index, gap, ref, animate, onStart, on
             onDragEnd: ({ event }) => {
                 onEnd(event)
             },
-            onDrag: ({ down, movement: [mx], vxvy: [vx], memo }) => {
+            onDrag: ({ down, movement: [mx], velocity: [vx], memo }) => {
                 const glideWidth = memo || calcGlideWidth({ ref, visibleGlides, gap })
 
                 let newIndex = -mx / glideWidth
@@ -49,24 +48,19 @@ const useDrag = ({ visibleGlides, enabled, index, gap, ref, animate, onStart, on
             },
         },
         {
-            domTarget: ref,
+            target: ref,
             drag: {
                 filterTaps: true,
                 axis: 'x',
-                initial: () => {
+                from: () => {
                     const glideWidth = calcGlideWidth({ ref, visibleGlides, gap })
 
-                    return [-glideWidth * index.getValue(), 0]
+                    return [-glideWidth * index.get(), 0]
                 },
             },
+            enabled,
         }
     )
-
-    useEffect(() => {
-        if (!enabled) return {}
-
-        return bind()
-    }, [bind, enabled, ref])
 }
 
 export default useDrag

@@ -1,6 +1,6 @@
 import { useRef, useImperativeHandle, Children as ReactChildren } from 'react'
-import GliderTrack from './GliderTrack'
 import { useAnimation, useAutoplay, useDragGesture, useGliderProps } from './hooks'
+import GliderTrack from './GliderTrack'
 import { clamp } from '~/lib/utils'
 
 function Glider({ draggable = true, visibleGlides = 1, gap = 40, children, ...rest }) {
@@ -48,15 +48,15 @@ function Glider({ draggable = true, visibleGlides = 1, gap = 40, children, ...re
         () => ({
             glideLeft: () => {
                 _autoplay.start()
-                animate({ index: Math.floor(index.getValue() - 1) })
+                animate({ index: Math.floor(index.get() - 1) })
             },
             glideRight: () => {
                 _autoplay.start()
-                animate({ index: Math.ceil(index.getValue() + 1) })
+                animate({ index: Math.ceil(index.get() + 1) })
             },
             glideTo: newIndex => {
                 const _newIndex = clamp(newIndex, 0, totalGlides - 1)
-                const _index = index.getValue()
+                const _index = index.get()
 
                 _autoplay.start()
                 animate({ index: _index + _newIndex - (_index % totalGlides) })

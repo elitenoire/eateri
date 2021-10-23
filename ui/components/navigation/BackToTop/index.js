@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState, useRef } from 'react'
-import { useScroll } from 'react-use-gesture'
-import { useSpring } from 'react-spring'
+import { useScroll } from '@use-gesture/react'
+import { useSpring } from '@react-spring/web'
 import { Button } from '~@/general'
 import { MenuContext } from '~/context/menu'
 import useScrollTo from '~/hooks/useScrollTo'
@@ -16,13 +16,17 @@ function BackToTop({ color = 'highlight', offset = 50 }) {
 
     const [show, setShow] = useState(false)
 
-    const [{ scroll, max }, set] = useSpring(() => ({
+    const [{ scroll, max }, api] = useSpring(() => ({
         from: { scroll: 0, max: 0 },
         to: { scroll: 0, max: 0 },
         immediate: true,
     }))
 
-    const bind = useScroll(
+    useEffect(() => {
+        _window.current = window
+    }, [])
+
+    useScroll(
         ({
             event: {
                 target: {
@@ -32,17 +36,12 @@ function BackToTop({ color = 'highlight', offset = 50 }) {
             xy: [, y],
         }) => {
             setShow(y > offset)
-            set({ scroll: y, max: scrollHeight - clientHeight, immediate: key => key === 'max' })
+            api.start({ scroll: y, max: scrollHeight - clientHeight, immediate: key => key === 'max' })
         },
         {
-            domTarget: _window,
+            target: _window,
         }
     )
-    useEffect(() => {
-        _window.current = window
-    }, [])
-
-    useEffect(bind, [bind])
 
     if (isOpen) return null
 

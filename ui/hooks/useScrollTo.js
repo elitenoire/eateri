@@ -1,9 +1,9 @@
-import { useSpring } from 'react-spring'
+import { useSpring } from '@react-spring/web'
 
 const documentObject = typeof document !== `undefined` && document
 
 function useScrollTo({ offset: initialOffset = 0, ...initialSpringProps } = {}) {
-    const [, set] = useSpring(() => ({
+    const [, api] = useSpring(() => ({
         y: 0,
     }))
 
@@ -24,11 +24,11 @@ function useScrollTo({ offset: initialOffset = 0, ...initialSpringProps } = {}) 
 
         if (!topPos && topPos !== 0) return
 
-        set({
+        api.start({
             y: topPos - (offset || initialOffset),
             reset: true,
             from: { y: window.scrollY || 0 },
-            onFrame: ({ y }) => {
+            onChange: ({ value: { y } }) => {
                 window.scroll(0, y)
             },
             ...initialSpringProps,
