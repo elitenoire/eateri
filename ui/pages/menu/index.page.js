@@ -1,9 +1,9 @@
+import NextLink from 'next/link'
 import Image from 'next/image'
-import { Box, AspectRatio, Progress } from '@theme-ui/components'
+import { Box, AspectRatio, Link, Progress } from '@theme-ui/components'
 
 import { Text } from '~@/typography'
 import { Button } from '~@/general'
-import { Linkable } from '~@/navigation'
 import { getLayout as getMenuLayout } from '~@/layout/MenuLayout'
 
 import styles, { foodCardStyle } from './style'
@@ -12,38 +12,40 @@ import url from '~/public/dish.png'
 
 function MenuFoodCard() {
     return (
-        <Linkable href="#" sx={foodCardStyle.linkable}>
-            <div sx={foodCardStyle.card}>
-                <div sx={foodCardStyle.imageWrap}>
-                    <AspectRatio ratio={1}>
-                        <Image src={url} alt="" layout="fill" objectFit="cover" objectPosition="center" />
-                    </AspectRatio>
-                </div>
-                <div sx={foodCardStyle.content}>
-                    <div>
-                        <Box p={2} bg="gray" />
+        <div sx={foodCardStyle.card}>
+            <NextLink href="#" passHref>
+                <Link variant="plain">
+                    <div sx={foodCardStyle.imageWrap}>
+                        <AspectRatio ratio={1}>
+                            <Image src={url} alt="" layout="fill" objectFit="cover" objectPosition="center" />
+                        </AspectRatio>
                     </div>
-                    <Text mb={2} weight="500" truncate={2} sx={styles.title}>
-                        Chicken Fried Rice with Egg Sauce
-                    </Text>
-                    <Text weight="bold">N1500</Text>
-                </div>
-                <div sx={foodCardStyle.actionCart}>
-                    <Button brand="solid" color="secondary" size="lg" icon="add" ariaLabel="Add to bag" />
-                </div>
-                <div sx={foodCardStyle.actionFav}>
-                    <Button
-                        brand="pale"
-                        color="secondary.base"
-                        bg="secondary.light"
-                        alpha={0.95}
-                        icon="heart"
-                        scaleIcon="lg"
-                        ariaLabel="Save for Later"
-                    />
-                </div>
+                    <div sx={foodCardStyle.content}>
+                        <div>
+                            <Box p={2} bg="gray" />
+                        </div>
+                        <Text weight="700" truncate={2} sx={foodCardStyle.title}>
+                            Chicken Fried Rice with Egg Sauce
+                        </Text>
+                        <Text weight="bold">N1500</Text>
+                    </div>
+                </Link>
+            </NextLink>
+            <div sx={foodCardStyle.actionCart}>
+                <Button brand="solid" color="secondary" size="lg" icon="add" ariaLabel="Add to bag" />
             </div>
-        </Linkable>
+            <div sx={foodCardStyle.actionFav}>
+                <Button
+                    brand="pale"
+                    color="secondary.base"
+                    bg="secondary.light"
+                    alpha={0.95}
+                    icon="heart"
+                    scaleIcon="lg"
+                    ariaLabel="Save for Later"
+                />
+            </div>
+        </div>
     )
 }
 

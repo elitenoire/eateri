@@ -1,4 +1,4 @@
-import { keyframes } from '@emotion/core'
+import { keyframes } from '@emotion/react'
 import strip1Url from '~/public/strip-1.png'
 import strip2Url from '~/public/strip-2.png'
 
@@ -54,7 +54,7 @@ const styles = {
     stripWrapper: {
         position: 'relative',
         overflow: 'hidden',
-        mx: ['-1.5em', null, '-9.52%', '-12.5%'], // reverses container's padding
+        mx: ['bodyNegative', null, '-9.52%', '-12.5%'], // reverses container's padding
         ':before,:after': {
             content: '""',
             width: '2%',

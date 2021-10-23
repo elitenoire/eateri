@@ -1,10 +1,4 @@
 export const foodCardStyle = {
-    linkable: {
-        ':hover > div:first-of-type': {
-            borderColor: 'transparent',
-            boxShadow: t => `0 0 0 3px ${t.colors.primary.light}`,
-        },
-    },
     card: {
         position: 'relative',
         display: 'flex',
@@ -14,6 +8,10 @@ export const foodCardStyle = {
         borderColor: ['transparent', null, 'gray'],
         borderRadius: '25',
         mt: '3.5em',
+        ':hover': {
+            borderColor: 'transparent',
+            boxShadow: t => `0 0 0 3px ${t.colors.primary.light}`,
+        },
     },
     imageWrap: {
         position: 'relative',
@@ -27,12 +25,12 @@ export const foodCardStyle = {
         mt: '-2.5em',
         px: 4,
         pb: 7,
-        '& > p:first-of-type': {
-            minHeight: [null, null, null, '3em'],
-        },
     },
     title: {
-        fontSize: [null, null, null, 1],
+        minHeight: [null, null, null, '3em'],
+        fontSize: [1, null, null, null, '0.8em'],
+        lineHeight: 'tight',
+        mb: 2,
         textDecoration: 'none',
     },
     actionCart: {

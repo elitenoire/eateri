@@ -175,6 +175,9 @@ export const variants = {
         },
     },
     links: {
+        plain: {
+            textDecoration: 'none',
+        },
         highlight: {
             '&,&:visited': {
                 color: 'highlight.base',
