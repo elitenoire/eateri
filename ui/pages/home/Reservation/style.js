@@ -139,7 +139,7 @@ const styles = {
     action: {
         position: ['relative', null, 'absolute'],
         left: [null, null, 0],
-        bottom: ['-1.75em', null, '-2.5em'],
+        bottom: ['-1.75em', null, '-2em'],
         width: 'fluid',
         display: 'flex',
         justifyContent: 'center',
@@ -428,7 +428,7 @@ const styles = {
     guestCard: {
         position: 'relative',
         display: 'flex',
-        padding: '1.25em 1.25em 1em',
+        padding: 5,
         borderRadius: 'pill',
         maxWidth: '25em',
         mt: 7,
@@ -482,11 +482,10 @@ const styles = {
     },
     confirmIcon: {
         display: 'inline-block',
-        borderRadius: 'icon',
+        borderRadius: 'circle',
         padding: 2,
-        fontSize: '1.2em',
-        boxShadow: 'inner',
-        bg: t => alpha('accent.base', 0.5)(t),
+        fontSize: 4,
+        bg: 'accent.light',
     },
     confirmSvg: {
         position: 'absolute',
@@ -497,10 +496,10 @@ const styles = {
     },
     confirmDetailsBox: {
         position: 'relative',
-        boxShadow: 'inner',
-        bg: t => alpha('accent.base', 0.5)(t),
+        bg: 'accent.light',
         borderRadius: 20,
-        padding: 4,
+        px: 4,
+        py: 7,
         overflow: 'hidden',
     },
     confirmDetails: {
@@ -508,6 +507,12 @@ const styles = {
         flexDirection: ['column', null, 'row'],
         justifyContent: 'space-around',
         textAlign: 'left',
+    },
+    confirmNoteBox: {
+        padding: 7,
+        mt: 7,
+        borderRadius: 20,
+        bg: t => alpha('accent.base', 0.15)(t),
     },
 }
 

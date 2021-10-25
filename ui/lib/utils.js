@@ -12,6 +12,18 @@ export const isNumber = value => typeof value === 'number' && !isNaN(value - val
 // https://youmightnotneed.com/lodash/#clamp
 export const clamp = (num, lower, upper) => (upper ? Math.min(Math.max(num, lower), upper) : Math.min(num, lower))
 
+export const combineRefs = (...refs) => {
+    return node => {
+        refs.forEach(ref => {
+            if (typeof ref === 'function') {
+                ref(node)
+            } else if (isObject(ref)) {
+                ref.current = node
+            }
+        })
+    }
+}
+
 export const shouldRunOnMobile = defaultValue => {
     if (window && window.matchMedia) {
         const mqString = mq.tabletS.replace('@media ', '')
@@ -23,20 +35,23 @@ export const shouldRunOnMobile = defaultValue => {
 
 // context selector for constate
 // returns context slice, memoized object for multiple values
-export const selector = (...args) => v => {
-    if (args.length === 1) {
-        return v[args[0]]
+export const selector =
+    (...args) =>
+    v => {
+        if (args.length === 1) {
+            return v[args[0]]
+        }
+        const deps = args.map(a => v[a])
+        return useMemo(
+            () =>
+                args.reduce((acc, a) => {
+                    acc[a] = v[a]
+                    return acc
+                }, {}),
+            // eslint-disable-next-line react-hooks/exhaustive-deps
+            deps
+        )
     }
-    const deps = args.map(a => v[a])
-    return useMemo(
-        () =>
-            args.reduce((acc, a) => {
-                acc[a] = v[a]
-                return acc
-            }, {}),
-        deps
-    )
-}
 
 // color utils
 const hex2rgb = hex => {
@@ -59,8 +74,8 @@ const hex2rgb = hex => {
 }
 
 const extractRGB = rgb => {
-    // const reg = /rgb\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})\s*\)$/
-    const reg = /rgba?\(((?:(?:25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*?){2})(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,?\s*([01]\.?\d*?)?\)$/
+    const reg =
+        /rgba?\(((?:(?:25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,\s*?){2})(25[0-5]|2[0-4]\d|1\d{1,2}|\d\d?)\s*,?\s*([01]\.?\d*?)?\)$/
     if (!rgb) return
 
     const match = rgb.match(reg)
@@ -86,10 +101,12 @@ export const isDark = color => {
     return yiq < 128
 }
 
-export const readableColor = (color, lightColor = 'white', darkColor = 'black') => t => {
-    try {
-        return isDark(getColor(t, color)) ? getColor(t, lightColor) : getColor(t, darkColor)
-    } catch {
-        return getColor(t, darkColor)
+export const readableColor =
+    (color, lightColor = 'white', darkColor = 'black') =>
+    t => {
+        try {
+            return isDark(getColor(t, color)) ? getColor(t, lightColor) : getColor(t, darkColor)
+        } catch {
+            return getColor(t, darkColor)
+        }
     }
-}

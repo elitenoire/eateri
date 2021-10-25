@@ -9,7 +9,7 @@ const defaultValues = {
     time: '',
     guest: '',
 }
-
+// TODO: fetch defaultValues, min & max date from backend
 function MakeReservation({ isMobile }) {
     if (isMobile) {
         return (

@@ -8,7 +8,10 @@ import GuestCard from './GuestCard'
 import styles from './style'
 
 function StepGuestDetails() {
-    const { register, errors } = useFormContext()
+    const {
+        register,
+        formState: { errors },
+    } = useFormContext()
     return (
         <div>
             <GuestCard showOverlay={false} />
@@ -22,11 +25,13 @@ function StepGuestDetails() {
                         id="rsvp-guest-name"
                         name="name"
                         placeholder="Name"
-                        ref={register({ required: 'Name is required.' })}
+                        aria-invalid={errors.name ? 'true' : 'false'}
+                        aria-required="true"
+                        {...register('name', { required: 'Name is required.' })}
                     />
                     {errors.name && (
-                        <Text pt={2} pl={6} sx={styles.formError}>
-                            {errors.name.message}
+                        <Text role="alert" pt={2} pl={6} sx={styles.formError}>
+                            {errors.name?.message}
                         </Text>
                     )}
                 </div>
@@ -40,7 +45,9 @@ function StepGuestDetails() {
                         name="email"
                         type="email"
                         placeholder="Email"
-                        ref={register({
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-required="true"
+                        {...register('email', {
                             required: 'Email is required.',
                             pattern: {
                                 value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
@@ -49,8 +56,8 @@ function StepGuestDetails() {
                         })}
                     />
                     {errors.email && (
-                        <Text pt={2} pl={6} sx={styles.formError}>
-                            {errors.email.message}
+                        <Text role="alert" pt={2} pl={6} sx={styles.formError}>
+                            {errors.email?.message}
                         </Text>
                     )}
                 </div>
@@ -67,8 +74,8 @@ function StepGuestDetails() {
                     maxRows={8}
                     placeholder="(optional)"
                     cacheMeasurements
-                    ref={register}
                     sx={styles.formInput}
+                    {...register('note')}
                 />
             </div>
         </div>

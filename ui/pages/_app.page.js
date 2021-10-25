@@ -15,8 +15,8 @@ import SEO from '../next-seo.config'
 import '~/css/vivify-lite.css'
 
 // Custom fonts
-import 'fontsource-sen/latin.css'
-import 'fontsource-manrope/latin.css'
+import '@fontsource/sen/latin.css'
+import '@fontsource/manrope/latin.css'
 
 export default class MyApp extends App {
     render() {
