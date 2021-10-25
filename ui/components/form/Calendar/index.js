@@ -43,12 +43,15 @@ const Calendar = forwardRef(function Calendar(
 
     const [focused, setFocused] = useState()
     const [offset, setOffset] = useState(0)
+
     const weeksToChange = useRef({})
     const allowDayFocus = useRef(false)
 
-    const _normalizedSelected = startOfDay(selected || new Date())
-    const _selectedRowId = getWeekOfMonth(_normalizedSelected) - 1
+    const selectedDate = startOfDay(selected)
+    const _selectedRowId = getWeekOfMonth(selectedDate) - 1
     const _focusedRowId = getWeekOfMonth(focused) - 1
+
+    const selectedDateRef = useRef(selectedDate)
 
     const onOffsetChanged = _offset => {
         allowDayFocus.current = false
@@ -56,10 +59,16 @@ const Calendar = forwardRef(function Calendar(
     }
 
     const _onDateSelected = (dateObj, e) => {
+        let newDateObj = dateObj
         allowDayFocus.current = true
         setFocused(dateObj.date)
+        // support unselect date
+        if (selectedDateRef.current?.getTime() === dateObj.date?.getTime()) {
+            newDateObj = { ...newDateObj, date: null }
+        }
+        // pass new date to caller function
         if (onDateSelected) {
-            onDateSelected(dateObj, e)
+            onDateSelected(newDateObj, e)
         }
     }
 
@@ -69,7 +78,7 @@ const Calendar = forwardRef(function Calendar(
         getForwardProps,
         getDateProps,
     } = useDayzed({
-        selected: _normalizedSelected,
+        selected: selectedDate,
         onDateSelected: _onDateSelected,
         offset,
         onOffsetChanged,
@@ -97,13 +106,17 @@ const Calendar = forwardRef(function Calendar(
         : {}
 
     const _monthHasFocused = focused && focused.getMonth() === currentMonth
-    const _monthHasSelected = _normalizedSelected && _normalizedSelected.getMonth() === currentMonth
+    const _monthHasSelected = selectedDate && selectedDate.getMonth() === currentMonth
 
     const canTabFirstDay = !(_monthHasFocused || _monthHasSelected)
 
     /** *****************************************
      * SIDE EFFECTS
      ***************************************** */
+
+    useEffect(() => {
+        selectedDateRef.current = selectedDate
+    }, [selectedDate])
 
     useEffect(() => {
         weeksToChange.current = {}
@@ -329,6 +342,7 @@ const Calendar = forwardRef(function Calendar(
             role="presentation"
             tabIndex="0"
             aria-hidden="false"
+            {...rest}
             onKeyDown={handleKeyDown}
         >
             <div sx={styles.nav}>
@@ -367,7 +381,7 @@ const Calendar = forwardRef(function Calendar(
                     </div>
                     <div role="grid" aria-labelledby="id-calendar-label" sx={styles.monthBody}>
                         <MemoizedWeekDay month={calendar.month} year={calendar.year} />
-                        <Scrollable role="rowgroup" flex hideScroll sx={styles.monthGridDays}>
+                        <Scrollable role="rowgroup" cursor="default" flex hideScroll sx={styles.monthGridDays}>
                             {calendar.weeks.map((week, weekIndex) => {
                                 const key = `${calendar.month}${calendar.year}${weekIndex}`
                                 const _canTabFirstDay = weekIndex === 0 ? canTabFirstDay : undefined
