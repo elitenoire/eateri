@@ -9,8 +9,8 @@ import { Heading, Text } from '~@/typography'
 
 import styles from './style'
 
-import ErrorManDog from '~/public/inlineSvg/error-man-dog.svg'
-import ErrorFallCoffee from '~/public/inlineSvg/error-fall-coffee.svg'
+import { ReactComponent as ErrorManDog } from '~/public/inlineSvg/error-man-dog.svg'
+import { ReactComponent as ErrorFallCoffee } from '~/public/inlineSvg/error-fall-coffee.svg'
 
 function Error({ doodle, title, children }) {
     return (

@@ -11,10 +11,10 @@ import useScrollTo from '~/hooks/useScrollTo'
 
 import { HASH_ID_RESERVATIONS } from '~/constants'
 
-import CateringSvg from '~/public/inlineSvg/catering.svg'
-import DeliverySvg from '~/public/inlineSvg/delivery.svg'
-import DineSvg from '~/public/inlineSvg/dine.svg'
-import TakeawaySvg from '~/public/inlineSvg/takeouts.svg'
+import { ReactComponent as CateringSvg } from '~/public/inlineSvg/catering.svg'
+import { ReactComponent as DeliverySvg } from '~/public/inlineSvg/delivery.svg'
+import { ReactComponent as DineSvg } from '~/public/inlineSvg/dine.svg'
+import { ReactComponent as TakeawaySvg } from '~/public/inlineSvg/takeouts.svg'
 
 import styles from './style'
 

@@ -4,7 +4,7 @@ import Hero from '../common/Hero'
 
 import styles from './style'
 
-import TakeawaySvg from '~/public/inlineSvg/takeouts.svg'
+import { ReactComponent as TakeawaySvg } from '~/public/inlineSvg/takeouts.svg'
 
 export default function Takeaway({ hideBackLink }) {
     return (

@@ -4,7 +4,7 @@ import Hero from '../common/Hero'
 
 import styles from './style'
 
-import CateringSvg from '~/public/inlineSvg/catering.svg'
+import { ReactComponent as CateringSvg } from '~/public/inlineSvg/catering.svg'
 
 export default function Catering({ hideBackLink }) {
     return (

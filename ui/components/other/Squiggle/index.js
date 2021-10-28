@@ -1,9 +1,9 @@
 import { Box } from '@theme-ui/components'
 import styles from './style'
 
-import SquiggleSvg from '~/public/inlineSvg/squiggle.svg'
-import Squiggle2Svg from '~/public/inlineSvg/squiggle-2.svg'
-import Squiggle3Svg from '~/public/inlineSvg/squiggle-3.svg'
+import { ReactComponent as SquiggleSvg } from '~/public/inlineSvg/squiggle.svg'
+import { ReactComponent as Squiggle2Svg } from '~/public/inlineSvg/squiggle-2.svg'
+import { ReactComponent as Squiggle3Svg } from '~/public/inlineSvg/squiggle-3.svg'
 
 const squiggles = {
     1: SquiggleSvg,

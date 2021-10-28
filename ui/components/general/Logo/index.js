@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
-import SolidLogo from '~/public/inlineSvg/logo.svg'
-import PlainLogo from '~/public/inlineSvg/logo-cutout.svg'
-import LogoText from '~/public/inlineSvg/logo-tt.svg'
+import { ReactComponent as SolidLogo } from '~/public/inlineSvg/logo.svg'
+import { ReactComponent as PlainLogo } from '~/public/inlineSvg/logo-cutout.svg'
+import { ReactComponent as LogoText } from '~/public/inlineSvg/logo-tt.svg'
 
 import styles from './style'
 

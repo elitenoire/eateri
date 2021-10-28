@@ -1,4 +1,4 @@
-import svg from '~/public/reserve-badge.svg'
+import svgUrl from '~/public/reserve-badge.svg'
 
 const styles = {
     svgDine: {
@@ -114,7 +114,7 @@ const styles = {
         py: 7,
         px: 8,
         textAlign: 'center',
-        background: `url(${svg}) 120% no-repeat`,
+        background: `url(${svgUrl}) 120% no-repeat`,
         bg: 'secondary.base',
         div: {
             position: 'absolute',

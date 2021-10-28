@@ -8,8 +8,8 @@ import ImageOverlayCard from '../common/ImageOverlayCard'
 
 import styles from './style'
 
-import DineSvg from '~/public/inlineSvg/dine.svg'
-import DiningLoveDoodle from '~/public/inlineSvg/dining-love.svg'
+import { ReactComponent as DineSvg } from '~/public/inlineSvg/dine.svg'
+import { ReactComponent as DiningLoveDoodle } from '~/public/inlineSvg/dining-love.svg'
 
 export default function Dining({ hideBackLink }) {
     return (

@@ -12,9 +12,9 @@ import MenuTitle from './MenuTitle'
 import CategoryLink from './CategoryLink'
 import { getLayout as getDefaultLayout } from '../DefaultLayout'
 
-import AllIcon from '~/public/inlineSvg/icons/all.svg'
-import PizzaIcon from '~/public/inlineSvg/icons/pizza.svg'
-import SaladIcon from '~/public/inlineSvg/icons/salad.svg'
+import { ReactComponent as AllIcon } from '~/public/inlineSvg/icons/all.svg'
+import { ReactComponent as PizzaIcon } from '~/public/inlineSvg/icons/pizza.svg'
+import { ReactComponent as SaladIcon } from '~/public/inlineSvg/icons/salad.svg'
 
 import { styles } from './style'
 

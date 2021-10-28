@@ -4,7 +4,7 @@ import Hero from '../common/Hero'
 
 import styles from './style'
 
-import DeliverySvg from '~/public/inlineSvg/delivery.svg'
+import { ReactComponent as DeliverySvg } from '~/public/inlineSvg/delivery.svg'
 
 export default function Delivery({ hideBackLink }) {
     return (

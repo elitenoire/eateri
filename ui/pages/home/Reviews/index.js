@@ -4,9 +4,9 @@ import { Text, Heading } from '~@/typography'
 import { GliderControl, GliderBullets, Glider, GliderProvider, useIndex } from '~@/display'
 import { Icon, Reveal, fadeInRight } from '~@/general'
 
-import WaveSvg from '~/public/inlineSvg/wave-applebtm.svg'
-import MBean from '~/public/inlineSvg/m-bean.svg'
-import ArrowUp from '~/public/inlineSvg/arrow-up.svg'
+import { ReactComponent as WaveSvg } from '~/public/inlineSvg/wave-applebtm.svg'
+import { ReactComponent as MBean } from '~/public/inlineSvg/m-bean.svg'
+import { ReactComponent as ArrowUp } from '~/public/inlineSvg/arrow-up.svg'
 import url from '~/public/dish.png'
 
 import reviews from './data'

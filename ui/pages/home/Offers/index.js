@@ -3,7 +3,7 @@ import { Scrollable } from '~@/display'
 import { Icon, Reveal } from '~@/general'
 import { Heading, Text } from '~@/typography'
 import { WaveDecoration } from '~@/other'
-import DoodleBgSvg from '~/public/inlineSvg/bg-blobring.svg'
+import { ReactComponent as DoodleBgSvg } from '~/public/inlineSvg/bg-blobring.svg'
 
 import styles from './style'
 

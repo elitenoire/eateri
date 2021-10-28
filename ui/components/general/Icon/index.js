@@ -1,8 +1,8 @@
 import { memo } from 'react'
-import remixicons from '~/lib/icons'
+import { icons } from '~/lib/icons'
 
 function Icon({ name, standalone, className, ...rest }) {
-    const IconSvg = remixicons[name]
+    const IconSvg = icons[name]
     const svgProps = {
         ...(!standalone && { 'aria-hidden': true, focusable: false }),
         ...rest,

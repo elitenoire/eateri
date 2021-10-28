@@ -7,10 +7,10 @@ import Squiggle from '~@/other/Squiggle'
 import MorphCard from '~@/services/common/MorphCard'
 import styles from './style'
 
-import CateringSvg from '~/public/inlineSvg/catering.svg'
-import DeliverySvg from '~/public/inlineSvg/delivery.svg'
-import DineSvg from '~/public/inlineSvg/dine.svg'
-import TakeoutsSvg from '~/public/inlineSvg/takeouts.svg'
+import { ReactComponent as CateringSvg } from '~/public/inlineSvg/catering.svg'
+import { ReactComponent as DeliverySvg } from '~/public/inlineSvg/delivery.svg'
+import { ReactComponent as DineSvg } from '~/public/inlineSvg/dine.svg'
+import { ReactComponent as TakeoutsSvg } from '~/public/inlineSvg/takeouts.svg'
 
 import snacksUrl from '~/public/cater-snacks.jpg'
 

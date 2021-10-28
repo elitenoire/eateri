@@ -8,9 +8,9 @@ import { HASH_ID_RESERVATIONS } from '~/constants'
 import MobileSheet from './MobileSheet'
 import MakeReservation from './MakeReservation'
 
-import ReservePatternL from '~/public/inlineSvg/reserve-pattern-l.svg'
-import ReservePatternR from '~/public/inlineSvg/reserve-pattern-r.svg'
-import ArrowDown from '~/public/inlineSvg/arrow-down.svg'
+import { ReactComponent as ReservePatternL } from '~/public/inlineSvg/reserve-pattern-l.svg'
+import { ReactComponent as ReservePatternR } from '~/public/inlineSvg/reserve-pattern-r.svg'
+import { ReactComponent as ArrowDown } from '~/public/inlineSvg/arrow-down.svg'
 
 import styles from './style'
 

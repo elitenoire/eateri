@@ -1,9 +1,9 @@
 import styles from './style'
 
-import WaveSvg from '~/public/inlineSvg/wave-curve.svg'
-import ForkSvg from '~/public/inlineSvg/fork.svg'
-import SpoonSvg from '~/public/inlineSvg/spoon.svg'
-import KnifeSvg from '~/public/inlineSvg/knife.svg'
+import { ReactComponent as WaveSvg } from '~/public/inlineSvg/wave-curve.svg'
+import { ReactComponent as ForkSvg } from '~/public/inlineSvg/fork.svg'
+import { ReactComponent as SpoonSvg } from '~/public/inlineSvg/spoon.svg'
+import { ReactComponent as KnifeSvg } from '~/public/inlineSvg/knife.svg'
 
 function WaveDecoration({ color }) {
     return (

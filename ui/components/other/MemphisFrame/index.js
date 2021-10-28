@@ -1,8 +1,8 @@
 import styles from './style'
 
-import MArch from '~/public/inlineSvg/m-arch.svg'
-import MBean from '~/public/inlineSvg/m-bean.svg'
-import MWing from '~/public/inlineSvg/m-wing.svg'
+import { ReactComponent as MArch } from '~/public/inlineSvg/m-arch.svg'
+import { ReactComponent as MBean } from '~/public/inlineSvg/m-bean.svg'
+import { ReactComponent as MWing } from '~/public/inlineSvg/m-wing.svg'
 
 // Only using inline-svgs to make it themeable otherwise
 // for large svgs, loading as images is preferred.
