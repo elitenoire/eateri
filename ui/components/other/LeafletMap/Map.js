@@ -1,7 +1,8 @@
 import { memo } from 'react'
 import { useThemeUI } from '@theme-ui/core'
-import { Map, Marker, TileLayer, Popup, CircleMarker } from 'react-leaflet'
+import { MapContainer, Marker, TileLayer, Popup, CircleMarker } from 'react-leaflet'
 
+import 'leaflet/dist/leaflet.css'
 import styles from './styles'
 
 const position = {
@@ -28,7 +29,7 @@ function LeafletMap() {
 
     return (
         <div sx={styles.wrapper}>
-            <Map center={position} {...zoomLevels} {...other}>
+            <MapContainer center={position} {...zoomLevels} {...other}>
                 {!token && (
                     <TileLayer
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -51,7 +52,7 @@ function LeafletMap() {
                     fillOpacity={0.5}
                     color={colors.primary.base}
                 />
-            </Map>
+            </MapContainer>
         </div>
     )
 }

@@ -2,8 +2,6 @@ import { Logo, Reveal, fadeInDown } from '~@/general'
 import { LeafletMap } from '~@/other'
 import { HoursBlock, ContactBlock, ChatButton, ReservationButton } from './common'
 
-import 'leaflet/dist/leaflet.css'
-
 import { fwmStyles as styles } from './style'
 
 export default function FooterWithMap({ linkScroll }) {
