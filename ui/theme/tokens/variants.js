@@ -280,7 +280,7 @@ export const variants = {
             padding: 5,
             borderRadius: 'tiny',
             boxShadow: 'sm',
-            'svg,p span': {
+            'p span': {
                 display: 'block',
             },
         },

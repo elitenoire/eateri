@@ -42,7 +42,6 @@ const styles = {
         boxShadow: t => `0 0 14px 2px ${alpha('textOnSecondary', 0.05)(t)}`,
         transform: 'rotate(5deg)',
         svg: {
-            display: 'block',
             fontSize: '2.5em',
         },
     },

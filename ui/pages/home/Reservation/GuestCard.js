@@ -18,7 +18,7 @@ function GuestCard({ showOverlay }) {
                     Not you?
                 </Text>
             </div>
-            <Image src={svgUrl} sx={styles.guestCardSvg} />
+            <Image alt="" src={svgUrl} sx={styles.guestCardSvg} />
             {showOverlay && (
                 <div sx={styles.guestCardOverlay}>
                     <Text weight="bold" decoration="underline">

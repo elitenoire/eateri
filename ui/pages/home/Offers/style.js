@@ -91,7 +91,6 @@ const styles = {
         placeSelf: 'center',
         color: ['primary.base', null, null, 'secondary.hover'],
         svg: {
-            display: 'block',
             fontSize: ['3.5em', null, '5em'],
             transform: 'rotate(15deg)',
         },

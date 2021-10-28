@@ -1,9 +1,6 @@
 const styles = {
     section: {
         bg: 'background',
-        '& > svg': {
-            display: 'block',
-        },
     },
     grid: {
         maxWidth: ['30em', null, null, '35em', 'container'],
