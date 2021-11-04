@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import { Image, Badge } from '@theme-ui/components'
+import { Badge } from '@theme-ui/components'
 import { Text } from '~@/typography'
-import { Button } from '~@/general'
+import { Button, AspectImage } from '~@/general'
 import styles from './style'
 
 function FoodCard({
@@ -9,6 +9,7 @@ function FoodCard({
     href = '#',
     title,
     imgUrl,
+    imgAlt = '',
     rating = '4.8',
     onClick,
     imageOnly,
@@ -23,7 +24,7 @@ function FoodCard({
             <Link href={href} {...linkProps} passHref>
                 <a sx={styles.link}>
                     <div sx={styles.imageWrap({ bg, shadow })} className="food-card--image">
-                        <Image src={imgUrl} />
+                        <AspectImage src={imgUrl} alt={imgAlt} />
                     </div>
                     {imageOnly && children && (
                         <div sx={styles.content} data-hover-reveal>

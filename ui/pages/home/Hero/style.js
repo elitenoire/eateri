@@ -197,10 +197,11 @@ const styles = {
         minWidth: [null, null, 0],
         gridRow: [null, null, 'span 1', null, 'span 2'],
         pl: [null, null, 4],
-        img: {
-            height: ['80%', null, null, null, '70%'],
-            mt: [null, null, null, null, 9],
-        },
+    },
+    contentImageWrap: {
+        width: '55%',
+        maxWidth: ['13em', null, null, null, '17em'],
+        mt: [null, null, null, null, 7],
     },
     contentOrder: {
         display: ['none', null, 'flex'],

@@ -16,12 +16,14 @@ const styles = {
         ':active': {
             transform: 'scale(0.95)',
         },
-        div: {
-            px: 4,
-        },
-        img: {
-            height: ['auto', null, '50%', '70%'],
-        },
+    },
+    cardImage: {
+        width: [null, null, '35%'],
+        maxWidth: [null, null, '4.5em'],
+    },
+    cardContent: {
+        flex: 1,
+        px: 4,
     },
 }
 

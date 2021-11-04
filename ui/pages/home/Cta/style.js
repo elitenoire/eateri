@@ -1,12 +1,16 @@
-import imgUrl from '~/public/fruit-bowl.png'
-
 const styles = {
     cta: {
+        position: 'relative',
         bg: 'background',
-        backgroundImage: `url(${imgUrl})`,
-        backgroundSize: ['35%', null, null, null, '15%', null, '10%'],
-        backgroundPosition: ['120% 140%', null, null, null, 'right', null, '75% 50%'],
-        backgroundRepeat: 'no-repeat',
+        overflow: 'hidden',
+        maxWidth: 'maxContainer',
+    },
+    imageWrap: {
+        position: 'absolute',
+        width: ['35%', null, null, null, '15%'],
+        right: ['-13%', null, null, null, 0],
+        bottom: ['-10%', null, null, null, '50%'],
+        transform: [null, null, null, null, 'translateY(50%)'],
     },
     card: {
         display: 'flex',
@@ -14,21 +18,20 @@ const styles = {
         alignItems: 'center',
         justifyContent: [null, null, null, null, 'space-between'],
         textAlign: ['center', null, null, null, 'left'],
-        maxWidth: 'maxContainer',
         py: 13,
-        p: {
-            flex: 1,
-            mb: [3, null, null, null, 0],
-            maxWidth: '18em',
-        },
-        'p span:first-of-type': {
-            color: 'accent.base',
-        },
-        'p span:last-of-type': {
-            color: 'primary.base',
-        },
         button: {
             fontSize: 4,
+        },
+    },
+    text: {
+        flex: 1,
+        mb: [3, null, null, null, 0],
+        maxWidth: '18em',
+        'span:first-of-type': {
+            color: 'accent.base',
+        },
+        'span:last-of-type': {
+            color: 'primary.base',
         },
     },
 }

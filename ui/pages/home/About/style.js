@@ -30,6 +30,11 @@ const styles = {
             `linear-gradient(45deg,${t.colors.secondary.hover},${t.colors.secondary.base})`,
         ],
     },
+    imageWrap: {
+        '.m-wrapper > div': {
+            borderRadius: 'inherit',
+        },
+    },
     image: {
         position: 'absolute',
         width: '30%',

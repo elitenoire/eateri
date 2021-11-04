@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 import { useTabState, Tab, TabList, TabPanel } from 'reakit/Tab'
 import { Media } from '~/context/media'
-import { Button } from '~@/general'
+import { Button, AspectImage } from '~@/general'
 import { Reveal, fadeInDown, fadeIn, rollInBottom } from '~@/general/Reveal'
 import { Carousel, CarouselCard } from '~@/display'
 import { Heading, Text } from '~@/typography'
@@ -118,12 +118,9 @@ function Hero() {
                         </Media>
                     </div>
                     <Reveal as="div" motion={rollInBottom} duration={800} sx={styles.contentImage} className="B">
-                        <img
-                            key={`img-${foodMenu[count].name}`}
-                            className="test"
-                            src={url}
-                            alt={foodMenu[count].name}
-                        />
+                        <div sx={styles.contentImageWrap}>
+                            <AspectImage key={`img-${foodMenu[count].name}`} src={url} alt={foodMenu[count].name} />
+                        </div>
                     </Reveal>
                     <div sx={styles.contentOrder} className="C">
                         <Reveal motion={fadeIn}>

@@ -1,18 +1,22 @@
 import { Text } from '~@/typography'
-import { Button } from '~@/general'
+import { Button, AspectImage } from '~@/general'
+
 import styles from './style'
+
 import url from '~/public/dish.png'
 
 const stopBubbling = e => {
     e.stopPropagation()
 }
-function CarouselCard({ data, isMobile }) {
-    const addToBag = e => console.log('ADDED TO BAG')
+const addToBag = () => console.log('ADDED TO BAG')
 
+function CarouselCard({ data, isMobile }) {
     return (
         <div sx={styles.carouselCard}>
-            <img src={url} alt={data.name} />
-            <div>
+            <div sx={styles.cardImage}>
+                <AspectImage src={url} alt={data.name} />
+            </div>
+            <div sx={styles.cardContent}>
                 {isMobile && <Text>{`₦${data.price}`}</Text>}
                 <Text line="snug" truncate={3}>
                     {data.name}

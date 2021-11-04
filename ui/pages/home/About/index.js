@@ -1,13 +1,12 @@
 import Link from 'next/link'
-import { Image } from '@theme-ui/components'
 import { MemphisFrame } from '~@/other'
 import { Heading, Text } from '~@/typography'
-import { Button } from '~@/general'
+import { Button, AspectImage } from '~@/general'
 import { Reveal, fadeInRight, fadeInLeft, popIn } from '~@/general/Reveal'
 import styles from './style'
 
 import chefImgUrl from '~/public/about-chef.jpg'
-import spiceUrl from '~/public/spice-bowl.png'
+import spiceImgUrl from '~/public/spice-bowl.png'
 
 function About() {
     return (
@@ -15,14 +14,14 @@ function About() {
             <div sx={styles.container}>
                 <Reveal motion={fadeInRight} threshold={0.3} duration={600} whenInView>
                     <>
-                        <MemphisFrame>
-                            <Image src={chefImgUrl} />
+                        <MemphisFrame sx={styles.imageWrap}>
+                            <AspectImage ratio={3 / 5} src={chefImgUrl} alt="" />
                         </MemphisFrame>
                     </>
                 </Reveal>
                 <Reveal motion={popIn} duration={1000} delay={100} threshold={0.3} whenInView>
                     <div sx={styles.image}>
-                        <Image src={spiceUrl} />
+                        <AspectImage src={spiceImgUrl} alt="" />
                     </div>
                 </Reveal>
                 <Reveal as="div" motion={fadeInLeft} delay={100} threshold={0.2} cascade whenInView sx={styles.content}>

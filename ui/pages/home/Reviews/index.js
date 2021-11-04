@@ -1,8 +1,8 @@
-import { Container, Image } from '@theme-ui/components'
+import { Container } from '@theme-ui/components'
 import useInView from 'react-cool-inview'
 import { Text, Heading } from '~@/typography'
 import { GliderControl, GliderBullets, Glider, GliderProvider, useIndex } from '~@/display'
-import { Icon, Reveal, fadeInRight } from '~@/general'
+import { Icon, AspectImage, Reveal, fadeInRight } from '~@/general'
 
 import { ReactComponent as WaveSvg } from '~/public/inlineSvg/wave-applebtm.svg'
 import { ReactComponent as MBean } from '~/public/inlineSvg/m-bean.svg'
@@ -76,7 +76,7 @@ function Reviews() {
                                 )}
                             </GliderIndex>
                             <div sx={styles.foodImage}>
-                                <Image src={url} />
+                                <AspectImage src={url} />
                             </div>
                         </div>
                         <div ref={observe} sx={styles.reviewBlock}>
