@@ -2,13 +2,10 @@ import { Avatar, Image } from '@theme-ui/components'
 import { Text } from '~@/typography'
 import styles from './style'
 
-import imgUrl from '~/public/c-rice.jpg'
-import svgUrl from '~/public/peep8.svg'
-
 function GuestCard({ showOverlay }) {
     return (
         <div sx={styles.guestCard} data-has-overlay={showOverlay ? '' : null}>
-            <Avatar src={imgUrl} sx={styles.guestCardAvatar} />
+            <Avatar src="/c-rice.jpg" sx={styles.guestCardAvatar} />
             <div>
                 <Text size={1} weight="bold">
                     Eva Raymond
@@ -18,7 +15,7 @@ function GuestCard({ showOverlay }) {
                     Not you?
                 </Text>
             </div>
-            <Image alt="" src={svgUrl} sx={styles.guestCardSvg} />
+            <Image alt="" src="/peep8.svg" sx={styles.guestCardSvg} />
             {showOverlay && (
                 <div sx={styles.guestCardOverlay}>
                     <Text weight="bold" decoration="underline">

@@ -49,8 +49,9 @@ const styles = {
         },
     },
     menuBoxLink: {
-        color: ['highlight.base', null, 'inherit'],
-        textDecoration: [null, null, 'underline'],
+        '&,:active,:visited': {
+            color: ['highlight.base', null, 'inherit'],
+        },
     },
     menuBoxBody: {
         overflow: [null, null, 'hidden'],

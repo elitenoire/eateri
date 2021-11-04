@@ -485,7 +485,7 @@ const styles = {
         borderRadius: 'circle',
         padding: 2,
         fontSize: 4,
-        bg: 'accent.light',
+        bg: t => [alpha('accent.base', 0.35)(t), null, 'accent.light'],
     },
     confirmSvg: {
         position: 'absolute',
@@ -496,7 +496,7 @@ const styles = {
     },
     confirmDetailsBox: {
         position: 'relative',
-        bg: 'accent.light',
+        bg: t => [alpha('accent.base', 0.5)(t), null, 'accent.light'],
         borderRadius: 20,
         px: 4,
         py: 7,
@@ -511,9 +511,11 @@ const styles = {
     confirmNoteBox: {
         padding: 7,
         mt: 7,
+        textAlign: 'left',
         borderRadius: 20,
-        bg: t => alpha('accent.base', 0.15)(t),
+        bg: t => [alpha('accent.base', 0.35)(t), null, alpha('accent.base', 0.15)(t)],
     },
+    confirmNoteBoxTextBg: ['whiteFade.80', null, 'white'],
 }
 
 export default styles

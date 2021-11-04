@@ -21,7 +21,7 @@ const styles = {
             textAlign: 'center',
             mt: '-1.5em',
             mb: [null, null, 8],
-            mx: ['-1.5em', null, 'auto'],
+            mx: ['bodyNegative', null, 'auto'],
             pb: [6, null, 1],
             minWidth: 0,
             maxWidth: 'container',

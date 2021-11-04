@@ -27,9 +27,9 @@ export const foodCardStyle = {
         pb: 7,
     },
     title: {
-        minHeight: [null, null, null, '3em'],
-        fontSize: [1, null, null, null, '0.8em'],
-        lineHeight: 'tight',
+        minHeight: [null, null, null, '2.5em'],
+        fontSize: [null, null, null, null, 1],
+        lineHeight: 1.3,
         mb: 2,
         textDecoration: 'none',
     },

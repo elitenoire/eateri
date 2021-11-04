@@ -17,7 +17,7 @@ function StepConfirmation() {
             <div sx={styles.confirmIcon}>
                 <Icon name="reservedfill" />
             </div>
-            <Text weight="bold" size={5} transform="capitalize" color="accent.hover">
+            <Text weight="bold" size={5} transform="capitalize">
                 {values.name}
             </Text>
             <Text line="snug" mx="auto" mt={2}>
@@ -39,7 +39,7 @@ function StepConfirmation() {
                         <Text size={0} weight="bold">
                             Date
                         </Text>
-                        <Text weight="bold">{values.date.toDateString()}</Text>
+                        <Text weight="bold">{values.date?.toDateString()}</Text>
                     </div>
                     <Divider bg="text" my={1} mx={2} vertical />
                     <div>
@@ -53,7 +53,7 @@ function StepConfirmation() {
             </div>
             {values.note && (
                 <div sx={styles.confirmNoteBox}>
-                    <Text variant="badge" bg="white" color="accent.hover">
+                    <Text variant="badge" bg={styles.confirmNoteBoxTextBg} color="accent.hover">
                         Note
                     </Text>
                     <Text size={1} mt={4} color="textFade">
