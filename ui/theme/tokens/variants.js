@@ -178,6 +178,10 @@ export const variants = {
         plain: {
             textDecoration: 'none',
         },
+        block: {
+            variant: 'links.plain',
+            display: 'block',
+        },
         highlight: {
             '&,&:visited': {
                 color: 'highlight.base',

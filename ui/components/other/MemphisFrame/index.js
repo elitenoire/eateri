@@ -6,9 +6,9 @@ import { ReactComponent as MWing } from '~/public/inlineSvg/m-wing.svg'
 
 // Only using inline-svgs to make it themeable otherwise
 // for large svgs, loading as images is preferred.
-function MemphisFrame({ children }) {
+function MemphisFrame({ children, ...rest }) {
     return (
-        <div sx={styles.frame}>
+        <div sx={styles.frame} {...rest}>
             <MWing className="m m-wing m-wing--left" />
             <MWing className="m m-wing m-wing--right" />
             <MBean className="m m-bean" />
