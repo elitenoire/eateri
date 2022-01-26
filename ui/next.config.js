@@ -15,10 +15,16 @@ const svgrOptions = {
     svgoConfig: {
         plugins: [
             {
-                cleanupIDs: false,
+                name: 'preset-default',
+                params: {
+                    overrides: {
+                        cleanupIDs: false,
+                        prefixIds: false,
+                        removeTitle: false,
+                    },
+                },
             },
-            { prefixIds: false },
-            { prefixClassNames: false },
+            'convertStyleToAttrs',
         ],
     },
 }
