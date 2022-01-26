@@ -5,12 +5,12 @@ export const foodCardStyle = {
         flexDirection: 'column',
         borderWidth: '1.5px',
         borderStyle: 'solid',
-        borderColor: ['transparent', null, 'gray'],
+        borderColor: ['transparent', null, 'grayMedium'],
         borderRadius: '25',
-        mt: '3.5em',
+        mt: 10,
         ':hover': {
             borderColor: 'transparent',
-            boxShadow: t => `0 0 0 3px ${t.colors.primary.light}`,
+            boxShadow: t => `0 0 0 1.5px ${t.colors.secondary.base}`,
         },
     },
     imageWrap: {

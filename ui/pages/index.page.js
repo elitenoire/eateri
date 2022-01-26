@@ -40,7 +40,7 @@ export default function Home({ userAgent }) {
                 <Menu />
                 <Media greaterThanOrEqual="tabletS" sx={styles.radialCover}>
                     <Reviews />
-                    <Gallery />
+                    {/* <Gallery /> */}
                 </Media>
                 <Reservation />
                 <Media greaterThanOrEqual="tabletS">

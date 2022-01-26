@@ -36,9 +36,7 @@ const menuItems = [
 ]
 
 function MenuLink({ to, children, ...rest }) {
-    return (
-        <Link href={to}>{children(rest)}</Link>
-    )
+    return <Link href={to}>{children(rest)}</Link>
 }
 
 function MobileSideMenu() {

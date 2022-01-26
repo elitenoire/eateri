@@ -18,7 +18,7 @@ const styles = {
             padding: '0.4em 0.8em',
             borderRadius: 'inherit',
             margin: '-0.8em',
-            marginLeft: '1.6em',
+            ml: 3,
             bg: 'secondary.base',
             color: 'textOnSecondary',
             boxShadow: t => `0 2px 4px ${alpha('secondary.base', 0.2)(t)}`,

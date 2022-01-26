@@ -74,7 +74,7 @@ function MenuPage() {
                     Showing 15 of 48 items
                 </Text>
                 <Progress max={48} value={15} color="primary.base" />
-                <Button mt={4} brand="subtle" shape="flat" bg="gray" outlineColor="gray" outline fluid>
+                <Button mt={4} brand="subtle" shape="flat" bg="grayMedium" outlineColor="grayMedium" outline fluid>
                     Load More
                 </Button>
             </div>

@@ -110,6 +110,11 @@ const styles = t => ({
             transform: 'scale(1.1)',
         },
     },
+    '.hide': {
+        opacity: 0,
+        visibility: 'hidden',
+        pointerEvents: 'none',
+    },
     '.visually-hidden': {
         position: 'absolute',
         width: '1px',
