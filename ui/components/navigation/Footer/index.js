@@ -77,7 +77,7 @@ function Footer({ hasMap, mini }) {
             <div sx={styles.copywright} data-footer-sticky={!mini && hasMap ? '' : null}>
                 <div sx={styles.container}>
                     <Text size={0} spacing="wide">
-                        © 2021 Eateri Inc by{' '}
+                        © 2022 Eateri Inc by{' '}
                         <Text
                             as="a"
                             color="primary.base"

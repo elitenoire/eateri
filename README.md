@@ -78,7 +78,7 @@ This project is mainly for demo purposes and the **code** is free to use for pro
 
 However, for other copyrighted content, you should obtain permission from the original copywright owner.
 
-> _Crafted with 💛 by [@elitenoire](https://github.com/elitenoire) 2021._
+> _Crafted with 💛 by [@elitenoire](https://github.com/elitenoire) 2022._
 
 [biamfaded]: https://github.com/remorses/baby-i-am-faded
 [rar]: https://github.com/dennismorello/react-awesome-reveal
