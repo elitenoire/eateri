@@ -1,6 +1,7 @@
 import { memo } from 'react'
 import { useThemeUI } from '@theme-ui/core'
-import { MapContainer, Marker, TileLayer, Popup, CircleMarker } from 'react-leaflet'
+import { Icon } from 'leaflet'
+import { MapContainer, Marker, TileLayer, Tooltip, CircleMarker } from 'react-leaflet'
 
 import 'leaflet/dist/leaflet.css'
 import styles from './styles'
@@ -18,6 +19,19 @@ const zoomLevels = {
 
 const other = {
     scrollWheelZoom: false,
+}
+
+const markerLogo = new Icon({
+    iconUrl: '/inlineSvg/logo.svg',
+    iconSize: [20, 20],
+})
+
+const onMapClick = () => {
+    return {
+        click: () => {
+            window.open('https://goo.gl/maps/7kiKsPdS4k2NThVB6', '_blank')
+        },
+    }
 }
 
 function LeafletMap() {
@@ -42,8 +56,8 @@ function LeafletMap() {
                         attribution='Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>'
                     />
                 )}
-                <Marker position={position}>
-                    <Popup>Eateri Restaurant 👩‍🍳🥘</Popup>
+                <Marker position={position} icon={markerLogo} eventHandlers={onMapClick()}>
+                    <Tooltip>Eateri Restaurant 👩‍🍳🥘</Tooltip>
                 </Marker>
                 <CircleMarker
                     center={position}

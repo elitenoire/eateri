@@ -7,14 +7,24 @@ const styles = {
             borderRadius: 'inherit',
             width: 'inherit',
             height: 'inherit',
-            'a.leaflet-popup-close-button': {
-                color: 'textOnPrimary',
-            },
         },
-        '.leaflet-popup-content-wrapper,.leaflet-popup-tip': {
+        '.leaflet-tooltip': {
             bg: 'primary.base',
+            borderColor: 'primary.base',
             color: 'textOnPrimary',
             fontSize: 3,
+        },
+        '.leaflet-tooltip-left:before': {
+            borderLeftColor: 'primary.base',
+        },
+        '.leaflet-tooltip-right:before': {
+            borderRightColor: 'primary.base',
+        },
+        '.leaflet-tooltip-top:before': {
+            borderTopColor: 'primary.base',
+        },
+        '.leaflet-tooltip-bottom:before': {
+            borderBottomColor: 'primary.base',
         },
     },
     errorOverlay: {
