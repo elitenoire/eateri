@@ -1,246 +1,104 @@
 import { to } from '@react-spring/web'
 
-// const getInputRangeFromIndexes = (range, index, itemWidth) => {
-//     const inputRange = []
-//     for (let i = 0; i < range.length; i += 1) {
-//         inputRange.push((index - range[i]) * itemWidth)
-//     }
-//     return inputRange
-// }
 const makeRange = (from, _to, inclusive = true) => {
     const result = []
-    for (let i = from; inclusive ? i <= _to : i < to; i += 1) {
+    for (let i = from; inclusive ? i <= _to : i < _to; i += 1) {
         result.push(i)
     }
     return result
 }
 const mapValues = (range, visible, visibleVal, edgeVal) =>
-    range.map(idx => (idx >= 0 && idx < visible ? visibleVal : edgeVal))
-
-// Stack Effect
-const stackAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 }) => {
-    const itemScale = 0.95
-    const item1Scale = 0.8
-    const item2Scale = 0.6
-
-    // Limit centerOffset
-    const centerOffset = (100 - itemWidth) / 2
-
-    // const getTranslateFromScale = (itemIndex, scale) => {
-    //     const centerFactor = (1 / scale) * itemIndex
-    //     const centeredPosition = -Math.round(itemWidth * centerFactor)
-    //     const edgeAlignment = Math.round((itemWidth - itemWidth * scale) / 2)
-    //     const offset = Math.round((itemOffset * Math.abs(itemIndex)) / scale)
-
-    //     return centeredPosition - edgeAlignment - offset + itemIndex * itemWidth
-    // }
-
-    const { x, z, o } = animatedValues
-
-    const sc = x.to({
-        range: [-1, 0, 1, 2],
-        output: [itemScale, 1, item1Scale, item2Scale],
-        extrapolate: 'clamp',
-    })
-
-    // const _x = x.to({
-    //     range: [-1, 0, 1, 2, 3],
-    //     output: [
-    //         itemWidth * 1.5,
-    //         0,
-    //         getTranslateFromScale(1, item1Scale),
-    //         getTranslateFromScale(2, item2Scale),
-    //         getTranslateFromScale(3, item2Scale),
-    //     ],
-    //     extrapolate: 'clamp',
-    // })
-    const _x = x.to({
-        range: [-1, 0, 1, 2, 3],
-        output: [-itemWidth * 3.5, 0, 1 * centerOffset, 2.5 * centerOffset, 3 * centerOffset],
-        extrapolate: 'clamp',
-    })
-
-    const opacity = o.to({
-        range: [0, 1, 2, 3],
-        output: [1, 0.97, 0.93, 0],
-        extrapolate: 'clamp',
-    })
-
-    const zIndex = z.to({
-        range: [-1, 0, 1, 2, 3],
-        output: [4, 3, 2, 1, 0],
-        extrapolate: 'clamp',
-    })
-
-    const transform = to([_x, sc], (xt, s) => `scale(${s}) translateX(${xt - 45}%`)
-
-    return {
-        opacity,
-        zIndex,
-        transform,
-    }
-}
-
-const stackAnimationItemStyle = ({ animatedValues }) => {
-    const { peek = 0 } = animatedValues
-
-    return {
-        transform: peek.to(p => `translate(${p}%)`),
-    }
-}
+    range.map(index => (index >= 0 && index < visible ? visibleVal : edgeVal))
 
 // Shift Effect
-const shiftAnimationSlideStyle = ({ animatedValues, visible, itemOffset = 0 }) => {
-    const itemOpacity = 0.5
-
-    const range = makeRange(-1, visible + 1)
-    const ocOutput = []
-    const zOutput = []
+const shiftAnimationSlideStyle = ({ animatedValues, itemWidth, itemOffset = 0 }) => {
+    const range = [-2, -1, 0, 1, 2]
     const xOutput = []
-    let oc
-    let zdx
+    const center = (1 * (1 - itemWidth)) / (2 * itemWidth)
 
     for (let i = 0; i < range.length; i += 1) {
-        // Edge Idx
-        if (range[i] > 0 && range[i] < visible) {
-            oc = 1
-            zdx = 2
-        } else if (range[i] === -1 || range[i] === visible) {
-            oc = itemOpacity
-            zdx = 1
-        } else if (range[i] === 0) {
-            // Active Idx
-            oc = 1
-            zdx = 3
-        } else {
-            // Defaults
-            oc = 0
-            zdx = 0
-        }
-        ocOutput.push(oc)
-        zOutput.push(zdx)
-        xOutput.push((range[i] + itemOffset / 2) * 100)
+        xOutput.push(range[i] + center + itemOffset / 100)
     }
 
-    const { x, z } = animatedValues
+    const { idx, x } = animatedValues
 
-    const opacity = x.to({
+    const display = idx.to(_xd => (_xd < -2 || _xd > 2 ? 'none' : 'block'))
+
+    const opacity = idx.to({
         range,
-        output: ocOutput,
+        output: [0, 1, 1, 1, 0],
         extrapolate: 'clamp',
     })
 
-    const zIndex = z.to({
+    const zIndex = idx.to({
         range,
-        output: zOutput,
+        output: [1, 2, 3, 2, 1],
         extrapolate: 'clamp',
     })
 
-    const _x = x.to({
+    const _x = idx.to({
         range,
         output: xOutput,
         extrapolate: 'clamp',
     })
 
-    const transform = _x.to(xt => `translate(${xt}%)`)
+    const transform = to([_x, x], (_xt, xt) => {
+        return `translateX(${(_xt + xt / 200) * 100}%)`
+    })
 
-    return { opacity, zIndex, transform }
+    return { display, zIndex, transform, opacity }
 }
 
-const shiftAnimationItemStyle = ({ animatedValues, visible }) => {
-    const item1Scale = 0.925
-    const item2Scale = 0.85
-
-    const range = makeRange(-1, visible)
-    const scOutput = []
-    let sc
-
-    for (let i = 0; i < range.length; i += 1) {
-        // Extreme Idx
-        if (range[i] > 0 && range[i] < visible) {
-            sc = item1Scale
-        } else if (range[i] === -1 || range[i] === visible) {
-            sc = item2Scale
-        } else if (range[i] === 0) {
-            // Active Idx
-            sc = 1
-        } else {
-            // Defaults
-            sc = item2Scale
-        }
-        scOutput.push(sc)
-    }
-    const { x } = animatedValues
-
-    const scale = x.to({
-        range,
-        output: scOutput,
-        extrapolate: 'clamp',
-    })
-    const shadow = x.to({
+const shiftAnimationItemStyle = ({ animatedValues: { idx }, itemGap = 5 }) => {
+    const scale = idx.to({
         range: [-1, 0, 1],
-        output: [0, 5, 0],
+        output: [0.9, 1, 0.9],
         extrapolate: 'clamp',
     })
-    const boxShadow = shadow.to(_s => `0 ${_s}px ${2 * _s}px 0 rgba(0, 0, 0, 0.1)`)
-    const transform = scale.to(s => `scale(${s})`)
+    const translateX = idx.to({
+        range: [-1, 0, 1],
+        output: ['5%', '0%', '-5%'],
+        extrapolate: 'clamp',
+    })
 
-    return { boxShadow, transform, width: '90%', margin: '5% auto' }
+    return { margin: `0 ${itemGap}%`, scale, translateX }
 }
 
 // Slide Effect
-const slideAnimationSlideStyle = ({ animatedValues, itemWidth, visible }) => {
-    const item1Scale = 0.85
+const slideAnimationSlideStyle = ({ animatedValues: { idx }, visible }) => {
+    const itemScale = 0.85
     const range = makeRange(-1, visible)
-    const scOutput = mapValues(range, visible, 1, item1Scale)
+    const scOutput = mapValues(range, visible, 1, itemScale)
 
-    // const scOutput = [item1Scale, 1, item1Scale]
+    const display = idx.to(_x => (_x < range[0] || _x > range[range.length - 1] ? 'none' : 'block'))
 
-    const { x, z } = animatedValues
-
-    // const opacity = x.to({
-    //     range,
-    //     output: mapValues(range, visible, 1, 0)
-    //     extrapolate: 'clamp',
-    // })
-
-    const sc = x.to({
+    const scale = idx.to({
         range,
         output: scOutput,
         extrapolate: 'clamp',
     })
 
-    const zIndex = z.to({
+    const zIndex = idx.to({
         range,
         output: mapValues(range, visible, 2, 1),
         extrapolate: 'clamp',
     })
 
-    const display = x.to(x_ => (x_ < range[0] || x_ > range[range.length - 1] ? 'none' : 'block'))
-
-    const _x = x.to({
+    const translateX = idx.to({
         range,
-        output: range.map((idx, i) => idx * (100 + (1 - scOutput[i]) * (100 / scOutput[i]))), // + (1 - scOutput[i]) * (idx < 0 ? -100 : 100)),
+        output: range.map((index, i) => index * (100 + (1 - scOutput[i]) * (100 / scOutput[i]))),
         extrapolate: 'clamp',
     })
 
-    const transform = to([_x, sc], (xt, s) => `scale(${s}) translateX(${xt}%)`)
+    const transform = to([translateX, scale], (_x, _s) => `scale(${_s}) translateX(${_x}%)`)
 
     return { display, zIndex, transform }
 }
 
-const slideAnimationItemStyle = ({ animatedValues }) => {
-    const { peek = 0 } = animatedValues
+const slideAnimationItemStyle = ({ animatedValues: { x = 0, idx }, visible }) => {
+    const display = idx.to(_x => (_x >= -1 || _x <= visible ? 'block' : 'none'))
 
-    return {
-        transform: peek.to(p => `translate(${p}%)`),
-        width: '100%',
-    }
-}
-
-export const stackAnimation = {
-    slideStyle: stackAnimationSlideStyle,
-    itemStyle: stackAnimationItemStyle,
+    return { display, translateX: x }
 }
 
 export const shiftAnimation = {
@@ -251,4 +109,25 @@ export const shiftAnimation = {
 export const slideAnimation = {
     slideStyle: slideAnimationSlideStyle,
     itemStyle: slideAnimationItemStyle,
+}
+
+// expand card animation
+export const expandStyle = {
+    shadow: 5, // px
+    imageMove: 0, // %
+    imageRotate: 0, // deg
+    contentMove: 0, // em
+    detailOpacity: 1,
+    detailMove: 0, // em
+    buttonScale: 1,
+}
+
+export const compactStyle = {
+    shadow: 0, // px
+    imageMove: 40, // %
+    imageRotate: 90, // deg
+    contentMove: 7, // em
+    detailOpacity: 0,
+    detailMove: 1, // em
+    buttonScale: 0.2,
 }

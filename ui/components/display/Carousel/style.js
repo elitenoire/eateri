@@ -1,14 +1,15 @@
 import { alpha } from '@theme-ui/color'
 
-export default {
+const styles = {
+    wrapper: {
+        overflow: 'hidden',
+        pt: [9, null, 0],
+        height: [null, null, '100%'],
+    },
     carousel: {
         position: 'relative',
-        // width: 100vw;
         width: 'auto',
-        height: '100%',
-        // minHeight: '20vh',
-        overflow: 'hidden',
-
+        height: 'inherit',
         '.carousel-slide': {
             position: 'absolute',
             height: '100%',
@@ -34,3 +35,5 @@ export default {
         },
     },
 }
+
+export default styles
