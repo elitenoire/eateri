@@ -21,15 +21,9 @@ const styles = {
     section: {
         display: 'flex',
         flexDirection: 'column',
-        height: ({ space }) => [
-            `calc(70vh + 2 * 2 * ${space.header})`,
-            null,
-            `calc(100vmin - ${space.header})`,
-            null,
-            `calc(100vh - ${space.header})`,
-        ],
-        maxHeight: t => [`calc(35em + 2 * 2 * ${t.space.header})`, null, '600px', null, null, '650px'],
-        minHeight: t => [`calc(23.5em + 2 * 2 * ${t.space.header})`, null, '500px', null, null, null, '600px'],
+        height: ({ space }) => [null, null, `calc(100vmin - ${space.header})`, null, `calc(100vh - ${space.header})`],
+        minHeight: [null, null, '500px', null, null, null, '600px'],
+        maxHeight: [null, null, '600px', null, null, '650px'],
         /* mobile viewport bug fix */
         // minHeight: '-webkit-fill-available',
         mt: t => [`-${t.space.header}`, null, 0],
@@ -74,7 +68,6 @@ const styles = {
         borderTopLeftRadius: ['40', null, 0],
         borderTopRightRadius: ['40', null, 0],
         color: ['primary.pale', null, 'inherit'],
-
         zIndex: 1,
         ul: {
             mt: [3, null, 1],
@@ -91,7 +84,6 @@ const styles = {
             textDecoration: 'none',
             mx: [null, null, null, null, 1],
             my: [null, null, null, null, 4],
-            // lineHeight: 0.8,
             transition: 'transform 0.3s, color 0.3s',
         },
         'a:hover': {
@@ -107,7 +99,7 @@ const styles = {
         bottom: ['-5.25em', null, 'auto'],
         left: ['1.25em', null, 'auto', null, '50%'],
         right: ['1.25em', null, 'auto', null, 0],
-        pb: ['3em', null, 0],
+        pb: [9, null, 0],
         height: [null, null, '3.5em', null, 'auto'],
         width: ({ space }) => [null, null, `calc(80vh - ${space.header})`, null, 'auto'],
         maxWidth: [null, null, 'calc(0.8 * 500px)', 'calc(0.8 * 600px)', 'none'],
@@ -157,19 +149,18 @@ const styles = {
         minHeight: [null, null, 0],
         maxWidth: [null, null, null, null, null, null, '40em'],
         fontWeight: 'light',
-        pl: ['1.5em', null, 13],
+        pl: [null, null, 13],
         pr: [null, null, 10],
         py: [null, null, 4],
-        '& > div:first-of-type': {
-            mb: ['auto', null, 0],
-            pt: [4, null, 0],
-        },
+    },
+    contentHeader: {
+        pl: ['body', null, 0],
+        pt: [6, null, 0],
     },
     contentHeadline: {
-        fontSize: [3, null, 1],
-        fontWeight: ['normal', null, 'extrabold'],
-        color: t => [alpha('text', 0.45)(t), null, 'primary.base'],
-        letterSpacing: ['wide', null, 0],
+        fontSize: [null, null, 1],
+        fontWeight: [null, null, 'extrabold'],
+        color: [null, null, 'primary.base'],
         textTransform: [null, null, 'uppercase'],
         textShadow: t => [null, null, `1px 1px ${t.colors.secondary.dark}`],
     },
@@ -231,7 +222,6 @@ const styles = {
     },
     controls: {
         display: ['none', null, 'flex'],
-        justifyContent: 'flex-end',
         alignItems: 'center',
         height: '20%',
         '& > div:last-of-type': {
@@ -257,71 +247,6 @@ const styles = {
         fontSize: [3, null, null, null, 2],
         mx: [0, null, null, null, 7],
         my: [1, null, null, null, 0],
-    },
-    carouselMobile: {
-        position: 'relative',
-        flex: 1,
-        py: 4,
-        mb: ['auto', null, 0],
-        maxHeight: ['23em', '30em'], // 350px
-        '.carousel': {
-            height: '90%',
-            maxWidth: ['20em', '23em'], // 300px
-            margin: '0 auto',
-            overflow: 'visible',
-        },
-        '.carousel-slide--item:not(.selected)': {
-            pointerEvents: 'none',
-        },
-        '.carousel-slide--item > div': {
-            position: 'relative',
-            flexDirection: 'column',
-            justifyContent: 'flex-end',
-            bg: 'secondary.base',
-            color: 'primary.base', // 'textOnSecondary',
-            borderRadius: ['1.75em', '2em'],
-            border: 0,
-            img: {
-                position: 'absolute',
-                top: '1.85em',
-                left: '-30%',
-                width: ['70%', '80%'],
-            },
-            div: {
-                position: 'relative',
-                alignSelf: 'stretch',
-                minHeight: '30%',
-                py: 4,
-                borderRadius: '1.5em 1.5em 1.25em 1.25em',
-                bg: 'rgba(255, 255, 255, 0.01)',
-            },
-            'p:last-of-type': {
-                mt: 1,
-                fontSize: 3,
-                WebkitLineClamp: 2,
-                fontWeight: 'normal',
-                color: 'heroTitle',
-            },
-            button: {
-                position: 'absolute',
-                top: '-1.5em',
-                right: '1em',
-                fontSize: '1em',
-                color: 'secondary.base',
-                boxShadow: '0.5px 0.5px 4px 0.8em rgba(255,255,255, 0.08)',
-                ':hover': {
-                    boxShadow: '0.5px 0.5px 12px 0.8em rgba(255,255,255, 0.08)',
-                },
-                '&::after': {
-                    position: 'absolute',
-                    content: '""',
-                    size: '100%',
-                    borderRadius: 'inherit',
-                    border: t => `0.5px solid ${t.colors.primary.light}`,
-                    transform: 'scale(1.5)',
-                },
-            },
-        },
     },
 }
 

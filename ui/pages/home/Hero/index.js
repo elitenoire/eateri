@@ -3,7 +3,7 @@ import { useTabState, Tab, TabList, TabPanel } from 'reakit/Tab'
 import { Media } from '~/context/media'
 import { Button, AspectImage } from '~@/general'
 import { Reveal, fadeInDown, fadeIn, rollInBottom } from '~@/general/Reveal'
-import { Carousel, CarouselCard } from '~@/display'
+import { Carousel } from '~@/display'
 import { Heading, Text } from '~@/typography'
 import { QtyInput, useQtyInputState } from '~@/form'
 import { SocialMedia } from '~@/other'
@@ -22,13 +22,11 @@ function Hero() {
         direction,
         increment: goNext,
         decrement: goPrev,
-        isCyclic,
         goto,
         isStart,
         isEnd,
     } = useCounter({
         end: foodMenu.length > 1 ? foodMenu.length - 1 : foodMenu.length || 0,
-        isCyclic: true,
     })
 
     const { qty, defaultQty, onQtyChange, reset, resetQty } = useQtyInputState()
@@ -76,14 +74,13 @@ function Hero() {
                 </TabList>
                 <div sx={styles.contentGrid} className="content-panel grid-tabletS-up">
                     <div sx={styles.contentDetails} className="A">
-                        <div>
-                            <Text className="only-mobile" size={7}>
-                                Hello,{' '}
-                                <Text as="span" weight="bold">
-                                    Guest
-                                </Text>
+                        <div sx={styles.contentHeader}>
+                            <Heading variant="h3" mb={0} sx={styles.contentHeadline}>
+                                Chef's Special
+                            </Heading>
+                            <Text className="only-mobile" pt={1} spacing="wide" size={1} color="textFade" line="tight">
+                                What do you want to eat?
                             </Text>
-                            <Heading sx={styles.contentHeadline}>Chef's Special</Heading>
                         </div>
                         <Reveal
                             as={Heading}
@@ -104,17 +101,15 @@ function Hero() {
                                 {foodMenu[count].description}
                             </Text>
                         </Reveal>
-                        <Media lessThan="tabletS" sx={styles.carouselMobile}>
+                        <Media lessThan="tabletS">
                             <Carousel
                                 items={foodMenu}
                                 selected={count}
-                                visible={3}
-                                animation="stack"
+                                animation="shift"
+                                itemWidth={80}
                                 goto={goto}
-                                direction={direction}
-                            >
-                                {d => <CarouselCard data={d} isMobile />}
-                            </Carousel>
+                                isMobile
+                            />
                         </Media>
                     </div>
                     <Reveal as="div" motion={rollInBottom} duration={800} sx={styles.contentImage} className="B">
@@ -176,13 +171,9 @@ function Hero() {
                     selected={count}
                     visible={3}
                     animation="slide"
-                    itemOffset={0}
                     goto={goto}
                     direction={direction}
-                    infinite={isCyclic}
-                >
-                    {i => <CarouselCard data={i} />}
-                </Carousel>
+                />
             </Media>
         </section>
     )
