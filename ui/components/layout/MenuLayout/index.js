@@ -1,7 +1,6 @@
 import { useState, useCallback } from 'react'
-import { Box, Container } from '@theme-ui/components'
-
-import Headroom from 'react-headroom'
+import { Container } from '@theme-ui/components'
+import Image from 'next/image'
 
 import { Heading, Text } from '~@/typography'
 import { Scrollable } from '~@/display'
@@ -15,6 +14,24 @@ import { getLayout as getDefaultLayout } from '../DefaultLayout'
 import { ReactComponent as AllIcon } from '~/public/inlineSvg/icons/all.svg'
 import { ReactComponent as PizzaIcon } from '~/public/inlineSvg/icons/pizza.svg'
 import { ReactComponent as SaladIcon } from '~/public/inlineSvg/icons/salad.svg'
+// import url from '~/public/bannerindian.svg'
+// import url from '~/public/bannerafrican.svg'
+// import url from '~/public/bannersoups.svg'
+// import url from '~/public/bannerseafood.svg'
+// import url from '~/public/bannermeat.svg'
+// import url from '~/public/bannerbarbeque.svg'
+// import url from '~/public/bannerpizza.svg'
+// import url from '~/public/bannerbreakfast.svg'
+// import url from '~/public/bannersandwich.svg'
+// import url from '~/public/bannerfastfood.svg'
+// import url from '~/public/bannersalad.svg'
+// import url from '~/public/bannerdessert.svg'
+// import url from '~/public/bannerchinese.svg'
+// import url from '~/public/bannerpasta.svg'
+// import url from '~/public/bannerdrinks.svg'
+// import url from '~/public/bannerall.svg'
+// import url from '~/public/bannerrice.svg'
+import url from '~/public/bannerspecials.svg'
 
 import { styles } from './style'
 
@@ -33,7 +50,23 @@ export default function MenuLayout({ children }) {
 
     return (
         <Container variant="maxi">
-            <Box p={13} bg="orange" />
+            <div sx={styles.banner}>
+                <div sx={styles.imageWrap}>
+                    <Image src={url} alt="" layout="fill" objectFit="cover" objectPosition="center" />
+                </div>
+                <div sx={styles.textWrap}>
+                    <Heading as="h1" variant="intro" title>
+                        <Text as="span" line="relaxed" spacing="tight" sx={styles.bgText}>
+                            Spicy Indian
+                        </Text>
+                    </Heading>
+                    <Text size={1} weight="medium" sx={styles.subText}>
+                        <Text as="span" line={3} sx={styles.bgText}>
+                            Made from organic ingredients that are healthy, rich in variety and flavours.
+                        </Text>
+                    </Text>
+                </div>
+            </div>
             <div sx={styles.layoutGrid}>
                 <div sx={styles.menuTitle}>
                     <MenuTitle />

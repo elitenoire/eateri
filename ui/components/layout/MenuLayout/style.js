@@ -6,10 +6,11 @@ export const categoryLinkStyle = {
         flexDirection: ['column', null, null, null, 'row'],
         justifyContent: ['center', null, null, null, 'start'],
         alignItems: 'center',
+        borderRadius: 'pill',
         borderWidth: '1px',
         borderStyle: 'solid',
         borderColor: ['transparent', null, null, null, 'gray'],
-        borderRadius: 'pill',
+        bg: [null, null, null, null, 'grayLight'],
         textDecoration: 'none',
         mb: [3, null, null, null, 4],
         p: [null, null, null, null, 1],
@@ -24,18 +25,15 @@ export const categoryLinkStyle = {
         },
         '&:not([data-active]):hover': {
             borderColor: [null, null, null, null, 'transparent'],
-            boxShadow: t => [null, null, null, null, `0 0 0 3px ${t.colors.primary.light}`],
+            boxShadow: t => [null, null, null, null, `0 0 0 1.5px ${t.colors.secondary.base}`],
         },
         '&:not([data-active]):active': {
             transform: 'scale(0.98)',
         },
         '&[data-active]': {
-            borderColor: [null, null, null, null, 'primary.base'],
-            bg: [null, null, null, null, 'primary.base'],
-            boxShadow: t => [null, null, null, null, `0 2px 20px -5px ${t.colors.primary.base}`],
-        },
-        '&[data-active] > span:first-of-type': {
-            bg: [null, null, null, null, 'white'],
+            borderColor: [null, null, null, null, 'secondary.base'],
+            bg: [null, null, null, null, 'secondary.base'],
+            color: [null, null, null, null, 'whiteFade.80'],
         },
         [mq.tabletL]: {
             '&[data-active] > span:first-of-type': {
@@ -47,20 +45,19 @@ export const categoryLinkStyle = {
             },
             '&:not([data-active]):hover > span:first-of-type': {
                 borderColor: 'transparent',
-                boxShadow: t => `0 0 0 3px ${t.colors.primary.light}`,
+                boxShadow: t => `0 0 0 1.5px ${t.colors.secondary.base}`,
             },
         },
     },
     iconWrap: {
+        borderRadius: 'circle',
         borderWidth: '1.5px',
         borderStyle: 'solid',
         borderColor: ['gray', null, null, null, 'transparent'],
-        borderRadius: 'circle',
+        bg: [null, null, null, null, 'white'],
         mr: [null, null, null, null, 2],
         mb: [2, null, null, null, 0],
         p: [3, null, null, null, 2],
-        bg: [null, null, null, null, 'grayLight'],
-        zIndex: [null, null, null, null, -1],
 
         svg: {
             size: ['2em', null, null, null, '1.5em'],
@@ -69,6 +66,33 @@ export const categoryLinkStyle = {
 }
 
 export const styles = {
+    banner: {
+        display: ['none', null, 'flex'],
+        alignItems: 'center',
+        position: 'relative',
+        height: '20em',
+        bg: 'accent.pale',
+    },
+    imageWrap: {
+        position: 'absolute',
+        width: ['100%', null, null, null, '65%'],
+        top: 0,
+        right: 0,
+        bottom: 0,
+    },
+    textWrap: {
+        position: 'relative',
+        maxWidth: ['28em', null, null, null, '40em'],
+        p: 7,
+    },
+    bgText: {
+        bg: 'whiteFade.70',
+        p: '10px',
+        boxDecorationBreak: 'clone',
+    },
+    subText: {
+        display: ['none', null, null, null, 'block'],
+    },
     layoutGrid: {
         display: 'grid',
         gridTemplateColumns: [null, null, null, null, '13em 1fr 1fr'],
