@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from 'react'
+import { useState, useRef, useEffect, useContext } from 'react'
 import Image from 'next/image'
 import useInView from 'react-cool-inview'
 import { Box, Flex, AspectRatio, Container } from '@theme-ui/components'
@@ -8,6 +8,7 @@ import { Button, ButtonBase, Icon, Reveal, slideUp, slideDown } from '~@/general
 import { BackLink } from '~@/navigation'
 import { QtyInput, useQtyInputState, StarRating, BarRating } from '~@/form'
 import { Scrollable, FoodCard } from '~@/display'
+import { MenuContext } from '~/context/menu'
 
 import styles from './style'
 
@@ -16,6 +17,10 @@ import url from '~/public/dish.png'
 function DishLayout() {
     const { qty, onQtyChange } = useQtyInputState()
     const radio = useRadioState({ state: 's' })
+
+    // FIX: experiment to hide the fixed elements
+    // when mobile menu is open
+    const { isOpen } = useContext(MenuContext)
 
     const firstRenderRef = useRef(true)
     const [showBar, setShowBar] = useState(false)
@@ -43,7 +48,7 @@ function DishLayout() {
             <BackLink href="/menu" sx={styles.backLink}>
                 Back to menu
             </BackLink>
-            <div sx={styles.fixedToTop}>
+            <div className={isOpen ? 'hide' : ''} sx={styles.fixedToTop}>
                 <div sx={styles.mobileBackLink}>
                     <BackLink href="/menu" m={0} py={4} px={6}>
                         Back to menu
@@ -375,7 +380,7 @@ function DishLayout() {
                                     'Grilled Steak Tomato Salad',
                                 ].map(dish => (
                                     <li key={dish}>
-                                        <FoodCard imgUrl={url} bg="white" shadow="soft" imageOnly>
+                                        <FoodCard imgUrl={url} shadow="soft" imageOnly>
                                             {dish}
                                         </FoodCard>
                                     </li>
@@ -390,7 +395,7 @@ function DishLayout() {
                         duration={!showBar && firstRenderRef.current ? 0 : 400}
                         hideUntilReveal
                     >
-                        <Container variant="maxi">
+                        <Container className={isOpen || !showBar ? 'hide' : ''} variant="maxi">
                             <div sx={styles.bottomBar}>
                                 <div sx={styles.priceTotal}>
                                     <Text size={0} color="whiteFade.20" truncate>
