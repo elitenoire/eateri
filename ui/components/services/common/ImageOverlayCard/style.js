@@ -54,7 +54,7 @@ const styles = {
         ':hover img': {
             transform: 'scale(1.1)',
         },
-        '& > div': {
+        '& > span, & > div': {
             borderRadius: 'inherit',
         },
     },

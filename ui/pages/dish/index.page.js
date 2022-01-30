@@ -1,10 +1,9 @@
 import { useState, useRef, useEffect, useContext } from 'react'
-import Image from 'next/image'
 import useInView from 'react-cool-inview'
-import { Box, Flex, AspectRatio, Container } from '@theme-ui/components'
+import { Box, Flex, Container } from '@theme-ui/components'
 import { useRadioState, Radio, RadioGroup } from 'reakit/Radio'
 import { Text, Heading } from '~@/typography'
-import { Button, ButtonBase, Icon, Reveal, slideUp, slideDown } from '~@/general'
+import { AspectImage, Button, ButtonBase, Icon, Reveal, slideUp, slideDown } from '~@/general'
 import { BackLink } from '~@/navigation'
 import { QtyInput, useQtyInputState, StarRating, BarRating } from '~@/form'
 import { Scrollable, FoodCard } from '~@/display'
@@ -59,9 +58,7 @@ function DishLayout() {
                 <div>
                     <div sx={styles.imageContainer}>
                         <div sx={styles.imageWrap}>
-                            <AspectRatio ratio={1}>
-                                <Image src={url} alt="" layout="fill" objectFit="cover" objectPosition="center" />
-                            </AspectRatio>
+                            <AspectImage src={url} />
                         </div>
                     </div>
                     <div sx={styles.extraInfoWrap}>

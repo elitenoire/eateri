@@ -258,7 +258,7 @@ const styles = {
     sectionContent: {
         flex: [null, null, null, 1],
         overflow: [null, null, null, 'hidden'],
-        bg: [null, null, null, 'grayLight'],
+        bg: [null, null, null, 'background'],
         my: [null, null, null, '-3em'],
         mr: [null, null, null, '-2em'],
     },

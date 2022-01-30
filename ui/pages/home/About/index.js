@@ -13,11 +13,11 @@ function About() {
         <section id="homepage-about" sx={styles.section}>
             <div sx={styles.container}>
                 <Reveal motion={fadeInRight} threshold={0.3} duration={600} whenInView>
-                    <>
+                    <div>
                         <MemphisFrame sx={styles.imageWrap}>
                             <AspectImage ratio={3 / 5} src={chefImgUrl} alt="" />
                         </MemphisFrame>
-                    </>
+                    </div>
                 </Reveal>
                 <Reveal motion={popIn} duration={1000} delay={100} threshold={0.3} whenInView>
                     <div sx={styles.image}>
