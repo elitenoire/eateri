@@ -3,7 +3,9 @@
 		"baseUrl": "./",
 		"paths": {
 			"~/*": ["*"],
-			"~@/*": ["components/*"]
+			"~@core/*": ["components/core/*"],
+			"~@common/*": ["components/common/*"],
+			"~@custom/*": ["components/custom/*"]
 		}
 	},
 	"exclude": ["node_modules"]

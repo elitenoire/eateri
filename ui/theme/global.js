@@ -110,6 +110,9 @@ const styles = t => ({
             transform: 'scale(1.1)',
         },
     },
+    '.hide-overflow': {
+        overflow: 'hidden',
+    },
     '.hide': {
         opacity: 0,
         visibility: 'hidden',

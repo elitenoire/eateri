@@ -1,4 +1,4 @@
-import { createContext, useState, useRef } from 'react'
+import { createContext, useState, useRef, useCallback, useMemo } from 'react'
 
 export const MenuContext = createContext({
     isOpen: false,
@@ -10,25 +10,26 @@ const MenuProvider = ({ children }) => {
     const [isOpen, setIsOpen] = useState(false)
     const firstMenuItemRef = useRef(null)
 
-    const closeMenu = () => {
+    const closeMenu = useCallback(() => {
         // Check to prevent PageWrap from overriding toggleMenu from opening menu
         if (isOpen) {
             setIsOpen(false)
         }
-    }
+    }, [isOpen])
 
-    return (
-        <MenuContext.Provider
-            value={{
-                isOpen,
-                closeMenu,
-                firstMenuItemRef,
-                toggleMenu: () => setIsOpen(!isOpen),
-            }}
-        >
-            {children}
-        </MenuContext.Provider>
+    const toggleMenu = useCallback(() => setIsOpen(_isOpen => !_isOpen), [])
+
+    const values = useMemo(
+        () => ({
+            isOpen,
+            closeMenu,
+            firstMenuItemRef,
+            toggleMenu,
+        }),
+        [closeMenu, isOpen, toggleMenu]
     )
+
+    return <MenuContext.Provider value={values}>{children}</MenuContext.Provider>
 }
 
 export default MenuProvider
