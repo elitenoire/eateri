@@ -30,7 +30,7 @@ export default function DefaultLayout({ children, hasMap, mini }) {
             >
                 <div
                     id="headroom-scroll"
-                    className="hide-overflow"
+                    className="page-content"
                     role="presentation"
                     // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
                     tabIndex={isOpen ? 0 : -1}

@@ -24,7 +24,7 @@ const styles = {
     pageWrap: {
         ...pageWrap,
         borderRadius: 'none',
-        '.hide-overflow': {
+        '.page-content': {
             ...hideOverflow,
             overflow: ['auto', null, 'initial'],
         },
@@ -58,7 +58,7 @@ const styles = {
             transform: 'translate3d(-16%, 0, -600px) rotateY(2.5deg)',
             background: 'rgba(255, 255, 255, 0.1)',
         },
-        '.hide-overflow': {
+        '.page-content': {
             ...hideOverflow,
             overflow: 'hidden',
             pointerEvents: 'none',
