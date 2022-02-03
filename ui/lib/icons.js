@@ -1,5 +1,7 @@
 import { ReactComponent as Home } from 'remixicon/icons/Buildings/home-6-line.svg'
 import { ReactComponent as Location2 } from 'remixicon/icons/Buildings/store-2-line.svg'
+import { ReactComponent as Socials } from 'remixicon/icons/Business/at-line.svg'
+import { ReactComponent as Award } from 'remixicon/icons/Business/award-line.svg'
 import { ReactComponent as Calendar } from 'remixicon/icons/Business/calendar-fill.svg'
 import { ReactComponent as Links } from 'remixicon/icons/Business/links-line.svg'
 import { ReactComponent as Mail } from 'remixicon/icons/Business/mail-fill.svg'
@@ -9,12 +11,16 @@ import { ReactComponent as Chat } from 'remixicon/icons/Communication/chat-smile
 import { ReactComponent as LayoutGrid } from 'remixicon/icons/Design/layout-grid-fill.svg'
 import { ReactComponent as Phone } from 'remixicon/icons/Device/phone-line.svg'
 import { ReactComponent as PhoneFill } from 'remixicon/icons/Device/phone-fill.svg'
+import { ReactComponent as AddressBook } from 'remixicon/icons/Document/contacts-book-line.svg'
 import { ReactComponent as Menu } from 'remixicon/icons/Document/todo-line.svg'
 import { ReactComponent as DoubleQuotesL } from 'remixicon/icons/Editor/double-quotes-l.svg'
 import { ReactComponent as DoubleQuotesR } from 'remixicon/icons/Editor/double-quotes-r.svg'
 import { ReactComponent as LayoutList } from 'remixicon/icons/Editor/list-unordered.svg'
+import { ReactComponent as BankCard } from 'remixicon/icons/Finance/bank-card-2-line.svg'
+import { ReactComponent as Coupon } from 'remixicon/icons/Finance/coupon-3-line.svg'
 import { ReactComponent as Gift } from 'remixicon/icons/Finance/gift-fill.svg'
 import { ReactComponent as Bag } from 'remixicon/icons/Finance/shopping-bag-line.svg'
+import { ReactComponent as Orders } from 'remixicon/icons/Finance/shopping-bag-3-line.svg'
 import { ReactComponent as Heart } from 'remixicon/icons/Health/heart-line.svg'
 import { ReactComponent as HeartFill } from 'remixicon/icons/Health/heart-fill.svg'
 import { ReactComponent as Github } from 'remixicon/icons/Logos/github-fill.svg'
@@ -49,12 +55,13 @@ import { ReactComponent as Filter } from 'remixicon/icons/System/filter-2-line.s
 import { ReactComponent as FilterFill } from 'remixicon/icons/System/filter-2-fill.svg'
 import { ReactComponent as Loader } from 'remixicon/icons/System/loader-4-line.svg'
 import { ReactComponent as Password } from 'remixicon/icons/System/lock-password-fill.svg'
+import { ReactComponent as PasswordAlt } from 'remixicon/icons/System/lock-2-line.svg'
 import { ReactComponent as Lock } from 'remixicon/icons/System/lock-fill.svg'
-import { ReactComponent as Login } from 'remixicon/icons/System/login-circle-line.svg'
-import { ReactComponent as Logout } from 'remixicon/icons/System/logout-circle-line.svg'
 import { ReactComponent as HamBurger } from 'remixicon/icons/System/menu-4-line.svg'
 import { ReactComponent as More } from 'remixicon/icons/System/more-line.svg'
 import { ReactComponent as Search } from 'remixicon/icons/System/search-2-line.svg'
+import { ReactComponent as Signin } from 'remixicon/icons/System/login-circle-line.svg'
+import { ReactComponent as Signout } from 'remixicon/icons/System/logout-circle-line.svg'
 import { ReactComponent as Subtract } from 'remixicon/icons/System/subtract-line.svg'
 import { ReactComponent as Time } from 'remixicon/icons/System/time-fill.svg'
 import { ReactComponent as Timer } from 'remixicon/icons/System/timer-fill.svg'
@@ -65,6 +72,7 @@ export const CloseIcon = Close
 
 export const icons = {
     add: Add,
+    addressbook: AddressBook,
     arrowback: ArrowBack,
     arrowdropdown: ArrowDropDown,
     arrowdropup: ArrowDropUp,
@@ -75,13 +83,17 @@ export const icons = {
     arrowopen: ArrowOpen,
     arrowright: ArrowRight,
     arrowup: ArrowUp,
+    award: Award,
     calendar: Calendar,
     bag: Bag,
+    orders: Orders,
+    bankcard: BankCard,
     chat: Chat,
     check: Check,
     checkboxblankcircle: CheckboxBlankCircle,
     checkboxfillcircle: CheckboxFillCircle,
     close: Close,
+    coupon: Coupon,
     dashboard: Dashboard,
     doublequotesl: DoubleQuotesL,
     doublequotesr: DoubleQuotesR,
@@ -104,14 +116,13 @@ export const icons = {
     location: Location,
     location2: Location2,
     lock: Lock,
-    login: Login,
-    logout: Logout,
     mail: Mail,
     menu: Menu,
     menu2: Menu2,
     more: More,
     newsletter: Newsletter,
     password: Password,
+    passwordalt: PasswordAlt,
     phone: Phone,
     phonefill: PhoneFill,
     play: Play,
@@ -119,6 +130,9 @@ export const icons = {
     reserved: Reserved,
     reservedfill: ReservedFill,
     search: Search,
+    signin: Signin,
+    signout: Signout,
+    socials: Socials,
     sort: Sort,
     stop: Stop,
     subtract: Subtract,
