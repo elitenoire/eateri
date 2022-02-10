@@ -1,11 +1,12 @@
-import { Avatar, Image } from '@theme-ui/components'
+import { Image } from '@theme-ui/components'
+import { Avatar } from '~@core/general'
 import { Text } from '~@core/typography'
 import styles from './style'
 
 function GuestCard({ showOverlay }) {
     return (
         <div sx={styles.guestCard} data-has-overlay={showOverlay ? '' : null}>
-            <Avatar src="/c-rice.jpg" sx={styles.guestCardAvatar} />
+            <Avatar name="Eva Raymond" sx={styles.guestCardAvatar} />
             <div>
                 <Text size={1} weight="bold">
                     Eva Raymond

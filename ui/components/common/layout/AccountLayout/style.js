@@ -17,7 +17,7 @@ const styles = {
         left: 0,
     },
     badge: {
-        bg: 'white',
+        bg: 'muted',
         px: 7,
         py: 3,
         borderTopRightRadius: 'pill',
@@ -42,11 +42,7 @@ const styles = {
     avatarWrap: {
         mr: [null, null, null, 4],
         ml: [null, null, null, null, null, '-1em'],
-        svg: {
-            borderRadius: 'circle',
-            boxShadow: 'ringLight',
-            size: ['2.75em', null, null, '4.5em'],
-        },
+        size: ['2.75em', null, null, '4.5em'],
     },
     nameDetails: {
         display: ['none', null, null, 'block'],
@@ -72,8 +68,9 @@ const styles = {
     },
     overview: {
         flex: 1,
-        bg: 'white',
+        bg: 'muted',
         borderTopLeftRadius: [null, null, '20'],
+        borderTopRightRadius: [null, null, 'default'],
         padding: 7,
     },
 }
@@ -90,20 +87,9 @@ export const navListItemStyle = {
             left: 10,
             borderTop: t => `1px solid ${t.colors.grayHover}`,
         },
-        '&[data-active],&:hover': {
-            bg: [null, null, null, 'grayHover'],
-        },
-        '&[data-active]': {
-            'span:first-of-type': {
-                bg: 'secondary.base',
-                color: 'textOnSecondary',
-            },
-            'span:last-of-type': {
-                fontWeight: 'bold',
-            },
-        },
     },
     link: {
+        position: 'relative',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
@@ -111,6 +97,22 @@ export const navListItemStyle = {
         py: [null, null, null, 3], // 4,
         pr: [null, null, null, 5],
         pl: [null, null, null, 10],
+        '&[data-active],&:hover': {
+            bg: [null, null, null, 'grayHover'],
+        },
+        '&[data-active]': {
+            '& > span:first-of-type': {
+                bg: 'secondary.base',
+                color: 'textOnSecondary',
+            },
+            '& > span:last-of-type span:first-of-type': {
+                fontWeight: 'bold',
+            },
+        },
+        '&:hover > span:last-of-type span:last-of-type': {
+            opacity: 1,
+            transform: 'translate(0, -50%)',
+        },
     },
     iconWrap: {
         position: [null, null, null, 'absolute'],
@@ -124,8 +126,17 @@ export const navListItemStyle = {
         borderRadius: 'circle',
         border: t => [`1px solid ${t.colors.gray}`, null, null, 'none'],
     },
-    label: {
+    mobileHidden: {
         display: ['none', null, null, 'block'],
+    },
+    arrow: {
+        position: [null, null, null, 'absolute'],
+        right: [null, null, null, '8px'],
+        top: [null, null, null, '50%'],
+        transform: [null, null, null, 'translate(-2px, -50%)'],
+        color: 'blackFade.30',
+        opacity: 0,
+        transition: 'opacity 0.3s, transform 0.3s',
     },
 }
 

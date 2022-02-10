@@ -58,7 +58,9 @@ export default function FooterWithLinks({ linkScroll }) {
                     </Heading>
                     <ul>
                         <li>
-                            <a>My Account</a>
+                            <Link href="/myaccount">
+                                <a>My Account</a>
+                            </Link>
                         </li>
                         <li>
                             <a>Link</a>

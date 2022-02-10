@@ -1,23 +1,13 @@
 import NextLink from 'next/link'
-import Avatar from 'boring-avatars'
-import { useThemeUI } from '@theme-ui/core'
 import { Box, Container, Link } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
-import { Icon } from '~@core/general'
+import { Avatar } from '~@core/general'
 import NavListItem from './NavListItem'
 import { getLayout as getDefaultLayout } from '../DefaultLayout'
 
 import styles from './style'
 
 export default function AccountLayout({ children }) {
-    const {
-        theme: {
-            colors: { primary, secondary },
-        },
-    } = useThemeUI()
-
-    const colorScheme = [primary.light, secondary.hover]
-
     return (
         <Box bg="grayLight">
             <Container variant="maxi">
@@ -32,9 +22,7 @@ export default function AccountLayout({ children }) {
                         </div>
                         <div sx={styles.panel}>
                             <div sx={styles.nameBlock}>
-                                <div sx={styles.avatarWrap}>
-                                    <Avatar name="Eva Raymond" variant="beam" colors={colorScheme} />
-                                </div>
+                                <Avatar name="Eva Raymond" sx={styles.avatarWrap} />
                                 <div sx={styles.nameDetails}>
                                     <Text weight="bold">Eva Raymond</Text>
                                     <Text size={0} color="textFade">
@@ -83,7 +71,7 @@ export default function AccountLayout({ children }) {
                                     </NavListItem>
                                 </ul>
                                 <ul data-single sx={styles.navListBlock}>
-                                    <NavListItem href="/" icon="signout">
+                                    <NavListItem href="/" icon="signout" hideArrow>
                                         Sign out
                                     </NavListItem>
                                 </ul>

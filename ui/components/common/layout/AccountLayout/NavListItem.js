@@ -4,17 +4,24 @@ import { Icon } from '~@core/general'
 
 import { navListItemStyle as styles } from './style'
 
-export default function NavListItem({ href, icon, lined, active, children, ...rest }) {
+export default function NavListItem({ href, icon, lined, active, hideArrow, children, ...rest }) {
     return (
-        <li sx={styles.listItem} data-lined={lined ? '' : null} data-active={active ? '' : null} {...rest}>
+        <li sx={styles.listItem} data-lined={lined ? '' : null} {...rest}>
             <NextLink href={href} passHref>
-                <a sx={styles.link}>
+                <a sx={styles.link} data-active={active ? '' : null}>
                     <span sx={styles.iconWrap}>
                         <Icon name={icon} />
                     </span>
-                    <Text as="span" size={1} transform="capitalize" sx={styles.label}>
-                        {children}
-                    </Text>
+                    <span sx={styles.mobileHidden}>
+                        <Text as="span" size={1} transform="capitalize">
+                            {children}
+                        </Text>
+                        {!active && !hideArrow && (
+                            <span sx={styles.arrow}>
+                                <Icon name="arrowright" />
+                            </span>
+                        )}
+                    </span>
                 </a>
             </NextLink>
         </li>

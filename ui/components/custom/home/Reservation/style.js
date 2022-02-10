@@ -447,7 +447,6 @@ const styles = {
     guestCardAvatar: {
         width: ['3em', null, '4em'],
         alignSelf: 'center',
-        boxShadow: 'ringLight',
         mr: 5,
     },
     guestCardSvg: {
