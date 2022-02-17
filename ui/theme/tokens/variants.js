@@ -165,11 +165,28 @@ export const variants = {
         },
     },
     badges: {
+        base: {
+            px: 3,
+            borderRadius: 'tiny',
+            textTransform: 'uppercase',
+        },
+        primary: {
+            variant: 'badges.base',
+            bg: 'primary.pale',
+            color: 'primary.base',
+        },
+        secondary: {
+            variant: 'badges.base',
+            bg: 'secondary.pale',
+            color: 'secondary.base',
+        },
+        accent: {
+            variant: 'badges.base',
+            bg: 'accent.pale',
+            color: 'accent.base',
+        },
         highlight: {
-            lineHeight: 'snug',
-            pt: 1,
-            borderRadius: '5px',
-            fontWeight: 'medium',
+            variant: 'badges.base',
             color: 'highlight.base',
             bg: 'highlight.pale',
         },

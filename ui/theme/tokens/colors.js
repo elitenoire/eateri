@@ -30,9 +30,10 @@ export const colors = {
     primary: {
         base: '#fccc3e',
         hover: '#FEC21C',
-        pale: '#FBF9F4', // '#FFFAEC', // '#FEFBE1',
+        pale: '#fff8e6', // '#FBF9F4', // '#FFFAEC', // '#FEFBE1',
         light: '#FEE78B',
         dark: '#CB9903', // #B5871F,
+        pastel: '#f3dc95',
         neumorph: {
             light: '#ffe044',
             dark: '#d6ad35',
@@ -53,6 +54,7 @@ export const colors = {
         pale: '#f4fbea',
         light: '#c0eb75',
         dark: '#326708',
+        pastel: '#bce085',
     },
     highlight: {
         base: '#ff922b',

@@ -4,7 +4,8 @@ import { ReactComponent as Socials } from 'remixicon/icons/Business/at-line.svg'
 import { ReactComponent as Award } from 'remixicon/icons/Business/award-line.svg'
 import { ReactComponent as Calendar } from 'remixicon/icons/Business/calendar-fill.svg'
 import { ReactComponent as Links } from 'remixicon/icons/Business/links-line.svg'
-import { ReactComponent as Mail } from 'remixicon/icons/Business/mail-fill.svg'
+import { ReactComponent as MailFill } from 'remixicon/icons/Business/mail-fill.svg'
+import { ReactComponent as Mail } from 'remixicon/icons/Business/mail-line.svg'
 import { ReactComponent as Newsletter } from 'remixicon/icons/Business/mail-send-fill.svg'
 import { ReactComponent as Profile } from 'remixicon/icons/Business/profile-line.svg'
 import { ReactComponent as Chat } from 'remixicon/icons/Communication/chat-smile-2-line.svg'
@@ -21,16 +22,18 @@ import { ReactComponent as Coupon } from 'remixicon/icons/Finance/coupon-3-line.
 import { ReactComponent as Gift } from 'remixicon/icons/Finance/gift-fill.svg'
 import { ReactComponent as Bag } from 'remixicon/icons/Finance/shopping-bag-line.svg'
 import { ReactComponent as Orders } from 'remixicon/icons/Finance/shopping-bag-3-line.svg'
+import { ReactComponent as Wallet } from 'remixicon/icons/Finance/wallet-3-line.svg'
 import { ReactComponent as Heart } from 'remixicon/icons/Health/heart-line.svg'
 import { ReactComponent as HeartFill } from 'remixicon/icons/Health/heart-fill.svg'
 import { ReactComponent as Github } from 'remixicon/icons/Logos/github-fill.svg'
 import { ReactComponent as Instagram } from 'remixicon/icons/Logos/instagram-line.svg'
 import { ReactComponent as Twitter } from 'remixicon/icons/Logos/twitter-line.svg'
-import { ReactComponent as Location } from 'remixicon/icons/Map/map-pin-2-fill.svg'
+import { ReactComponent as Location } from 'remixicon/icons/Map/map-pin-2-line.svg'
 import { ReactComponent as Menu2 } from 'remixicon/icons/Map/restaurant-2-line.svg'
 import { ReactComponent as Gallery } from 'remixicon/icons/Media/gallery-line.svg'
 import { ReactComponent as Play } from 'remixicon/icons/Media/play-circle-fill.svg'
 import { ReactComponent as Stop } from 'remixicon/icons/Media/stop-circle-fill.svg'
+import { ReactComponent as Cake } from 'remixicon/icons/Others/cake-line.svg'
 import { ReactComponent as Leaf } from 'remixicon/icons/Others/leaf-fill.svg'
 import { ReactComponent as Reserved } from 'remixicon/icons/Others/reserved-line.svg'
 import { ReactComponent as ReservedFill } from 'remixicon/icons/Others/reserved-fill.svg'
@@ -67,8 +70,10 @@ import { ReactComponent as Time } from 'remixicon/icons/System/time-fill.svg'
 import { ReactComponent as Timer } from 'remixicon/icons/System/timer-fill.svg'
 import { ReactComponent as Fire } from 'remixicon/icons/Weather/fire-fill.svg'
 import { ReactComponent as User } from 'remixicon/icons/User/user-fill.svg'
+import { ReactComponent as UserAlt } from 'remixicon/icons/User/user-4-line.svg'
 
 export const CloseIcon = Close
+export const WalletIcon = Wallet
 
 export const icons = {
     add: Add,
@@ -84,6 +89,7 @@ export const icons = {
     arrowright: ArrowRight,
     arrowup: ArrowUp,
     award: Award,
+    cake: Cake,
     calendar: Calendar,
     bag: Bag,
     orders: Orders,
@@ -117,6 +123,7 @@ export const icons = {
     location2: Location2,
     lock: Lock,
     mail: Mail,
+    mailfill: MailFill,
     menu: Menu,
     menu2: Menu2,
     more: More,
@@ -140,4 +147,6 @@ export const icons = {
     timer: Timer,
     twitter: Twitter,
     user: User,
+    useralt: UserAlt,
+    wallet: Wallet,
 }

@@ -35,7 +35,7 @@ const styles = {
         py: [null, null, null, 6],
         pr: [null, null, null, 4],
         borderRadius: [null, null, null, 20],
-        bg: 'grayMedium',
+        bg: 'muted', // 'grayMedium',
         mt: 2,
         mb: [6, null, null, 4],
     },
@@ -48,7 +48,7 @@ const styles = {
         display: ['none', null, null, 'block'],
     },
     navListBlock: {
-        bg: [null, null, null, 'grayMedium'],
+        bg: [null, null, null, 'muted'], // 'grayMedium'],
         py: [null, null, null, 1],
         mb: [null, null, null, 4],
         borderRadius: 20,
@@ -85,7 +85,7 @@ export const navListItemStyle = {
             top: 0,
             right: 0,
             left: 10,
-            borderTop: t => `1px solid ${t.colors.grayHover}`,
+            borderTop: t => `1px solid ${t.colors.grayMedium}`,
         },
     },
     link: {
@@ -94,11 +94,11 @@ export const navListItemStyle = {
         flexDirection: 'row',
         alignItems: 'center',
         textDecoration: 'none',
-        py: [null, null, null, 3], // 4,
+        py: [null, null, null, 3],
         pr: [null, null, null, 5],
         pl: [null, null, null, 10],
         '&[data-active],&:hover': {
-            bg: [null, null, null, 'grayHover'],
+            bg: [null, null, null, 'grayMedium'],
         },
         '&[data-active]': {
             '& > span:first-of-type': {
@@ -122,7 +122,7 @@ export const navListItemStyle = {
         ml: [null, null, null, 2],
         p: [3, null, null, 2],
         textAlign: 'center',
-        bg: 'white',
+        bg: ['white', null, null, 'transparent'],
         borderRadius: 'circle',
         border: t => [`1px solid ${t.colors.gray}`, null, null, 'none'],
     },
@@ -134,7 +134,7 @@ export const navListItemStyle = {
         right: [null, null, null, '8px'],
         top: [null, null, null, '50%'],
         transform: [null, null, null, 'translate(-2px, -50%)'],
-        color: 'blackFade.30',
+        color: 'blackFade.80',
         opacity: 0,
         transition: 'opacity 0.3s, transform 0.3s',
     },
