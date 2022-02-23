@@ -378,7 +378,7 @@ function DishLayout() {
                                     'Grilled Steak Tomato Salad',
                                 ].map(dish => (
                                     <li key={dish}>
-                                        <FoodCard imgUrl={url} shadow="soft" imageOnly>
+                                        <FoodCard imgUrl={url} shadow="soft" imageOnly reveal>
                                             {dish}
                                         </FoodCard>
                                     </li>

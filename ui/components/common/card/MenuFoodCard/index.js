@@ -20,10 +20,12 @@ function MenuFoodCard() {
                         <div>
                             <Box p={2} bg="gray" />
                         </div>
-                        <Text weight="700" truncate={2} sx={styles.title}>
+                        <Text weight="bold" truncate={2} sx={styles.title}>
                             Chicken Fried Rice with Egg Sauce
                         </Text>
-                        <Text weight="bold">N1500</Text>
+                        <Text size={1} color="textFade">
+                            ₦1500
+                        </Text>
                     </div>
                 </Link>
             </NextLink>

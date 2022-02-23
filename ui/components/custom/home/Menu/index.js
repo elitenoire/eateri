@@ -62,7 +62,7 @@ function Menu() {
                             <Reveal
                                 as={Scrollable}
                                 forwardAs="ul"
-                                pad="0.25em"
+                                pad="1px"
                                 sx={styles.popularScrollable}
                                 motion={fadeInLeft}
                                 threshold={0.1}
@@ -107,7 +107,7 @@ function Menu() {
                             <Reveal
                                 as={Scrollable}
                                 forwardAs="ul"
-                                pad={styles.menuBoxBodyScrollablePad}
+                                pad="1px"
                                 sx={styles.categoryScrollable}
                                 motion={fadeInLeft}
                                 threshold={0.1}

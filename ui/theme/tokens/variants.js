@@ -216,6 +216,39 @@ export const variants = {
             fontWeight: 'bold',
             fontSize: 1,
         },
+        arrow: {
+            variant: 'links.block',
+            position: 'relative',
+            fontWeight: 'bold',
+            mr: 2,
+            ':before,:after': {
+                content: '">"',
+            },
+            ':after': {
+                ml: 1,
+                mr: '0.125em',
+            },
+            ':before': {
+                position: 'absolute',
+                right: '-0.5em',
+                opacity: 0.6,
+                transition: 'transform 0.2s',
+            },
+            ':hover': {
+                color: 'inherit',
+            },
+            ':hover:before': {
+                transform: 'translateX(0.125em)',
+            },
+        },
+        'arrow:sm': {
+            variant: 'links.arrow',
+            fontSize: 1,
+        },
+        'arrow:xs': {
+            variant: 'links.arrow',
+            fontSize: 0,
+        },
     },
     text: {
         h1: {

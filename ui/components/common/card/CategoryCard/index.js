@@ -5,13 +5,11 @@ import styles from './style'
 
 function CategoryCard({ imgUrl, imgAlt = '', title, ...rest }) {
     return (
-        <div sx={styles.categoryCardWrap} {...rest}>
-            <div sx={styles.categoryCardContent}>
-                <Image src={imgUrl} alt={imgAlt} />
-                <Text truncate sx={styles.categoryCardTitle}>
-                    {title}
-                </Text>
-            </div>
+        <div sx={styles.wrapper} {...rest}>
+            <Image src={imgUrl} alt={imgAlt} />
+            <Text truncate sx={styles.title}>
+                {title}
+            </Text>
         </div>
     )
 }

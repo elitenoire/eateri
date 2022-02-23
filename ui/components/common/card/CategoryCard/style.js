@@ -1,12 +1,7 @@
 import { alpha } from '@theme-ui/color'
 
 const styles = {
-    categoryCardWrap: {
-        display: 'flex',
-        justifyContent: 'center',
-        width: ['8em', null, '7em'],
-    },
-    categoryCardContent: {
+    wrapper: {
         position: 'relative',
         size: ['7em', null, '6em'],
         boxShadow: 'md',
@@ -47,7 +42,7 @@ const styles = {
             },
         },
     },
-    categoryCardTitle: {
+    title: {
         position: 'absolute',
         bottom: 0,
         left: 0,

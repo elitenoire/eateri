@@ -1,10 +1,6 @@
 const styles = {
     card: {
         position: 'relative',
-        width: '9em',
-        display: 'flex',
-        alignSelf: 'start',
-        flexDirection: 'column',
         '&:hover .food-card--image': {
             transform: 'translateY(-0.5em)',
         },
@@ -25,10 +21,10 @@ const styles = {
         display: 'block',
         textDecoration: 'none',
     },
-    imageWrap: ({ bg, shadow }) => ({
-        size: '8em',
+    imageWrap: ({ bg, shadow, radius, fluid }) => ({
+        size: fluid ? 'fluid' : '8em',
         p: 4,
-        borderRadius: 30,
+        borderRadius: radius || 30,
         alignSelf: 'center',
         bg: bg || 'grayLight',
         boxShadow: shadow || 'sm',
@@ -44,8 +40,8 @@ const styles = {
         },
     },
     title: {
-        fontSize: [null, null, 1],
-        lineHeight: 'tight',
+        fontSize: [1, null, 0],
+        // lineHeight: 'tight',
     },
     flexSplit: {
         display: 'flex',

@@ -101,6 +101,15 @@ export const navListItemStyle = {
             bg: [null, null, null, 'grayMedium'],
         },
         '&[data-active]': {
+            '&:after': {
+                position: 'absolute',
+                content: [null, null, null, '""'],
+                width: '2.5px',
+                top: 0,
+                bottom: 0,
+                left: 0,
+                bg: 'secondary.base',
+            },
             '& > span:first-of-type': {
                 bg: 'secondary.base',
                 color: 'textOnSecondary',

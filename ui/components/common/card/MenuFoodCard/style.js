@@ -27,11 +27,9 @@ const styles = {
         pb: 7,
     },
     title: {
+        fontSize: [1, null, 0],
         minHeight: [null, null, null, '2.5em'],
-        fontSize: [null, null, null, null, 1],
-        lineHeight: 1.3,
-        mb: 2,
-        textDecoration: 'none',
+        mb: 1,
     },
     actionCart: {
         position: 'absolute',

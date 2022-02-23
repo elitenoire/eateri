@@ -30,6 +30,9 @@ const styles = {
         borderRadius: [null, null, 40],
         '.scrollable': {
             mx: ['bodyNegative', null, 'auto'],
+            li: {
+                px: 2,
+            },
             [mq.tabletS]: {
                 overflow: '-moz-scrollbars-none',
                 MsOverflowStyle: 'none',
@@ -57,7 +60,6 @@ const styles = {
         overflow: [null, null, 'hidden'],
         borderRadius: [null, null, 'inherit'],
     },
-    menuBoxBodyScrollablePad: ['0.25em', null, '1em'],
     popularScrollable: {
         gridGap: [4, null, 7],
         pt: [8, null, 9],
