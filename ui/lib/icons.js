@@ -28,6 +28,7 @@ import { ReactComponent as HeartFill } from 'remixicon/icons/Health/heart-fill.s
 import { ReactComponent as Github } from 'remixicon/icons/Logos/github-fill.svg'
 import { ReactComponent as Instagram } from 'remixicon/icons/Logos/instagram-line.svg'
 import { ReactComponent as Twitter } from 'remixicon/icons/Logos/twitter-line.svg'
+import { ReactComponent as TwitterFill } from 'remixicon/icons/Logos/twitter-fill.svg'
 import { ReactComponent as Location } from 'remixicon/icons/Map/map-pin-2-line.svg'
 import { ReactComponent as Menu2 } from 'remixicon/icons/Map/restaurant-2-line.svg'
 import { ReactComponent as Gallery } from 'remixicon/icons/Media/gallery-line.svg'
@@ -54,6 +55,7 @@ import { ReactComponent as CheckboxBlankCircle } from 'remixicon/icons/System/ch
 import { ReactComponent as CheckboxFillCircle } from 'remixicon/icons/System/checkbox-circle-fill.svg'
 import { ReactComponent as Close } from 'remixicon/icons/System/close-line.svg'
 import { ReactComponent as Dashboard } from 'remixicon/icons/System/dashboard-line.svg'
+import { ReactComponent as ExternalLink } from 'remixicon/icons/System/external-link-line.svg'
 import { ReactComponent as Filter } from 'remixicon/icons/System/filter-2-line.svg'
 import { ReactComponent as FilterFill } from 'remixicon/icons/System/filter-2-fill.svg'
 import { ReactComponent as Loader } from 'remixicon/icons/System/loader-4-line.svg'
@@ -68,6 +70,7 @@ import { ReactComponent as Signout } from 'remixicon/icons/System/logout-circle-
 import { ReactComponent as Subtract } from 'remixicon/icons/System/subtract-line.svg'
 import { ReactComponent as Time } from 'remixicon/icons/System/time-fill.svg'
 import { ReactComponent as Timer } from 'remixicon/icons/System/timer-fill.svg'
+import { ReactComponent as Bolt } from 'remixicon/icons/Weather/flashlight-fill.svg'
 import { ReactComponent as Fire } from 'remixicon/icons/Weather/fire-fill.svg'
 import { ReactComponent as User } from 'remixicon/icons/User/user-fill.svg'
 import { ReactComponent as UserAlt } from 'remixicon/icons/User/user-4-line.svg'
@@ -92,6 +95,7 @@ export const icons = {
     cake: Cake,
     calendar: Calendar,
     bag: Bag,
+    bolt: Bolt,
     orders: Orders,
     bankcard: BankCard,
     chat: Chat,
@@ -103,6 +107,7 @@ export const icons = {
     dashboard: Dashboard,
     doublequotesl: DoubleQuotesL,
     doublequotesr: DoubleQuotesR,
+    externallink: ExternalLink,
     filter: Filter,
     filterfill: FilterFill,
     fire: Fire,
@@ -146,6 +151,7 @@ export const icons = {
     time: Time,
     timer: Timer,
     twitter: Twitter,
+    twitterfill: TwitterFill,
     user: User,
     useralt: UserAlt,
     wallet: Wallet,
