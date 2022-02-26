@@ -1,8 +1,14 @@
 import { memo } from 'react'
+import { Box } from '@theme-ui/components'
 import { icons } from '~/lib/icons'
+import { isString } from '~/lib/utils'
 
-function Icon({ name, standalone, className, ...rest }) {
-    const IconSvg = icons[name]
+const getIconStyle = ({ size }) => ({
+    ...(size && { fontSize: size }),
+})
+
+function Icon({ name, standalone, size, className, ...rest }) {
+    const IconSvg = isString(name) ? icons[name] : name
     const svgProps = {
         ...(!standalone && { 'aria-hidden': true, focusable: false }),
         ...rest,
@@ -13,7 +19,7 @@ function Icon({ name, standalone, className, ...rest }) {
         console.warn(err)
         return name
     }
-    return <IconSvg className={`ri-icon ${className || ''}`} {...svgProps} />
+    return <Box as={IconSvg} sx={getIconStyle({ size })} className={`ri-icon ${className || ''}`} {...svgProps} />
 }
 
 export default memo(Icon)

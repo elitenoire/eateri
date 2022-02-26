@@ -18,13 +18,16 @@ const handleKeyPress = e => {
     }
 }
 
-const _sxBase = ({ fluid, buttonWithIcon, iconOnly, sx: { sx, ...sxBtn } }) => ({
+const _sxBase = ({ fluid, buttonWithIcon, iconOnly, radius, px, py }) => ({
     ...styles._base,
-    ...sxBtn,
+    // ...sxBtn,
     ...(buttonWithIcon && styles.buttonWithIcon),
     ...(iconOnly && styles.icon),
     ...(fluid && { width: 'fluid' }),
-    ...sx,
+    ...(radius && { borderRadius: radius }),
+    ...(px && { px }),
+    ...(py && { py }),
+    // ...sx,
 })
 
 const _sx = ({
@@ -40,20 +43,44 @@ const _sx = ({
     bg,
     outline,
     outlineColor,
+    radius,
+    px,
+    py,
     link,
     children,
-    sx,
+    // sx,
 }) => ({
     ...styles._baseExtra,
     ...buttons.brands[brand]({ color, borderless, opaque, alpha, bg, outline, outlineColor, ghostText, link }),
     ...buttons.shapes[shape],
     ...buttons.sizes[size],
     ...(children && styles.button),
-    sx,
+    ...(radius && { borderRadius: radius }),
+    ...(px && { px }),
+    ...(py && { py }),
+
+    // sx,
 })
 
 export const ButtonBase = forwardRef(function ButtonBase(
-    { icon, link, fluid, noFade, noHoverUp, active, scaleIcon, isLoading, type, ariaLabel, sx = {}, children, ...rest },
+    {
+        icon,
+        link,
+        fluid,
+        radius,
+        px,
+        py,
+        noFade,
+        noHoverUp,
+        active,
+        scaleIcon,
+        isLoading,
+        type,
+        ariaLabel,
+        // sx = {},
+        children,
+        ...rest
+    },
     ref
 ) {
     const iconOnly = icon && !children
@@ -71,7 +98,7 @@ export const ButtonBase = forwardRef(function ButtonBase(
             title={iconOnly ? ariaLabel || icon : undefined}
             onMouseDown={handleClick}
             onKeyUp={handleKeyPress}
-            sx={_sxBase({ sx, fluid, buttonWithIcon, iconOnly })}
+            sx={_sxBase({ fluid, buttonWithIcon, iconOnly, radius, px, py })}
             {...(!link && { type: type || 'button' })}
             {...rest}
         >
@@ -94,7 +121,7 @@ export const ButtonBase = forwardRef(function ButtonBase(
 
 export const Button = forwardRef(function Button(
     {
-        sx,
+        // sx,
         size = 'md',
         shape = 'pill',
         brand = 'solid',
@@ -106,6 +133,9 @@ export const Button = forwardRef(function Button(
         bg,
         outline,
         outlineColor,
+        radius,
+        px,
+        py,
         link,
         children,
         ...rest
@@ -133,9 +163,12 @@ export const Button = forwardRef(function Button(
                 bg,
                 outline,
                 outlineColor,
+                radius,
+                px,
+                py,
                 link,
                 children,
-                sx,
+                // sx,
             })}
             {...rest}
         >

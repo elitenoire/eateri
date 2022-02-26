@@ -133,7 +133,7 @@ export const variants = {
                         bg: t => `${alpha(bg || color, isNumber(_alpha) ? _alpha + 0.025 : 0.125)(t)}`,
                         borderColor: 'transparent',
                     }),
-                    ...(opaque && !_alpha && { color: `black` }),
+                    ...(opaque && !_alpha && { color: `text` }),
                 },
             }),
         },
@@ -192,6 +192,9 @@ export const variants = {
         },
     },
     links: {
+        emphasis: {
+            fontWeight: 'bold',
+        },
         plain: {
             textDecoration: 'none',
         },
@@ -209,8 +212,8 @@ export const variants = {
             },
         },
         back: {
+            variant: 'links.plain',
             display: 'inline-block',
-            textDecoration: 'none',
             textTransform: 'uppercase',
             letterSpacing: 'wider',
             fontWeight: 'bold',
@@ -248,6 +251,11 @@ export const variants = {
         'arrow:xs': {
             variant: 'links.arrow',
             fontSize: 0,
+        },
+        'arrow:massive': {
+            variant: 'links.arrow',
+            fontSize: 8,
+            letterSpacing: 'normal',
         },
     },
     text: {

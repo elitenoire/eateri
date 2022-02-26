@@ -20,11 +20,11 @@ const styles = {
         },
         '.logo': {
             size: '2em',
-            mr: '0.8em',
         },
         '.logo-text': {
             width: '6em',
             height: 'auto',
+            ml: '0.8em',
         },
     },
     primary: {

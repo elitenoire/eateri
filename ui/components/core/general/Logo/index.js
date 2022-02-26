@@ -1,20 +1,21 @@
 import { forwardRef } from 'react'
+import { Link as LinkTag } from '~@core/navigation'
 import { ReactComponent as SolidLogo } from '~/public/inlineSvg/logo.svg'
 import { ReactComponent as PlainLogo } from '~/public/inlineSvg/logo-cutout.svg'
 import { ReactComponent as LogoText } from '~/public/inlineSvg/logo-tt.svg'
 
 import styles from './style'
 
-const getLogoBoxStyle = ({ plain, color, size, link, sx }) => ({
+const getLogoBoxStyle = ({ plain, color, colorHover, size, link }) => ({
     ...styles.logoBox,
     ...(size && { fontSize: size }),
-    ...(color && link && { '&,&:active,&:visited': { color: plain ? color : `${color}.base` } }),
+    ...(color &&
+        link && {
+            transition: plain && colorHover ? 'color 0.25s' : 'none',
+            '&,&:active,&:visited': { color: plain ? color : `${color}.base` },
+            '&:hover': { color: plain ? colorHover || 'inherit' : 'inherit' },
+        }),
     ...(color && !link && { color: plain ? color : `${color}.base` }),
-    ...sx,
-    '.logo': styles.logoBox['.logo'],
-    ...(sx && { '.logo': sx['.logo'] }),
-    '.logo-text': styles.logoBox['.logo-text'],
-    ...(sx && { '.logo-text': sx['.logo-text'] }),
 })
 
 const getLogoStyle = ({ noText, size, plain, color }) => ({
@@ -22,15 +23,18 @@ const getLogoStyle = ({ noText, size, plain, color }) => ({
     ...(!plain && styles[color]),
 })
 
-const Logo = forwardRef(function Logo({ color = 'primary', plain, size, link, noText, animated, sx, ...rest }, ref) {
-    const Wrapper = link ? 'a' : 'div'
+const Logo = forwardRef(function Logo(
+    { as, color = 'primary', colorHover, plain, size, link, noText, animated, ...rest },
+    ref
+) {
+    const Tag = link ? LinkTag : as || 'div'
     const LogoSvg = plain ? PlainLogo : SolidLogo
 
     return (
-        <Wrapper
+        <Tag
             ref={ref}
             data-animated={animated ? '' : null}
-            sx={getLogoBoxStyle({ plain, color, size, link, sx })}
+            sx={getLogoBoxStyle({ plain, color, colorHover, size, link })}
             {...rest}
         >
             <LogoSvg
@@ -40,7 +44,7 @@ const Logo = forwardRef(function Logo({ color = 'primary', plain, size, link, no
                 sx={getLogoStyle({ noText, size, plain, color })}
             />
             {!noText && <LogoText aria-hidden="true" focusable="false" className="logo-text" />}
-        </Wrapper>
+        </Tag>
     )
 })
 
