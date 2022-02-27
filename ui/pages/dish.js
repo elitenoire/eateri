@@ -49,8 +49,8 @@ function DishLayout() {
                 Back to menu
             </BackLink>
             <div className={isOpen ? 'hide' : ''} sx={styles.fixedToTop}>
-                <div sx={styles.mobileBackLink}>
-                    <BackLink href="/menu" m={0} py={4} px={6}>
+                <div sx={styles.mobileBackLinkWrap}>
+                    <BackLink href="/menu" py={4} px={6}>
                         Back to menu
                     </BackLink>
                 </div>

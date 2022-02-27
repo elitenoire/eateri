@@ -11,7 +11,7 @@ const styles = {
         right: 0,
         zIndex: 'header',
     },
-    mobileBackLink: {
+    mobileBackLinkWrap: {
         display: ['flex', null, 'none'],
         justifyContent: 'center',
         alignItems: 'center',
@@ -22,6 +22,7 @@ const styles = {
     },
     backLink: {
         ml: ['body', null, null, null, 7],
+        mt: 7,
         mb: 13,
     },
     hero: {

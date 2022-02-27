@@ -213,7 +213,8 @@ export const variants = {
         },
         back: {
             variant: 'links.plain',
-            display: 'inline-block',
+            display: 'inline-flex',
+            alignItems: 'center',
             textTransform: 'uppercase',
             letterSpacing: 'wider',
             fontWeight: 'bold',

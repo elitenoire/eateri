@@ -5,11 +5,6 @@ const styles = {
         ':hover': {
             opacity: 0.9,
         },
-        svg: {
-            display: 'inline',
-            mr: 2,
-            verticalAlign: 'sub',
-        },
     },
 }
 
