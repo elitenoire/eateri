@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Link from 'next/link'
 import { Container, Card, Grid, Box } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
-import { Icon, Reveal, grow } from '~@core/general'
+import { Icon, Divider, Reveal, grow } from '~@core/general'
 import { WaveDecoration } from '~@core/other'
 import { Linkable } from '~@core/navigation'
 import { RouteModal } from '~@core/display'
@@ -117,7 +117,7 @@ function Services() {
                                             <Text variant="title" size={4}>
                                                 Reservations
                                             </Text>
-                                            <hr sx={styles.divider} />
+                                            <Divider my={1} height="1.5px" radius="2px" />
                                             <Text variant="title" size={4}>
                                                 17:00 - 23:00 PM
                                             </Text>

@@ -34,14 +34,14 @@ function StepConfirmation() {
                         </Text>
                         <Text weight="bold">{values.guest}</Text>
                     </div>
-                    <Divider bg="text" my={1} mx={2} vertical />
+                    <Divider my={1} mx={2} vertical />
                     <div>
                         <Text size={0} weight="bold">
                             Date
                         </Text>
                         <Text weight="bold">{values.date?.toDateString()}</Text>
                     </div>
-                    <Divider bg="text" my={1} mx={2} vertical />
+                    <Divider my={1} mx={2} vertical />
                     <div>
                         <Text size={0} weight="bold">
                             Time

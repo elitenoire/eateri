@@ -88,11 +88,6 @@ const styles = {
         size: '3em',
         mb: 1,
     },
-    divider: {
-        border: '1.5px solid',
-        borderRadius: '2px',
-        my: 1,
-    },
 }
 
 export default styles

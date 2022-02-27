@@ -25,11 +25,6 @@ const styles = {
         borderRadius: ['tiny', null, '20'],
         bg: 'white',
     },
-    divider: {
-        width: '20%',
-        borderRadius: 'default',
-        height: '0.5em',
-    },
     cardWrap: {
         gridRow: [null, null, null, null, 'span 2'],
         mt: [null, null, null, null, 11],

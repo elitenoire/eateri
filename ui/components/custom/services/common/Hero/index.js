@@ -1,7 +1,7 @@
 import { Flipped } from 'react-flip-toolkit'
 import { Box, Container, Card, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
-import { Reveal, fadeIn } from '~@core/general'
+import { Divider, Reveal, fadeIn } from '~@core/general'
 import { BackLink } from '~@core/navigation'
 import { WaveDecoration } from '~@core/other'
 
@@ -24,7 +24,7 @@ export default function Hero({
         <Box bg={bg} sx={styles.background} data-padded={hideBackLink ? '' : null}>
             <Container variant="loose" sx={styles.container}>
                 {!hideBackLink && (
-                    <BackLink href="/services" scroll={false} mb={7}>
+                    <BackLink href="/services" scroll={false} my={7}>
                         Back to all services
                     </BackLink>
                 )}
@@ -33,7 +33,7 @@ export default function Hero({
                         <Heading as="h1" variant="intro" title>
                             {`${title}.`}
                         </Heading>
-                        <Box bg={bg} sx={styles.divider} />
+                        <Divider bg={bg} width="20%" radius="default" height="0.5em" />
                     </Reveal>
                     <div sx={styles.cardWrap}>
                         <Flipped flipId={`sc-${title}-bg`}>

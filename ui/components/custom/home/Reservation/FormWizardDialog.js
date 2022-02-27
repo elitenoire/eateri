@@ -12,8 +12,6 @@ import { useDateValue, useGuestValue, useTimeValue, useIsToday } from './useForm
 
 import styles from './style'
 
-const dividerBgStyle = ['text', null, 'secondary.light']
-
 function DateText({ title }) {
     const value = useDateValue()
     const isToday = useIsToday()
@@ -105,7 +103,7 @@ function FormWizardDialog({ defaultValues }) {
                             <Icon className="mobile-hidden" name="arrowdropdown" />
                         </div>
                     </DialogDisclosure>
-                    <Divider bg={dividerBgStyle} my={1} mx={2} vertical />
+                    <Divider bg="secondary.light" my={1} mx={2} vertical />
                     <DialogDisclosure
                         {...dialog}
                         disabled={visible}
@@ -119,7 +117,7 @@ function FormWizardDialog({ defaultValues }) {
                             <Icon className="mobile-hidden" name="arrowdropdown" />
                         </div>
                     </DialogDisclosure>
-                    <Divider bg={dividerBgStyle} my={1} mx={2} vertical />
+                    <Divider bg="secondary.light" my={1} mx={2} vertical />
                     <DialogDisclosure
                         {...dialog}
                         disabled={visible}

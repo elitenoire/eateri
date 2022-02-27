@@ -1,6 +1,6 @@
 import { forwardRef, useState, useCallback } from 'react'
 import { Input } from '@theme-ui/components'
-import { Icon } from '~@core/general'
+import { Icon, Divider } from '~@core/general'
 
 import styles from './style'
 
@@ -52,7 +52,7 @@ const SearchBar = forwardRef(function SearchBar(
             </div>
             {children && (
                 <>
-                    <div sx={styles.divider} />
+                    <Divider width="1.5px" height="2em" opacity={0.25} mr={2} vertical />
                     <div sx={styles.filter}>{children}</div>
                 </>
             )}

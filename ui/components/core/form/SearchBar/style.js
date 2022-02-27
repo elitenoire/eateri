@@ -15,10 +15,13 @@ const styles = {
         borderStyle: 'solid',
         borderColor: outline ? 'currentColor' : 'transparent',
         ...(shadow && { boxShadow: shadow }),
+        '& > i': {
+            transition: 'opacity 0.2s',
+        },
         '&[data-focused]': {
             ...(!outline && { borderColor: 'currentColor' }),
             boxShadow: t => `0 0 0 3px ${t.colors[color].light}`,
-            '& > div:nth-of-type(2)': {
+            '& > i': {
                 opacity: 0.7,
             },
         },
@@ -61,14 +64,6 @@ const styles = {
                 )}' d='M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm0-11.414L9.172 7.757 7.757 9.172 10.586 12l-2.829 2.828 1.415 1.415L12 13.414l2.828 2.829 1.415-1.415L13.414 12l2.829-2.828-1.415-1.415L12 10.586z'/%3E%3C/svg%3E")`,
         },
     }),
-    divider: {
-        width: '1.5px',
-        bg: 'currentColor',
-        opacity: 0.25,
-        height: '2em',
-        mr: 2,
-        transition: 'opacity 0.2s',
-    },
     filter: {
         display: 'flex',
     },
