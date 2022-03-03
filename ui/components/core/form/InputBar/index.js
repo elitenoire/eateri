@@ -1,42 +1,54 @@
 import { forwardRef } from 'react'
-import { Input } from '@theme-ui/components'
+import { Input as TUIinput } from '@theme-ui/components'
 
 import styles from './style'
 
-const InputBar = forwardRef(function InputBar(
+export const Input = forwardRef(function Input(
     {
-        radius,
+        brand = 'outline',
+        color = 'secondary',
         bg,
-        color,
         borderColor,
         borderColorFocus,
-        boxShadowFocus,
+        radius,
+        outlineFocus,
+        outlineColorFocus,
+        textColor,
         placeholderColor,
-        className,
-        sx,
-        children,
+        placeholderOpacity,
+        showFocus,
         ...rest
     },
     ref
 ) {
     return (
-        <div
-            className={className}
-            sx={styles.inputBar({
-                radius,
-                bg,
-                color,
-                borderColor,
-                borderColorFocus,
-                boxShadowFocus,
-                placeholderColor,
-                sx,
-            })}
-        >
-            <Input ref={ref} {...rest} />
-            {children}
-        </div>
+        <TUIinput
+            ref={ref}
+            sx={
+                styles.input({
+                    bg,
+                    color,
+                    borderColor,
+                    borderColorFocus,
+                    outlineFocus,
+                    outlineColorFocus,
+                    showFocus,
+                    radius,
+                    textColor,
+                    placeholderColor,
+                    placeholderOpacity,
+                })[brand]
+            }
+            {...rest}
+        />
     )
 })
 
-export default InputBar
+export const InputBar = forwardRef(function InputBar({ radius, inputRadius, className, children, ...rest }, ref) {
+    return (
+        <div className={className} sx={styles.inputBar({ radius, inputRadius })}>
+            <Input ref={ref} {...rest} />
+            <span>{children}</span>
+        </div>
+    )
+})
