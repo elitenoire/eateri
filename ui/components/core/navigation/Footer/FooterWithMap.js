@@ -7,7 +7,7 @@ import { fwmStyles as styles } from './style'
 export default function FooterWithMap({ linkScroll }) {
     return (
         <div sx={styles.mapLayout}>
-            <Logo plain color="primary.base" sx={styles.logoBox} />
+            <Logo plain color="primary.base" size={5} />
             <div sx={styles.footerContent}>
                 <Reveal motion={fadeInDown} threshold={0.5} whenInView>
                     <div>

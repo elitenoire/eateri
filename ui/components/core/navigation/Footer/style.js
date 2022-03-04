@@ -156,15 +156,6 @@ export const fwmStyles = {
         pb: 11,
         px: 8,
     },
-    logoBox: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: '1.5em',
-        '.logo': {
-            size: '3em',
-        },
-    },
     footerContent: {
         display: 'flex',
         flexDirection: ['column', null, 'row'],

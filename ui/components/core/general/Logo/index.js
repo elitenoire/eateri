@@ -6,14 +6,19 @@ import { ReactComponent as LogoText } from '~/public/inlineSvg/logo-tt.svg'
 
 import styles from './style'
 
-const getLogoBoxStyle = ({ plain, color, colorHover, size, link }) => ({
+const getLogoBoxStyle = ({ plain, size, color, colorHover, linkColor, link }) => ({
     ...styles.logoBox,
+    ...(!link && {
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+    }),
     ...(size && { fontSize: size }),
     ...(color &&
         link && {
             transition: plain && colorHover ? 'color 0.25s' : 'none',
-            '&,&:active,&:visited': { color: plain ? color : `${color}.base` },
-            '&:hover': { color: plain ? colorHover || 'inherit' : 'inherit' },
+            '&,&:active,&:visited': { color: plain ? color : linkColor || `${color}.base` },
+            '&:hover': { color: plain ? colorHover || color : 'inherit' },
         }),
     ...(color && !link && { color: plain ? color : `${color}.base` }),
 })
@@ -24,7 +29,20 @@ const getLogoStyle = ({ noText, size, plain, color }) => ({
 })
 
 const Logo = forwardRef(function Logo(
-    { as, color = 'primary', colorHover, plain, size, link, noText, animated, ...rest },
+    {
+        as,
+        ariaLabel = 'Eateri Home',
+        color = 'primary',
+        colorHover,
+        plain,
+        size,
+        link,
+        linkColor,
+        noText,
+        animated,
+        title,
+        ...rest
+    },
     ref
 ) {
     const Tag = link ? LinkTag : as || 'div'
@@ -34,7 +52,9 @@ const Logo = forwardRef(function Logo(
         <Tag
             ref={ref}
             data-animated={animated ? '' : null}
-            sx={getLogoBoxStyle({ plain, color, colorHover, size, link })}
+            sx={getLogoBoxStyle({ plain, color, colorHover, size, link, linkColor })}
+            aria-label={ariaLabel}
+            title={title || ariaLabel}
             {...rest}
         >
             <LogoSvg
@@ -43,7 +63,7 @@ const Logo = forwardRef(function Logo(
                 className="logo"
                 sx={getLogoStyle({ noText, size, plain, color })}
             />
-            {!noText && <LogoText aria-hidden="true" focusable="false" className="logo-text" />}
+            {!noText && <LogoText aria-hidden="true" focusable="false" fill="red" className="logo-text" />}
         </Tag>
     )
 })

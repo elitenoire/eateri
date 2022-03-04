@@ -99,16 +99,7 @@ function Header({ isOpen, toggleMenu }) {
                         borderless
                     />
                 </div>
-                <Link href="/" passHref>
-                    <Logo
-                        aria-label="Eateri Home"
-                        title="Eateri Home"
-                        link
-                        animated
-                        color="secondary"
-                        sx={styles.logoBox}
-                    />
-                </Link>
+                <Logo href="/" link animated color="secondary" linkColor="secondary.hover" sx={styles.logoBox} />
                 <NavLinks sx={styles.navlinks} data-collapse={show ? '' : null} data-animating={animating ? '' : null}>
                     {['/menu', '/about', `#${HASH_ID_CONTACT}`, `#${HASH_ID_RESERVATIONS}`]}
                 </NavLinks>

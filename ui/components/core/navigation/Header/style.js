@@ -29,9 +29,6 @@ const styles = {
         margin: '0 auto',
         px: '2%',
         transition: 'box-shadow 0.2s ease-in-out',
-        'svg.logo-text': {
-            fill: 'secondary.hover',
-        },
     },
     toggleWrap: {
         [mq.tabletL]: {
@@ -46,7 +43,6 @@ const styles = {
     },
     logoBox: {
         display: ['none', null, 'inline-flex'],
-        alignItems: 'flex-start',
         mr: [null, null, null, null, 'auto'],
         ml: ['10%', null, null, null, 0],
     },
