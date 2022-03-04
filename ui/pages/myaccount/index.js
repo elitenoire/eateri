@@ -1,7 +1,8 @@
-import { Box, Flex, Badge, Link } from '@theme-ui/components'
+import { Box, Flex, Badge } from '@theme-ui/components'
 import { Text } from '~@core/typography'
 import { StackGroup } from '~@core/display'
 import { Avatar, Icon, Button } from '~@core/general'
+import { Link } from '~@core/navigation'
 import { PayWith } from '~@core/other'
 import OverviewCard from '~@common/card/OverviewCard'
 import FoodCard from '~@common/card/FoodCard'
@@ -40,7 +41,7 @@ function MyAccountPage() {
                             </Badge>
                         </div>
                         <div sx={styles.boxAction}>
-                            <Link variant="arrow:xs" color="grayDarker">
+                            <Link href="#" variant="arrow:xs" color="grayDarker">
                                 View
                             </Link>
                         </div>
@@ -91,7 +92,7 @@ function MyAccountPage() {
                             </Badge>
                         </div>
                         <div sx={styles.boxAction}>
-                            <Link variant="arrow:xs" color="grayDarker">
+                            <Link href="#" variant="arrow:xs" color="grayDarker">
                                 View
                             </Link>
                         </div>
@@ -173,7 +174,7 @@ function MyAccountPage() {
                             </Text>
                         </div>
                         <div sx={styles.boxAction}>
-                            <Link variant="arrow:xs" color="grayDarker">
+                            <Link href="#" variant="arrow:xs" color="grayDarker">
                                 View
                             </Link>
                         </div>
@@ -211,7 +212,7 @@ function MyAccountPage() {
                             </Badge>
                         </div>
                         <div sx={styles.boxAction}>
-                            <Link variant="arrow:xs" color="grayDarker">
+                            <Link href="#" variant="arrow:xs" color="grayDarker">
                                 View
                             </Link>
                         </div>

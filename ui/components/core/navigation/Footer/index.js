@@ -2,6 +2,7 @@ import { memo } from 'react'
 import { Heading, Text } from '~@core/typography'
 import { Icon, Button, Reveal, popIn, fadeInRight } from '~@core/general'
 import { InputBar } from '~@core/form'
+import { Link } from '~@core/navigation'
 import { SocialMedia } from '~@core/other'
 import useScrollTo from '~/hooks/useScrollTo'
 
@@ -39,7 +40,16 @@ function Footer({ hasMap, mini }) {
                                         <Text size={3}>No spam, we promise.</Text>
                                     </Reveal>
                                     <div sx={styles.formWrap}>
-                                        <InputBar sx={styles.inputBar} placeholder="Your email...">
+                                        <InputBar
+                                            placeholder="Your email..."
+                                            brand="ghost"
+                                            placeholderOpacity={0.35}
+                                            textColor="primary.light"
+                                            borderColorFocus="primary.light"
+                                            outlineFocus="none"
+                                            showFocus
+                                            sx={styles.inputBar}
+                                        >
                                             <Button>Subscribe</Button>
                                         </InputBar>
                                     </div>
@@ -78,16 +88,9 @@ function Footer({ hasMap, mini }) {
                 <div sx={styles.container}>
                     <Text size={0} spacing="wide">
                         © 2022 Eateri Inc by{' '}
-                        <Text
-                            as="a"
-                            color="primary.base"
-                            weight="bold"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            href="https://www.github.com/elitenoire"
-                        >
+                        <Link color="primary.base" variant="emphasis" href="https://www.github.com/elitenoire" external>
                             @elitenoire
-                        </Text>{' '}
+                        </Link>{' '}
                         · Made with &#128153;
                     </Text>
                     <SocialMedia sx={styles.socialMediaWrap} />

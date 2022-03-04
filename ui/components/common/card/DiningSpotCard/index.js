@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import Image from 'next/image'
 import { Box, Card } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
@@ -24,14 +25,11 @@ export default function DiningSpotCard({ title, children, img, alt }) {
                         {title}
                     </Heading>
                     <Text mb={4}>{children}</Text>
-                    <Button
-                        brand="solid"
-                        color="secondary"
-                        icon="arrowright"
-                        ariaLabel="Learn More"
-                        sx={styles.button}
-                        link
-                    />
+                    <div sx={styles.buttonWrap}>
+                        <Link href="#" passHref>
+                            <Button brand="solid" color="secondary" icon="arrowright" ariaLabel="Learn More" link />
+                        </Link>
+                    </div>
                 </Box>
             </Reveal>
         </Card>

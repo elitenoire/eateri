@@ -89,16 +89,6 @@ const styles = {
     inputBar: {
         bg: t => alpha('secondary.base', 0.08)(t),
         boxShadow: t => `0 0 14px 2px ${alpha('textOnSecondary', 0.05)(t)}`,
-        input: {
-            color: 'primary.light',
-            '::placeholder': {
-                color: t => alpha('primary.light', 0.1)(t),
-            },
-            ':focus': {
-                borderColor: 'primary.light',
-                boxShadow: 'none',
-            },
-        },
     },
     socialMediaWrap: {
         display: 'flex',

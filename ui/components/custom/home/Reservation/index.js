@@ -1,9 +1,8 @@
-import Link from 'next/link'
 import { Container } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Text, Heading } from '~@core/typography'
 import { Reveal, fadeInLeft } from '~@core/general/Reveal'
-import { StepProvider } from '~@core/navigation/Steps'
+import { StepProvider, Link } from '~@core/navigation'
 import { HASH_ID_RESERVATIONS } from '~/constants'
 import MobileSheet from './MobileSheet'
 import MakeReservation from './MakeReservation'
@@ -36,9 +35,7 @@ function Reservation() {
                     <Container as="header" variant="content" className="mobile-hidden">
                         <Reveal cascade whenInView>
                             <Text as="h2" variant="badgeLink" mb={2} bg="whiteFade.10" color="secondary.pale">
-                                <Link href="/reservations" passHref>
-                                    <a>Reserve A Table</a>
-                                </Link>
+                                <Link href="/reservations">Reserve A Table</Link>
                             </Text>
                             <Heading as="p" variant="headline" color="text" title>
                                 We've Got You Covered

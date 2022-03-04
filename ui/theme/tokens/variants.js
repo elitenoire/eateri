@@ -320,17 +320,22 @@ export const variants = {
         },
         badge: {
             variant: 'text.block',
-            padding: '0.5em 2em',
+            px: 7,
+            py: 2,
             borderRadius: '1.75em',
             display: 'inline-block',
         },
         badgeLink: {
             variant: 'text.badge',
             position: 'relative',
+            pl: 9,
             ':after': {
                 position: 'absolute',
                 content: '"🔗"',
-                left: 0,
+                left: '1em',
+            },
+            ':hover a': {
+                textDecoration: 'underline',
             },
             a: {
                 textDecoration: 'none',

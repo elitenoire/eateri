@@ -1,10 +1,10 @@
-import NextLink from 'next/link'
 import Image from 'next/image'
-import { Container, Link } from '@theme-ui/components'
+import { Container } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Heading, Text } from '~@core/typography'
 import { Scrollable } from '~@core/display'
 import { Reveal, fadeInLeft } from '~@core/general'
+import { Link } from '~@core/navigation'
 import FoodCard from '~@common/card/FoodCard'
 import CategoryCard from '~@common/card/CategoryCard'
 import FavoriteCard from '~@common/card/FavoriteCard'
@@ -22,9 +22,7 @@ function Menu() {
         <Container as="section" id="homepage-menu" variant="loose" sx={styles.section}>
             <Reveal as={Container} forwardAs="header" variant="content" sx={styles.sectionHeader} cascade whenInView>
                 <Text as="h2" variant="badgeLink" mb={2} bg="whiteFade.10" color="secondary.pale">
-                    <NextLink href="/menu" passHref>
-                        <a>Explore Our Menu</a>
-                    </NextLink>
+                    <Link href="/menu">Explore Our Menu</Link>
                 </Text>
                 <Heading as="p" variant="headline" color="text" title>
                     Explore 80+ Delicious Dishes
@@ -54,9 +52,9 @@ function Menu() {
                                     Selection
                                 </Text>
                             </Heading>
-                            <NextLink href="/#" passHref>
-                                <a sx={styles.menuBoxLink}>See All</a>
-                            </NextLink>
+                            <Link href="/#" sx={styles.menuBoxLink}>
+                                See All
+                            </Link>
                         </div>
                         <div sx={styles.menuBoxBody}>
                             <Reveal
@@ -99,9 +97,9 @@ function Menu() {
                             <Heading as="h3" variant="h4" mb={0}>
                                 Category
                             </Heading>
-                            <NextLink href="/#" passHref>
-                                <a sx={styles.menuBoxLink}>See All</a>
-                            </NextLink>
+                            <Link href="/#" sx={styles.menuBoxLink}>
+                                See All
+                            </Link>
                         </div>
                         <div sx={styles.menuBoxBody}>
                             <Reveal
@@ -116,11 +114,9 @@ function Menu() {
                             >
                                 {['African', 'Chinese', 'Vegan', 'Rice', 'Soups', 'Desserts', 'Drinks'].map(c => (
                                     <li key={c}>
-                                        <NextLink href="/#" passHref>
-                                            <Link variant="block">
-                                                <CategoryCard imgUrl={imgUrl} title={c} />
-                                            </Link>
-                                        </NextLink>
+                                        <Link href="/#" variant="block">
+                                            <CategoryCard imgUrl={imgUrl} title={c} />
+                                        </Link>
                                     </li>
                                 ))}
                             </Reveal>
@@ -133,9 +129,9 @@ function Menu() {
                                     <Heading as="h3" variant="h4" mb={0}>
                                         Favorite
                                     </Heading>
-                                    <NextLink href="/#" passHref>
-                                        <a sx={styles.menuBoxLink}>See All</a>
-                                    </NextLink>
+                                    <Link href="/#" sx={styles.menuBoxLink}>
+                                        See All
+                                    </Link>
                                 </div>
                                 <Reveal as="ul" sx={styles.favoriteList} cascade whenInView>
                                     {['Red Lentil Soup', 'Thai Fried Chicken', 'Pasta & Chicken'].map(dish => (

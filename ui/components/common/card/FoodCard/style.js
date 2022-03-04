@@ -17,10 +17,6 @@ const styles = {
             zIndex: 1, // avoids neumorph shadow bleed
         },
     },
-    link: {
-        display: 'block',
-        textDecoration: 'none',
-    },
     imageWrap: ({ bg, shadow, radius, fluid }) => ({
         size: fluid ? 'fluid' : '8em',
         p: 4,

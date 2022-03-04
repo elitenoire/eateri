@@ -1,6 +1,6 @@
-import Link from 'next/link'
 import { Heading } from '~@core/typography'
 import { Logo } from '~@core/general'
+import { Link } from '~@core/navigation'
 import { HoursBlock, ContactBlock, ChatButton, ReservationButton } from './common'
 
 import { fwlStyles as styles } from './style'
@@ -24,29 +24,19 @@ export default function FooterWithLinks({ linkScroll }) {
                     </Heading>
                     <ul>
                         <li>
-                            <Link href="/about">
-                                <a>About</a>
-                            </Link>
+                            <Link href="/about">About</Link>
                         </li>
                         <li>
-                            <Link href="/services">
-                                <a>Our Services</a>
-                            </Link>
+                            <Link href="/services">Our Services</Link>
                         </li>
                         <li>
-                            <Link href="/career">
-                                <a>Career</a>
-                            </Link>
+                            <Link href="/career">Career</Link>
                         </li>
                         <li>
-                            <Link href="/terms">
-                                <a>Terms</a>
-                            </Link>
+                            <Link href="/terms">Terms</Link>
                         </li>
                         <li>
-                            <Link href="/privacy">
-                                <a>Privacy</a>
-                            </Link>
+                            <Link href="/privacy">Privacy</Link>
                         </li>
                     </ul>
                 </section>
@@ -58,15 +48,13 @@ export default function FooterWithLinks({ linkScroll }) {
                     </Heading>
                     <ul>
                         <li>
-                            <Link href="/myaccount">
-                                <a>My Account</a>
-                            </Link>
+                            <Link href="/myaccount">My Account</Link>
                         </li>
                         <li>
-                            <a>Link</a>
+                            <Link href="#">Link</Link>
                         </li>
                         <li>
-                            <a>Link</a>
+                            <Link href="#">Link</Link>
                         </li>
                     </ul>
                 </section>
@@ -76,9 +64,7 @@ export default function FooterWithLinks({ linkScroll }) {
                     </Heading>
                     <ul>
                         <li>
-                            <Link href="/faqs">
-                                <a>FAQs</a>
-                            </Link>
+                            <Link href="/faqs">FAQs</Link>
                         </li>
                     </ul>
                 </section>
@@ -91,9 +77,7 @@ export default function FooterWithLinks({ linkScroll }) {
             </div>
             <div className="block">
                 <section>
-                    <Link href="/" passHref>
-                        <Logo plain link animated color="primary.base" />
-                    </Link>
+                    <Logo href="/" link plain animated color="primary.base" />
                     <ActionButtons linkScroll={linkScroll} />
                 </section>
             </div>

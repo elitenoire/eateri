@@ -1,11 +1,10 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import Link from 'next/link'
 import { Container, Card, Grid, Box } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
 import { Icon, Divider, Reveal, grow } from '~@core/general'
 import { WaveDecoration } from '~@core/other'
-import { Linkable } from '~@core/navigation'
+import { Link, Linkable } from '~@core/navigation'
 import { RouteModal } from '~@core/display'
 import useScrollTo from '~/hooks/useScrollTo'
 
@@ -38,9 +37,7 @@ function Services() {
                 <Container variant="loose">
                     <Reveal as={Container} forwardAs="header" variant="content" cascade whenInView>
                         <Text as="h2" variant="badgeLink" mb={2} bg="primary.pale" color="primary.base">
-                            <Link href="/services" passHref>
-                                <a>Our Services</a>
-                            </Link>
+                            <Link href="/services">Our Services</Link>
                         </Text>
                         <Heading as="p" variant="headline" color="text" title>
                             Why We Are The Top Faves!

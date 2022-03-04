@@ -1,7 +1,7 @@
-import NextLink from 'next/link'
-import { Box, Container, Link } from '@theme-ui/components'
+import { Box, Container } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
 import { Avatar } from '~@core/general'
+import { Link } from '~@core/navigation'
 import NavListItem from './NavListItem'
 import { getLayout as getDefaultLayout } from '../DefaultLayout'
 
@@ -14,11 +14,9 @@ export default function AccountLayout({ children }) {
                 <div sx={styles.wrapper}>
                     <div sx={styles.sidebar}>
                         <div sx={styles.badgeWrap}>
-                            <NextLink href="/myaccount" passHref>
-                                <Link variant="back" sx={styles.badge}>
-                                    My Account
-                                </Link>
-                            </NextLink>
+                            <Link href="/myaccount" variant="back" sx={styles.badge}>
+                                My Account
+                            </Link>
                         </div>
                         <div sx={styles.panel}>
                             <div sx={styles.nameBlock}>

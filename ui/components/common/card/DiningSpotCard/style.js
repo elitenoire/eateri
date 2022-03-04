@@ -14,8 +14,9 @@ const styles = {
     noCollapse: {
         overflow: 'auto',
     },
-    button: {
-        float: 'right',
+    buttonWrap: {
+        display: 'flex',
+        justifyContent: 'flex-end',
     },
 }
 
