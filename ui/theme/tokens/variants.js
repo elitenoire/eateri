@@ -238,9 +238,6 @@ export const variants = {
                 opacity: 0.6,
                 transition: 'transform 0.2s',
             },
-            ':hover': {
-                color: 'inherit',
-            },
             ':hover:before': {
                 transform: 'translateX(0.125em)',
             },

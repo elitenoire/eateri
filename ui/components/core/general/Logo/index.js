@@ -6,7 +6,7 @@ import { ReactComponent as LogoText } from '~/public/inlineSvg/logo-tt.svg'
 
 import styles from './style'
 
-const getLogoBoxStyle = ({ plain, size, color, colorHover, linkColor, link }) => ({
+const getLogoBoxStyle = ({ plain, size, color, hoverColor, linkColor, link }) => ({
     ...styles.logoBox,
     ...(!link && {
         display: 'flex',
@@ -16,9 +16,9 @@ const getLogoBoxStyle = ({ plain, size, color, colorHover, linkColor, link }) =>
     ...(size && { fontSize: size }),
     ...(color &&
         link && {
-            transition: plain && colorHover ? 'color 0.25s' : 'none',
+            transition: plain && hoverColor ? 'color 0.25s' : 'none',
             '&,&:active,&:visited': { color: plain ? color : linkColor || `${color}.base` },
-            '&:hover': { color: plain ? colorHover || color : 'inherit' },
+            '&:hover': { color: plain ? hoverColor || color : 'inherit' },
         }),
     ...(color && !link && { color: plain ? color : `${color}.base` }),
 })
@@ -33,7 +33,7 @@ const Logo = forwardRef(function Logo(
         as,
         ariaLabel = 'Eateri Home',
         color = 'primary',
-        colorHover,
+        hoverColor,
         plain,
         size,
         link,
@@ -52,7 +52,7 @@ const Logo = forwardRef(function Logo(
         <Tag
             ref={ref}
             data-animated={animated ? '' : null}
-            sx={getLogoBoxStyle({ plain, color, colorHover, size, link, linkColor })}
+            sx={getLogoBoxStyle({ plain, color, hoverColor, size, link, linkColor })}
             aria-label={ariaLabel}
             title={title || ariaLabel}
             {...rest}
