@@ -1,11 +1,12 @@
 import { forwardRef } from 'react'
 import { useThemeUI } from '@theme-ui/core'
+import { Box } from '@theme-ui/components'
 import BoringAvatar from 'boring-avatars'
 
 import styles from './style'
 
 const Avatar = forwardRef(function Avatar(
-    { as: Tag = 'span', size = '100%', variant = 'beam', ring = 'ringLight', name, ...rest },
+    { as = 'span', size = '100%', variant = 'beam', ring = 'ringLight', name, ...rest },
     ref
 ) {
     const {
@@ -18,9 +19,9 @@ const Avatar = forwardRef(function Avatar(
     const colorScheme = [primary.light, secondary.hover]
 
     return (
-        <Tag ref={ref} sx={styles.wrapper(ring)} {...rest}>
+        <Box as={as} ref={ref} sx={styles.wrapper(ring)} {...rest}>
             <BoringAvatar name={name} size={size} variant={variant} colors={colorScheme} />
-        </Tag>
+        </Box>
     )
 })
 

@@ -91,7 +91,7 @@ const styles = {
     },
     iconWrap: {
         p: 2,
-        borderRadius: 'tiny',
+        borderRadius: 'round',
         mr: 2,
         bg: 'primary.light',
     },

@@ -353,7 +353,6 @@ function DishLayout() {
                                     ariaLabel="Scroll backwards"
                                     // onClick={goPrev}
                                     // disabled={isStart}
-                                    sx={styles.scrollNavButton}
                                 />
                                 <Button
                                     ml={1}
@@ -363,7 +362,6 @@ function DishLayout() {
                                     ariaLabel="Scroll forwards"
                                     // onClick={goNext}
                                     // disabled={isEnd}
-                                    sx={styles.scrollNavButton}
                                 />
                             </div>
                         </div>
@@ -378,9 +376,7 @@ function DishLayout() {
                                     'Grilled Steak Tomato Salad',
                                 ].map(dish => (
                                     <li key={dish}>
-                                        <FoodCard imgUrl={url} shadow="soft" imageOnly reveal>
-                                            {dish}
-                                        </FoodCard>
+                                        <FoodCard title={dish} imgUrl={url} shadow="soft" reveal />
                                     </li>
                                 ))}
                             </Scrollable>

@@ -13,7 +13,7 @@ const styles = {
     badgeWrap: {
         display: ['none', null, null, 'block'],
         position: 'absolute',
-        top: '1em',
+        top: 4,
         left: 0,
     },
     badge: {
@@ -35,7 +35,7 @@ const styles = {
         py: [null, null, null, 6],
         pr: [null, null, null, 4],
         borderRadius: [null, null, null, 20],
-        bg: 'muted', // 'grayMedium',
+        bg: 'muted',
         mt: 2,
         mb: [6, null, null, 4],
     },
@@ -48,14 +48,9 @@ const styles = {
         display: ['none', null, null, 'block'],
     },
     navListBlock: {
-        bg: [null, null, null, 'muted'], // 'grayMedium'],
-        py: [null, null, null, 1],
+        bg: [null, null, null, 'muted'],
         mb: [null, null, null, 4],
         borderRadius: 20,
-        overflow: 'hidden',
-        '&[data-single]': {
-            borderRadius: '1em',
-        },
     },
     content: {
         flex: 1,
@@ -79,13 +74,24 @@ export const navListItemStyle = {
     listItem: {
         position: 'relative',
         mb: [3, null, null, 0],
+        '&:first-of-type': {
+            borderTopLeftRadius: [null, null, null, '20'],
+            borderTopRightRadius: [null, null, null, '20'],
+        },
+        '&:last-of-type': {
+            borderBottomLeftRadius: [null, null, null, '20'],
+            borderBottomRightRadius: [null, null, null, '20'],
+        },
         '&[data-lined]:after': {
-            content: '""',
+            content: [null, null, null, '""'],
             position: 'absolute',
             top: 0,
             right: 0,
             left: 10,
             borderTop: t => `1px solid ${t.colors.grayMedium}`,
+        },
+        '&:hover + &[data-lined]:after': {
+            left: [null, null, null, 0],
         },
     },
     link: {
@@ -97,19 +103,11 @@ export const navListItemStyle = {
         py: [null, null, null, 3],
         pr: [null, null, null, 5],
         pl: [null, null, null, 10],
+        borderRadius: ['circle', null, null, 'inherit'],
         '&[data-active],&:hover': {
             bg: [null, null, null, 'grayMedium'],
         },
         '&[data-active]': {
-            '&:after': {
-                position: 'absolute',
-                content: [null, null, null, '""'],
-                width: '2.5px',
-                top: 0,
-                bottom: 0,
-                left: 0,
-                bg: 'secondary.base',
-            },
             '& > span:first-of-type': {
                 bg: 'secondary.base',
                 color: 'textOnSecondary',

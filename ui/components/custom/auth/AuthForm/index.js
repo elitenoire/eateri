@@ -27,7 +27,6 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
                         color="secondary"
                         bg="gray"
                         outlineColor="gray"
-                        radius="round"
                         px={4}
                         outline
                         fluid
@@ -43,7 +42,6 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
                         color="secondary"
                         bg="gray"
                         outlineColor="gray"
-                        radius="round"
                         px={4}
                         outline
                         fluid
@@ -59,7 +57,6 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
                         color="secondary"
                         bg="gray"
                         outlineColor="gray"
-                        radius="round"
                         px={4}
                         outline
                         fluid

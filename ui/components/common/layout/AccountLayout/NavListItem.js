@@ -13,7 +13,7 @@ export default function NavListItem({ href, icon, lined, active, hideArrow, chil
                         <Icon name={icon} />
                     </span>
                     <span sx={styles.mobileHidden}>
-                        <Text as="span" size={1} transform="capitalize">
+                        <Text as="span" size={1} weight="medium" transform="capitalize">
                             {children}
                         </Text>
                         {!active && !hideArrow && (

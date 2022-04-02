@@ -14,7 +14,7 @@ function renderIcon(icon) {
 function renderLeft({ icon, showCheckbox, checked }) {
     if (!(icon || showCheckbox)) return null
     const _icon = renderIcon(icon)
-    const _checkbox = <Icon name={checked ? 'checkboxfillcircle' : 'checkboxblankcircle'} />
+    const _checkbox = <Icon name={checked ? 'checkboxon' : 'checkboxoff'} />
     return <span>{showCheckbox ? _checkbox : _icon}</span>
 }
 

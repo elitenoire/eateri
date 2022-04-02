@@ -10,15 +10,9 @@ export const ddButtonSX = {
     },
     value: {
         ml: 1,
+        mr: 2,
         fontWeight: 'bold',
         textTransform: 'capitalize',
-    },
-    arrow: {
-        ml: 2,
-        transition: 'transform 0.3s',
-        '&[data-open]': {
-            transform: 'rotate(-180deg)',
-        },
     },
 }
 

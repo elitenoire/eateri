@@ -1,4 +1,4 @@
-import { Box, Flex, Badge } from '@theme-ui/components'
+import { Badge } from '@theme-ui/components'
 import { Text } from '~@core/typography'
 import { StackGroup } from '~@core/display'
 import { Avatar, Icon, Button } from '~@core/general'
@@ -139,10 +139,6 @@ function MyAccountPage() {
                         <Button brand="subtle" bg="gray" outlineColor="grayMedium" outline fluid>
                             More
                         </Button>
-
-                        {/* <Button size="md" shape="pill" brand="outline" color="secondary" fluid>
-                            More
-                        </Button> */}
                     </div>
                 </div>
             </OverviewCard>
