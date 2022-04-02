@@ -83,8 +83,8 @@ export const variants = {
                     ...(bg && { color: 'text' }),
                 },
                 '&:hover,&[data-active]': {
-                    borderColor: outline ? bg || `${color}.base` : 'grayHover',
-                    bg: outline ? bg || 'transparent' : 'grayHover',
+                    borderColor: bg || (outline ? `${color}.base` : 'grayHover'),
+                    bg: bg || (outline ? `${color}.base` : 'grayHover'),
                     ...(bg && { color: t => readableColor(bg)(t) }),
                     // ...(!outline && { bg: 'grayHover' }),
                 },
@@ -348,6 +348,15 @@ export const variants = {
             'p span': {
                 display: 'block',
             },
+        },
+        dropdown: {
+            py: 2,
+            borderRadius: 'round',
+            borderWidth: 1,
+            borderStyle: 'solid',
+            borderColor: 'grayLight',
+            boxShadow: '2xl',
+            bg: 'white',
         },
     },
     images: {

@@ -51,7 +51,9 @@ import { ReactComponent as ArrowRight } from 'remixicon/icons/System/arrow-right
 import { ReactComponent as ArrowUp } from 'remixicon/icons/System/arrow-up-s-line.svg'
 import { ReactComponent as Sort } from 'remixicon/icons/System/arrow-up-down-line.svg'
 import { ReactComponent as Check } from 'remixicon/icons/System/check-line.svg'
-import { ReactComponent as CheckboxBlankCircle } from 'remixicon/icons/System/checkbox-blank-circle-line.svg'
+import { ReactComponent as CheckboxOff } from 'remixicon/icons/System/checkbox-blank-line.svg'
+import { ReactComponent as CheckboxOn } from 'remixicon/icons/System/checkbox-fill.svg'
+import { ReactComponent as RadioOff } from 'remixicon/icons/System/checkbox-blank-circle-line.svg'
 import { ReactComponent as CheckboxFillCircle } from 'remixicon/icons/System/checkbox-circle-fill.svg'
 import { ReactComponent as Close } from 'remixicon/icons/System/close-line.svg'
 import { ReactComponent as Dashboard } from 'remixicon/icons/System/dashboard-line.svg'
@@ -66,7 +68,9 @@ import { ReactComponent as HamBurger } from 'remixicon/icons/System/menu-4-line.
 import { ReactComponent as More } from 'remixicon/icons/System/more-line.svg'
 import { ReactComponent as Search } from 'remixicon/icons/System/search-2-line.svg'
 import { ReactComponent as Signin } from 'remixicon/icons/System/login-circle-line.svg'
-import { ReactComponent as Signout } from 'remixicon/icons/System/logout-circle-line.svg'
+import { ReactComponent as Signout } from 'remixicon/icons/System/logout-circle-r-line.svg'
+import { ReactComponent as RadioOn } from 'remixicon/icons/System/radio-button-fill.svg'
+
 import { ReactComponent as Subtract } from 'remixicon/icons/System/subtract-line.svg'
 import { ReactComponent as Time } from 'remixicon/icons/System/time-fill.svg'
 import { ReactComponent as Timer } from 'remixicon/icons/System/timer-fill.svg'
@@ -74,6 +78,7 @@ import { ReactComponent as Bolt } from 'remixicon/icons/Weather/flashlight-fill.
 import { ReactComponent as Fire } from 'remixicon/icons/Weather/fire-fill.svg'
 import { ReactComponent as User } from 'remixicon/icons/User/user-fill.svg'
 import { ReactComponent as UserAlt } from 'remixicon/icons/User/user-4-line.svg'
+import { ReactComponent as UserSmile } from 'remixicon/icons/User/user-smile-line.svg'
 
 export const CloseIcon = Close
 export const WalletIcon = Wallet
@@ -100,8 +105,9 @@ export const icons = {
     bankcard: BankCard,
     chat: Chat,
     check: Check,
-    checkboxblankcircle: CheckboxBlankCircle,
     checkboxfillcircle: CheckboxFillCircle,
+    checkboxoff: CheckboxOff,
+    checkboxon: CheckboxOn,
     close: Close,
     coupon: Coupon,
     dashboard: Dashboard,
@@ -139,6 +145,8 @@ export const icons = {
     phonefill: PhoneFill,
     play: Play,
     profile: Profile,
+    radiooff: RadioOff,
+    radioon: RadioOn,
     reserved: Reserved,
     reservedfill: ReservedFill,
     search: Search,
@@ -154,5 +162,6 @@ export const icons = {
     twitterfill: TwitterFill,
     user: User,
     useralt: UserAlt,
+    usersmile: UserSmile,
     wallet: Wallet,
 }
