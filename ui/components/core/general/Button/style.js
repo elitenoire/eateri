@@ -1,14 +1,20 @@
 import { alpha } from '@theme-ui/color'
 
 const styles = {
-    _base: {
+    _aria: {
+        appearance: 'none',
         cursor: 'pointer',
+        bg: 'transparent',
+        border: 0,
+        fontSize: 'inherit',
+        fontFamily: 'body',
+    },
+    _base: {
         display: 'inline-flex',
         justifyContent: 'center',
         alignItems: 'center',
         flexWrap: 'wrap',
         userSelect: 'none',
-        fontFamily: 'body',
         backfaceVisibility: 'hidden',
         transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
         svg: {
@@ -72,6 +78,12 @@ const styles = {
         },
         '&[data-scale=lg] svg': {
             transform: 'scale(1.35)',
+        },
+    },
+    arrow: {
+        transition: 'transform 0.3s',
+        '&[data-open]': {
+            transform: 'rotate(-180deg)',
         },
     },
 }

@@ -1,6 +1,7 @@
 import { forwardRef } from 'react'
 import { useThemeUI } from '@theme-ui/core'
-import { Button as TUIButton, Link as TUILink } from '@theme-ui/components'
+import { Box, Link as TUILink } from '@theme-ui/components'
+import { Button as AriaButton } from 'ariakit/button'
 import { Icon } from '~@core/general'
 import LoadingDots from '~@core/feedback/LoadingDots'
 import styles from './style'
@@ -20,14 +21,12 @@ const handleKeyPress = e => {
 
 const _sxBase = ({ fluid, buttonWithIcon, iconOnly, radius, px, py }) => ({
     ...styles._base,
-    // ...sxBtn,
     ...(buttonWithIcon && styles.buttonWithIcon),
     ...(iconOnly && styles.icon),
     ...(fluid && { width: 'fluid' }),
     ...(radius && { borderRadius: radius }),
     ...(px && { px }),
     ...(py && { py }),
-    // ...sx,
 })
 
 const _sx = ({
@@ -48,18 +47,28 @@ const _sx = ({
     py,
     link,
     children,
-    // sx,
 }) => ({
     ...styles._baseExtra,
     ...buttons.brands[brand]({ color, borderless, opaque, alpha, bg, outline, outlineColor, ghostText, link }),
     ...buttons.shapes[shape],
-    ...buttons.sizes[size],
+    ...(buttons.sizes[size] || { fontSize: size }),
     ...(children && styles.button),
     ...(radius && { borderRadius: radius }),
     ...(px && { px }),
     ...(py && { py }),
+})
 
-    // sx,
+export const ButtonAria = forwardRef(function ButtonAria({ dropdown, active, children, ...rest }, ref) {
+    return (
+        <Box as={AriaButton} ref={ref} sx={styles._aria} {...rest}>
+            {children}
+            {dropdown && (
+                <span sx={styles.arrow} data-open={active ? '' : null}>
+                    <Icon name="arrowdropdown" />
+                </span>
+            )}
+        </Box>
+    )
 })
 
 export const ButtonBase = forwardRef(function ButtonBase(
@@ -73,11 +82,11 @@ export const ButtonBase = forwardRef(function ButtonBase(
         noFade,
         noHoverUp,
         active,
+        dropdown,
         scaleIcon,
         isLoading,
         type,
         ariaLabel,
-        // sx = {},
         children,
         ...rest
     },
@@ -85,7 +94,7 @@ export const ButtonBase = forwardRef(function ButtonBase(
 ) {
     const iconOnly = icon && !children
     const buttonWithIcon = icon && children
-    const Tag = link ? TUILink : TUIButton
+    const Tag = link ? TUILink : ButtonAria
 
     return (
         <Tag
@@ -99,7 +108,7 @@ export const ButtonBase = forwardRef(function ButtonBase(
             onMouseDown={handleClick}
             onKeyUp={handleKeyPress}
             sx={_sxBase({ fluid, buttonWithIcon, iconOnly, radius, px, py })}
-            {...(!link && { type: type || 'button' })}
+            {...(!link && { active, dropdown })}
             {...rest}
         >
             {isLoading ? (
@@ -145,7 +154,6 @@ export const Button = forwardRef(function Button(
     const {
         theme: { buttons },
     } = useThemeUI()
-
     return (
         <ButtonBase
             ref={ref}
@@ -168,7 +176,6 @@ export const Button = forwardRef(function Button(
                 py,
                 link,
                 children,
-                // sx,
             })}
             {...rest}
         >
