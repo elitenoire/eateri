@@ -5,6 +5,6 @@ function LoginPage() {
     return <LoginForm />
 }
 
-LoginPage.getLayout = page => getAuthLayout(page, { altPath: '/signup', altPathName: 'Sign Up' })
+LoginPage.getLayout = getAuthLayout
 
 export default LoginPage

@@ -16,9 +16,7 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
                         <Heading as="h1" mb={1} variant="h2" spacing="tighter" title>
                             {title}
                         </Heading>
-                        <Text size={1} color="textFade">
-                            {subtitle}
-                        </Text>
+                        <Text color="textFade">{subtitle}</Text>
                     </header>
                 </Reveal>
                 <div sx={styles.socials}>
@@ -68,7 +66,7 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
                         </Text>
                     </Button>
                 </div>
-                <Divider height="1.5px" size={1} my={5} bg="gray" color="textFade">
+                <Divider height="1.5px" my={5} bg="gray" color="textFade">
                     or
                 </Divider>
                 <form>
@@ -78,24 +76,16 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
                         Continue
                     </Button>
                     <Reveal motion={fadeIn}>
-                        <Text size={0} mt={2} align="center" weight="medium" color="blackFade.30">
+                        <Text size={1} mt={2} align="center" weight="medium" color="blackFade.30">
                             {`We'll send you a code to ${title.toLowerCase()}.`}
                         </Text>
                     </Reveal>
                 </form>
                 <footer sx={styles.footer}>
                     <Reveal motion={fadeIn} duration={200}>
-                        <Text size={1} color="textFade">
-                            {altPathPrompt}
-                        </Text>
+                        <Text color="textFade">{altPathPrompt}</Text>
                     </Reveal>
-                    <Link
-                        href={altPath}
-                        variant="arrow:sm"
-                        color="primary.base"
-                        hoverColor="primary.hover"
-                        scroll={false}
-                    >
+                    <Link href={altPath} variant="arrow" color="primary.base" hoverColor="primary.hover" scroll={false}>
                         {altPathName}
                     </Link>
                 </footer>
@@ -103,7 +93,7 @@ export default function AuthForm({ title, subtitle, altPath, altPathName, altPat
             <Box pb={2} px={2}>
                 <Text
                     as={ButtonBase}
-                    size={0}
+                    size={1}
                     py={4}
                     bg="highlight.pale"
                     color="blackFade.30"

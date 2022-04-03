@@ -4,7 +4,7 @@ const styles = {
     list: {
         display: 'flex',
         flexDirection: 'column',
-        minWidth: '12em',
+        minWidth: '15em',
     },
     listItem: ({ gap, plain, noHover }) => ({
         display: 'flex',

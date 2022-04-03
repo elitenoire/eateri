@@ -6,7 +6,7 @@ import Squiggle from '~@core/other/Squiggle'
 
 import styles from './style'
 
-export default function AuthLayout({ altPath, altPathName, children }) {
+export default function AuthLayout({ children }) {
     return (
         <Box as="section" bg="grayLight" pt={8} pb={4} className="hide-overflow" sx={styles.section}>
             <Container variant="mini" sx={styles.container}>
@@ -18,24 +18,7 @@ export default function AuthLayout({ altPath, altPathName, children }) {
                             <Logo href="/" size={6} link plain color="grayDark" hoverColor="secondary.hover" />
                         </div>
                         <Box sx={styles.frame}>
-                            <div sx={styles.content}>
-                                {altPath && altPathName && (
-                                    <div sx={styles.nextLink}>
-                                        <Link
-                                            href={altPath}
-                                            variant="arrow:massive"
-                                            color="gray"
-                                            hoverColor="grayDark"
-                                            scroll={false}
-                                        >
-                                            <Text as="span" spacing="tight" weight="extrabold" title>
-                                                {altPathName}
-                                            </Text>
-                                        </Link>
-                                    </div>
-                                )}
-                                {children}
-                            </div>
+                            <div sx={styles.content}>{children}</div>
                         </Box>
                     </div>
                 </div>

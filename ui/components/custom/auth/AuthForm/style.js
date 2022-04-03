@@ -17,7 +17,7 @@ const styles = {
     footer: {
         display: 'flex',
         justifyContent: 'space-between',
-        mt: 5,
+        mt: 6,
     },
 }
 

@@ -67,19 +67,6 @@ const styles = {
         bg: 'white',
         borderRadius: 'inherit',
         boxShadow: [null, null, '2xl'],
-        overflow: 'hidden',
-    },
-    nextLink: {
-        display: ['none', null, 'block'],
-        position: 'absolute',
-        top: 0,
-        right: 0,
-        zIndex: 1,
-        transform: 'translate(50%, 2em)',
-        transition: 'transform 0.5s ease-in-out',
-        ':hover': {
-            transform: 'translate(-15%, 2em) scale(0.95)',
-        },
     },
 }
 

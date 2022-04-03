@@ -29,7 +29,7 @@ function renderIcon({ icon, iconColor, iconSize, boxed, boxedBg }) {
     )
 }
 
-function renderContent({ title, text, size = 1, truncate = 2, weight = 'medium', children }) {
+function renderContent({ title, text, size = 2, truncate = 2, weight = 'medium', children }) {
     if (children || (text && !title))
         return (
             <Text as="span" size={size} weight={weight} truncate={truncate}>
@@ -43,7 +43,7 @@ function renderContent({ title, text, size = 1, truncate = 2, weight = 'medium',
                 <Text as="span" size={size} weight="bold" truncate>
                     {title}
                 </Text>
-                <Text as="span" size={0} color="textFade" weight={weight} truncate={truncate}>
+                <Text as="span" size={1} color="textFade" weight={weight} truncate={truncate}>
                     {text}
                 </Text>
             </span>
