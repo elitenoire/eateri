@@ -1,6 +1,6 @@
 const styles = {
     svgTakeaway: {
-        width: ['45%', null, null, null, '90%'],
+        width: ['85%', null, '60%', null, '90%'],
         height: 'auto',
         alignSelf: [null, null, null, 'center'],
         mt: [null, null, null, null, 7],

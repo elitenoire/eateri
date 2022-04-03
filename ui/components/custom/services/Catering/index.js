@@ -10,8 +10,7 @@ export default function Catering({ hideBackLink }) {
     return (
         <>
             <Hero
-                bg="primary.base"
-                cardBg="secondary.base"
+                bg="secondary.base"
                 color="accent.base"
                 title="Events & Catering"
                 text={
@@ -26,7 +25,7 @@ export default function Catering({ hideBackLink }) {
                 <Text weight="light" color="textDark" size={7} mb={4}>
                     Custom menus, delicious food to complement any event.
                 </Text>
-                <Text>
+                <Text size={3}>
                     Need to feed a group? Whatever the occasion, we have spaces perfect to host your group. With a
                     choice of crafted party menus, specially selected drinks packages and a dedicated team, you’ll find
                     all the ingredients for an event to remember.

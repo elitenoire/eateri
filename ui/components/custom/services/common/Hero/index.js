@@ -7,21 +7,9 @@ import { WaveDecoration } from '~@core/other'
 
 import styles from './style'
 
-export default function Hero({
-    title,
-    bg = 'primary.base',
-    cardBg,
-    color,
-    text,
-    svg,
-    hideBackLink,
-    sx,
-    className = '',
-    children,
-    ...rest
-}) {
+export default function Hero({ title, bg, color, text, svg, hideBackLink, sx, className = '', children, ...rest }) {
     return (
-        <Box bg={bg} sx={styles.background} data-padded={hideBackLink ? '' : null}>
+        <div data-modal={hideBackLink ? '' : null}>
             <Container variant="loose" sx={styles.container}>
                 {!hideBackLink && (
                     <BackLink href="/services" scroll={false} my={7}>
@@ -33,11 +21,11 @@ export default function Hero({
                         <Heading as="h1" variant="intro" title>
                             {`${title}.`}
                         </Heading>
-                        <Divider bg={bg} width="20%" radius="default" height="0.5em" />
+                        <Divider bg="primary.base" width="20%" radius="default" height="0.5em" />
                     </Reveal>
                     <div sx={styles.cardWrap}>
                         <Flipped flipId={`sc-${title}-bg`}>
-                            <Card variant="services" bg={cardBg} className={className} sx={styles.card}>
+                            <Card variant="services" bg={bg} className={className} sx={styles.card}>
                                 <Flipped inverseFlipId={`sc-${title}-bg`} scale>
                                     {props => (
                                         <Reveal motion={fadeIn} threshold={0.1} duration={600} delay={200} when>
@@ -59,6 +47,6 @@ export default function Hero({
                 </Grid>
             </Container>
             <WaveDecoration color="background" />
-        </Box>
+        </div>
     )
 }

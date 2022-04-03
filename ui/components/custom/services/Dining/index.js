@@ -15,14 +15,13 @@ export default function Dining({ hideBackLink }) {
     return (
         <>
             <Hero
-                bg="primary.base"
-                cardBg="secondary.hover"
+                bg="secondary.hover"
                 color="textOnSecondary"
                 title="Dine-in & Buffet"
                 text={
                     <>
                         Join Us
-                        <Text as="span" ml={7}>
+                        <Text as="span" ml={2}>
                             At The
                         </Text>
                         Table
@@ -34,7 +33,7 @@ export default function Dining({ hideBackLink }) {
                 <Text weight="light" color="textDark" size={7} mb={4}>
                     Bring your appetite, a culinary feast awaits you.
                 </Text>
-                <Text>
+                <Text size={3}>
                     At Eateri, you are never far from a great meal with a warm, inviting welcome. Our delicious buffet
                     menu offers unmatched variety of quality, healthy dishes for your satisfaction. We use only fresh
                     premium ingredients for a taste that will have you coming back for more.
@@ -181,8 +180,8 @@ export default function Dining({ hideBackLink }) {
                         </Reveal>
                     </div>
                     <div sx={styles.disclaimer}>
-                        <Text size={0}>T&Cs apply.</Text>
-                        <Text size={0}>** All deals are subject to availability **</Text>
+                        <Text size={1}>T&Cs apply.</Text>
+                        <Text size={1}>** All deals are subject to availability **</Text>
                     </div>
                 </Container>
             </Container>

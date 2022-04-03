@@ -2,7 +2,7 @@ import svgUrl from '~/public/reserve-badge.svg'
 
 const styles = {
     svgDine: {
-        width: ['30%', null, null, null, '70%'],
+        width: ['50%', null, '40%', '30%', '70%'],
         height: 'auto',
         alignSelf: [null, null, null, 'flex-end'],
     },
@@ -40,7 +40,6 @@ const styles = {
         },
     },
     rightBar: {
-        // display: 'inline-block',
         borderColor: 'primary.base',
         borderRightWidth: '20px',
         borderRightStyle: 'solid',
@@ -52,7 +51,7 @@ const styles = {
         position: 'relative',
         overflow: 'hidden',
         margin: 'auto',
-        maxWidth: '35%',
+        maxWidth: ['55%', null, null, '35%'],
         width: 'inherit',
 
         ':before': {
@@ -77,7 +76,7 @@ const styles = {
         mt: ['-2em', null, null, '-3em'],
         py: 11,
         backgroundImage: t =>
-            `linear-gradient(90deg, transparent 30%, ${t.colors.gray} 30%, ${t.colors.gray} 70%, transparent 70%)`,
+            `linear-gradient(90deg, transparent 15%, ${t.colors.gray} 15%, ${t.colors.gray} 85%, transparent 85%)`,
         ':before,:after': {
             display: ['flex', null, null, 'none'],
             alignItems: 'center',
@@ -87,7 +86,7 @@ const styles = {
             left: 0,
             right: 0,
             margin: 'auto',
-            width: '70%',
+            width: '100%',
             height: '1.2em',
             fontSize: 7,
             opacity: 0.85,
@@ -126,7 +125,7 @@ const styles = {
         },
     },
     disclaimer: {
-        width: '40%',
+        width: '70%',
         margin: 'auto',
         pb: 7,
         px: 2,

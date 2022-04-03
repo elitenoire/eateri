@@ -3,7 +3,7 @@ const styles = {
         border: t => `1px solid ${t.colors.secondary.pale}`,
     },
     svgDelivery: {
-        width: ['35%', null, null, null, '115%'],
+        width: ['90%', null, '50%', null, '115%'],
         mt: [null, null, null, null, 7],
     },
 }

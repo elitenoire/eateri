@@ -24,7 +24,9 @@ export default function DiningSpotCard({ title, children, img, alt }) {
                     <Heading as="h3" variant="h4" display="inline-block" spacing="tight" underline="accent.light" title>
                         {title}
                     </Heading>
-                    <Text mb={4}>{children}</Text>
+                    <Text mb={4} size={3}>
+                        {children}
+                    </Text>
                     <div sx={styles.buttonWrap}>
                         <Link href="#" passHref>
                             <Button brand="solid" color="secondary" icon="arrowright" ariaLabel="Learn More" link />
