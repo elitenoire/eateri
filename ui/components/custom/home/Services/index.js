@@ -6,6 +6,7 @@ import { Icon, Divider, Reveal, grow } from '~@core/general'
 import { WaveDecoration } from '~@core/other'
 import { Link, Linkable } from '~@core/navigation'
 import { RouteModal } from '~@core/display'
+import HeroSkeleton from '~@custom/services/common/HeroSkeleton'
 import useScrollTo from '~/hooks/useScrollTo'
 
 import { HASH_ID_RESERVATIONS } from '~/constants'
@@ -18,18 +19,21 @@ import { ReactComponent as TakeawaySvg } from '~/public/inlineSvg/takeouts.svg'
 import styles from './style'
 
 const ServiceMap = dynamic(() => import('~@custom/services/ServiceMap'), {
-    // TODO: Make loading placeholder
-    loading: () => (
-        <Box p={7} bg="primary.base">
-            <p>LOADING...</p>
-        </Box>
-    ),
+    loading: HeroSkeleton,
 })
 
-function Services() {
-    const { linkScroll } = useScrollTo({ offset: 20 })
+function ServiceModal() {
     const router = useRouter()
     const { service } = router.query
+
+    return (
+        <RouteModal isOpen={!!service}>
+            <ServiceMap service={service} />
+        </RouteModal>
+    )
+}
+function Services() {
+    const { linkScroll } = useScrollTo({ offset: 20 })
 
     return (
         <>
@@ -141,9 +145,7 @@ function Services() {
                 </Container>
                 <WaveDecoration color="primary.base" />
             </section>
-            <RouteModal isOpen={!!service}>
-                <ServiceMap service={service} />
-            </RouteModal>
+            <ServiceModal />
         </>
     )
 }

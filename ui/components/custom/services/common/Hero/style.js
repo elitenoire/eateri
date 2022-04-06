@@ -9,7 +9,7 @@ const styles = {
     },
     grid: {
         gridTemplateColumns: [null, null, null, null, '3fr 2fr'],
-        gridColumnGap: '13',
+        gridColumnGap: 13,
         gridRowGap: 9,
         pt: 6,
         pb: [13, null, 0],

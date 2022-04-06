@@ -9,7 +9,7 @@ import styles from './style'
 
 export default function Hero({ title, bg, color, text, svg, hideBackLink, sx, className = '', children, ...rest }) {
     return (
-        <div data-modal={hideBackLink ? '' : null}>
+        <div sx={styles.wrapper} data-modal={hideBackLink ? '' : null}>
             <Container variant="loose" sx={styles.container}>
                 {!hideBackLink && (
                     <BackLink href="/services" scroll={false} my={7}>
