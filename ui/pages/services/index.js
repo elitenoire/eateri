@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { Container, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
-import { Button, Reveal } from '~@core/general'
+import { Reveal } from '~@core/general'
+import { LinkButton } from '~@core/navigation'
 import Squiggle from '~@core/other/Squiggle'
 import MorphCard from '~@common/card/MorphCard'
 import styles from '~/styles/services'
@@ -48,11 +48,9 @@ function ServicesPage() {
                                 We offer a wide range of mouth-watering dishes cooked to perfection.
                             </Text>
                             <div>
-                                <Link href="/services/dining" passHref>
-                                    <Button my={6} size="lg" brand="outline" color="primary" link>
-                                        See Options
-                                    </Button>
-                                </Link>
+                                <LinkButton href="/services/dining" my={6} size="lg" brand="outline" color="primary">
+                                    See Options
+                                </LinkButton>
                             </div>
                         </MorphCard>
                     </div>
@@ -73,11 +71,15 @@ function ServicesPage() {
                                 You can order ahead and skip the line. Ready when you are...
                             </Text>
                             <div>
-                                <Link href="/services/takeaway" passHref>
-                                    <Button my={6} size="lg" icon="arrowright" color="secondary" link>
-                                        Grab It
-                                    </Button>
-                                </Link>
+                                <LinkButton
+                                    href="/services/takeaway"
+                                    my={6}
+                                    size="lg"
+                                    icon="arrowright"
+                                    color="secondary"
+                                >
+                                    Grab It
+                                </LinkButton>
                             </div>
                         </MorphCard>
                     </div>
@@ -99,11 +101,16 @@ function ServicesPage() {
                                 Just stay in, we'll bring your Eateri fix to you fresh and on time.
                             </Text>
                             <div>
-                                <Link href="/services/delivery" passHref>
-                                    <Button my={6} size="lg" brand="outline" color="secondary" link>
-                                        Order Now
-                                    </Button>
-                                </Link>
+                                <LinkButton
+                                    href="/services/delivery"
+                                    my={6}
+                                    size="lg"
+                                    brand="outline"
+                                    color="secondary"
+                                    link
+                                >
+                                    Order Now
+                                </LinkButton>
                             </div>
                         </MorphCard>
                     </div>
@@ -144,11 +151,16 @@ function ServicesPage() {
                                 Turn your event plans into a tasty reality courtesy of our dedicated caterers.
                             </Text>
                             <div>
-                                <Link href="/services/catering" passHref>
-                                    <Button my={6} size="lg" brand="outline" color="accent" link>
-                                        Learn More
-                                    </Button>
-                                </Link>
+                                <LinkButton
+                                    href="/services/catering"
+                                    my={6}
+                                    size="lg"
+                                    brand="outline"
+                                    color="accent"
+                                    link
+                                >
+                                    Learn More
+                                </LinkButton>
                             </div>
                         </MorphCard>
                     </div>

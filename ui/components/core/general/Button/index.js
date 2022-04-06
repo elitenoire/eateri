@@ -1,6 +1,6 @@
 import { forwardRef } from 'react'
 import { useThemeUI } from '@theme-ui/core'
-import { Box, Link as TUILink } from '@theme-ui/components'
+import { Box } from '@theme-ui/components'
 import { Button as AriaButton } from 'ariakit/button'
 import { Icon } from '~@core/general'
 import LoadingDots from '~@core/feedback/LoadingDots'
@@ -94,10 +94,10 @@ export const ButtonBase = forwardRef(function ButtonBase(
 ) {
     const iconOnly = icon && !children
     const buttonWithIcon = icon && children
-    const Tag = link ? TUILink : ButtonAria
+    // const Tag = link ? TUILink : ButtonAria
 
     return (
-        <Tag
+        <ButtonAria
             ref={ref}
             aria-label={iconOnly ? ariaLabel || icon : undefined}
             data-no-fade={noFade ? '' : null}
@@ -124,13 +124,12 @@ export const ButtonBase = forwardRef(function ButtonBase(
                     {iconOnly && <Icon name={icon} />}
                 </>
             )}
-        </Tag>
+        </ButtonAria>
     )
 })
 
 export const Button = forwardRef(function Button(
     {
-        // sx,
         size = 'md',
         shape = 'pill',
         brand = 'solid',
@@ -154,10 +153,11 @@ export const Button = forwardRef(function Button(
     const {
         theme: { buttons },
     } = useThemeUI()
+    const _link = !!rest.href || rest.as === 'a' || link
     return (
         <ButtonBase
             ref={ref}
-            link={link}
+            link={_link}
             sx={_sx({
                 buttons,
                 size,
@@ -174,7 +174,7 @@ export const Button = forwardRef(function Button(
                 radius,
                 px,
                 py,
-                link,
+                link: _link,
                 children,
             })}
             {...rest}

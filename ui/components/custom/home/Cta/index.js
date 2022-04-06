@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { Container } from '@theme-ui/components'
-import { Button, AspectImage, Reveal, fadeIn } from '~@core/general'
+import { AspectImage, Reveal, fadeIn } from '~@core/general'
 import { Text } from '~@core/typography'
+import { LinkButton } from '~@core/navigation'
 
 import imgUrl from '~/public/fruit-bowl.png'
 
@@ -19,11 +19,9 @@ function Cta() {
                         <span>Hungry?</span> Order From <span>Our Menu</span> & Have It Delivered To You.
                     </Text>
                     <div>
-                        <Link href="/menu" passHref>
-                            <Button size="lg" link>
-                                View Menu
-                            </Button>
-                        </Link>
+                        <LinkButton href="/menu" size="lg">
+                            View Menu
+                        </LinkButton>
                     </div>
                 </Reveal>
             </div>

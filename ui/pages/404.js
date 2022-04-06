@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import { Container } from '@theme-ui/components'
-import { Button, Reveal, fadeIn } from '~@core/general'
+import { Reveal, fadeIn } from '~@core/general'
 import { Heading, Text } from '~@core/typography'
+import { LinkButton } from '~@core/navigation'
 
 import styles from '~/styles/404'
 
@@ -60,16 +60,12 @@ export default function Error404() {
                     • <a>Dining & Buffet</a> • <a>Takeouts</a> • <a>Delivery</a>
                     <br />• <a>Reservation</a> • <a>Catering</a>
                 </nav>
-                <Link href="/services" passHref>
-                    <Button mt={4} mr={2} mb={3} link>
-                        See Our Services
-                    </Button>
-                </Link>
-                <Link href="/" passHref>
-                    <Button size="sm" color="secondary" brand="outline" link>
-                        Go Home
-                    </Button>
-                </Link>
+                <LinkButton href="/services" mt={4} mr={2} mb={3} link>
+                    See Our Services
+                </LinkButton>
+                <LinkButton href="/" size="sm" color="secondary" brand="outline">
+                    Go Home
+                </LinkButton>
             </Error>
         )
     }
@@ -82,11 +78,9 @@ export default function Error404() {
             <Text size={3} color="textLight">
                 Not to worry, we have coffee!
             </Text>
-            <Link href="/" passHref>
-                <Button mt={6} link>
-                    Take Me Home
-                </Button>
-            </Link>
+            <LinkButton href="/" mt={6}>
+                Take Me Home
+            </LinkButton>
         </Error>
     )
 }

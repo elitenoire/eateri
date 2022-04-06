@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import { MemphisFrame } from '~@core/other'
 import { Heading, Text } from '~@core/typography'
-import { Button, AspectImage } from '~@core/general'
+import { AspectImage } from '~@core/general'
 import { Reveal, fadeInRight, fadeInLeft, popIn } from '~@core/general/Reveal'
+import { LinkButton } from '~@core/navigation'
 import styles from './style'
 
 import chefImgUrl from '~/public/about-chef.jpg'
@@ -47,11 +47,9 @@ function About() {
                         </Text>
                     </div>
                     <div>
-                        <Link href="/about" passHref>
-                            <Button color="accent" brand="outline" link>
-                                Learn More
-                            </Button>
-                        </Link>
+                        <LinkButton href="/about" color="accent" brand="outline">
+                            Learn More
+                        </LinkButton>
                     </div>
                 </Reveal>
             </div>

@@ -1,7 +1,7 @@
-import Link from 'next/link'
 import { Container } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
-import { Button, Reveal, fadeInLeft, fadeInRight } from '~@core/general'
+import { Reveal, fadeInLeft, fadeInRight } from '~@core/general'
+import { LinkButton } from '~@core/navigation'
 import Hero from '../common/Hero'
 import DiningSpotCard from '~@common/card/DiningSpotCard'
 import ImageOverlayCard from '~@common/card/ImageOverlayCard'
@@ -169,11 +169,9 @@ export default function Dining({ hideBackLink }) {
                                         </Text>
                                     </Reveal>
                                     <div>
-                                        <Link href="/reservations" passHref>
-                                            <Button color="accent" link>
-                                                Book Now
-                                            </Button>
-                                        </Link>
+                                        <LinkButton href="/reservations" color="accent" link>
+                                            Book Now
+                                        </LinkButton>
                                     </div>
                                 </div>
                             </div>

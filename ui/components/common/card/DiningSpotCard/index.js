@@ -1,8 +1,8 @@
-import Link from 'next/link'
 import Image from 'next/image'
 import { Box, Card } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
-import { Button, Reveal } from '~@core/general'
+import { LinkButton } from '~@core/navigation'
+import { Reveal } from '~@core/general'
 
 import styles from './style'
 
@@ -28,9 +28,7 @@ export default function DiningSpotCard({ title, children, img, alt }) {
                         {children}
                     </Text>
                     <div sx={styles.buttonWrap}>
-                        <Link href="#" passHref>
-                            <Button brand="solid" color="secondary" icon="arrowright" ariaLabel="Learn More" link />
-                        </Link>
+                        <LinkButton href="#" brand="solid" color="secondary" icon="arrowright" ariaLabel="Learn More" />
                     </div>
                 </Box>
             </Reveal>
