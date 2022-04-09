@@ -11,9 +11,9 @@ export function ListSeparator(props) {
     return <Divider bg="grayMedium" my={2} {...props} />
 }
 
-export const List = forwardRef(function List({ children, ...rest }, ref) {
+export const List = forwardRef(function List({ animated, transformOrigin, children, ...rest }, ref) {
     return (
-        <Card ref={ref} variant="dropdown" sx={styles.list} {...rest}>
+        <Card ref={ref} variant="dropdown" sx={styles.list({ animated, transformOrigin })} {...rest}>
             {children}
         </Card>
     )

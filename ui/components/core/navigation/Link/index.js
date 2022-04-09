@@ -1,10 +1,11 @@
+import { forwardRef } from 'react'
 import NextLink from 'next/link'
 import { Box, Link as TUILink } from '@theme-ui/components'
 import { Icon } from '~@core/general'
 
 import styles from './style'
 
-export function Link(props) {
+export const Link = forwardRef(function Link(props, ref) {
     const {
         as,
         href,
@@ -12,6 +13,7 @@ export function Link(props) {
         scroll,
         shallow,
         prefetch,
+        locale,
         passHref,
         external,
         showIcon,
@@ -23,6 +25,7 @@ export function Link(props) {
     if (external && typeof href === 'string') {
         return (
             <TUILink
+                ref={ref}
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -40,14 +43,23 @@ export function Link(props) {
     }
 
     return (
-        <NextLink as={as} href={href} replace={replace} scroll={scroll} shallow={shallow} prefetch={prefetch} passHref>
+        <NextLink
+            as={as}
+            href={href}
+            replace={replace}
+            scroll={scroll}
+            shallow={shallow}
+            prefetch={prefetch}
+            locale={locale}
+            passHref
+        >
             {passHref ? (
                 children
             ) : (
-                <TUILink sx={styles.link({ color, hoverColor })} {...rest}>
+                <TUILink ref={ref} sx={styles.link({ color, hoverColor })} {...rest}>
                     {children}
                 </TUILink>
             )}
         </NextLink>
     )
-}
+})

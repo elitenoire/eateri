@@ -1,16 +1,17 @@
 import { useState, useCallback, useRef } from 'react'
-import Link from 'next/link'
 import Headroom from 'react-headroom'
 import { Button, Logo } from '~@core/general'
+import { Link } from '~@core/navigation'
 import useScrollTo from '~/hooks/useScrollTo'
 import useOnClickOutside from '~/hooks/useOnClickOutside'
 import useSafeTimeout from '~/hooks/useSafeTimeout'
 import { HASH_ID_CONTACT, HASH_ID_RESERVATIONS } from '~/constants'
+import UserAccount from './UserAccount'
+
 import styles from './style'
 
 const ariaLabels = {
     bag: 'Items in bag',
-    user: 'Accounts',
     hmenu: 'Navigate',
     search: 'Explore food',
 }
@@ -32,9 +33,7 @@ function NavLinks({ children, ...rest }) {
                     }
                     return (
                         <li key={link}>
-                            <Link href={link}>
-                                <a>{link.charAt(1).toUpperCase() + link.slice(2)}</a>
-                            </Link>
+                            <Link href={link}>{link.charAt(1).toUpperCase() + link.slice(2)}</Link>
                         </li>
                     )
                 })}
@@ -103,6 +102,7 @@ function Header({ isOpen, toggleMenu }) {
                 <NavLinks sx={styles.navlinks} data-collapse={show ? '' : null} data-animating={animating ? '' : null}>
                     {['/menu', '/about', `#${HASH_ID_CONTACT}`, `#${HASH_ID_RESERVATIONS}`]}
                 </NavLinks>
+                {/* Replace with reakit toolbar */}
                 <div sx={styles.actions}>
                     <Button brand="ghost" color="secondary" size="lg" icon="search" ariaLabel={ariaLabels.search} />
                     <Button
@@ -114,14 +114,7 @@ function Header({ isOpen, toggleMenu }) {
                         icon="bag"
                         ariaLabel={ariaLabels.bag}
                     />
-                    <Button
-                        brand="outline"
-                        color="secondary"
-                        ml="tiny"
-                        size="lg"
-                        icon="user"
-                        ariaLabel={ariaLabels.user}
-                    />
+                    <UserAccount />
                 </div>
             </div>
         </Headroom>

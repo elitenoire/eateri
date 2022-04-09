@@ -94,8 +94,6 @@ export const ButtonBase = forwardRef(function ButtonBase(
 ) {
     const iconOnly = icon && !children
     const buttonWithIcon = icon && children
-    // const Tag = link ? TUILink : ButtonAria
-
     return (
         <ButtonAria
             ref={ref}
