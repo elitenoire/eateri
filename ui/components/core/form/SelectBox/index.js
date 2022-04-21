@@ -1,79 +1,30 @@
-import { forwardRef, createContext, useContext } from 'react'
-import { useCompositeState, Composite, CompositeItem } from 'reakit/Composite'
-import { Checkbox, useCheckboxState } from 'reakit/Checkbox'
+import { forwardRef, createContext, useContext, useCallback } from 'react'
+import { useCompositeState, Composite, CompositeItem } from 'ariakit/Composite'
+import { Checkbox, useCheckboxState } from 'ariakit/Checkbox'
 import Scrollable from '~@core/display/Scrollable'
-import { isString, isNumber } from '~/lib/utils'
 
 const SelectBoxContext = createContext()
 
-const useSelectBoxState = ({ multi, value, loop = true, ...compositeState }) => {
-    let state = []
-
-    if (value) {
-        if (Array.isArray(value)) {
-            state = value
-        }
-        if (isString(value) || isNumber(value)) {
-            state = [value]
-        }
-    }
-    const { state: selected, setState: setSelected } = useCheckboxState({ state })
-
-    const composite = useCompositeState({
-        ...compositeState,
-        currentId: undefined,
-        loop,
-    })
-
-    const _value = selected // multi ? selected : selected[selected.length - 1]
-
-    const onChange = val => {
-        // Value from reakit's checkbox is always an array
-        // if value is passed to a checkbox
-        if (Array.isArray(val)) {
-            setSelected(multi ? val : val[val.length - 1])
-        }
-    }
-
-    return {
-        ...composite,
-        value: _value,
-        onChange,
-        multi,
-    }
-}
-
 export const SelectBox = forwardRef(function SelectBox(
-    { value, onChange, multi, toggleable, loop = true, children, compositeState, ...rest },
+    { value, onChange, unselect, loop = true, children, compositeState, ...rest },
     ref
 ) {
     const composite = useCompositeState({
         ...compositeState,
-        currentId: undefined,
-        loop,
+        focusLoop: loop,
     })
+
+    const checkbox = useCheckboxState({ value, setValue: onChange })
 
     const ariaProps = {
         role: 'listbox',
-        ...(multi && { 'aria-multiselectable': multi }),
+        ...(Array.isArray(checkbox.value) && { 'aria-multiselectable': true }),
     }
 
-    // Allows an already selected item (single-select) to be unselected.
-    // By default, multi-select operates this way.
-    const state = multi || toggleable ? value : [value]
-
-    const setState = _value => {
-        // Value from reakit's checkbox is always an array
-        // if value is passed to a checkbox
-        if (Array.isArray(_value) && onChange) {
-            onChange(multi ? _value : _value[_value.length - 1])
-        }
-    }
-
-    const contextValue = { ...composite, state, setState }
+    const contextValue = { ...composite, ...checkbox, unselect }
 
     return (
-        <Composite {...composite} {...rest} {...ariaProps} ref={ref}>
+        <Composite state={composite} {...rest} {...ariaProps} ref={ref}>
             {compositeProps => (
                 <Scrollable as="ul" {...compositeProps}>
                     <SelectBoxContext.Provider value={contextValue}>{children}</SelectBoxContext.Provider>
@@ -83,15 +34,31 @@ export const SelectBox = forwardRef(function SelectBox(
     )
 })
 
-export const SelectBoxOption = forwardRef(function SelectBoxOption({ value, disabled, children, ...rest }, ref) {
-    const context = useContext(SelectBoxContext)
+export const SelectBoxOption = forwardRef(function SelectBoxOption({ value, children, ...rest }, ref) {
+    const { unselect, setValue: _setValue, ...context } = useContext(SelectBoxContext)
+
+    const setValue = useCallback(
+        ariakitCallback => {
+            _setValue(prevValue => {
+                if (unselect && !Array.isArray(prevValue)) {
+                    return prevValue === value ? '' : value
+                }
+                return ariakitCallback(prevValue)
+            })
+        },
+        [_setValue, unselect, value]
+    )
+
+    // eslint-disable-next-line react-perf/jsx-no-new-object-as-prop
+    const checkbox = { ...context, setValue }
+
     return (
-        <CompositeItem as={Checkbox} value={value} {...context} {...rest} ref={ref}>
+        <Checkbox as={CompositeItem} value={value} state={checkbox} {...rest} ref={ref}>
             {({ 'aria-checked': ariaChecked, ...checkboxProps }) => (
-                <li {...checkboxProps} role="option" aria-selected={ariaChecked} data-option-disabled={disabled}>
+                <li {...checkboxProps} role="option" aria-selected={ariaChecked}>
                     {children}
                 </li>
             )}
-        </CompositeItem>
+        </Checkbox>
     )
 })
