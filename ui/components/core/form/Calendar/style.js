@@ -1,7 +1,7 @@
 const styles = {
     container: {
         position: 'relative',
-        padding: 6,
+        padding: 'body',
         maxWidth: [null, null, '25em'], // 500 px
         margin: [null, null, 'auto'],
         userSelect: 'none',
@@ -34,7 +34,8 @@ const styles = {
     monthWeekDays: {
         display: ['none', null, 'flex'],
         fontSize: 1,
-        mb: 4,
+        my: 4,
+        px: 1,
         '& > div': {
             width: '14.28571%',
         },
@@ -42,17 +43,8 @@ const styles = {
     monthGridDays: {
         // scrollable
         flexDirection: [null, null, 'column'],
-        mx: ['-1.5em', null, 0],
-        p: '2px',
-        'button:focus': {
-            boxShadow: 'none !important',
-        },
-        'button:focus > span': {
-            boxShadow: t => `0 0 0 1.5px ${t.colors.focusOutline}`,
-        },
-        'button[aria-disabled="true"]:focus > span': {
-            boxShadow: t => `0 0 0 1.5px ${t.colors.text}`,
-        },
+        mx: ['bodyNegative', null, 0],
+        p: 1,
     },
 }
 
@@ -77,16 +69,14 @@ export const dayStyles = {
         pb: [null, null, '14.28571%'],
         minHeight: ['5em', null, 0],
         mx: [2, null, 0],
-        borderRadius: ['1em', null, '50%'],
+        borderRadius: ['default', null, 'circle'],
         transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
         '&:disabled,&[aria-disabled="true"]': {
             opacity: 0.4,
-        },
-        '&[aria-disabled="true"]': {
             cursor: 'auto',
         },
         '&[aria-hidden="true"]': {
-            display: ['none', null, 'inline-block'],
+            display: ['none', null, 'flex'],
             visibility: 'hidden',
         },
         '& > *': {
@@ -97,13 +87,13 @@ export const dayStyles = {
             flexDirection: 'column',
             justifyContent: 'center',
             alignItems: 'center',
-            borderRadius: 'inherit',
-            width: ['100%', null, '90%'],
-            height: ['100%', null, '90%'],
-            minHeight: 'inherit',
             position: [null, null, 'absolute'],
             top: [null, null, '5%'],
             left: [null, null, '5%'],
+            width: ['100%', null, '90%'],
+            height: ['100%', null, '90%'],
+            minHeight: 'inherit',
+            borderRadius: 'inherit',
             bg: ['rgba(0,0,0,0.08)', null, 'inherit'],
         },
         '&[aria-selected="true"] > span': {
@@ -119,7 +109,6 @@ export const dayStyles = {
             boxShadow: 'inner',
         },
         '&:enabled:not([aria-disabled="true"]):not([aria-selected="true"]):hover > span': {
-            // bg: t => alpha('secondary.hover', 0.1)(t),
             bg: 'rgba(0,0,0,0.125)',
         },
     },

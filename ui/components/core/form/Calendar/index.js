@@ -34,7 +34,7 @@ function WeekDays({ month, year }) {
 const MemoizedWeekDay = memo(WeekDays)
 
 const Calendar = forwardRef(function Calendar(
-    { ariaDateStatus, onKeyDown, onClose, selected, onDateSelected, ...rest },
+    { ariaDateStatus, onKeyDown, onClose, value, onChange, className, ...rest },
     ref
 ) {
     /** *****************************************
@@ -47,28 +47,30 @@ const Calendar = forwardRef(function Calendar(
     const weeksToChange = useRef({})
     const allowDayFocus = useRef(false)
 
-    const selectedDate = startOfDay(selected)
-    const _selectedRowId = getWeekOfMonth(selectedDate) - 1
+    const selected = startOfDay(value)
+    const _selectedRowId = getWeekOfMonth(selected) - 1
     const _focusedRowId = getWeekOfMonth(focused) - 1
 
-    const selectedDateRef = useRef(selectedDate)
+    const selectedRef = useRef(selected)
 
     const onOffsetChanged = _offset => {
         allowDayFocus.current = false
         setOffset(_offset)
     }
 
-    const _onDateSelected = (dateObj, e) => {
-        let newDateObj = dateObj
+    const onDateSelected = (dateObj, e) => {
+        const { date, ...props } = dateObj
+
+        // focus on selected date
         allowDayFocus.current = true
-        setFocused(dateObj.date)
+        setFocused(date)
+
         // support unselect date
-        if (selectedDateRef.current?.getTime() === dateObj.date?.getTime()) {
-            newDateObj = { ...newDateObj, date: null }
-        }
-        // pass new date to caller function
-        if (onDateSelected) {
-            onDateSelected(newDateObj, e)
+        const _value = props.selected ? null : date
+
+        // handle date selection
+        if (onChange) {
+            onChange(_value, props, e)
         }
     }
 
@@ -78,8 +80,8 @@ const Calendar = forwardRef(function Calendar(
         getForwardProps,
         getDateProps,
     } = useDayzed({
-        selected: selectedDate,
-        onDateSelected: _onDateSelected,
+        selected,
+        onDateSelected,
         offset,
         onOffsetChanged,
         ...rest,
@@ -88,25 +90,29 @@ const Calendar = forwardRef(function Calendar(
     const _getDateProps = useCallback(_props => getDateProps(_props), [])
 
     const { firstDayOfMonth, lastDayOfMonth, month: currentMonth } = calendars[0] || {}
+
     const {
         disabled: isPreviousMonthDisabled,
         onClick: goPrevMonth,
         ...backProps
     } = calendars.length ? getBackProps({ calendars }) : {}
+
     const {
         disabled: isNextMonthDisabled,
         onClick: goNextMonth,
         ...forwardProps
     } = calendars.length ? getForwardProps({ calendars }) : {}
+
     const { disabled: isPreviousYearDisabled, onClick: goPrevYear } = calendars.length
         ? getBackProps({ calendars, offset: 12 })
         : {}
+
     const { disabled: isNextYearDisabled, onClick: goNextYear } = calendars.length
         ? getForwardProps({ calendars, offset: 12 })
         : {}
 
     const _monthHasFocused = focused && focused.getMonth() === currentMonth
-    const _monthHasSelected = selectedDate && selectedDate.getMonth() === currentMonth
+    const _monthHasSelected = selected && selected.getMonth() === currentMonth
 
     const canTabFirstDay = !(_monthHasFocused || _monthHasSelected)
 
@@ -115,8 +121,8 @@ const Calendar = forwardRef(function Calendar(
      ***************************************** */
 
     useEffect(() => {
-        selectedDateRef.current = selectedDate
-    }, [selectedDate])
+        selectedRef.current = selected
+    }, [selected])
 
     useEffect(() => {
         weeksToChange.current = {}
@@ -151,7 +157,7 @@ const Calendar = forwardRef(function Calendar(
         weeksToChange.current.new = rowId
     }, [])
 
-    const handleKeyDown = useCallback(
+    const handleCalendarKeyDown = useCallback(
         e => {
             e.persist()
 
@@ -202,6 +208,7 @@ const Calendar = forwardRef(function Calendar(
                 onKeyDown(e)
             }
         },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         [isPreviousMonthDisabled, isNextMonthDisabled, isPreviousYearDisabled, isNextYearDisabled, onClose, onKeyDown]
     )
 
@@ -343,8 +350,8 @@ const Calendar = forwardRef(function Calendar(
             // eslint-disable-next-line jsx-a11y/no-noninteractive-tabindex
             tabIndex="0"
             aria-hidden="false"
-            {...rest}
-            onKeyDown={handleKeyDown}
+            className={className}
+            onKeyDown={handleCalendarKeyDown}
         >
             <div sx={styles.nav}>
                 <Button
@@ -382,7 +389,14 @@ const Calendar = forwardRef(function Calendar(
                     </div>
                     <div role="grid" aria-labelledby="id-calendar-label" sx={styles.monthBody}>
                         <MemoizedWeekDay month={calendar.month} year={calendar.year} />
-                        <Scrollable role="rowgroup" cursor="default" flex hideScroll sx={styles.monthGridDays}>
+                        <Scrollable
+                            role="rowgroup"
+                            cursor="default"
+                            pad="0.5em"
+                            flex
+                            hideScroll
+                            sx={styles.monthGridDays}
+                        >
                             {calendar.weeks.map((week, weekIndex) => {
                                 const key = `${calendar.month}${calendar.year}${weekIndex}`
                                 const _canTabFirstDay = weekIndex === 0 ? canTabFirstDay : undefined
@@ -418,19 +432,20 @@ const Calendar = forwardRef(function Calendar(
     )
 })
 
+// Example of how to use
 export function Single() {
-    const [selected, setSelected] = useState(new Date())
+    const [value, setValue] = useState(new Date())
 
     const minDate = startOfDay(new Date())
     const maxDate = addMonths(new Date(), 3)
 
-    const onSelectDate = useCallback(({ selected: isSelected, selectable, date }, e) => {
+    const handleChange = useCallback((date, { selected: isSelected, selectable }) => {
         if (selectable && !isSelected) {
-            setSelected(date)
+            setValue(date)
         }
     }, [])
 
-    return <Calendar selected={selected} onDateSelected={onSelectDate} minDate={minDate} maxDate={maxDate} />
+    return <Calendar value={value} onChange={handleChange} minDate={minDate} maxDate={maxDate} />
 }
 
 export default Calendar
