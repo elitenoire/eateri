@@ -1,0 +1,133 @@
+import { alpha } from '@theme-ui/color'
+
+const styles = {
+    selectWrap: {
+        position: 'relative',
+        pt: 6,
+        px: 6,
+        borderRadius: 25,
+        bg: t => alpha('accent.light', 0.35)(t),
+        '&[data-ring]': {
+            pb: 6,
+            boxShadow: t => `0 0 0 0.9em ${t.colors.accent.base}, 0 0 0 1em white`,
+        },
+    },
+    selectLayout: {
+        display: 'flex',
+        flexDirection: ['column', null, null, 'row'],
+        justifyContent: 'space-between',
+        gap: 4,
+        pb: 2,
+    },
+    selectButton: {
+        display: 'flex',
+        flex: 1,
+        columnGap: 2,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        py: 2,
+        pl: 3,
+        pr: 2,
+        bg: 'accent.light',
+        color: 'text',
+        borderRadius: 'round',
+        transition: 'all 0.35s cubic-bezier(.21,.6,.35,1)',
+        ':hover': {
+            bg: 'accent.pale',
+            color: 'accent.dark',
+        },
+    },
+    placeholder: {
+        display: 'flex',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        columnGap: 3,
+        flexBasis: '5em',
+        flexShrink: 1,
+        flexGrow: [null, 1, null, 0],
+    },
+    action: {
+        position: 'relative',
+        display: 'flex',
+        justifyContent: 'center',
+        bottom: '-1.2em',
+        // button: {
+        // 	boxShadow: '0 25px 36px -8px rgba(0,0,0,0.35)',
+        // 	':hover': {
+        // 		boxShadow: '0 12px 30px -12px rgba(0,0,0,0.35)',
+        // 	},
+        // },
+        '&[data-ring]': {
+            position: 'absolute',
+            left: 0,
+            right: 0,
+            bottom: '-2em',
+        },
+    },
+    iconWrap: {
+        p: 2,
+        borderRadius: 'round',
+        bg: 'accent.light',
+    },
+    modal: {
+        position: 'relative',
+        width: ['100%', null, '80%'],
+        maxWidth: 'maxContainer',
+        px: 2,
+        py: 4,
+        borderTopLeftRadius: 25,
+        borderTopRightRadius: 25,
+        borderBottomLeftRadius: [null, null, 25],
+        borderBottomRightRadius: [null, null, 25],
+        bg: 'white',
+        boxShadow: 'xl',
+        opacity: 0,
+        visibility: 'hidden',
+        transform: ['translateY(100%) scale(0.85)', null, 'scale(0.85)'],
+        '&[data-enter]': {
+            opacity: 1,
+            visibility: 'visible',
+            transform: ['translateY(0) scale(1)', null, 'scale(1)'],
+            transition: '0.3s ease-out',
+            transitionProperty: 'transform,opacity,visibility',
+        },
+        '&[data-leave]': {
+            transition: '0.35s ease-in',
+            transitionProperty: 'transform,opacity,visibility',
+        },
+    },
+    modalBg: {
+        display: 'flex',
+        alignItems: ['flex-end', null, 'center'],
+        justifyContent: 'center',
+        bg: 'blackFade.10',
+        // overflow: 'auto',
+        opacity: 0,
+        visibility: 'hidden',
+        '&[data-enter]': {
+            opacity: 1,
+            visibility: 'visible',
+            transition: '0.3s ease-out',
+            transitionProperty: 'opacity,visibility',
+            // overflow: 'hidden',
+        },
+        '&[data-leave]': {
+            transition: '0.2s ease-in',
+            transitionProperty: 'opacity,visibility',
+            // overflow: 'hidden',
+        },
+    },
+    modalClose: {
+        position: 'absolute',
+        top: '0.5em', // '-2em',
+        right: '0.5em', // '-1.5em',
+    },
+    modalContent: {
+        height: '80vh',
+        maxHeight: '800px',
+        overflow: 'auto',
+    },
+}
+
+export default styles
