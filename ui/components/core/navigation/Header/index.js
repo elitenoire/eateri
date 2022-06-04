@@ -1,11 +1,9 @@
 import { useState, useCallback, useRef } from 'react'
 import Headroom from 'react-headroom'
 import { Button, Logo } from '~@core/general'
-import { Link } from '~@core/navigation'
-import useScrollTo from '~/hooks/useScrollTo'
 import useOnClickOutside from '~/hooks/useOnClickOutside'
 import useSafeTimeout from '~/hooks/useSafeTimeout'
-import { HASH_ID_CONTACT, HASH_ID_RESERVATIONS } from '~/constants'
+import NavLinks from './NavLinks'
 import UserAccount from './UserAccount'
 
 import styles from './style'
@@ -14,32 +12,6 @@ const ariaLabels = {
     bag: 'Items in bag',
     hmenu: 'Navigate',
     search: 'Explore food',
-}
-
-function NavLinks({ children, ...rest }) {
-    const { linkScroll } = useScrollTo({ offset: 20 })
-    return (
-        <nav {...rest}>
-            <ul>
-                {children.map(link => {
-                    if (link.charAt(0) === '#') {
-                        return (
-                            <li key={link}>
-                                <a href={link} onClick={linkScroll}>
-                                    {link.charAt(1).toUpperCase() + link.slice(2)}
-                                </a>
-                            </li>
-                        )
-                    }
-                    return (
-                        <li key={link}>
-                            <Link href={link}>{link.charAt(1).toUpperCase() + link.slice(2)}</Link>
-                        </li>
-                    )
-                })}
-            </ul>
-        </nav>
-    )
 }
 
 // TODO: Close open menus on resizing to viewports where they are not enabled.
@@ -99,9 +71,11 @@ function Header({ isOpen, toggleMenu }) {
                     />
                 </div>
                 <Logo href="/" link animated color="secondary" linkColor="secondary.hover" sx={styles.logoBox} />
-                <NavLinks sx={styles.navlinks} data-collapse={show ? '' : null} data-animating={animating ? '' : null}>
-                    {['/menu', '/about', `#${HASH_ID_CONTACT}`, `#${HASH_ID_RESERVATIONS}`]}
-                </NavLinks>
+                <NavLinks
+                    sx={styles.navlinks}
+                    data-collapse={show ? '' : null}
+                    data-animating={animating ? '' : null}
+                />
                 {/* Replace with reakit toolbar */}
                 <div sx={styles.actions}>
                     <Button brand="ghost" color="secondary" size="lg" icon="search" ariaLabel={ariaLabels.search} />

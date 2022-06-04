@@ -1,6 +1,6 @@
 import { Heading, Text } from '~@core/typography'
 import { Icon, Button } from '~@core/general'
-import { HASH_ID_RESERVATIONS } from '~/constants'
+import { LinkButton, Link } from '~@core/navigation'
 
 export function ChatButton() {
     return (
@@ -10,11 +10,11 @@ export function ChatButton() {
     )
 }
 
-export function ReservationButton({ linkScroll }) {
+export function ReservationButton() {
     return (
-        <Button href={`#${HASH_ID_RESERVATIONS}`} size="sm" brand="outline" link onClick={linkScroll}>
+        <LinkButton href="/reserve" size="sm" brand="outline">
             Reserve Now
-        </Button>
+        </LinkButton>
     )
 }
 
@@ -32,17 +32,17 @@ export function ContactBlock({ children, ...rest }) {
                 <li>
                     <Icon name="phone" />
                     <span>
-                        <a href="tel:08000004444" rel="nofollow">
+                        <Link href="tel:+2348000004444" rel="nofollow" external>
                             080 0000 4444
-                        </a>
+                        </Link>
                     </span>
                 </li>
                 <li>
                     <Icon name="mail" />
                     <span>
-                        <a href="mailto:hello@eateri.com" rel="nofollow">
+                        <Link href="mailto:hello@eateri.com" rel="nofollow" external>
                             hello@eateri.com
-                        </a>
+                        </Link>
                     </span>
                 </li>
             </ul>

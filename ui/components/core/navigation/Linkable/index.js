@@ -1,31 +1,14 @@
-import Link from 'next/link'
+import { Link } from '~@core/navigation'
 
 import styles from './style'
 
-export default function Linkable({
-    hyperlink,
-    hover,
-    className,
-    href,
-    children,
-    accessibilityText,
-    onClick,
-    ...props
-}) {
+export default function Linkable({ accessibilityText, hover, className, children, ...rest }) {
     return (
         <div sx={styles.wrapper} className={className} data-hoverable={hover ? '' : null}>
             {children}
-            {hyperlink ? (
-                <a sx={styles.link} href={href} onClick={onClick} {...props}>
-                    <span className="visually-hidden">{accessibilityText}</span>
-                </a>
-            ) : (
-                <Link href={href} passHref {...props}>
-                    <a sx={styles.link}>
-                        <span className="visually-hidden">{accessibilityText}</span>
-                    </a>
-                </Link>
-            )}
+            <Link sx={styles.link} {...rest}>
+                <span className="visually-hidden">{accessibilityText}</span>
+            </Link>
         </div>
     )
 }

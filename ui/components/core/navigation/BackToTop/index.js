@@ -1,9 +1,8 @@
 import { useContext, useEffect, useState, useRef } from 'react'
 import { useScroll } from '@use-gesture/react'
 import { useSpring } from '@react-spring/web'
-import { Button } from '~@core/general'
+import { LinkButton } from '~@core/navigation'
 import { MenuContext } from '~/context/menu'
-import useScrollTo from '~/hooks/useScrollTo'
 
 import ProgressRing from './ProgressRing'
 
@@ -11,7 +10,6 @@ import styles from './style'
 
 function BackToTop({ color = 'highlight', offset = 50 }) {
     const { isOpen } = useContext(MenuContext)
-    const { linkScroll } = useScrollTo()
     const _window = useRef(null)
 
     const [show, setShow] = useState(false)
@@ -54,7 +52,7 @@ function BackToTop({ color = 'highlight', offset = 50 }) {
                 aria-label="Page scroll progress"
                 sx={styles.progressRing}
             />
-            <Button href="#" color={color} m="tiny" icon="arrowup" ariaLabel="Back to Top" link onClick={linkScroll} />
+            <LinkButton href="#" color={color} m="tiny" icon="arrowup" ariaLabel="Back to Top" offset={0} />
         </div>
     )
 }

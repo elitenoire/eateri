@@ -4,7 +4,7 @@ import { HoursBlock, ContactBlock, ChatButton, ReservationButton } from './commo
 
 import { fwmStyles as styles } from './style'
 
-export default function FooterWithMap({ linkScroll }) {
+export default function FooterWithMap() {
     return (
         <div sx={styles.mapLayout}>
             <Logo plain color="primary.base" size={5} />
@@ -22,7 +22,7 @@ export default function FooterWithMap({ linkScroll }) {
                 <Reveal threshold={0.5} whenInView>
                     <div>
                         <HoursBlock className="footer-card" sx={styles.hoursBlock}>
-                            <ReservationButton linkScroll={linkScroll} />
+                            <ReservationButton />
                         </HoursBlock>
                     </div>
                 </Reveal>

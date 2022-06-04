@@ -42,6 +42,7 @@ const styles = {
         },
     },
     links: {
+        fontWeight: 'medium',
         my: 4,
     },
 }

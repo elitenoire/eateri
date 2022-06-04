@@ -58,16 +58,20 @@ const _sx = ({
     ...(py && { py }),
 })
 
-export const ButtonAria = forwardRef(function ButtonAria({ dropdown, active, children, ...rest }, ref) {
+export const ButtonAria = forwardRef(function ButtonAria({ as = 'button', dropdown, active, children, ...rest }, ref) {
     return (
-        <Box as={AriaButton} ref={ref} sx={styles._aria} {...rest}>
-            {children}
-            {dropdown && (
-                <span sx={styles.arrow} data-open={active ? '' : null}>
-                    <Icon name="arrowdropdown" />
-                </span>
+        <AriaButton {...rest} ref={ref}>
+            {buttonProps => (
+                <Box as={as} {...buttonProps} sx={styles._aria}>
+                    {children}
+                    {dropdown && (
+                        <span sx={styles.arrow} data-open={active ? '' : null}>
+                            <Icon name="arrowdropdown" />
+                        </span>
+                    )}
+                </Box>
             )}
-        </Box>
+        </AriaButton>
     )
 })
 
@@ -85,7 +89,6 @@ export const ButtonBase = forwardRef(function ButtonBase(
         dropdown,
         scaleIcon,
         isLoading,
-        type,
         ariaLabel,
         children,
         ...rest

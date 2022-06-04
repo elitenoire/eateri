@@ -4,7 +4,7 @@ import { NextSeo } from 'next-seo'
 import { Container } from '@theme-ui/components'
 import { Reveal, fadeIn } from '~@core/general'
 import { Heading, Text } from '~@core/typography'
-import { LinkButton } from '~@core/navigation'
+import { LinkButton, Link } from '~@core/navigation'
 
 import styles from '~/styles/404'
 
@@ -24,9 +24,9 @@ function Error({ doodle, title, children }) {
                         <Heading as="h1" variant="h3" mb={1} color="red" weight="normal">
                             404 😞
                         </Heading>
-                        <Heading as="p" size="3.5em" mb={2} title>
+                        <Text size={10} mb={2} title>
                             {title}
-                        </Heading>
+                        </Text>
                         {children}
                     </div>
                 </Container>
@@ -50,20 +50,22 @@ export default function Error404() {
     if (isServices) {
         return (
             <Error title="Oh Hey!" doodle={<ErrorManDog />}>
-                <Text size={3} color="textLight">
+                <Text size={3} color="textFade">
                     We currently do not offer this service.
                 </Text>
-                <Text size={3} color="textLight">
+                <Text size={3} color="textFade">
                     Let's try something else:
                 </Text>
                 <nav sx={styles.links}>
-                    • <a>Dining & Buffet</a> • <a>Takeouts</a> • <a>Delivery</a>
-                    <br />• <a>Reservation</a> • <a>Catering</a>
+                    • <Link href="/services/dining">Dining & Buffet</Link> •{' '}
+                    <Link href="/services/takeaway">Click + Collect</Link> •{' '}
+                    <Link href="/services/delivery">Delivery</Link>
+                    <br />• <Link href="/reserve">Reservation</Link> • <Link href="/services/catering">Catering</Link>
                 </nav>
-                <LinkButton href="/services" mt={4} mr={2} mb={3} link>
+                <LinkButton href="/services" mt={4} mr={4} mb={3} link>
                     See Our Services
                 </LinkButton>
-                <LinkButton href="/" size="sm" color="secondary" brand="outline">
+                <LinkButton href="/" color="secondary" brand="outline">
                     Go Home
                 </LinkButton>
             </Error>
@@ -72,10 +74,10 @@ export default function Error404() {
 
     return (
         <Error title="Whoops!" doodle={<ErrorFallCoffee />}>
-            <Text size={3} color="textLight">
+            <Text size={3} color="textFade">
                 We looked everywhere for that page.
             </Text>
-            <Text size={3} color="textLight">
+            <Text size={3} color="textFade">
                 Not to worry, we have coffee!
             </Text>
             <LinkButton href="/" mt={6}>

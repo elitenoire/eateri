@@ -4,17 +4,13 @@ import { Icon, Button, Reveal, popIn, fadeInRight } from '~@core/general'
 import { InputBar } from '~@core/form'
 import { Link } from '~@core/navigation'
 import { SocialMedia } from '~@core/other'
-import useScrollTo from '~/hooks/useScrollTo'
-
+import { HASH_ID_CONTACT } from '~/constants'
 import FooterWithLinks from './FooterWithLinks'
 import FooterWithMap from './FooterWithMap'
-import { HASH_ID_CONTACT } from '~/constants'
 
 import styles from './style'
 
 function Footer({ hasMap, mini }) {
-    const { linkScroll } = useScrollTo({ offset: 20 })
-
     return (
         <footer sx={styles.footer}>
             {!mini && (
@@ -61,11 +57,11 @@ function Footer({ hasMap, mini }) {
                                 data-footer-compact={hasMap ? null : ''}
                             >
                                 {hasMap ? (
-                                    <FooterWithMap linkScroll={linkScroll} />
+                                    <FooterWithMap />
                                 ) : (
                                     <Reveal whenInView threshold={0.2}>
                                         <div>
-                                            <FooterWithLinks linkScroll={linkScroll} />
+                                            <FooterWithLinks />
                                         </div>
                                     </Reveal>
                                 )}

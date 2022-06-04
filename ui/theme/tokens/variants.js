@@ -198,6 +198,10 @@ export const variants = {
         plain: {
             textDecoration: 'none',
         },
+        capitalize: {
+            variant: 'link.plain',
+            textTransform: 'capitalize',
+        },
         block: {
             variant: 'links.plain',
             display: 'block',
@@ -368,10 +372,11 @@ export const variants = {
         },
     },
     layout: {
-        content: { maxWidth: '35em', mb: 10, textAlign: 'center' },
-        mini: { maxWidth: '30em' },
+        content: { maxWidth: 'contentContainer', mb: 10, textAlign: 'center' },
+        mini: { maxWidth: 'miniContainer' },
         maxi: { maxWidth: 'maxContainer' },
         base: { maxWidth: 'none', width: 'auto', px: 'body' },
+        maxiBase: { maxWidth: 'maxContainer', width: 'auto', px: 'body' },
         loose: {
             maxWidth: 'none',
             width: 'auto',

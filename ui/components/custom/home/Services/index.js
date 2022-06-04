@@ -1,13 +1,12 @@
 import dynamic from 'next/dynamic'
 import { useRouter } from 'next/router'
-import { Container, Card, Grid, Box } from '@theme-ui/components'
+import { Container, Card, Grid } from '@theme-ui/components'
 import { Heading, Text } from '~@core/typography'
 import { Icon, Divider, Reveal, grow } from '~@core/general'
 import { WaveDecoration } from '~@core/other'
 import { Link, Linkable } from '~@core/navigation'
 import { RouteModal } from '~@core/display'
 import HeroSkeleton from '~@custom/services/common/HeroSkeleton'
-import useScrollTo from '~/hooks/useScrollTo'
 
 import { HASH_ID_RESERVATIONS } from '~/constants'
 
@@ -33,8 +32,6 @@ function ServiceModal() {
     )
 }
 function Services() {
-    const { linkScroll } = useScrollTo({ offset: 20 })
-
     return (
         <>
             <section id="homepage-services" sx={styles.section}>
@@ -108,9 +105,8 @@ function Services() {
                             <div sx={styles.gridRowFlex}>
                                 <Linkable
                                     href={`#${HASH_ID_RESERVATIONS}`}
-                                    onClick={linkScroll}
                                     accessibilityText="Make dinner reservations"
-                                    hyperlink
+                                    offset={0}
                                     hover
                                 >
                                     <Card variant="services" sx={styles.cardReserve}>
