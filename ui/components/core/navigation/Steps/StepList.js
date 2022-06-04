@@ -1,4 +1,4 @@
-import { Composite } from 'reakit/Composite'
+import { Composite } from 'ariakit/Composite'
 
 import { useCompositeContext } from './useStepState'
 
@@ -8,7 +8,7 @@ function StepList({ children, ...rest }) {
     const composite = useCompositeContext()
 
     return (
-        <Composite as="ol" {...composite} role="list" sx={stepListStyle} {...rest}>
+        <Composite as="ol" state={composite} role="list" sx={stepListStyle} {...rest}>
             {children}
         </Composite>
     )

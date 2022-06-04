@@ -55,6 +55,8 @@ space.tiny = '6px'
 export const rhythm = {
     space,
     sizes: {
+        miniContainer: '30em',
+        contentContainer: '35em',
         container: '45em',
         maxContainer: '75em',
         fluid: '100%',

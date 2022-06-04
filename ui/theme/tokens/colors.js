@@ -90,7 +90,7 @@ export const colors = {
     purple: 'rgb(191,90,242)',
     red: 'rgb(255,69,58)',
     yellow: 'rgb(255,214,10)',
-    focusOutline: 'rgba(0, 123, 255, 0.5)',
+    focusOutline: '#090a0c', // 'rgba(0, 123, 255, 0.5)',
     ghost: '#f8f9fa',
     cardNeumorph: {
         light: '#ffffff',

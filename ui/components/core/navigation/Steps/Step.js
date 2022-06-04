@@ -1,8 +1,8 @@
 import { forwardRef, useCallback } from 'react'
-import { CompositeItem } from 'reakit/Composite'
+import { CompositeItem } from 'ariakit/Composite'
 
-import { useCompositeContext, useStepValue, useStepControl } from './useStepState'
 import { CURRENT, COMPLETED } from '~/constants'
+import { useCompositeContext, useStepValue, useStepControl } from './useStepState'
 
 import { stepStyle } from './style'
 
@@ -75,7 +75,7 @@ function StepItem({ index, title, children }) {
     if (status === COMPLETED) {
         return (
             <li data-step-complete="">
-                <CompositeItem {...composite} onClick={handleStepClick}>
+                <CompositeItem state={composite} onClick={handleStepClick}>
                     {stepProps => (
                         <Step {...stepProps} title={title} status={status} index={stepIndex}>
                             {children}
@@ -87,7 +87,7 @@ function StepItem({ index, title, children }) {
     }
 
     return (
-        <CompositeItem {...composite} role="listitem" onClick={handleStepClick}>
+        <CompositeItem state={composite} role="listitem" onClick={handleStepClick}>
             {stepProps => (
                 <Step {...stepProps} as="li" title={title} status={status} index={stepIndex}>
                     {children}

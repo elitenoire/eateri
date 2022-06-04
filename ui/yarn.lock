@@ -1126,6 +1126,18 @@
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
 
+"@floating-ui/core@^0.7.1":
+  version "0.7.2"
+  resolved "https://registry.yarnpkg.com/@floating-ui/core/-/core-0.7.2.tgz#f7af9613d080dc29360e77c970965b79b524d45a"
+  integrity sha512-FRVAkSNU/vGXLIsgbggcs70GkXKEOXgBBbNpYPNHSaKsCAMMd00NrjbtKTesxkdv9xm9N3+XiDlcFGY6WnatBg==
+
+"@floating-ui/dom@0.5.1":
+  version "0.5.1"
+  resolved "https://registry.yarnpkg.com/@floating-ui/dom/-/dom-0.5.1.tgz#c420503fc6c93b935ce8903c3fb737d3bd00ca0d"
+  integrity sha512-dkPSy5JPiQEtljc3VpG9lauYctxfLlqj/8N9f+lmsR92gQaSVMAWuBbFBH2keY5DmdQn3p4Dv1dQd+e8osH+/g==
+  dependencies:
+    "@floating-ui/core" "^0.7.1"
+
 "@fontsource/manrope@^4.5.1":
   version "4.5.6"
   resolved "https://registry.yarnpkg.com/@fontsource/manrope/-/manrope-4.5.6.tgz#e2174a6a86382053f92a542f5165a4b3c6d66172"
@@ -1266,7 +1278,7 @@
   resolved "https://registry.yarnpkg.com/@next/swc-win32-x64-msvc/-/swc-win32-x64-msvc-12.1.4.tgz#a72ed44c9b1f850986a30fe36c59e01f8a79b5f3"
   integrity sha512-JtYuWzKXKLDMgE/xTcFtCm1MiCIRaAc5XYZfYX3n/ZWSI1SJS/GMm+Su0SAHJgRFavJh6U/p998YwO/iGTIgqQ==
 
-"@popperjs/core@^2.11.2", "@popperjs/core@^2.5.4":
+"@popperjs/core@^2.5.4":
   version "2.11.5"
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.11.5.tgz#db5a11bf66bdab39569719555b0f76e138d7bd64"
   integrity sha512-9X2obfABZuDVLCgPK9aX0a/x4jaOEweTTWE2+9sr0Qqqevj2Uv5XorvusThmc9XGYpS9yI+fhh8RTafBtGposw==
@@ -1712,18 +1724,18 @@ aria-query@^4.2.2:
     "@babel/runtime" "^7.10.2"
     "@babel/runtime-corejs3" "^7.10.2"
 
-ariakit-utils@^0.17.0-alpha.14:
-  version "0.17.0-alpha.14"
-  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-alpha.14.tgz#3ad3ed6c1cdb05cfc6f4113e93d62cea9f45b183"
-  integrity sha512-TMRYFHg0/y7LHdyaxsqlyMZXPHvQ3P8poVh1MlsDWkzbYNZRnt8cyhJKHiJ9h6x7G672OF0w1st/4cg4rn/YtQ==
+ariakit-utils@0.17.0-next.19:
+  version "0.17.0-next.19"
+  resolved "https://registry.yarnpkg.com/ariakit-utils/-/ariakit-utils-0.17.0-next.19.tgz#e2dc2054b8818d403fb55a15a70fbced84712a40"
+  integrity sha512-rEC2npqK0WQtnNPEAicfcwxd/sQ9EdaRqf6p10ExhL5EUy/xoJpTGBAb67xSSHBu1hrqDFtfmF3FrHd6JOj2EA==
 
-ariakit@^2.0.0-alpha.20:
-  version "2.0.0-alpha.21"
-  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-alpha.21.tgz#3f7188f5e1284fb83cee9e38816363538953227c"
-  integrity sha512-VaxrMmt1AX2STsq6ZjrMMlWEPNIrFJEGCxiAbnYJG5kwYVFJAPwQRHYce5sM6NuB34D/E17hbKg20fHB5BgrMw==
+ariakit@^2.0.0-next.28:
+  version "2.0.0-next.28"
+  resolved "https://registry.yarnpkg.com/ariakit/-/ariakit-2.0.0-next.28.tgz#72167584cb14e2012ebf9d25930a911c8ecb629a"
+  integrity sha512-2p21YRxWKjxeGfj4a+Gq3nN68n+gkD0CpsE72UgNvdzyvs8lyZyWIOwovHYR0hcS6RZY4hTOq68ln+INGHF35g==
   dependencies:
-    "@popperjs/core" "^2.11.2"
-    ariakit-utils "^0.17.0-alpha.14"
+    "@floating-ui/dom" "0.5.1"
+    ariakit-utils "0.17.0-next.19"
 
 array-includes@^3.1.4:
   version "3.1.4"
@@ -3359,7 +3371,7 @@ react-headroom@^3.2.0:
     raf "^3.3.0"
     shallowequal "^1.1.0"
 
-react-hook-form@^7.22.5:
+react-hook-form@^7.29.0:
   version "7.29.0"
   resolved "https://registry.yarnpkg.com/react-hook-form/-/react-hook-form-7.29.0.tgz#5e7e41a483b70731720966ed8be52163ea1fecf1"
   integrity sha512-NcJqWRF6el5HMW30fqZRt27s+lorvlCCDbTpAyHoodQeYWXgQCvZJJQLC1kRMKdrJknVH0NIg3At6TUzlZJFOQ==
@@ -3890,10 +3902,10 @@ use-latest@^1.0.0:
   dependencies:
     use-isomorphic-layout-effect "^1.0.0"
 
-use-resize-observer@^8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-8.0.0.tgz#69bd80c1ddd94f3758563fe107efb25fed85067a"
-  integrity sha512-n0iKSeiQpJCyaFh5JA0qsVLBIovsF4EIIR1G6XiBwKJN66ZrD4Oj62bjcuTAATPKiSp6an/2UZZxCf/67fk3sQ==
+use-resize-observer@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/use-resize-observer/-/use-resize-observer-9.0.0.tgz#9708c6fa432f35979b1d6e732b6f4cffde3d11e5"
+  integrity sha512-13r/1XeyfPkeegiVZYLDoQbkwbVMzj1XghqNz9HFqiRevtXCWDQTsqzVjQ4WNM4rJ8P3sFYc+3TgX0J2Jsuxfw==
   dependencies:
     "@juggle/resize-observer" "^3.3.1"
 

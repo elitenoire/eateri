@@ -9,6 +9,7 @@ import { ReactComponent as Mail } from 'remixicon/icons/Business/mail-line.svg'
 import { ReactComponent as Newsletter } from 'remixicon/icons/Business/mail-send-fill.svg'
 import { ReactComponent as Profile } from 'remixicon/icons/Business/profile-line.svg'
 import { ReactComponent as Chat } from 'remixicon/icons/Communication/chat-smile-2-line.svg'
+import { ReactComponent as Faq } from 'remixicon/icons/Communication/question-answer-line.svg'
 import { ReactComponent as LayoutGrid } from 'remixicon/icons/Design/layout-grid-fill.svg'
 import { ReactComponent as Phone } from 'remixicon/icons/Device/phone-line.svg'
 import { ReactComponent as PhoneFill } from 'remixicon/icons/Device/phone-fill.svg'
@@ -114,6 +115,7 @@ export const icons = {
     doublequotesl: DoubleQuotesL,
     doublequotesr: DoubleQuotesR,
     externallink: ExternalLink,
+    faq: Faq,
     filter: Filter,
     filterfill: FilterFill,
     fire: Fire,

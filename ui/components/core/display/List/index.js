@@ -71,6 +71,7 @@ export const ListItem = forwardRef(function ListItem(
         text,
         size,
         truncate,
+        weight,
         gap,
         plain,
         noHover,
@@ -90,7 +91,7 @@ export const ListItem = forwardRef(function ListItem(
             ) : (
                 <>
                     {icon && renderIcon({ icon, iconColor, iconSize, boxed: iconBoxed, boxedBg: iconBoxedBg })}
-                    <Wrapper>{renderContent({ title, text, size, truncate, children })}</Wrapper>
+                    <Wrapper>{renderContent({ title, text, weight, size, truncate, children })}</Wrapper>
                     {extra &&
                         renderIcon({
                             icon: extra,

@@ -9,8 +9,10 @@ const styles = t => ({
         margin: 0,
     },
     '*:focus': {
-        outline: 0,
-        boxShadow: `0 0 0 3px ${t.colors.focusOutline}`,
+        // outline: 0,
+        // boxShadow: `0 0 0 3px ${t.colors.focusOutline}`,
+        outline: `2px dotted ${t.colors.focusOutline}`,
+        outlineOffset: '2px',
     },
     '::-webkit-scrollbar': {
         width: '0.7em',

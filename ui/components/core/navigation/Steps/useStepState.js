@@ -1,12 +1,12 @@
 import { useState, useCallback } from 'react'
 import constate from 'constate'
-import { useCompositeState } from 'reakit/Composite'
+import { useCompositeState } from 'ariakit/Composite'
 import { clamp, selector } from '~/lib/utils'
 
 // state hook
-const useStepState = ({ step = 0, linear = true, maxStep = 2, ...initialComposite } = {}) => {
+const useStepState = ({ step = 0, linear = true, maxStep = 2, loop = true, ...initialComposite } = {}) => {
     const [currentStep, setCurrentStep] = useState(step)
-    const composite = useCompositeState(initialComposite)
+    const composite = useCompositeState({ virtualFocus: true, focusLoop: loop, ...initialComposite })
 
     const moveStep = useCallback(_step => setCurrentStep(clamp(_step, 0, maxStep)), [maxStep])
 

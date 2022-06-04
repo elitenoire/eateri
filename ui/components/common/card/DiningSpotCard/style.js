@@ -1,7 +1,7 @@
 const styles = {
     card: {
         position: 'relative',
-        pt: 9,
+        pt: 13,
     },
     imageWrap: {
         position: 'relative',
