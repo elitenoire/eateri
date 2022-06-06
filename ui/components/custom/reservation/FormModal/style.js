@@ -10,6 +10,10 @@ const styles = {
         '&[data-ring]': {
             pb: 6,
             boxShadow: t => `0 0 0 0.9em ${t.colors.accent.base}, 0 0 0 1em white`,
+            transition: 'box-shadow 0.3s ease-out',
+            ':hover': {
+                boxShadow: t => `0 0 0 1px transparent, 0 0 0 0.9em ${alpha('accent.base', 0.8)(t)}, 0 0 0 1em white`,
+            },
         },
     },
     selectLayout: {
@@ -52,12 +56,12 @@ const styles = {
         display: 'flex',
         justifyContent: 'center',
         bottom: '-1.2em',
-        // button: {
-        // 	boxShadow: '0 25px 36px -8px rgba(0,0,0,0.35)',
-        // 	':hover': {
-        // 		boxShadow: '0 12px 30px -12px rgba(0,0,0,0.35)',
-        // 	},
-        // },
+        button: {
+            boxShadow: 'high',
+            ':hover': {
+                boxShadow: 'low',
+            },
+        },
         '&[data-ring]': {
             position: 'absolute',
             left: 0,
@@ -75,7 +79,8 @@ const styles = {
         width: ['100%', null, '80%'],
         maxWidth: 'maxContainer',
         px: 2,
-        py: 4,
+        pt: 4,
+        pb: [7, null, 4],
         borderTopLeftRadius: 25,
         borderTopRightRadius: 25,
         borderBottomLeftRadius: [null, null, 25],
@@ -102,7 +107,6 @@ const styles = {
         alignItems: ['flex-end', null, 'center'],
         justifyContent: 'center',
         bg: 'blackFade.10',
-        // overflow: 'auto',
         opacity: 0,
         visibility: 'hidden',
         '&[data-enter]': {
@@ -110,21 +114,19 @@ const styles = {
             visibility: 'visible',
             transition: '0.3s ease-out',
             transitionProperty: 'opacity,visibility',
-            // overflow: 'hidden',
         },
         '&[data-leave]': {
             transition: '0.2s ease-in',
             transitionProperty: 'opacity,visibility',
-            // overflow: 'hidden',
         },
     },
     modalClose: {
         position: 'absolute',
-        top: '0.5em', // '-2em',
-        right: '0.5em', // '-1.5em',
+        top: '0.5em',
+        right: '0.5em',
     },
     modalContent: {
-        height: '80vh',
+        height: ['90vh', null, '80vh'],
         maxHeight: '800px',
         overflow: 'auto',
     },

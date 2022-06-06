@@ -1,4 +1,4 @@
-const scrollbar = {
+export const scrollbarStyle = {
     '& ::-webkit-scrollbar': {
         width: '0.5em',
         height: '0.5em',
@@ -21,9 +21,3 @@ const scrollbar = {
         mt: 7,
     },
 }
-
-const styles = {
-    scrollbar,
-}
-
-export default styles

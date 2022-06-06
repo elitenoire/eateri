@@ -1,9 +1,9 @@
 import { useCallback } from 'react'
 import { useFormContext } from 'react-hook-form'
 // import { DevTool } from '@hookform/devtools'
-
 import { useStepControl, useStepStatus } from '~@core/navigation'
 import { Button } from '~@core/general'
+import { useStyle } from '../context'
 
 import styles from './style'
 
@@ -32,6 +32,7 @@ const getSubmitButtonProps = (isFirst, isLast, isSubmitting) => {
 }
 
 function FormHandler({ children, ...rest }) {
+    const { styleProp } = useStyle()
     const {
         handleSubmit,
         reset,
@@ -67,7 +68,7 @@ function FormHandler({ children, ...rest }) {
         <>
             <form onSubmit={handleSubmit(onSubmit)} {...rest}>
                 {children}
-                <div sx={styles.action}>
+                <div sx={styles.action} {...styleProp}>
                     {!isFirst && (
                         <Button
                             mr={3}

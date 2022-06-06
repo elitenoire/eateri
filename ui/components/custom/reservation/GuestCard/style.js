@@ -42,6 +42,9 @@ const styles = {
         borderRadius: 'inherit',
         bg: t => alpha('accent.base', 0.35)(t),
         backdropFilter: 'blur(5px)',
+        '&[data-style]': {
+            bg: t => alpha('accent.base', 0.65)(t),
+        },
     },
 }
 

@@ -87,7 +87,7 @@ function ReservationPage() {
                 </Reveal>
                 <div>
                     <Heading className="underline" display="inline-block" transform="uppercase" size={5} mb={4} title>
-                        Faq about Reservations
+                        Faqs about Reservations
                     </Heading>
                     <Reveal as="ul" cascade whenInView>
                         <Box as="li" mb={4}>

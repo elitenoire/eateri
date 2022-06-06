@@ -1,5 +1,6 @@
 export const display = {
     shadows: {
+        // tailwind presets
         xs: '0 0 0 1px rgba(0, 0, 0, 0.05)',
         sm: '0 1px 2px 0 rgba(0, 0, 0, 0.05)',
         default: '0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)',
@@ -13,7 +14,10 @@ export const display = {
         // Use for Avatar rings - change black to secondary?
         ringLight: '0 0 0 3px white, 0 0 0 5px black',
         ringDark: '0 0 0 3px #202020, 0 0 0 5px white',
-
+        // others
+        high: '0 25px 36px -8px rgba(0,0,0,0.35)',
+        low: '0 0.5em 0.7em -0.3em rgba(0,0,0,0.28)',
+        // unused
         soft: '-3px 6px 21.1px -4px rgb(34, 48, 102, 0.1)',
         raised: 'inset 0 -1px 1px 0 rgba(0,0,0,.15), inset 0 1px 1px 0 rgba(255,255,255,.14)',
         pressed: 'inset 0 1px 1px 0 rgba(0,0,0,.15), inset 0 0 1px 0 rgba(255,255,255,.42)',

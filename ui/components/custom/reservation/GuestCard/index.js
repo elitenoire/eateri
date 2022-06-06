@@ -21,7 +21,7 @@ function GuestCard({ toggle, showOverlay }) {
             <Image alt="" src="/peep8.svg" sx={styles.svgImage} />
             {showOverlay && (
                 <Reveal motion={fadeIn}>
-                    <div sx={styles.overlay}>
+                    <div sx={styles.overlay} {...styleProp}>
                         <Text as={ButtonBase} size={1} weight="bold" decoration="underline" onClick={toggle}>
                             Continue with profile
                         </Text>

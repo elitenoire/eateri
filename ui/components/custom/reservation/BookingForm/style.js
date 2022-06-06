@@ -10,15 +10,14 @@ const styles = {
         '&[data-style]': {
             bg: 'whiteFade.20',
             mt: 6,
-            mb: 13,
+            mb: 7,
             mx: 3,
             pt: 7,
-            pb: 0,
             px: [4, 6],
             borderTopLeftRadius: 30,
             borderTopRightRadius: 30,
-            borderBottomLeftRadius: 20,
-            borderBottomRightRadius: 20,
+            borderBottomLeftRadius: 40,
+            borderBottomRightRadius: 40,
         },
     },
 }

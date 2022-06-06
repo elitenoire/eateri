@@ -1,29 +1,5 @@
-import { alpha } from '@theme-ui/color'
-import { mediaQueries as mq } from '~/theme/tokens/rhythm'
+import { scrollbarStyle } from '../style'
 
-const customScrollBarStyle = {
-    '& ::-webkit-scrollbar': {
-        width: '0.5em',
-        height: '0.5em',
-    },
-    '& ::-webkit-scrollbar-thumb': {
-        borderRadius: '5px',
-        background: t => t.colors.accent.light,
-        boxShadow: 'none',
-    },
-    '& ::-webkit-scrollbar-track': {
-        background: 'transparent', // t => t.colors.accent.pale,
-        borderRadius: '5px',
-    },
-    '& ::-webkit-scrollbar-track-piece:end': {
-        background: 'transparent',
-        mb: 5,
-    },
-    '& ::-webkit-scrollbar-track-piece:start': {
-        background: 'transparent',
-        mt: 5,
-    },
-}
 const styles = {
     mobileSheetTrigger: {
         pt: '50px',
@@ -33,16 +9,7 @@ const styles = {
             bg: 'accent.base',
             borderTopLeftRadius: 40,
             borderTopRightRadius: 40,
-            [mq.tabletS]: {
-                '.mobile-hidden': {
-                    display: 'none',
-                },
-                'form.card-halo': {
-                    bg: t => alpha('accent.pale', 0.2)(t),
-                    boxShadow: t => `${t.shadows.xl} !important`,
-                },
-            },
-            ...customScrollBarStyle,
+            ...scrollbarStyle,
         },
         '[data-rsbs-backdrop]': {
             opacity: 'var(--rsbs-backdrop-opacity)',

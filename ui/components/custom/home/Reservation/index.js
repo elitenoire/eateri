@@ -2,10 +2,9 @@ import { Container } from '@theme-ui/components'
 import { Media } from '~/context/media'
 import { Text, Heading } from '~@core/typography'
 import { Reveal, fadeInLeft } from '~@core/general/Reveal'
-import { StepProvider, Link } from '~@core/navigation'
+import { Link } from '~@core/navigation'
+import MakeReservation from '~@custom/reservation'
 import { HASH_ID_RESERVATIONS } from '~/constants'
-import MobileSheet from './MobileSheet'
-import MakeReservation from './MakeReservation'
 
 import { ReactComponent as ReservePatternL } from '~/public/inlineSvg/reserve-pattern-l.svg'
 import { ReactComponent as ReservePatternR } from '~/public/inlineSvg/reserve-pattern-r.svg'
@@ -13,18 +12,11 @@ import { ReactComponent as ArrowDown } from '~/public/inlineSvg/arrow-down.svg'
 
 import styles from './style'
 
-/** StepProvider is at the root to make its Context
-    available to both the mobile sheet and form Dialog.
-    Reason: reset step whenever the modal/dialog closes.
-*/
-
 function Reservation() {
     return (
-        <StepProvider linear={false}>
+        <>
             <Media lessThan="tabletS">
-                <MobileSheet>
-                    <MakeReservation isMobile />
-                </MobileSheet>
+                <MakeReservation isSheet styled linear={false} />
             </Media>
             <Media greaterThanOrEqual="tabletS">
                 <Container as="section" id={HASH_ID_RESERVATIONS} variant="loose" sx={styles.section}>
@@ -57,10 +49,10 @@ function Reservation() {
                             <p>Note that, the reservation process involves three steps.</p>
                         </div>
                     </Container>
-                    <MakeReservation />
+                    <MakeReservation ringed linear={false} />
                 </Container>
             </Media>
-        </StepProvider>
+        </>
     )
 }
 
