@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useContext } from 'react'
-import useInView from 'react-cool-inview'
+import { useInView } from 'react-cool-inview'
 import { Box, Flex, Container } from '@theme-ui/components'
 import { useRadioState, Radio, RadioGroup } from 'reakit/Radio'
 import { BackLink } from '~@core/navigation'

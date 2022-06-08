@@ -1,5 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
-import useInView from 'react-cool-inview'
+import { useInView } from 'react-cool-inview'
 import { BottomSheet } from 'react-spring-bottom-sheet'
 import { useSpring } from '@react-spring/web'
 import { Heading } from '~@core/typography'

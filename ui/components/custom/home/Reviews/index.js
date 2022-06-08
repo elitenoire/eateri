@@ -1,5 +1,5 @@
 import { Container } from '@theme-ui/components'
-import useInView from 'react-cool-inview'
+import { useInView } from 'react-cool-inview'
 import { Text, Heading } from '~@core/typography'
 import { GliderControl, GliderBullets, Glider, GliderProvider } from '~@core/display'
 import { Icon, AspectImage, Reveal, fadeInRight } from '~@core/general'

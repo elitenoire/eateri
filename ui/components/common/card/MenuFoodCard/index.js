@@ -10,7 +10,7 @@ import url from '~/public/dish.png'
 function MenuFoodCard() {
     return (
         <div sx={styles.card}>
-            <Link href="#" variant="plain">
+            <Link href="/dish" variant="plain">
                 <div sx={styles.imageWrap}>
                     <AspectImage ratio={1} src={url} />
                 </div>
