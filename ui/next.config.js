@@ -7,6 +7,14 @@ const nextConfig = {
         // your project has ESLint errors.
         ignoreDuringBuilds: true,
     },
+    compiler: {
+        removeConsole: {
+            exclude: ['error', 'warn'],
+        },
+    },
+    experimental: {
+        emotion: true,
+    },
 }
 
 const svgrOptions = {
