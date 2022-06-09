@@ -1,6 +1,6 @@
 import { forwardRef, createContext, useContext, useCallback, useEffect } from 'react'
-import { useCompositeState, Composite, CompositeItem } from 'ariakit/Composite'
-import { Checkbox, useCheckboxState } from 'ariakit/Checkbox'
+import { useCompositeState, Composite, CompositeItem } from 'ariakit/composite'
+import { Checkbox, useCheckboxState } from 'ariakit/checkbox'
 import Scrollable from '~@core/display/Scrollable'
 
 const SelectBoxContext = createContext()

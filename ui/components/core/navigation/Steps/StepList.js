@@ -1,5 +1,4 @@
-import { Composite } from 'ariakit/Composite'
-
+import { Composite } from 'ariakit/composite'
 import { useCompositeContext } from './useStepState'
 
 import { stepListStyle } from './style'

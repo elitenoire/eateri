@@ -1,6 +1,5 @@
 import { forwardRef, useCallback } from 'react'
-import { CompositeItem } from 'ariakit/Composite'
-
+import { CompositeItem } from 'ariakit/composite'
 import { CURRENT, COMPLETED } from '~/constants'
 import { useCompositeContext, useStepValue, useStepControl } from './useStepState'
 

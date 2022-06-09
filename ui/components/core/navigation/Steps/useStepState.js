@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import constate from 'constate'
-import { useCompositeState } from 'ariakit/Composite'
+import { useCompositeState } from 'ariakit/composite'
 import { clamp, selector } from '~/lib/utils'
 
 // state hook
